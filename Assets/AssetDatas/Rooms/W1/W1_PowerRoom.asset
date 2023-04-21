@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92ef2347569aea43835552dd4b813d5, type: 3}
+  m_Name: W1_PowerRoom
+  m_EditorClassIdentifier: 
+  roomID: 25
+  timeService: 0
+  profitBase: 30
+  datas:
+  - name: Big Generator
+    type: 0
+    models3D:
+    - {fileID: 5746217983542473752, guid: 1ffcdc61cc7f3e5468043eba90c2998a, type: 3}
+    - {fileID: 2176460974789248342, guid: afe7f14f2edd599499897b13985e8676, type: 3}
+    - {fileID: 1437768778216667411, guid: 3a1e5d1d88694244da239bf69f6ea90c, type: 3}
+    profitIncreaseRate: 0
+    reduceTimes:
+    - 0
+    upgradePrices:
+    - value: 0.1
+      exp: 3
+    - value: 110
+      exp: 0
+    - value: 118.8
+      exp: 0
+    - value: 128.3
+      exp: 0
+    - value: 138.56
+      exp: 0
+    - value: 149.64
+      exp: 0
+    - value: 161.61
+      exp: 0
+    - value: 174.54
+      exp: 0
+    - value: 188.5
+      exp: 0
+    - value: 203.58
+      exp: 0
+    - value: 219.87
+      exp: 0
+    energyEarns: 000000006e000000790000008500000092000000a1000000b1000000c2000000d6000000eb00000003010000
+    levelMax: 10
+    sprUI: {fileID: 21300000, guid: f9ecebc5a2bba7a4b96023fc4eaaec18, type: 3}
+  - name: Medium  Generator
+    type: 1
+    models3D:
+    - {fileID: 5984460023462100900, guid: 62addcec2dea4a047ad3adc9c2726d1e, type: 3}
+    - {fileID: 4635472765305412597, guid: 2616dee88fe1a7a4090b9956d550064e, type: 3}
+    - {fileID: 2070803082177686273, guid: 1b97840638a3793489ae5970cf1a0121, type: 3}
+    profitIncreaseRate: 0
+    reduceTimes:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    upgradePrices: []
+    energyEarns: 000000000000000000000000000000000000000000000000
+    levelMax: 0
+    sprUI: {fileID: 21300000, guid: 727d99d55586e7e468b4e19d75ead31f, type: 3}
+  - name: Small Generator
+    type: 2
+    models3D:
+    - {fileID: 2324723213390452642, guid: 66018af88c44bf24d82f95bb0b5f0be4, type: 3}
+    - {fileID: 2153933142748741737, guid: 5eaa81ee2dc4b06419963b4baf05872d, type: 3}
+    - {fileID: 971183873698963305, guid: 74477fd62f968f946bfa4a0c5587e7b4, type: 3}
+    profitIncreaseRate: 0
+    reduceTimes:
+    - 0
+    upgradePrices:
+    - value: 0.1
+      exp: 3
+    - value: 110
+      exp: 0
+    - value: 118.8
+      exp: 0
+    - value: 128.3
+      exp: 0
+    - value: 138.56
+      exp: 0
+    - value: 149.64
+      exp: 0
+    - value: 161.61
+      exp: 0
+    - value: 174.54
+      exp: 0
+    - value: 188.5
+      exp: 0
+    - value: 203.58
+      exp: 0
+    - value: 219.87
+      exp: 0
+    energyEarns: 000000000a0000000b0000000b0000000c0000000c0000000d0000000e0000000e0000000f00000010000000
+    levelMax: 10
+    sprUI: {fileID: 21300000, guid: 5848de2170f20fa4db69ddf9c34da65c, type: 3}

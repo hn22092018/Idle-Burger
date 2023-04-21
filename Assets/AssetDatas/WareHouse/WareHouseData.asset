@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9828b470fc2cd48bab6fcfe6d415bb, type: 3}
+  m_Name: WareHouseData
+  m_EditorClassIdentifier: 
+  sprConfig:
+  - {fileID: 21300000, guid: eb5af879fc3682144b1017f204572822, type: 3}
+  - {fileID: 21300000, guid: 31febe473179292418e4d711ec876166, type: 3}
+  - {fileID: 21300000, guid: 238ad5dabf2998444873de3876f84403, type: 3}
+  - {fileID: 21300000, guid: 939a75048ddcfc54980c5994a78be443, type: 3}
+  - {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+  - {fileID: 21300000, guid: f466220aca60fba4cad9b23ae165037d, type: 3}
+  - {fileID: 21300000, guid: 9dafb21de1eeac64cb25f81660bf5d1a, type: 3}
+  - {fileID: 21300000, guid: 74f4fc8b18d98ad4687892924fde96db, type: 3}
+  - {fileID: 21300000, guid: 4ae2683a61dba674d8cea8fb9c08cd39, type: 3}
+  - {fileID: 21300000, guid: a90c7053f0f71f546956d75942cdef3c, type: 3}
+  - {fileID: 21300000, guid: 75b80cc0bfc9c594c9a434a1b4bd2875, type: 3}
+  - {fileID: 21300000, guid: 9abb8b81fc7ad58458d02bc5d5813c12, type: 3}
+  - {fileID: 21300000, guid: 391d5505d4916ff4c8c48b862f6f8046, type: 3}
+  - {fileID: 21300000, guid: cda8c28cd7a220d499971e8298ae74e6, type: 3}
+  - {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+  - {fileID: 21300000, guid: 1616eb0c58e9ebc40acb095bae757f39, type: 3}
+  - {fileID: 21300000, guid: 837f985ca7a32ef4a9ca71dd5f2fa562, type: 3}
+  - {fileID: 21300000, guid: 2e7216f7e84b1004b942d986ed779915, type: 3}
+  - {fileID: 21300000, guid: e754fe18ef16f724884392c40fc43c49, type: 3}
+  - {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+  - {fileID: 21300000, guid: 23d960e136cca0848bf564d4f9aeae9b, type: 3}
+  - {fileID: 21300000, guid: 138d778b8b6c7a2408595251313f59a5, type: 3}
+  - {fileID: 21300000, guid: ebb11c3fb5a38984ba7a249d65db2a25, type: 3}
+  - {fileID: 21300000, guid: b5c71d2b7e5a1714e9e48da83ee2bae3, type: 3}
+  - {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+  - {fileID: 21300000, guid: b111de828ae011743bb87cbf018fcf0b, type: 3}
+  biscuit:
+  - wareHouseMaterialType: 0
+    icon: {fileID: 21300000, guid: 75b80cc0bfc9c594c9a434a1b4bd2875, type: 3}
+    priceSale: 1
+  - wareHouseMaterialType: 0
+    icon: {fileID: 21300000, guid: 9abb8b81fc7ad58458d02bc5d5813c12, type: 3}
+    priceSale: 2
+  - wareHouseMaterialType: 0
+    icon: {fileID: 21300000, guid: 391d5505d4916ff4c8c48b862f6f8046, type: 3}
+    priceSale: 4
+  - wareHouseMaterialType: 0
+    icon: {fileID: 21300000, guid: cda8c28cd7a220d499971e8298ae74e6, type: 3}
+    priceSale: 8
+  - wareHouseMaterialType: 0
+    icon: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+    priceSale: 16
+  melon:
+  - wareHouseMaterialType: 1
+    icon: {fileID: 21300000, guid: f466220aca60fba4cad9b23ae165037d, type: 3}
+    priceSale: 1
+  - wareHouseMaterialType: 1
+    icon: {fileID: 21300000, guid: 9dafb21de1eeac64cb25f81660bf5d1a, type: 3}
+    priceSale: 2
+  - wareHouseMaterialType: 1
+    icon: {fileID: 21300000, guid: 74f4fc8b18d98ad4687892924fde96db, type: 3}
+    priceSale: 4
+  - wareHouseMaterialType: 1
+    icon: {fileID: 21300000, guid: 4ae2683a61dba674d8cea8fb9c08cd39, type: 3}
+    priceSale: 8
+  - wareHouseMaterialType: 1
+    icon: {fileID: 21300000, guid: a90c7053f0f71f546956d75942cdef3c, type: 3}
+    priceSale: 16
+  candy:
+  - wareHouseMaterialType: 2
+    icon: {fileID: 21300000, guid: 23d960e136cca0848bf564d4f9aeae9b, type: 3}
+    priceSale: 1
+  - wareHouseMaterialType: 2
+    icon: {fileID: 21300000, guid: 138d778b8b6c7a2408595251313f59a5, type: 3}
+    priceSale: 2
+  - wareHouseMaterialType: 2
+    icon: {fileID: 21300000, guid: ebb11c3fb5a38984ba7a249d65db2a25, type: 3}
+    priceSale: 4
+  - wareHouseMaterialType: 2
+    icon: {fileID: 21300000, guid: b5c71d2b7e5a1714e9e48da83ee2bae3, type: 3}
+    priceSale: 8
+  - wareHouseMaterialType: 2
+    icon: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+    priceSale: 16
+  sushi:
+  - wareHouseMaterialType: 3
+    icon: {fileID: 21300000, guid: eb5af879fc3682144b1017f204572822, type: 3}
+    priceSale: 1
+  - wareHouseMaterialType: 3
+    icon: {fileID: 21300000, guid: 31febe473179292418e4d711ec876166, type: 3}
+    priceSale: 2
+  - wareHouseMaterialType: 3
+    icon: {fileID: 21300000, guid: 238ad5dabf2998444873de3876f84403, type: 3}
+    priceSale: 4
+  - wareHouseMaterialType: 3
+    icon: {fileID: 21300000, guid: 939a75048ddcfc54980c5994a78be443, type: 3}
+    priceSale: 8
+  - wareHouseMaterialType: 3
+    icon: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+    priceSale: 16
+  potato:
+  - wareHouseMaterialType: 4
+    icon: {fileID: 21300000, guid: 1616eb0c58e9ebc40acb095bae757f39, type: 3}
+    priceSale: 1
+  - wareHouseMaterialType: 4
+    icon: {fileID: 21300000, guid: 837f985ca7a32ef4a9ca71dd5f2fa562, type: 3}
+    priceSale: 2
+  - wareHouseMaterialType: 4
+    icon: {fileID: 21300000, guid: 2e7216f7e84b1004b942d986ed779915, type: 3}
+    priceSale: 4
+  - wareHouseMaterialType: 4
+    icon: {fileID: 21300000, guid: e754fe18ef16f724884392c40fc43c49, type: 3}
+    priceSale: 8
+  - wareHouseMaterialType: 4
+    icon: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+    priceSale: 16
+  wareHouseRewards:
+  - reward:
+      type: 5
+      spr: {fileID: 21300000, guid: 421996a84d5a17c4dba5210dca534206, type: 3}
+      amount: 0
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    persent: 50
+  - reward:
+      type: 0
+      spr: {fileID: 21300000, guid: 774de1c30aa5c584ca145570f6d7a6bc, type: 3}
+      amount: 0
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    persent: 25
+  - reward:
+      type: 23
+      spr: {fileID: 21300000, guid: b111de828ae011743bb87cbf018fcf0b, type: 3}
+      amount: 0
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    persent: 25

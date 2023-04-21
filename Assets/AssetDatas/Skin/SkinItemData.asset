@@ -1,0 +1,764 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421f82b7ab10f124187343c9261b6ea0, type: 3}
+  m_Name: SkinItemData
+  m_EditorClassIdentifier: 
+  sprConfig:
+  - {fileID: 21300000, guid: 580a56a66d211e14aa0663f3fe7b5593, type: 3}
+  - {fileID: 21300000, guid: 3d0b59b4a7890b742b9af1a2bee36ecf, type: 3}
+  - {fileID: 21300000, guid: 5634107b7632a454d8bd9b69a834075a, type: 3}
+  - {fileID: 21300000, guid: e65da06c9ea12dc48b983ff43f869cf6, type: 3}
+  - {fileID: 21300000, guid: 95c730c385675244a82042ca1b7ecef9, type: 3}
+  - {fileID: 21300000, guid: 9fc6111405434ed4e99a6d88120a5730, type: 3}
+  - {fileID: 21300000, guid: 169cc6bcea3dc574e882949a4d8237af, type: 3}
+  - {fileID: 21300000, guid: 4d847bcbf2cd26245b0d0bc97b936161, type: 3}
+  - {fileID: 21300000, guid: efe84e88fe9481e4eaf2f052bb19ec64, type: 3}
+  - {fileID: 21300000, guid: d99f354842c096d4d9f126607ca639cc, type: 3}
+  - {fileID: 21300000, guid: 6e7d1694c68e810409f85876eddffb3c, type: 3}
+  - {fileID: 21300000, guid: c38ae73f39655e941b67570efacddf20, type: 3}
+  - {fileID: 21300000, guid: 99bafd98799103340b974fd8845e3031, type: 3}
+  - {fileID: 21300000, guid: c1a55ef76b949b5469d73914bf9fbce8, type: 3}
+  - {fileID: 21300000, guid: a3b143dfb11a2d145b875dc252af2cdf, type: 3}
+  - {fileID: 21300000, guid: ebd38cd30d591024cb202f1292fdb8fe, type: 3}
+  - {fileID: 21300000, guid: e7686e4946fe44d45b5da7abfccc2e53, type: 3}
+  - {fileID: 21300000, guid: 51b6a8a05696d794cb83b32ad9af67b7, type: 3}
+  - {fileID: 21300000, guid: 27f456b049e74dc45829272003f6baf7, type: 3}
+  - {fileID: 21300000, guid: faab480918882694dbb5324bd05b4fc7, type: 3}
+  - {fileID: 21300000, guid: ee982bb9d1b880b42998314cdf2250c0, type: 3}
+  - {fileID: 21300000, guid: 26747efa1212a0e4abaa1f17b29c4131, type: 3}
+  - {fileID: 21300000, guid: e54056b57edc1664896929e2c2205e79, type: 3}
+  - {fileID: 21300000, guid: 8cb3fa312484d3f4bb4cebcfdae33306, type: 3}
+  - {fileID: 21300000, guid: 030344047e5d1c74391cf12c3782bc5a, type: 3}
+  - {fileID: 21300000, guid: af6a5fdf5a8b9a84095a0d2964c99542, type: 3}
+  - {fileID: 21300000, guid: b9f0351ab15f09b4898c2bb449c51dc3, type: 3}
+  - {fileID: 21300000, guid: c2100f85ac5df7e4fa425ff19e4420fb, type: 3}
+  - {fileID: 21300000, guid: 6fcbfc4530c24214ab76c5b53572d0c1, type: 3}
+  - {fileID: 21300000, guid: bdc2810b20ba2a04da7815272806bd71, type: 3}
+  - {fileID: 21300000, guid: 5bc4769d05b76e0478fddac8474ebbd8, type: 3}
+  - {fileID: 21300000, guid: 270311d6a093c974aa5aeab54bb6d109, type: 3}
+  - {fileID: 21300000, guid: 253411b41a6a02346bec835b3f7e1ec7, type: 3}
+  - {fileID: 21300000, guid: 5bd8f9c31544f4c4383778de2a4f6aa3, type: 3}
+  - {fileID: 21300000, guid: f7f850ea9bb33ec45a64318107a553cd, type: 3}
+  - {fileID: 21300000, guid: 600b30a4fe66b5e438cba3ecd6c27416, type: 3}
+  - {fileID: 21300000, guid: 135df33437c194f4581d18aa6105c0c1, type: 3}
+  - {fileID: 21300000, guid: 5965332afd334ac4a8da5ba085829d05, type: 3}
+  - {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
+  - {fileID: 21300000, guid: 6bb08beba94541e4ca1e9ba26ab5de1f, type: 3}
+  - {fileID: 21300000, guid: 017cd1802092eda48aaff4a01cf3ca13, type: 3}
+  - {fileID: 21300000, guid: 37ef5da57fb342848ad128b06f46a0d0, type: 3}
+  - {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
+  - {fileID: 21300000, guid: dc4d3601f2a724c438bc0c2ef729063a, type: 3}
+  - {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
+  - {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
+  - {fileID: 21300000, guid: 92f8e7a4fe6f3ce4bb98e27b6c2e0a93, type: 3}
+  - {fileID: 21300000, guid: f843e1ff1195d704ab271f708b889ae8, type: 3}
+  - {fileID: 21300000, guid: c0aeb6ee4e7c3c044b67fcb31db3c71e, type: 3}
+  - {fileID: 21300000, guid: 6719a53f36551e746a4f50b5aa511fee, type: 3}
+  - {fileID: 21300000, guid: 7941af145d9c68b4fa12c766d3b9da63, type: 3}
+  - {fileID: 21300000, guid: ce90a946a14cfe04db0378fe45e08ab6, type: 3}
+  - {fileID: 21300000, guid: 11d4300bc5736764783b54e822094cdc, type: 3}
+  - {fileID: 21300000, guid: d4002905527dcea48815a09cfc1c092b, type: 3}
+  - {fileID: 21300000, guid: 452a3a8506e79254286762914b6db28c, type: 3}
+  - {fileID: 21300000, guid: 49901e2f9f8a8e44bb4a78d874a40191, type: 3}
+  - {fileID: 21300000, guid: f88456edf6b44b34f80c915ac3c9ac27, type: 3}
+  - {fileID: 21300000, guid: 05e1634d7bcc75d4aaa4629ffd9d00d8, type: 3}
+  - {fileID: 21300000, guid: fa6d72702e6b7a64eb272468076ebe83, type: 3}
+  - {fileID: 21300000, guid: e70351dc5a7e470499686bafd6390fec, type: 3}
+  - {fileID: 21300000, guid: f259bf76dfe88844cb44bf65d37bb036, type: 3}
+  - {fileID: 21300000, guid: 515dfbdea21cca644988d351316e68d5, type: 3}
+  - {fileID: 21300000, guid: 9ec174a258f9bc14da4b7c14de0dcbaa, type: 3}
+  - {fileID: 21300000, guid: 9780dc0fbdef4d24ca48c7a1ca0bf522, type: 3}
+  - {fileID: 21300000, guid: 8ce0dfcb0cc85ba48a2b90b87c37875b, type: 3}
+  - {fileID: 21300000, guid: 08fcb095991a3cb4e84524ab73c7c3b8, type: 3}
+  - {fileID: 21300000, guid: e01911c2b1b79bd41ac4edfeb92f2faa, type: 3}
+  - {fileID: 21300000, guid: 41869f790ff42ec46ba0dc8251a335d8, type: 3}
+  meshConfig:
+  - {fileID: 919132149155446097, guid: bdb0ebf9453ad9e4ba091674f6e85309, type: 3}
+  - {fileID: 919132149155446097, guid: 7bbaf35cc9bd20440ae31318f00fe941, type: 3}
+  - {fileID: 919132149155446097, guid: d3a3d2bff62efba4598bc6a56743eb86, type: 3}
+  - {fileID: 919132149155446097, guid: fd04fc3642cb52e45b7cbc61275d6789, type: 3}
+  - {fileID: 919132149155446097, guid: 3f273982f1baec74494df6afa9393b47, type: 3}
+  - {fileID: 919132149155446097, guid: fc15e5b854416354f88be5d0c8ba97b3, type: 3}
+  - {fileID: 919132149155446097, guid: 639109a883344b040a1363f56469a541, type: 3}
+  - {fileID: 919132149155446097, guid: 5743b4a50934aa54395a0f8bed821aa8, type: 3}
+  - {fileID: 919132149155446097, guid: cf65b4e67b90f4d44a5df5a21e152461, type: 3}
+  - {fileID: 919132149155446097, guid: 08e7aaa86f1b4d745b93e2cee351b786, type: 3}
+  - {fileID: 919132149155446097, guid: 504e245d3fb9ae34da560a91cfbfff27, type: 3}
+  - {fileID: 919132149155446097, guid: ba69c0b56b7109e4189ef289a2717ce1, type: 3}
+  - {fileID: 919132149155446097, guid: e6f22bab55046be4da97e58290820ee0, type: 3}
+  - {fileID: 919132149155446097, guid: 00410a754a835f049b9d0b2aac1e3478, type: 3}
+  - {fileID: 919132149155446097, guid: 43d0bfd28e73dc843bcdccbf61316e76, type: 3}
+  - {fileID: 919132149155446097, guid: 8db04b4aafd267d44822e95fcda06840, type: 3}
+  - {fileID: 919132149155446097, guid: 9ca3f0cc2e38e5a46b9dbd0888bc1c66, type: 3}
+  - {fileID: 919132149155446097, guid: 29cfc22c6f08063448371ef5b00dcdd7, type: 3}
+  - {fileID: 919132149155446097, guid: cf888095d3262024bad28f1ba25ed370, type: 3}
+  - {fileID: 919132149155446097, guid: b57f4d4ef4f9f294eb55539c85fab8c2, type: 3}
+  - {fileID: 919132149155446097, guid: 81e8b1c82506eed4e8f627c5bb1c5429, type: 3}
+  - {fileID: 919132149155446097, guid: d456c6f952c02e24c8eca65c3bf2e67a, type: 3}
+  - {fileID: 919132149155446097, guid: 4f9b404a819790d4e9eefafcdae90720, type: 3}
+  - {fileID: 919132149155446097, guid: c3109d18c595dcd4f8e43d4bec4f30bf, type: 3}
+  - {fileID: 919132149155446097, guid: 3a91f0d87d07de94dbb3cdcf4b522a07, type: 3}
+  - {fileID: 919132149155446097, guid: 4811e95b4fb89b0408995bdf9753133f, type: 3}
+  - {fileID: 919132149155446097, guid: c157d04b05356f74fb7a40a61915ce8e, type: 3}
+  - {fileID: 919132149155446097, guid: 4e0cf0b8d0a79e24b8988c8ad89a9e0c, type: 3}
+  - {fileID: 919132149155446097, guid: 4dd3709725c0f7440a6d99db7840bf59, type: 3}
+  - {fileID: 919132149155446097, guid: 4159fc8c7ef82e24abe5ae7505a023e1, type: 3}
+  - {fileID: 919132149155446097, guid: 6b8978ccda7589e4fa7fe4ee835f80fa, type: 3}
+  - {fileID: 919132149155446097, guid: 7e6563725bfaee145800f5a066e93a8a, type: 3}
+  - {fileID: 919132149155446097, guid: eb4467671880ce14daa721a37221c318, type: 3}
+  - {fileID: 919132149155446097, guid: c7a4e42a6a25e4e4187875c6c030cbef, type: 3}
+  - {fileID: 919132149155446097, guid: 4ba3545577ef33a41b940a1706e6ae0d, type: 3}
+  - {fileID: 919132149155446097, guid: 529d1edc1a14e3047be71161d41fe9e9, type: 3}
+  - {fileID: 919132149155446097, guid: 8ccebd91213b6ba49b9bbb4b731f31d6, type: 3}
+  - {fileID: 919132149155446097, guid: 45f6a7ff9cd9fda4aa181dbe1d494d2b, type: 3}
+  - {fileID: 919132149155446097, guid: 064bc04d237df2f44a03279ad15f32f8, type: 3}
+  - {fileID: 919132149155446097, guid: 9f54e8caeed699a4f833481145d1e8b8, type: 3}
+  - {fileID: 919132149155446097, guid: b5a905d728515264facf1bc8d8c465f8, type: 3}
+  - {fileID: 919132149155446097, guid: 25a54b955e49efe43be50420738c5faf, type: 3}
+  - {fileID: 919132149155446097, guid: f4e1b96360af7be4dabb5dcb0830e095, type: 3}
+  - {fileID: 919132149155446097, guid: e5b5cd2ca9d03414286ebb043b235c4d, type: 3}
+  - {fileID: 919132149155446097, guid: 71ba12222903bbe46aecaee6af80e8b7, type: 3}
+  - {fileID: 919132149155446097, guid: 0dac43edaef55dd4b9a1875e7ae06cd8, type: 3}
+  - {fileID: 919132149155446097, guid: 602a9be2ee9449642b4b961645c9c4dd, type: 3}
+  - {fileID: 919132149155446097, guid: b7ac23c4df4c8b8469b1487a2ffc960a, type: 3}
+  - {fileID: 919132149155446097, guid: 98fa59943bce8ee45b35edc9cbed1909, type: 3}
+  - {fileID: 919132149155446097, guid: 1bd37516147c0a84a89b24498add0dfa, type: 3}
+  - {fileID: 919132149155446097, guid: 1d471f049abdf5e448ea7a82ea086460, type: 3}
+  - {fileID: 919132149155446097, guid: 688061b3187cad54d8f111177a7c5eed, type: 3}
+  - {fileID: 919132149155446097, guid: 7b76ad0f65a6ad149920d2c7a0aa599d, type: 3}
+  - {fileID: 919132149155446097, guid: 5d251f65b4e77f141871351198450851, type: 3}
+  - {fileID: 919132149155446097, guid: e3f49c3ed91d7de4a9a7341daf7afd9d, type: 3}
+  - {fileID: 919132149155446097, guid: d9b93af8b64ca9c43b6d29ada2d5d523, type: 3}
+  _ManagerSkins: []
+  _ReceptionSkins:
+  - id: 105
+    staffType: 3
+    skinName: Alexander
+    skinIcon: {fileID: 21300000, guid: 6719a53f36551e746a4f50b5aa511fee, type: 3}
+    workMesh: {fileID: -6846615787407088546, guid: 45f6a7ff9cd9fda4aa181dbe1d494d2b, type: 3}
+    skinType: 0
+    skinPrice: 0
+    diligenceWork: 0
+    workEfficiency: 0
+    incomeX2Chance: 0
+    specialSkillChance: 0
+  - id: 16
+    staffType: 3
+    skinName: Ericson
+    skinIcon: {fileID: 21300000, guid: 7941af145d9c68b4fa12c766d3b9da63, type: 3}
+    workMesh: {fileID: -3939874387820212712, guid: 064bc04d237df2f44a03279ad15f32f8, type: 3}
+    skinType: 5
+    skinPrice: 1
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 5
+    specialSkillChance: 5
+  - id: 26
+    staffType: 3
+    skinName: Eiko
+    skinIcon: {fileID: 21300000, guid: ce90a946a14cfe04db0378fe45e08ab6, type: 3}
+    workMesh: {fileID: 1039558974363385272, guid: 9f54e8caeed699a4f833481145d1e8b8, type: 3}
+    skinType: 5
+    skinPrice: 2
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 5
+  - id: 36
+    staffType: 3
+    skinName: Juan
+    skinIcon: {fileID: 21300000, guid: 11d4300bc5736764783b54e822094cdc, type: 3}
+    workMesh: {fileID: -5800948881574375209, guid: b5a905d728515264facf1bc8d8c465f8, type: 3}
+    skinType: 4
+    skinPrice: 100
+    diligenceWork: 1
+    workEfficiency: 5
+    incomeX2Chance: 10
+    specialSkillChance: 10
+  - id: 37
+    staffType: 3
+    skinName: Alesha
+    skinIcon: {fileID: 21300000, guid: d4002905527dcea48815a09cfc1c092b, type: 3}
+    workMesh: {fileID: 4637577976268055253, guid: 25a54b955e49efe43be50420738c5faf, type: 3}
+    skinType: 4
+    skinPrice: 200
+    diligenceWork: 1
+    workEfficiency: 5
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 48
+    staffType: 3
+    skinName: Champtoshi
+    skinIcon: {fileID: 21300000, guid: 452a3a8506e79254286762914b6db28c, type: 3}
+    workMesh: {fileID: 8038645701740611317, guid: f4e1b96360af7be4dabb5dcb0830e095, type: 3}
+    skinType: 4
+    skinPrice: 300
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 8
+    staffType: 3
+    skinName: Jones
+    skinIcon: {fileID: 21300000, guid: f88456edf6b44b34f80c915ac3c9ac27, type: 3}
+    workMesh: {fileID: 6564744209503332271, guid: 71ba12222903bbe46aecaee6af80e8b7, type: 3}
+    skinType: 2
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 30
+    specialSkillChance: 20
+  - id: 1
+    staffType: 3
+    skinName: Robbie
+    skinIcon: {fileID: 21300000, guid: 49901e2f9f8a8e44bb4a78d874a40191, type: 3}
+    workMesh: {fileID: -7296541609701344502, guid: e5b5cd2ca9d03414286ebb043b235c4d, type: 3}
+    skinType: 1
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 20
+    incomeX2Chance: 50
+    specialSkillChance: 30
+  _ChefSkins:
+  - id: 104
+    staffType: 0
+    skinName: Dayton
+    skinIcon: {fileID: 21300000, guid: e7686e4946fe44d45b5da7abfccc2e53, type: 3}
+    workMesh: {fileID: 4135070875200842677, guid: 9ca3f0cc2e38e5a46b9dbd0888bc1c66, type: 3}
+    skinType: 0
+    skinPrice: 0
+    diligenceWork: 0
+    workEfficiency: 0
+    incomeX2Chance: 0
+    specialSkillChance: 0
+  - id: 17
+    staffType: 0
+    skinName: Crispy Castus
+    skinIcon: {fileID: 21300000, guid: 51b6a8a05696d794cb83b32ad9af67b7, type: 3}
+    workMesh: {fileID: 3648046179814893753, guid: 29cfc22c6f08063448371ef5b00dcdd7, type: 3}
+    skinType: 5
+    skinPrice: 1
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 5
+    specialSkillChance: 5
+  - id: 24
+    staffType: 0
+    skinName: Akihiko
+    skinIcon: {fileID: 21300000, guid: 27f456b049e74dc45829272003f6baf7, type: 3}
+    workMesh: {fileID: -1085391732899429971, guid: cf888095d3262024bad28f1ba25ed370, type: 3}
+    skinType: 5
+    skinPrice: 2
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 5
+  - id: 38
+    staffType: 0
+    skinName: Han
+    skinIcon: {fileID: 21300000, guid: faab480918882694dbb5324bd05b4fc7, type: 3}
+    workMesh: {fileID: 2741367236874425940, guid: b57f4d4ef4f9f294eb55539c85fab8c2, type: 3}
+    skinType: 5
+    skinPrice: 3
+    diligenceWork: 2
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 15
+  - id: 42
+    staffType: 0
+    skinName: Arturo
+    skinIcon: {fileID: 21300000, guid: ee982bb9d1b880b42998314cdf2250c0, type: 3}
+    workMesh: {fileID: 9143878017542194178, guid: 81e8b1c82506eed4e8f627c5bb1c5429, type: 3}
+    skinType: 5
+    skinPrice: 4
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 20
+    specialSkillChance: 10
+  - id: 107
+    staffType: 0
+    skinName: Keitha
+    skinIcon: {fileID: 21300000, guid: 26747efa1212a0e4abaa1f17b29c4131, type: 3}
+    workMesh: {fileID: -4538073656389653525, guid: d456c6f952c02e24c8eca65c3bf2e67a, type: 3}
+    skinType: 4
+    skinPrice: 100
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 10
+    specialSkillChance: 15
+  - id: 108
+    staffType: 0
+    skinName: Kevin
+    skinIcon: {fileID: 21300000, guid: e54056b57edc1664896929e2c2205e79, type: 3}
+    workMesh: {fileID: -3737663679151112160, guid: 4f9b404a819790d4e9eefafcdae90720, type: 3}
+    skinType: 4
+    skinPrice: 200
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 109
+    staffType: 0
+    skinName: Dewayne
+    skinIcon: {fileID: 21300000, guid: 8cb3fa312484d3f4bb4cebcfdae33306, type: 3}
+    workMesh: {fileID: 1155576376506907337, guid: c3109d18c595dcd4f8e43d4bec4f30bf, type: 3}
+    skinType: 4
+    skinPrice: 300
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 20
+  - id: 52
+    staffType: 0
+    skinName: Panacorn
+    skinIcon: {fileID: 21300000, guid: 030344047e5d1c74391cf12c3782bc5a, type: 3}
+    workMesh: {fileID: 8179217169219745194, guid: 3a91f0d87d07de94dbb3cdcf4b522a07, type: 3}
+    skinType: 4
+    skinPrice: 400
+    diligenceWork: 2
+    workEfficiency: 5
+    incomeX2Chance: 20
+    specialSkillChance: 15
+  - id: 9
+    staffType: 0
+    skinName: Kendrick
+    skinIcon: {fileID: 21300000, guid: b9f0351ab15f09b4898c2bb449c51dc3, type: 3}
+    workMesh: {fileID: 6764571801269322843, guid: c157d04b05356f74fb7a40a61915ce8e, type: 3}
+    skinType: 2
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 30
+    specialSkillChance: 20
+  - id: 2
+    staffType: 0
+    skinName: Brynlee
+    skinIcon: {fileID: 21300000, guid: af6a5fdf5a8b9a84095a0d2964c99542, type: 3}
+    workMesh: {fileID: 785020584582286373, guid: 4811e95b4fb89b0408995bdf9753133f, type: 3}
+    skinType: 1
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 50
+    specialSkillChance: 30
+  _WaiterSkins:
+  - id: 103
+    staffType: 2
+    skinName: Garnier
+    skinIcon: {fileID: 21300000, guid: e70351dc5a7e470499686bafd6390fec, type: 3}
+    workMesh: {fileID: 5625574688961302259, guid: b7ac23c4df4c8b8469b1487a2ffc960a, type: 3}
+    skinType: 0
+    skinPrice: 0
+    diligenceWork: 0
+    workEfficiency: 0
+    incomeX2Chance: 0
+    specialSkillChance: 0
+  - id: 32
+    staffType: 2
+    skinName: Sakae
+    skinIcon: {fileID: 21300000, guid: f259bf76dfe88844cb44bf65d37bb036, type: 3}
+    workMesh: {fileID: -9119526586634181810, guid: 98fa59943bce8ee45b35edc9cbed1909, type: 3}
+    skinType: 5
+    skinPrice: 1
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 5
+    specialSkillChance: 5
+  - id: 27
+    staffType: 2
+    skinName: Daichi
+    skinIcon: {fileID: 21300000, guid: 515dfbdea21cca644988d351316e68d5, type: 3}
+    workMesh: {fileID: 6040186686598807290, guid: 1bd37516147c0a84a89b24498add0dfa, type: 3}
+    skinType: 5
+    skinPrice: 2
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 5
+  - id: 43
+    staffType: 2
+    skinName: Eduardo
+    skinIcon: {fileID: 21300000, guid: 9ec174a258f9bc14da4b7c14de0dcbaa, type: 3}
+    workMesh: {fileID: 2124305971640739797, guid: 1d471f049abdf5e448ea7a82ea086460, type: 3}
+    skinType: 5
+    skinPrice: 3
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 15
+    specialSkillChance: 5
+  - id: 50
+    staffType: 2
+    skinName: Maruno
+    skinIcon: {fileID: 21300000, guid: 9780dc0fbdef4d24ca48c7a1ca0bf522, type: 3}
+    workMesh: {fileID: -2743038736086513947, guid: 688061b3187cad54d8f111177a7c5eed, type: 3}
+    skinType: 4
+    skinPrice: 100
+    diligenceWork: 2
+    workEfficiency: 10
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 110
+    staffType: 2
+    skinName: Sakae Akat
+    skinIcon: {fileID: 21300000, guid: 8ce0dfcb0cc85ba48a2b90b87c37875b, type: 3}
+    workMesh: {fileID: 8253071670002296251, guid: 7b76ad0f65a6ad149920d2c7a0aa599d, type: 3}
+    skinType: 4
+    skinPrice: 200
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 15
+  - id: 18
+    staffType: 2
+    skinName: Elodie
+    skinIcon: {fileID: 21300000, guid: 08fcb095991a3cb4e84524ab73c7c3b8, type: 3}
+    workMesh: {fileID: -5731138328010415485, guid: 5d251f65b4e77f141871351198450851, type: 3}
+    skinType: 4
+    skinPrice: 300
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 5
+    specialSkillChance: 20
+  - id: 51
+    staffType: 2
+    skinName: Claire
+    skinIcon: {fileID: 21300000, guid: e01911c2b1b79bd41ac4edfeb92f2faa, type: 3}
+    workMesh: {fileID: -631964542698579668, guid: e3f49c3ed91d7de4a9a7341daf7afd9d, type: 3}
+    skinType: 4
+    skinPrice: 400
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 111
+    staffType: 2
+    skinName: Bambina
+    skinIcon: {fileID: 21300000, guid: 41869f790ff42ec46ba0dc8251a335d8, type: 3}
+    workMesh: {fileID: -6715112193417735635, guid: d9b93af8b64ca9c43b6d29ada2d5d523, type: 3}
+    skinType: 4
+    skinPrice: 400
+    diligenceWork: 2
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 20
+  - id: 10
+    staffType: 2
+    skinName: Mick
+    skinIcon: {fileID: 21300000, guid: fa6d72702e6b7a64eb272468076ebe83, type: 3}
+    workMesh: {fileID: -950011787988183187, guid: 602a9be2ee9449642b4b961645c9c4dd, type: 3}
+    skinType: 2
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 30
+    specialSkillChance: 20
+  - id: 3
+    staffType: 2
+    skinName: Jonny
+    skinIcon: {fileID: 21300000, guid: 05e1634d7bcc75d4aaa4629ffd9d00d8, type: 3}
+    workMesh: {fileID: -7040820431360403622, guid: 0dac43edaef55dd4b9a1875e7ae06cd8, type: 3}
+    skinType: 1
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 20
+    incomeX2Chance: 50
+    specialSkillChance: 30
+  _CleanerSkins:
+  - id: 102
+    staffType: 1
+    skinName: Robert
+    skinIcon: {fileID: 21300000, guid: c2100f85ac5df7e4fa425ff19e4420fb, type: 3}
+    workMesh: {fileID: -3074348849213123262, guid: 4e0cf0b8d0a79e24b8988c8ad89a9e0c, type: 3}
+    skinType: 0
+    skinPrice: 0
+    diligenceWork: 0
+    workEfficiency: 0
+    incomeX2Chance: 0
+    specialSkillChance: 0
+  - id: 30
+    staffType: 1
+    skinName: Ryoichi
+    skinIcon: {fileID: 21300000, guid: 6fcbfc4530c24214ab76c5b53572d0c1, type: 3}
+    workMesh: {fileID: -4436793687408319527, guid: 4dd3709725c0f7440a6d99db7840bf59, type: 3}
+    skinType: 5
+    skinPrice: 1
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 5
+    specialSkillChance: 5
+  - id: 45
+    staffType: 1
+    skinName: Angelica
+    skinIcon: {fileID: 21300000, guid: bdc2810b20ba2a04da7815272806bd71, type: 3}
+    workMesh: {fileID: 3101288543880309498, guid: 4159fc8c7ef82e24abe5ae7505a023e1, type: 3}
+    skinType: 5
+    skinPrice: 2
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 5
+  - id: 114
+    staffType: 1
+    skinName: Irenka
+    skinIcon: {fileID: 21300000, guid: 5bc4769d05b76e0478fddac8474ebbd8, type: 3}
+    workMesh: {fileID: 8472608095208455463, guid: 6b8978ccda7589e4fa7fe4ee835f80fa, type: 3}
+    skinType: 5
+    skinPrice: 3
+    diligenceWork: 2
+    workEfficiency: 10
+    incomeX2Chance: 5
+    specialSkillChance: 10
+  - id: 106
+    staffType: 1
+    skinName: Daniels
+    skinIcon: {fileID: 21300000, guid: 270311d6a093c974aa5aeab54bb6d109, type: 3}
+    workMesh: {fileID: 5428481563745034353, guid: 7e6563725bfaee145800f5a066e93a8a, type: 3}
+    skinType: 5
+    skinPrice: 3
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 10
+    specialSkillChance: 10
+  - id: 112
+    staffType: 1
+    skinName: Thomas
+    skinIcon: {fileID: 21300000, guid: 253411b41a6a02346bec835b3f7e1ec7, type: 3}
+    workMesh: {fileID: -5266009570916748788, guid: eb4467671880ce14daa721a37221c318, type: 3}
+    skinType: 4
+    skinPrice: 100
+    diligenceWork: 0
+    workEfficiency: 10
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 113
+    staffType: 1
+    skinName: "Horn\xEDk"
+    skinIcon: {fileID: 21300000, guid: 5bd8f9c31544f4c4383778de2a4f6aa3, type: 3}
+    workMesh: {fileID: 178321682454088479, guid: c7a4e42a6a25e4e4187875c6c030cbef, type: 3}
+    skinType: 4
+    skinPrice: 200
+    diligenceWork: 1
+    workEfficiency: 15
+    incomeX2Chance: 10
+    specialSkillChance: 10
+  - id: 19
+    staffType: 1
+    skinName: Henderson
+    skinIcon: {fileID: 21300000, guid: f7f850ea9bb33ec45a64318107a553cd, type: 3}
+    workMesh: {fileID: -8885594358580524098, guid: 4ba3545577ef33a41b940a1706e6ae0d, type: 3}
+    skinType: 4
+    skinPrice: 300
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 5
+    specialSkillChance: 20
+  - id: 11
+    staffType: 1
+    skinName: Jacob
+    skinIcon: {fileID: 21300000, guid: 135df33437c194f4581d18aa6105c0c1, type: 3}
+    workMesh: {fileID: -1537166865092413613, guid: 8ccebd91213b6ba49b9bbb4b731f31d6, type: 3}
+    skinType: 2
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 30
+    specialSkillChance: 20
+  - id: 4
+    staffType: 1
+    skinName: Harland
+    skinIcon: {fileID: 21300000, guid: 600b30a4fe66b5e438cba3ecd6c27416, type: 3}
+    workMesh: {fileID: 4957010052854180992, guid: 529d1edc1a14e3047be71161d41fe9e9, type: 3}
+    skinType: 1
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 50
+    specialSkillChance: 30
+  _BartenderSkins:
+  - id: 101
+    staffType: 4
+    skinName: Vinicius
+    skinIcon: {fileID: 21300000, guid: 6e7d1694c68e810409f85876eddffb3c, type: 3}
+    workMesh: {fileID: -6846615787407088546, guid: 504e245d3fb9ae34da560a91cfbfff27, type: 3}
+    skinType: 0
+    skinPrice: 0
+    diligenceWork: 0
+    workEfficiency: 0
+    incomeX2Chance: 0
+    specialSkillChance: 0
+  - id: 20
+    staffType: 4
+    skinName: Naruhodo
+    skinIcon: {fileID: 21300000, guid: c38ae73f39655e941b67570efacddf20, type: 3}
+    workMesh: {fileID: 3195518954223722503, guid: ba69c0b56b7109e4189ef289a2717ce1, type: 3}
+    skinType: 5
+    skinPrice: 1
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 5
+    specialSkillChance: 10
+  - id: 28
+    staffType: 4
+    skinName: Risako
+    skinIcon: {fileID: 21300000, guid: 99bafd98799103340b974fd8845e3031, type: 3}
+    workMesh: {fileID: 6835656450000309132, guid: e6f22bab55046be4da97e58290820ee0, type: 3}
+    skinType: 5
+    skinPrice: 2
+    diligenceWork: 1
+    workEfficiency: 15
+    incomeX2Chance: 5
+    specialSkillChance: 10
+  - id: 29
+    staffType: 4
+    skinName: Dantenda
+    skinIcon: {fileID: 21300000, guid: c1a55ef76b949b5469d73914bf9fbce8, type: 3}
+    workMesh: {fileID: -3384652834187320745, guid: 00410a754a835f049b9d0b2aac1e3478, type: 3}
+    skinType: 5
+    skinPrice: 3
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 10
+    specialSkillChance: 15
+  - id: 39
+    staffType: 4
+    skinName: Xiao
+    skinIcon: {fileID: 21300000, guid: a3b143dfb11a2d145b875dc252af2cdf, type: 3}
+    workMesh: {fileID: -8290024000097178268, guid: 43d0bfd28e73dc843bcdccbf61316e76, type: 3}
+    skinType: 4
+    skinPrice: 100
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 44
+    staffType: 4
+    skinName: Mateo
+    skinIcon: {fileID: 21300000, guid: ebd38cd30d591024cb202f1292fdb8fe, type: 3}
+    workMesh: {fileID: 2797080331405623344, guid: 8db04b4aafd267d44822e95fcda06840, type: 3}
+    skinType: 4
+    skinPrice: 200
+    diligenceWork: 1
+    workEfficiency: 5
+    incomeX2Chance: 10
+    specialSkillChance: 20
+  - id: 12
+    staffType: 4
+    skinName: Oliver
+    skinIcon: {fileID: 21300000, guid: d99f354842c096d4d9f126607ca639cc, type: 3}
+    workMesh: {fileID: -6801237083135113213, guid: 08e7aaa86f1b4d745b93e2cee351b786, type: 3}
+    skinType: 2
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 30
+    specialSkillChance: 20
+  - id: 5
+    staffType: 4
+    skinName: Hornick
+    skinIcon: {fileID: 21300000, guid: efe84e88fe9481e4eaf2f052bb19ec64, type: 3}
+    workMesh: {fileID: -82844396776773023, guid: cf65b4e67b90f4d44a5df5a21e152461, type: 3}
+    skinType: 1
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 50
+    specialSkillChance: 30
+  _BaristaSkins:
+  - id: 100
+    staffType: 5
+    skinName: Donaldson
+    skinIcon: {fileID: 21300000, guid: 580a56a66d211e14aa0663f3fe7b5593, type: 3}
+    workMesh: {fileID: -3197800344121535462, guid: bdb0ebf9453ad9e4ba091674f6e85309, type: 3}
+    skinType: 0
+    skinPrice: 0
+    diligenceWork: 0
+    workEfficiency: 0
+    incomeX2Chance: 0
+    specialSkillChance: 0
+  - id: 21
+    staffType: 5
+    skinName: Convanan
+    skinIcon: {fileID: 21300000, guid: 3d0b59b4a7890b742b9af1a2bee36ecf, type: 3}
+    workMesh: {fileID: 8349809203277342795, guid: 7bbaf35cc9bd20440ae31318f00fe941, type: 3}
+    skinType: 5
+    skinPrice: 1
+    diligenceWork: 0
+    workEfficiency: 5
+    incomeX2Chance: 5
+    specialSkillChance: 5
+  - id: 25
+    staffType: 5
+    skinName: Miku
+    skinIcon: {fileID: 21300000, guid: 5634107b7632a454d8bd9b69a834075a, type: 3}
+    workMesh: {fileID: 8533511245112367384, guid: d3a3d2bff62efba4598bc6a56743eb86, type: 3}
+    skinType: 5
+    skinPrice: 2
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 10
+    specialSkillChance: 5
+  - id: 31
+    staffType: 5
+    skinName: Saburo
+    skinIcon: {fileID: 21300000, guid: e65da06c9ea12dc48b983ff43f869cf6, type: 3}
+    workMesh: {fileID: 0}
+    skinType: 5
+    skinPrice: 3
+    diligenceWork: 0
+    workEfficiency: 10
+    incomeX2Chance: 5
+    specialSkillChance: 10
+  - id: 40
+    staffType: 5
+    skinName: Shen
+    skinIcon: {fileID: 21300000, guid: 95c730c385675244a82042ca1b7ecef9, type: 3}
+    workMesh: {fileID: -3431577486116962831, guid: 3f273982f1baec74494df6afa9393b47, type: 3}
+    skinType: 4
+    skinPrice: 200
+    diligenceWork: 1
+    workEfficiency: 10
+    incomeX2Chance: 15
+    specialSkillChance: 10
+  - id: 46
+    staffType: 5
+    skinName: Bruno
+    skinIcon: {fileID: 21300000, guid: 9fc6111405434ed4e99a6d88120a5730, type: 3}
+    workMesh: {fileID: -2486780587974722564, guid: fc15e5b854416354f88be5d0c8ba97b3, type: 3}
+    skinType: 4
+    skinPrice: 300
+    diligenceWork: 1
+    workEfficiency: 15
+    incomeX2Chance: 10
+    specialSkillChance: 10
+  - id: 13
+    staffType: 5
+    skinName: Michal
+    skinIcon: {fileID: 21300000, guid: 4d847bcbf2cd26245b0d0bc97b936161, type: 3}
+    workMesh: {fileID: -5981629643612121475, guid: 5743b4a50934aa54395a0f8bed821aa8, type: 3}
+    skinType: 2
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 30
+    specialSkillChance: 20
+  - id: 6
+    staffType: 5
+    skinName: Simonis
+    skinIcon: {fileID: 21300000, guid: 169cc6bcea3dc574e882949a4d8237af, type: 3}
+    workMesh: {fileID: 2401681462953184753, guid: 639109a883344b040a1363f56469a541, type: 3}
+    skinType: 1
+    skinPrice: 0
+    diligenceWork: 2
+    workEfficiency: 15
+    incomeX2Chance: 50
+    specialSkillChance: 30
+  _DJSkins: []

@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66d602bfd7c14d45abb2a31a17b56a7, type: 3}
+  m_Name: EventDataAsset
+  m_EditorClassIdentifier: 
+  sprs:
+  - {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+  - {fileID: 21300000, guid: eeaa47cb2ac419341a3873bb8127834c, type: 3}
+  - {fileID: 21300000, guid: b1ed0e0817a61eb40938ffb40d6905fb, type: 3}
+  - {fileID: 21300000, guid: 1002c61941925a442bb5941177cfcaad, type: 3}
+  - {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+  - {fileID: 21300000, guid: ce3d905b02e0adf4c846cf4484fc302e, type: 3}
+  - {fileID: 21300000, guid: 7810d842a7577a94499eb8246cac65cd, type: 3}
+  - {fileID: 21300000, guid: fa62eba2692f66e4e9198215789f6724, type: 3}
+  - {fileID: 21300000, guid: c0aeb6ee4e7c3c044b67fcb31db3c71e, type: 3}
+  - {fileID: 21300000, guid: 030344047e5d1c74391cf12c3782bc5a, type: 3}
+  - {fileID: 21300000, guid: f7f850ea9bb33ec45a64318107a553cd, type: 3}
+  - {fileID: 21300000, guid: c0aeb6ee4e7c3c044b67fcb31db3c71e, type: 3}
+  - {fileID: 21300000, guid: 41869f790ff42ec46ba0dc8251a335d8, type: 3}
+  - {fileID: 21300000, guid: 143af8a4b52b9104badb304ae737faf8, type: 3}
+  Events:
+  - eventName: Christmas
+    eventIcon: {fileID: 21300000, guid: 5e27959d09ae4f74e99431798a03edef, type: 3}
+    selectedWorld: -1
+    eventID: 0
+    missionStars: []
+    missionCustomers:
+    - missionID: 1
+      checkPoint: 10
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 5
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 2
+      checkPoint: 20
+      reward:
+        type: 14
+        spr: {fileID: 21300000, guid: eeaa47cb2ac419341a3873bb8127834c, type: 3}
+        amount: 1
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 3
+      checkPoint: 50
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 20
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 4
+      checkPoint: 100
+      reward:
+        type: 2
+        spr: {fileID: 21300000, guid: 1002c61941925a442bb5941177cfcaad, type: 3}
+        amount: 1
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 5
+      checkPoint: 200
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 25
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 6
+      checkPoint: 280
+      reward:
+        type: 11
+        spr: {fileID: 21300000, guid: b1ed0e0817a61eb40938ffb40d6905fb, type: 3}
+        amount: 1
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 7
+      checkPoint: 350
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 30
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 8
+      checkPoint: 650
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 30
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 9
+      checkPoint: 800
+      reward:
+        type: 14
+        spr: {fileID: 21300000, guid: eeaa47cb2ac419341a3873bb8127834c, type: 3}
+        amount: 1
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 10
+      checkPoint: 1000
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 30
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 11
+      checkPoint: 1200
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 50
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 14
+    - missionID: 12
+      checkPoint: 1500
+      reward:
+        type: 3
+        spr: {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+        amount: 1
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 13
+      checkPoint: 2000
+      reward:
+        type: 0
+        spr: {fileID: 21300000, guid: a2ac3d79bf44c574988909d29a1b81cf, type: 3}
+        amount: 50
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0
+    - missionID: 14
+      checkPoint: 2500
+      reward:
+        type: 3
+        spr: {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+        amount: 1
+        specialCharactorReward: 0
+        skinReward: 0
+        eventStaffID: 0
+        skinID: 0

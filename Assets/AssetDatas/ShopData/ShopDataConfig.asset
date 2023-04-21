@@ -1,0 +1,1050 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb24fd1bb3c9df449c0dd1b489f7255, type: 3}
+  m_Name: ShopDataConfig
+  m_EditorClassIdentifier: 
+  sprConfig:
+  - {fileID: 21300000, guid: b3af3398e96e73747bae0dc92a0bddbe, type: 3}
+  - {fileID: 21300000, guid: 774de1c30aa5c584ca145570f6d7a6bc, type: 3}
+  - {fileID: 21300000, guid: 3af0dfb83c4a4a64cafa9b51cc2f8e90, type: 3}
+  - {fileID: 21300000, guid: 9cbf8b0e66d91fb4c82d11003b79b859, type: 3}
+  - {fileID: 21300000, guid: 50fcf510ee2f4d54388cb704b80fe675, type: 3}
+  - {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+  - {fileID: 21300000, guid: 8937c8dfe010ab149a197ef2011ca52c, type: 3}
+  - {fileID: 21300000, guid: 1002c61941925a442bb5941177cfcaad, type: 3}
+  - {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+  - {fileID: 21300000, guid: 61ad9297ff500ae4a888088e8e1dde5a, type: 3}
+  - {fileID: 21300000, guid: 5aadcdb044a6ecc4ebc5666bedb475d6, type: 3}
+  - {fileID: 21300000, guid: 75319cd9bee4811428ad9e552e67c2b0, type: 3}
+  - {fileID: 21300000, guid: 5d53e2c24046df9438a4a1551aadf1ea, type: 3}
+  - {fileID: 21300000, guid: 7d74a3d4006516e418ba91783873606b, type: 3}
+  - {fileID: 21300000, guid: 75fc4976856284a40a942e5e4eb2cf80, type: 3}
+  - {fileID: 21300000, guid: df4aa31b6962b5e41ae78a047afe30d3, type: 3}
+  - {fileID: 21300000, guid: eeaa47cb2ac419341a3873bb8127834c, type: 3}
+  - {fileID: 21300000, guid: 85eee65bccf3ba840b8cd2a6cb3c0d0e, type: 3}
+  - {fileID: 21300000, guid: 8d54454e131966541a7574c9a34d480e, type: 3}
+  - {fileID: 21300000, guid: b1ed0e0817a61eb40938ffb40d6905fb, type: 3}
+  - {fileID: 21300000, guid: 07082b5150e65ff4faee90b588c07c95, type: 3}
+  - {fileID: 21300000, guid: fc51e3e7de7c753418ec186188e9f953, type: 3}
+  - {fileID: 21300000, guid: 28a86a85e353d474fb201336d20b7b9c, type: 3}
+  - {fileID: 21300000, guid: edec0af881509544a89a5ae7f1becd19, type: 3}
+  - {fileID: 21300000, guid: 7a4735e2ee35d5a46b7daf78db682b0c, type: 3}
+  - {fileID: 21300000, guid: aa8b9417a404c7240aebe3eb136cd281, type: 3}
+  - {fileID: 21300000, guid: ce3d905b02e0adf4c846cf4484fc302e, type: 3}
+  - {fileID: 21300000, guid: 7810d842a7577a94499eb8246cac65cd, type: 3}
+  - {fileID: 21300000, guid: fa62eba2692f66e4e9198215789f6724, type: 3}
+  - {fileID: 21300000, guid: c4709a011276f9b45a7330003042fa8e, type: 3}
+  - {fileID: 21300000, guid: b111de828ae011743bb87cbf018fcf0b, type: 3}
+  - {fileID: 21300000, guid: 8756c1271fcdf954ca277c55704ea87a, type: 3}
+  - {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+  - {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+  - {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+  - {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+  - {fileID: 21300000, guid: a90c7053f0f71f546956d75942cdef3c, type: 3}
+  chestOfferDatas:
+  - icon: {fileID: 21300000, guid: 8937c8dfe010ab149a197ef2011ca52c, type: 3}
+    titleDeal: Free
+    titleDealLocalizeID: 166
+    offerID: 7
+    itemRewards:
+    - type: 1
+      spr: {fileID: 0}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 0
+    productID: 
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 1002c61941925a442bb5941177cfcaad, type: 3}
+    titleDeal: Normal
+    titleDealLocalizeID: 165
+    offerID: 8
+    itemRewards:
+    - type: 2
+      spr: {fileID: 0}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 200
+    productID: 
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+    titleDeal: Advanced
+    titleDealLocalizeID: 164
+    offerID: 9
+    itemRewards:
+    - type: 3
+      spr: {fileID: 0}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 500
+    productID: 
+    isSaleOff: 0
+    timeExits: 0
+  gemOfferDatas:
+  - icon: {fileID: 21300000, guid: b3af3398e96e73747bae0dc92a0bddbe, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 10
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: b3af3398e96e73747bae0dc92a0bddbe, type: 3}
+      amount: 100
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 0.99
+    productID: gem1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 774de1c30aa5c584ca145570f6d7a6bc, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 11
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 774de1c30aa5c584ca145570f6d7a6bc, type: 3}
+      amount: 400
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 2.99
+    productID: gem2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 3af0dfb83c4a4a64cafa9b51cc2f8e90, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 12
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 3af0dfb83c4a4a64cafa9b51cc2f8e90, type: 3}
+      amount: 1500
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 9.99
+    productID: gem3
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 9cbf8b0e66d91fb4c82d11003b79b859, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 13
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 9cbf8b0e66d91fb4c82d11003b79b859, type: 3}
+      amount: 3500
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: gem4
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 50fcf510ee2f4d54388cb704b80fe675, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 14
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 50fcf510ee2f4d54388cb704b80fe675, type: 3}
+      amount: 10000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 49.99
+    productID: gem5
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 15
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+      amount: 22000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 99.99
+    productID: gem6
+    isSaleOff: 0
+    timeExits: 0
+  cardIAPList:
+  - name: DEPUTY WORDEN
+    NameLocalizeID: 0
+    id: 0
+    icon: {fileID: 21300000, guid: 61ad9297ff500ae4a888088e8e1dde5a, type: 3}
+    type: 0
+    productType: 0
+    description: Assists the warden with administrative tasks and will make the restaurant
+      work longer while you're not playing.
+    DesLocalizeID: 184
+    extraValue: 1
+    price: 2.99$
+    productID: offline1
+  - name: Hump Bogart
+    NameLocalizeID: 0
+    id: 1
+    icon: {fileID: 21300000, guid: 5aadcdb044a6ecc4ebc5666bedb475d6, type: 3}
+    type: 0
+    productType: 1
+    description: Thanks to his experience in other restaurant, the officer will make
+      the restaurant work longer while you're not playing.
+    DesLocalizeID: 185
+    extraValue: 3
+    price: 4.99$
+    productID: offline2
+  - name: Cary Grant
+    NameLocalizeID: 0
+    id: 2
+    icon: {fileID: 21300000, guid: 75319cd9bee4811428ad9e552e67c2b0, type: 3}
+    type: 0
+    productType: 2
+    description: This director knows how to manage a restaurant with a firm hand
+      and will make the restaurant work for quite a long time while you're not playing.
+    DesLocalizeID: 186
+    extraValue: 7
+    price: 9.99$
+    productID: offline3
+  - name: James Stewart
+    NameLocalizeID: 0
+    id: 3
+    icon: {fileID: 21300000, guid: 5d53e2c24046df9438a4a1551aadf1ea, type: 3}
+    type: 0
+    productType: 3
+    description: This guy is very good at doing what he knows best, and will make
+      the restaurant work for a long time while you're not playing.
+    DesLocalizeID: 187
+    extraValue: 12
+    price: 19.99$
+    productID: offline4
+  - name: ACCOUNTANT
+    NameLocalizeID: 0
+    id: 4
+    icon: {fileID: 21300000, guid: 7d74a3d4006516e418ba91783873606b, type: 3}
+    type: 1
+    productType: 4
+    description: This civil servant will use small accounting tricks to permanently
+      increase profits.
+    DesLocalizeID: 188
+    extraValue: 50
+    price: 5.99$
+    productID: finance1
+  - name: FINANCE EXPERT
+    NameLocalizeID: 0
+    id: 5
+    icon: {fileID: 21300000, guid: 75fc4976856284a40a942e5e4eb2cf80, type: 3}
+    type: 1
+    productType: 5
+    description: This professional swindler won't hesitate to manipulate the numbers
+      to permanently and considerably inscrease profits.
+    DesLocalizeID: 189
+    extraValue: 100
+    price: 9.99$
+    productID: finance2
+  IAPPackages:
+  - icon: {fileID: 0}
+    titleDeal: OFFER FOR BEGINNERS
+    titleDealLocalizeID: 0
+    offerID: 23
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+      amount: 1000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 6
+      spr: {fileID: 21300000, guid: edec0af881509544a89a5ae7f1becd19, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 8
+      spr: {fileID: 21300000, guid: 61ad9297ff500ae4a888088e8e1dde5a, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 9
+      spr: {fileID: 21300000, guid: 7d74a3d4006516e418ba91783873606b, type: 3}
+      amount: 50
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 9.99
+    productID: vip_pack1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: OFFER FOR EXPERTS
+    titleDealLocalizeID: 0
+    offerID: 24
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+      amount: 3000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 7
+      spr: {fileID: 21300000, guid: 7a4735e2ee35d5a46b7daf78db682b0c, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 8
+      spr: {fileID: 21300000, guid: 5aadcdb044a6ecc4ebc5666bedb475d6, type: 3}
+      amount: 3
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 9
+      spr: {fileID: 21300000, guid: 75fc4976856284a40a942e5e4eb2cf80, type: 3}
+      amount: 100
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: vip_pack2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: OFFER FOR PROS
+    titleDealLocalizeID: 0
+    offerID: 26
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+      amount: 10000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 10
+      spr: {fileID: 21300000, guid: 28a86a85e353d474fb201336d20b7b9c, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 7
+      spr: {fileID: 21300000, guid: 7a4735e2ee35d5a46b7daf78db682b0c, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 8
+      spr: {fileID: 21300000, guid: 5d53e2c24046df9438a4a1551aadf1ea, type: 3}
+      amount: 12
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 9
+      spr: {fileID: 21300000, guid: df4aa31b6962b5e41ae78a047afe30d3, type: 3}
+      amount: 150
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 18
+      spr: {fileID: 21300000, guid: aa8b9417a404c7240aebe3eb136cd281, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 49.99
+    productID: vip_pack3
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: REMOVE ADS
+    titleDealLocalizeID: 0
+    offerID: 2
+    itemRewards:
+    - type: 10
+      spr: {fileID: 21300000, guid: 28a86a85e353d474fb201336d20b7b9c, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 14.99
+    productID: no_ads
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: CHEST PACK
+    titleDealLocalizeID: 0
+    offerID: 25
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: a7126136fd69fbb4c97206f728039079, type: 3}
+      amount: 3000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 3
+      spr: {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: advanced_chest
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: HYPERSPACE OFFER
+    titleDealLocalizeID: 0
+    offerID: 27
+    itemRewards:
+    - type: 12
+      spr: {fileID: 21300000, guid: 07082b5150e65ff4faee90b588c07c95, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 13
+      spr: {fileID: 21300000, guid: fc51e3e7de7c753418ec186188e9f953, type: 3}
+      amount: 9
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: time_skip1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 39
+    itemRewards:
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 9.99
+    productID: warehouse_pack1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 40
+    itemRewards:
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: warehouse_pack2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 41
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 9cbf8b0e66d91fb4c82d11003b79b859, type: 3}
+      amount: 2000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: combo_pack2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 39
+    itemRewards:
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 9.99
+    productID: warehouse_pack1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 40
+    itemRewards:
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: warehouse_pack2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 41
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 9cbf8b0e66d91fb4c82d11003b79b859, type: 3}
+      amount: 2000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: combo_pack2
+    isSaleOff: 0
+    timeExits: 0
+  adTicketDatas:
+  - icon: {fileID: 21300000, guid: eeaa47cb2ac419341a3873bb8127834c, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 28
+    itemRewards:
+    - type: 14
+      spr: {fileID: 21300000, guid: eeaa47cb2ac419341a3873bb8127834c, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 1.99
+    productID: ads_ticket_1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 85eee65bccf3ba840b8cd2a6cb3c0d0e, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 29
+    itemRewards:
+    - type: 14
+      spr: {fileID: 21300000, guid: 85eee65bccf3ba840b8cd2a6cb3c0d0e, type: 3}
+      amount: 30
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 2.99
+    productID: ads_ticket_2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 8d54454e131966541a7574c9a34d480e, type: 3}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 30
+    itemRewards:
+    - type: 14
+      spr: {fileID: 21300000, guid: 8d54454e131966541a7574c9a34d480e, type: 3}
+      amount: 70
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 9.99
+    productID: ads_ticket_3
+    isSaleOff: 0
+    timeExits: 0
+  timeTravelDatas:
+  - icon: {fileID: 21300000, guid: b1ed0e0817a61eb40938ffb40d6905fb, type: 3}
+    titleDeal: 1 HOUR
+    titleDealLocalizeID: 0
+    offerID: 31
+    itemRewards: []
+    price: 100
+    productID: TimeSkip_1H
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 07082b5150e65ff4faee90b588c07c95, type: 3}
+    titleDeal: 4 HOURS
+    titleDealLocalizeID: 0
+    offerID: 32
+    itemRewards: []
+    price: 200
+    productID: TimeSkip_4H
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: fc51e3e7de7c753418ec186188e9f953, type: 3}
+    titleDeal: 24 HOURS
+    titleDealLocalizeID: 0
+    offerID: 33
+    itemRewards: []
+    price: 300
+    productID: TimeSkip_24H
+    isSaleOff: 0
+    timeExits: 0
+  skinBoxDatas:
+  - icon: {fileID: 21300000, guid: ce3d905b02e0adf4c846cf4484fc302e, type: 3}
+    titleDeal: Normal
+    titleDealLocalizeID: 0
+    offerID: 34
+    itemRewards:
+    - type: 15
+      spr: {fileID: 0}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 300
+    productID: 
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: 7810d842a7577a94499eb8246cac65cd, type: 3}
+    titleDeal: Advanced
+    titleDealLocalizeID: 0
+    offerID: 35
+    itemRewards:
+    - type: 16
+      spr: {fileID: 0}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 700
+    productID: 
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 21300000, guid: fa62eba2692f66e4e9198215789f6724, type: 3}
+    titleDeal: Expert
+    titleDealLocalizeID: 0
+    offerID: 36
+    itemRewards:
+    - type: 17
+      spr: {fileID: 0}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 1200
+    productID: 
+    isSaleOff: 0
+    timeExits: 0
+  researcherPackDatas:
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 37
+    itemRewards:
+    - type: 22
+      spr: {fileID: 21300000, guid: 8756c1271fcdf954ca277c55704ea87a, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 24
+      spr: {fileID: 21300000, guid: b111de828ae011743bb87cbf018fcf0b, type: 3}
+      amount: 30
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 4.99
+    productID: research_premium_researcher_pack1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 38
+    itemRewards:
+    - type: 22
+      spr: {fileID: 21300000, guid: 8756c1271fcdf954ca277c55704ea87a, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 24
+      spr: {fileID: 21300000, guid: b111de828ae011743bb87cbf018fcf0b, type: 3}
+      amount: 30
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 4.99
+    productID: research_premium_researcher_pack2
+    isSaleOff: 0
+    timeExits: 0
+  warehousePackDatas:
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 39
+    itemRewards:
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 6
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 9.99
+    productID: warehouse_pack1
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 40
+    itemRewards:
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 15
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: warehouse_pack2
+    isSaleOff: 0
+    timeExits: 0
+  - icon: {fileID: 0}
+    titleDeal: 
+    titleDealLocalizeID: 0
+    offerID: 41
+    itemRewards:
+    - type: 0
+      spr: {fileID: 21300000, guid: 9cbf8b0e66d91fb4c82d11003b79b859, type: 3}
+      amount: 2000
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 25
+      spr: {fileID: 21300000, guid: 7b89215b89895a0459b78b28853e8b2c, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 26
+      spr: {fileID: 21300000, guid: 961306148dd34114a9e5f56c8465efad, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 27
+      spr: {fileID: 0}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 28
+      spr: {fileID: 21300000, guid: 48e7d061f64056c44918e79f19a0e670, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    - type: 29
+      spr: {fileID: 21300000, guid: 29362e31dd38ea044bf5c3bf947650e1, type: 3}
+      amount: 10
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+    price: 19.99
+    productID: combo_pack2
+    isSaleOff: 0
+    timeExits: 0

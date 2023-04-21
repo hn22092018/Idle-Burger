@@ -1,0 +1,573 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc041abeb0c4904dad6a7d4c986605e, type: 3}
+  m_Name: ResearchData
+  m_EditorClassIdentifier: 
+  sprConfig:
+  - {fileID: 21300000, guid: fa83abf134ffd664ba5b816597278985, type: 3}
+  - {fileID: 21300000, guid: a3b42532bbcd0a44d874c4a3ca53294c, type: 3}
+  - {fileID: 21300000, guid: 47d3ba4d1abef0c42bcfc964a90e2b88, type: 3}
+  - {fileID: 21300000, guid: 571fd5fec56721247b8585dedc43f29b, type: 3}
+  - {fileID: 21300000, guid: 91a7e5c696793004d8dc98a977118f26, type: 3}
+  - {fileID: 21300000, guid: 4c232a8f70588f24ca1efa7ee9497988, type: 3}
+  - {fileID: 21300000, guid: 62320c16e8a6f474f8147fdeb7204076, type: 3}
+  - {fileID: 21300000, guid: e45038a4c317cc946a8ee1269e29546b, type: 3}
+  - {fileID: 21300000, guid: 19a249daa8020ce4db9fa05d0fb8cea2, type: 3}
+  - {fileID: 21300000, guid: 13b948cb346e71c4e8ba2188815bdd61, type: 3}
+  - {fileID: 21300000, guid: da495f70a324001468b83091498b95e0, type: 3}
+  - {fileID: 21300000, guid: cb70207fa0669e547b46e2783401294d, type: 3}
+  - {fileID: 21300000, guid: 6612a0323530a414a958773b260c93c7, type: 3}
+  - {fileID: 21300000, guid: ac5be3e5a1082754bb99dbd11a2656bb, type: 3}
+  - {fileID: 21300000, guid: 0108492032beb3e4dacb0675cbe99270, type: 3}
+  - {fileID: 21300000, guid: 75ac9db5205225043bbebd2c671b641f, type: 3}
+  - {fileID: 21300000, guid: bd67f3045478f47449951d565881d7ab, type: 3}
+  - {fileID: 21300000, guid: da394237a33f06242a26c4efc1304aca, type: 3}
+  - {fileID: 21300000, guid: ede6cb117a322d440a40a4ed53988b79, type: 3}
+  - {fileID: 21300000, guid: be14c097acb793849965fe2a8521f3b8, type: 3}
+  - {fileID: 21300000, guid: c907cc27833957a43a4bde9bdb804bbb, type: 3}
+  - {fileID: 21300000, guid: 93f757289911f5a45b48208f088e53f4, type: 3}
+  - {fileID: 21300000, guid: cd96da6b46b9898489308aaae8a2842e, type: 3}
+  - {fileID: 21300000, guid: 4c7047a383455d14788f03f9aee73c35, type: 3}
+  - {fileID: 21300000, guid: 578fe61c0832532448b6b5e223d053c9, type: 3}
+  - {fileID: 21300000, guid: 0bb3a44a27e6756429b426fc2a0e0185, type: 3}
+  - {fileID: 21300000, guid: 180b6ed1acc5e2d4f841124050aa133a, type: 3}
+  - {fileID: 21300000, guid: 0eb160db028c05e49a5be144ee0b2600, type: 3}
+  - {fileID: 21300000, guid: d9f52491a8321e14f8939ff00fac6e6a, type: 3}
+  - {fileID: 21300000, guid: 816a8acd75193474cbee96c9dda0f2ce, type: 3}
+  - {fileID: 21300000, guid: b47670807a51dc04ca948a3fe6f991ff, type: 3}
+  - {fileID: 21300000, guid: af79df47ee9ff1b41a7b571535cb1721, type: 3}
+  - {fileID: 21300000, guid: 616f3ae6cb89ff84cb67930a5d136535, type: 3}
+  - {fileID: 21300000, guid: 9ac74300a3ee0db4c959584a0ad80f32, type: 3}
+  - {fileID: 21300000, guid: 5d547e7fe1db1c141a2c20f145618d03, type: 3}
+  objFoods:
+  - {fileID: 919132149155446097, guid: c0a38eb5c99e3cb428ed8e8d7f4ab843, type: 3}
+  - {fileID: 919132149155446097, guid: 6fad3617e862f3b46ac875ad0c236228, type: 3}
+  - {fileID: 919132149155446097, guid: d499cab6d68737f4e9f6999d8ca7158a, type: 3}
+  - {fileID: 919132149155446097, guid: e289fb62db65b714a844ea3d94e90168, type: 3}
+  - {fileID: 919132149155446097, guid: 3f174e1c60db7f94bb5b2aac319fed8e, type: 3}
+  - {fileID: 919132149155446097, guid: 03affe048338bec4b9c3c13f5693ea3c, type: 3}
+  - {fileID: 919132149155446097, guid: 3fd2d32e33e97b042874dc198272f7dd, type: 3}
+  - {fileID: 919132149155446097, guid: c56a74b6737ae5948b569b76b3928353, type: 3}
+  - {fileID: 919132149155446097, guid: 6edd4b82f59d1ab4c94b27de2001a76e, type: 3}
+  - {fileID: 919132149155446097, guid: d183d68b2d1408c40872533ece7e4bc0, type: 3}
+  - {fileID: 919132149155446097, guid: fa81fb244d070004bb622a4190a6d469, type: 3}
+  - {fileID: 919132149155446097, guid: c2bd5a1bd15404543aa29c2de1c4b9dd, type: 3}
+  - {fileID: 919132149155446097, guid: 08d63cdff109fe84f94ec35bcfae3db6, type: 3}
+  - {fileID: 919132149155446097, guid: 57b981bbe8c11f44f88e4168bb38c29f, type: 3}
+  - {fileID: 919132149155446097, guid: 3eba5762ed798c5439c3158e6085cc80, type: 3}
+  - {fileID: 919132149155446097, guid: f3b6d2cf9a2ca3046bd5f7d8986097f7, type: 3}
+  - {fileID: 919132149155446097, guid: a60ccd78b58bdb241a5eaa29cde5822b, type: 3}
+  - {fileID: 919132149155446097, guid: ae96c4e912a4d564d8e8b7e284e72bbb, type: 3}
+  - {fileID: 919132149155446097, guid: 3cb3c2aeb80b61641b5f52d18d5a1d48, type: 3}
+  - {fileID: 919132149155446097, guid: 27732af14f61665418008d15941e3878, type: 3}
+  - {fileID: 919132149155446097, guid: f73c1c769bb369743a5dea69cd31ec2d, type: 3}
+  - {fileID: 919132149155446097, guid: 14d2730a2f471d24f89ba089ebdf0061, type: 3}
+  - {fileID: 919132149155446097, guid: 1de00f6f0590dd0419af770c1c40a09b, type: 3}
+  - {fileID: 919132149155446097, guid: 03322da3001bd9c4abfee517c939b91f, type: 3}
+  - {fileID: 919132149155446097, guid: ccd1731eb83ed2949ae03f764cdd9348, type: 3}
+  - {fileID: 919132149155446097, guid: 532803b2548dea548a3de3c00179120c, type: 3}
+  - {fileID: 919132149155446097, guid: cde9fbb6a35133444b19866c6bfebb18, type: 3}
+  - {fileID: 919132149155446097, guid: 7b615d0484373c3429522d56a752f747, type: 3}
+  - {fileID: 919132149155446097, guid: d8b8da36ecd33984aaff9678a9780693, type: 3}
+  - {fileID: 919132149155446097, guid: 85f482c903c6cfb41a55d295f47a0e13, type: 3}
+  - {fileID: 919132149155446097, guid: d5ad95e5694993b4b95242fcdd5c64fa, type: 3}
+  - {fileID: 919132149155446097, guid: aeb9e0720c6ddb4439e12589e20d5a2f, type: 3}
+  - {fileID: 919132149155446097, guid: ec2fc0cb6e179894697d866dc8a90fa4, type: 3}
+  - {fileID: 919132149155446097, guid: 8eb90d01ec7b6024e80647bf952f598e, type: 3}
+  - {fileID: 919132149155446097, guid: e7ae8ee44ccd1c7448782526ed55b7cb, type: 3}
+  groupResearches:
+  - researches:
+    - researchName: 0
+      objFood: {fileID: 919132149155446097, guid: 3f174e1c60db7f94bb5b2aac319fed8e, type: 3}
+      icon: {fileID: 21300000, guid: 91a7e5c696793004d8dc98a977118f26, type: 3}
+      strName: Hot Dogs
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 14000000
+      time:
+      - 2
+      priceUpgrade: 00000000
+      timeBlock: 00000000
+      mapDepend: 1
+    - researchName: 1
+      objFood: {fileID: 919132149155446097, guid: d499cab6d68737f4e9f6999d8ca7158a, type: 3}
+      icon: {fileID: 21300000, guid: 47d3ba4d1abef0c42bcfc964a90e2b88, type: 3}
+      strName: French Fries
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 1e000000
+      time:
+      - 2.4
+      priceUpgrade: 14000000
+      timeBlock: 84030000
+      mapDepend: 1
+    - researchName: 2
+      objFood: {fileID: 919132149155446097, guid: e289fb62db65b714a844ea3d94e90168, type: 3}
+      icon: {fileID: 21300000, guid: 571fd5fec56721247b8585dedc43f29b, type: 3}
+      strName: Hamburger
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 2d000000
+      time:
+      - 2.8
+      priceUpgrade: 32000000
+      timeBlock: dc050000
+      mapDepend: 1
+    - researchName: 3
+      objFood: {fileID: 919132149155446097, guid: c0a38eb5c99e3cb428ed8e8d7f4ab843, type: 3}
+      icon: {fileID: 21300000, guid: fa83abf134ffd664ba5b816597278985, type: 3}
+      strName: Chef Salad
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 41000000
+      time:
+      - 3.2
+      priceUpgrade: 64000000
+      timeBlock: 8c0a0000
+      mapDepend: 1
+    - researchName: 4
+      objFood: {fileID: 919132149155446097, guid: 6fad3617e862f3b46ac875ad0c236228, type: 3}
+      icon: {fileID: 21300000, guid: a3b42532bbcd0a44d874c4a3ca53294c, type: 3}
+      strName: Fish And Chips
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 5a000000
+      time:
+      - 3.6
+      priceUpgrade: 96000000
+      timeBlock: 18150000
+      mapDepend: 1
+    - researchName: 5
+      objFood: {fileID: 919132149155446097, guid: 03affe048338bec4b9c3c13f5693ea3c, type: 3}
+      icon: {fileID: 21300000, guid: 4c232a8f70588f24ca1efa7ee9497988, type: 3}
+      strName: Roast Beef
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 78000000
+      time:
+      - 4
+      priceUpgrade: c8000000
+      timeBlock: 201c0000
+      mapDepend: 1
+    - researchName: 6
+      objFood: {fileID: 919132149155446097, guid: 3fd2d32e33e97b042874dc198272f7dd, type: 3}
+      icon: {fileID: 21300000, guid: 62320c16e8a6f474f8147fdeb7204076, type: 3}
+      strName: Beef Wellington
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 1
+    - researchName: 7
+      objFood: {fileID: 919132149155446097, guid: fa81fb244d070004bb622a4190a6d469, type: 3}
+      icon: {fileID: 21300000, guid: da495f70a324001468b83091498b95e0, type: 3}
+      strName: Tacos
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 8
+      objFood: {fileID: 919132149155446097, guid: 08d63cdff109fe84f94ec35bcfae3db6, type: 3}
+      icon: {fileID: 21300000, guid: 6612a0323530a414a958773b260c93c7, type: 3}
+      strName: Tortas
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 9
+      objFood: {fileID: 919132149155446097, guid: 6edd4b82f59d1ab4c94b27de2001a76e, type: 3}
+      icon: {fileID: 21300000, guid: 19a249daa8020ce4db9fa05d0fb8cea2, type: 3}
+      strName: Enchiladas
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 10
+      objFood: {fileID: 919132149155446097, guid: c2bd5a1bd15404543aa29c2de1c4b9dd, type: 3}
+      icon: {fileID: 21300000, guid: cb70207fa0669e547b46e2783401294d, type: 3}
+      strName: Tamales
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 11
+      objFood: {fileID: 919132149155446097, guid: c56a74b6737ae5948b569b76b3928353, type: 3}
+      icon: {fileID: 21300000, guid: e45038a4c317cc946a8ee1269e29546b, type: 3}
+      strName: Chili Rellenos
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 12
+      objFood: {fileID: 919132149155446097, guid: d183d68b2d1408c40872533ece7e4bc0, type: 3}
+      icon: {fileID: 21300000, guid: 13b948cb346e71c4e8ba2188815bdd61, type: 3}
+      strName: Pozole
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 13
+      objFood: {fileID: 919132149155446097, guid: 57b981bbe8c11f44f88e4168bb38c29f, type: 3}
+      icon: {fileID: 21300000, guid: ac5be3e5a1082754bb99dbd11a2656bb, type: 3}
+      strName: Tostadas
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 2
+    - researchName: 14
+      objFood: {fileID: 919132149155446097, guid: f3b6d2cf9a2ca3046bd5f7d8986097f7, type: 3}
+      icon: {fileID: 21300000, guid: 75ac9db5205225043bbebd2c671b641f, type: 3}
+      strName: Sushi
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    - researchName: 15
+      objFood: {fileID: 919132149155446097, guid: 3eba5762ed798c5439c3158e6085cc80, type: 3}
+      icon: {fileID: 21300000, guid: 0108492032beb3e4dacb0675cbe99270, type: 3}
+      strName: Ramen
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    - researchName: 16
+      objFood: {fileID: 919132149155446097, guid: 27732af14f61665418008d15941e3878, type: 3}
+      icon: {fileID: 21300000, guid: be14c097acb793849965fe2a8521f3b8, type: 3}
+      strName: Tempura
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    - researchName: 17
+      objFood: {fileID: 919132149155446097, guid: f73c1c769bb369743a5dea69cd31ec2d, type: 3}
+      icon: {fileID: 21300000, guid: c907cc27833957a43a4bde9bdb804bbb, type: 3}
+      strName: Tonkatsu
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    - researchName: 18
+      objFood: {fileID: 919132149155446097, guid: 3cb3c2aeb80b61641b5f52d18d5a1d48, type: 3}
+      icon: {fileID: 21300000, guid: ede6cb117a322d440a40a4ed53988b79, type: 3}
+      strName: Takoyaki
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    - researchName: 19
+      objFood: {fileID: 919132149155446097, guid: ae96c4e912a4d564d8e8b7e284e72bbb, type: 3}
+      icon: {fileID: 21300000, guid: da394237a33f06242a26c4efc1304aca, type: 3}
+      strName: Soba
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    - researchName: 20
+      objFood: {fileID: 919132149155446097, guid: a60ccd78b58bdb241a5eaa29cde5822b, type: 3}
+      icon: {fileID: 21300000, guid: bd67f3045478f47449951d565881d7ab, type: 3}
+      strName: Shabu-Shabu
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 3
+    researchGroupName: 0
+  - researches:
+    - researchName: 33
+      objFood: {fileID: 919132149155446097, guid: ccd1731eb83ed2949ae03f764cdd9348, type: 3}
+      icon: {fileID: 0}
+      strName: Martini
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 34
+      objFood: {fileID: 919132149155446097, guid: 532803b2548dea548a3de3c00179120c, type: 3}
+      icon: {fileID: 0}
+      strName: Mojito
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 35
+      objFood: {fileID: 919132149155446097, guid: 14d2730a2f471d24f89ba089ebdf0061, type: 3}
+      icon: {fileID: 0}
+      strName: Cosmopolitan
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 36
+      objFood: {fileID: 919132149155446097, guid: 7b615d0484373c3429522d56a752f747, type: 3}
+      icon: {fileID: 0}
+      strName: Whiskey Sour
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 37
+      objFood: {fileID: 919132149155446097, guid: cde9fbb6a35133444b19866c6bfebb18, type: 3}
+      icon: {fileID: 0}
+      strName: Moscow Mule
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 38
+      objFood: {fileID: 919132149155446097, guid: 03322da3001bd9c4abfee517c939b91f, type: 3}
+      icon: {fileID: 0}
+      strName: Gin And Tonic
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 39
+      objFood: {fileID: 919132149155446097, guid: 1de00f6f0590dd0419af770c1c40a09b, type: 3}
+      icon: {fileID: 0}
+      strName: Daiquiri
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 4
+    - researchName: 26
+      objFood: {fileID: 919132149155446097, guid: d8b8da36ecd33984aaff9678a9780693, type: 3}
+      icon: {fileID: 21300000, guid: 93f757289911f5a45b48208f088e53f4, type: 3}
+      strName: Coffee
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    - researchName: 27
+      objFood: {fileID: 919132149155446097, guid: e7ae8ee44ccd1c7448782526ed55b7cb, type: 3}
+      icon: {fileID: 21300000, guid: 0eb160db028c05e49a5be144ee0b2600, type: 3}
+      strName: Tea
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    - researchName: 28
+      objFood: {fileID: 919132149155446097, guid: d5ad95e5694993b4b95242fcdd5c64fa, type: 3}
+      icon: {fileID: 0}
+      strName: Hot Chocolate
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    - researchName: 29
+      objFood: {fileID: 919132149155446097, guid: 8eb90d01ec7b6024e80647bf952f598e, type: 3}
+      icon: {fileID: 21300000, guid: 180b6ed1acc5e2d4f841124050aa133a, type: 3}
+      strName: Smoothie
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    - researchName: 30
+      objFood: {fileID: 919132149155446097, guid: ec2fc0cb6e179894697d866dc8a90fa4, type: 3}
+      icon: {fileID: 21300000, guid: 0bb3a44a27e6756429b426fc2a0e0185, type: 3}
+      strName: Milk Shake
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    - researchName: 31
+      objFood: {fileID: 919132149155446097, guid: aeb9e0720c6ddb4439e12589e20d5a2f, type: 3}
+      icon: {fileID: 21300000, guid: 578fe61c0832532448b6b5e223d053c9, type: 3}
+      strName: Lemonade
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    - researchName: 32
+      objFood: {fileID: 919132149155446097, guid: 85f482c903c6cfb41a55d295f47a0e13, type: 3}
+      icon: {fileID: 21300000, guid: cd96da6b46b9898489308aaae8a2842e, type: 3}
+      strName: Fruit Juice
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 5
+    researchGroupName: 1
+  - researches:
+    - researchName: 21
+      objFood: {fileID: 0}
+      icon: {fileID: 0}
+      strName: BigtableRoom
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 0
+    - researchName: 22
+      objFood: {fileID: 0}
+      icon: {fileID: 0}
+      strName: BarRoom
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 0
+    - researchName: 23
+      objFood: {fileID: 0}
+      icon: {fileID: 0}
+      strName: CoffeeRoom
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 0
+    - researchName: 24
+      objFood: {fileID: 0}
+      icon: {fileID: 0}
+      strName: VipRoom
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 0
+    - researchName: 25
+      objFood: {fileID: 0}
+      icon: {fileID: 0}
+      strName: ConveyorHotPotRoom
+      strDes: ' '
+      desLocalizeID: 0
+      profit: 96000000
+      time:
+      - 4.5
+      priceUpgrade: 2c010000
+      timeBlock: 28230000
+      mapDepend: 0
+    researchGroupName: 2

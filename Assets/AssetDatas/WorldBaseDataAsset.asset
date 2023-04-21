@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc1919d89c790f4c9f173bd39b98d50, type: 3}
+  m_Name: WorldBaseDataAsset
+  m_EditorClassIdentifier: 
+  worldBaseDatas:
+  - NameLocalizeID: 104
+    restaurantName: Saint Restaurant
+    index: 1
+    DesLocalizeID: 105
+    restaurantDescription: A business that prepares and serves food and drinks to
+      customers.
+    restaurantIcon: {fileID: 21300000, guid: 28bbf4924c6c38d43aa135819bf3552f, type: 3}
+    selectedWorld: 1
+    starNeededToUnlock: 0
+  - NameLocalizeID: 106
+    restaurantName: Japanese Restaurant
+    index: 2
+    DesLocalizeID: 107
+    restaurantDescription: A place where customers can enjoy traditional Japanese
+      cuisine and culture.
+    restaurantIcon: {fileID: 21300000, guid: 71d9094dbf0caa549b580afbc161c209, type: 3}
+    selectedWorld: 2
+    starNeededToUnlock: 13
+  - NameLocalizeID: 402
+    restaurantName: Mexican Restaurant
+    index: 3
+    DesLocalizeID: 403
+    restaurantDescription: A place where customers can enjoy traditional Japanese
+      cuisine and culture.
+    restaurantIcon: {fileID: 21300000, guid: 2c9cc3d9e8c671f409105aa187aa4382, type: 3}
+    selectedWorld: 3
+    starNeededToUnlock: 60

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ed98cbb1e4ea4489adcce8576119e0, type: 3}
+  m_Name: SkinBoxData
+  m_EditorClassIdentifier: 
+  skinBoxes:
+  - skinBoxName: Normal
+    boxType: 15
+    skinEarnable:
+    - skinRarity: 1
+      amount: 1
+  - skinBoxName: Advanced
+    boxType: 16
+    skinEarnable:
+    - skinRarity: 1
+      amount: 1
+    - skinRarity: 2
+      amount: 1
+  - skinBoxName: Expert
+    boxType: 17
+    skinEarnable:
+    - skinRarity: 1
+      amount: 1
+    - skinRarity: 2
+      amount: 1
+    - skinRarity: 3
+      amount: 1

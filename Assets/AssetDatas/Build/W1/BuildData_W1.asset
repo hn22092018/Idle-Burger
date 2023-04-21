@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692f67e7d08c13d41a2ddc42a7a62f54, type: 3}
+  m_Name: BuildData_W1
+  m_EditorClassIdentifier: 
+  datas:
+  - buildTarget: 25
+    DesLocalizeID: 116
+    buildDes: The energy room gives you the necessary materials to upgrade.
+    sprBuild: {fileID: 21300000, guid: 65592614a9f698840bdaeabfee350509, type: 3}
+    energyRequire: 0
+    cashRequire: 500
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 23
+    DesLocalizeID: 111
+    buildDes: In a restaurant, a restroom is a room with a toilet for customers to
+      use.
+    sprBuild: {fileID: 21300000, guid: 08f10afb4760a054a920985584b11a17, type: 3}
+    energyRequire: 10
+    cashRequire: 1000
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 22
+    DesLocalizeID: 112
+    buildDes: A room in which designed to produce and maintain an atmosphere almost
+      100% free of contaminants such as dust, pollen, or bacteria, etc.
+    sprBuild: {fileID: 21300000, guid: 7d8b66bfb2014a945949d5a947f05857, type: 3}
+    energyRequire: 0
+    cashRequire: 0
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 27
+    DesLocalizeID: 114
+    buildDes: A coffee house is a kind of bar where people sit to drink coffee and
+      talk.
+    sprBuild: {fileID: 21300000, guid: 18c192f2a259b6f4290de1a4bbe2ae06, type: 3}
+    energyRequire: 50
+    cashRequire: 1000000
+    starRequire: 10
+    timeRequire: 120
+  - buildTarget: 1
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 0
+    cashRequire: 100
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 2
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 10
+    cashRequire: 100
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 3
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 20
+    cashRequire: 100
+    starRequire: 2
+    timeRequire: 0
+  - buildTarget: 4
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 20
+    cashRequire: 100
+    starRequire: 3
+    timeRequire: 0
+  - buildTarget: 5
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 30
+    cashRequire: 100
+    starRequire: 3
+    timeRequire: 0
+  - buildTarget: 6
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 30
+    cashRequire: 100
+    starRequire: 3
+    timeRequire: 0
+  - buildTarget: 7
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 30
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 8
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 40
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 9
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 50
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 10
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 60
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 11
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 70
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 12
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 80
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 13
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 100
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 14
+    DesLocalizeID: 115
+    buildDes: A restaurant is a place where you can eat a meal and pay for it. In
+      restaurants your food is usually served to you at your table by a waiter or
+      waitress.
+    sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
+    energyRequire: 150
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 0
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 0
+    cashRequire: 0
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 21
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 0
+    cashRequire: 200
+    starRequire: 0
+    timeRequire: 0
+  - buildTarget: 26
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 0
+    cashRequire: 0
+    starRequire: 0
+    timeRequire: 0

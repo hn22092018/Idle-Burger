@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb886a15800e1a459d1d5e5a69db275, type: 3}
+  m_Name: DailyRewards
+  m_EditorClassIdentifier: 
+  rewards:
+  - day: 1
+    collected: 0
+    reward:
+      type: 0
+      spr: {fileID: 21300000, guid: b3af3398e96e73747bae0dc92a0bddbe, type: 3}
+      amount: 100
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+  - day: 2
+    collected: 0
+    reward:
+      type: 11
+      spr: {fileID: 21300000, guid: b1ed0e0817a61eb40938ffb40d6905fb, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+  - day: 3
+    collected: 0
+    reward:
+      type: 0
+      spr: {fileID: 21300000, guid: 774de1c30aa5c584ca145570f6d7a6bc, type: 3}
+      amount: 200
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+  - day: 4
+    collected: 0
+    reward:
+      type: 2
+      spr: {fileID: 21300000, guid: 1002c61941925a442bb5941177cfcaad, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+  - day: 5
+    collected: 0
+    reward:
+      type: 0
+      spr: {fileID: 21300000, guid: 774de1c30aa5c584ca145570f6d7a6bc, type: 3}
+      amount: 200
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+  - day: 6
+    collected: 0
+    reward:
+      type: 15
+      spr: {fileID: 21300000, guid: ce3d905b02e0adf4c846cf4484fc302e, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
+  - day: 7
+    collected: 0
+    reward:
+      type: 3
+      spr: {fileID: 21300000, guid: 25f00050f8a646c40a628a3e809fb373, type: 3}
+      amount: 1
+      specialCharactorReward: 0
+      skinReward: 0
+      eventStaffID: 0
+      skinID: 0
