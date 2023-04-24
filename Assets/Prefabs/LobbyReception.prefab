@@ -51,8 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 3597076887910498211}
-  navMeshAgent: {fileID: 7419567198354430449}
-  m_MoveSpeed: 4
   isFree: 0
   timeIndicator: {fileID: 2845783566794121494}
   _StaffIndex: 0
@@ -70,7 +68,6 @@ MonoBehaviour:
     incomeX2Chance: 0
     specialSkillChance: 0
     reputationDropChance: 0
-  _BaseStaffSkinSystem: {fileID: 0}
   _SleepTime: 0
   _SleepObject: {fileID: 0}
 --- !u!195 &7419567198354430449
@@ -122,7 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 3597076887910498211}
   charaterType: 3
-  _WorkObj: {fileID: 7800408445120790371}
   _WorkMeshRender: {fileID: 6558223476883889970}
   _DefaultWorkMesh: {fileID: -6846615787407088546, guid: 45f6a7ff9cd9fda4aa181dbe1d494d2b, type: 3}
   _StaffIndex: 0
@@ -178,7 +174,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -433,10 +429,5 @@ SkinnedMeshRenderer:
 --- !u!4 &7425114771987490265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 45f6a7ff9cd9fda4aa181dbe1d494d2b, type: 3}
-  m_PrefabInstance: {fileID: 6954111939570860594}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7800408445120790371 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 45f6a7ff9cd9fda4aa181dbe1d494d2b, type: 3}
   m_PrefabInstance: {fileID: 6954111939570860594}
   m_PrefabAsset: {fileID: 0}

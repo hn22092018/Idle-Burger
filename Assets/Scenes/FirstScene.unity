@@ -1244,6 +1244,7 @@ MonoBehaviour:
   playerData:
     ResourceSave:
       gm: 0
+      bCoin: 0
       rpw_1:
         ch:
           value: 0
@@ -1340,19 +1341,21 @@ MonoBehaviour:
         claimedID: 
         claimableID: 
         hasQuestClaimable: 0
-    NegotiationSave:
-      negotiationManager_1:
-        IsPassTutorial: 0
-        actives: []
-        timeOnlineLast: 
-      negotiationManager_2:
-        IsPassTutorial: 0
-        actives: []
-        timeOnlineLast: 
-      negotiationManager_3:
-        IsPassTutorial: 0
-        actives: []
-        timeOnlineLast: 
+    OrderSave:
+      orderManager_1:
+        activeOrders: []
+        currentOffers: []
+        dtTimeToNewOffer: 0
+      orderManager_2:
+        activeOrders: []
+        currentOffers: []
+        dtTimeToNewOffer: 0
+      orderManager_3:
+        activeOrders: []
+        currentOffers: []
+        dtTimeToNewOffer: 0
+      maxOrder: 0
+      isBoughtOrderStaffPack: 0
     RoomSave_W1:
       roomManager_a:
         smallTableRoomDatas: []
@@ -1423,14 +1426,11 @@ MonoBehaviour:
       researchSave: []
       currentResearchs: []
       researchValue: 0
-      rvs: 0
       maxResearchCount: 1
       onResearch: 0
       Free_Customer_Ads_Watched: 0
       Free_Customer_NonAds: 0
-      IsCheckOldUser: 0
-      IBRP1: 0
-      IBRP2: 0
+      IsBoughtResearchPack: 0
     skinManager:
       skinDataSaves: []
       skinDataSavesVideo: []
@@ -1471,7 +1471,6 @@ MonoBehaviour:
     QuestDataConfig_W2: {fileID: 11400000, guid: 62e16099e0523df4a8614ef932639e85, type: 2}
     QuestDataConfig_W3: {fileID: 11400000, guid: 2687142bdfd2b6649ac144e5dfd684af, type: 2}
     boxData: {fileID: 11400000, guid: 0406faf88d0c23b46895b3c9572d5720, type: 2}
-    negotiationConfig: {fileID: 11400000, guid: a04881ffb8a062048ac908e5c47b86e9, type: 2}
     eventDataConfig: {fileID: 11400000, guid: 03147108179e74b48aaf987a37e2f024, type: 2}
     worldDataAsset: {fileID: 11400000, guid: 6fe31acc137e92f40ad6e1a17bf85a2e, type: 2}
     researchDataConfig: {fileID: 11400000, guid: 61402e90b878b4541812bbb502232922, type: 2}
