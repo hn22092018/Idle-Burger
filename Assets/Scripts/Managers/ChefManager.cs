@@ -15,9 +15,25 @@ public class ChefManager : MonoBehaviour {
     public List<Waiter> waiterQueue = new List<Waiter>();
     public List<ChefSinkNode> sinkNodes = new List<ChefSinkNode>();
     public List<StoveOvenKitchenConfig> stoveOvenConfigs = new List<StoveOvenKitchenConfig>();
+    float managerRateIcome, managerRateProcessing;
     private void Awake() {
         GroupID = roomController.GetGroupID();
         AllRoomManager.instance._ChefManagers = this;
+
+    }
+    private void Start() {
+        LoadManagerRate();
+        EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
+            if ((int)x == (int)roomController.GetManagerStaffID()) {
+                LoadManagerRate();
+            }
+        });
+    }
+    void LoadManagerRate() {
+        CardManagerSave saver = ProfileManager.PlayerData.GetCardManager().GetCardManager(roomController.GetManagerStaffID());
+        managerRateIcome = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity);
+        managerRateProcessing =
+            1f - ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity) / 100f;
     }
 
     private void Update() {
@@ -84,17 +100,19 @@ public class ChefManager : MonoBehaviour {
     BigNumber kitchenRoomValue;
     BigNumber tip;
     public void Payment(Chef chef) {
-        kitchenRoomValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate();
+        kitchenRoomValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate() * managerRateIcome;
         chef.CalculateSkinBuffIncome(ref kitchenRoomValue);
         tip = GameManager.instance.tipChefRateCard * kitchenRoomValue * GameManager.instance.tipBaseRate;
         ProfileManager.PlayerData.AddTipChef(tip);
         GameManager.instance.SpawnCashFx(chef.transform);
-        GameManager.instance.AddCash(kitchenRoomValue);
+        ProfileManager.PlayerData.AddCash(kitchenRoomValue);
         //UIManager.instance.CreatUIMoneyEff(kitchenRoomValue, chef.transform);
     }
 
     public float GetTimeMakeFood() {
-        return roomController.GetTimeServiceCurrent() * GameManager.instance.chefCookTimeRate;
+        float time = roomController.GetTimeServiceCurrent() * GameManager.instance.chefCookTimeRate * managerRateProcessing;
+        if (time <= 3) time = 3;
+        return time;
     }
     public void AddSinkNode(ChefSinkNode node) {
         sinkNodes.Add(node);

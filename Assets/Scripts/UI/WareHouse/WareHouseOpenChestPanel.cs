@@ -142,7 +142,7 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
                 ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Earn_WareHouse_Box, itemReward.amount);
                 break;
             case ItemType.Cash:
-                GameManager.instance.AddCash(itemReward.amount);
+                ProfileManager.PlayerData.AddCash(itemReward.amount);
                 break;
             case ItemType.Reputation:
                 ProfileManager.PlayerData.researchManager.AddResearchValue(itemReward.amount);

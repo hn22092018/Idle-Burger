@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706c46d57a2a4034b98afa5c2d7e989c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 27
+  target: 26
   GroupID: 0
   txtPrice: {fileID: 255746368}
   IsGetPrice: 1
@@ -3048,7 +3048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    staffID: 5
+    staffID: 3
     GroupID: 0
     staffPositions:
     - {fileID: 4182631444802955701}
@@ -4054,8 +4054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842e0a3e47879ce42b10a8a12067cd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerStaffID: 1
   roomSetting:
-    roomID: 27
+    roomID: 26
     GroupID: 0
     modelPositions:
     - type: 0

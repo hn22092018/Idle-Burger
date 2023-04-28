@@ -14,7 +14,6 @@ public class KitchenRoomController : RoomController<KitchenModelType> {
                 for (int i = 0; i <= level; i++) {
                     questManager.TriggerQuest(QuestType.Upgrade_Kitchen_StoveOven, level);
                 }
-                questManager.TriggerQuest(QuestType.Buy_KitchenStove_Oven, GetTotalModelOwnerByType(type.ToString()));
                 break;
         }
     }

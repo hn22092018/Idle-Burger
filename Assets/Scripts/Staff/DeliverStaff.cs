@@ -91,7 +91,7 @@ public class DeliverStaff : BaseStaff {
         DropReputation();
         orderValue = customerOrder.GetOrderFoodValue() * GameManager.instance.GetTotalIncomeRate();
         CalculateSkinBuffIncome(ref orderValue);
-        GameManager.instance.AddCash(orderValue);
+        ProfileManager.PlayerData.AddCash(orderValue);
         //UIManager.instance.CreatUIMoneyEff(drinkValue, transform);
     }
 }

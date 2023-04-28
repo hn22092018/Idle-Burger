@@ -35,7 +35,7 @@ public class PanelTipProfit : UIPanel {
     void OnClaim() {
         SoundManager.instance.PlaySoundEffect(SoundID.CASH_COLLECT);
         profits = ProfileManager.Instance.playerData.GetTotalTipProfit();
-        GameManager.instance.AddCash(profits);
+        ProfileManager.PlayerData.AddCash(profits);
         UIManager.instance.ShowUIMoneyProfit(profits);
         ProfileManager.Instance.playerData.ResetTipProfit();
         OnClose();
@@ -47,7 +47,7 @@ public class PanelTipProfit : UIPanel {
     void OnClaimVideoSuccess() {
         SoundManager.instance.PlaySoundEffect(SoundID.CASH_COLLECT);
         profits = ProfileManager.Instance.playerData.GetTotalTipProfit();
-        GameManager.instance.AddCash(profits * 2);
+        ProfileManager.PlayerData.AddCash(profits * 2);
         UIManager.instance.ShowUIMoneyProfit(profits * 2);
         ProfileManager.Instance.playerData.ResetTipProfit();
         OnClose();
@@ -56,7 +56,7 @@ public class PanelTipProfit : UIPanel {
         SoundManager.instance.PlaySoundEffect(SoundID.CASH_COLLECT);
         ProfileManager.PlayerData.ResourceSave.ConsumeADTicket();
         profits = ProfileManager.Instance.playerData.GetTotalTipProfit();
-        GameManager.instance.AddCash(profits * 2);
+        ProfileManager.PlayerData.AddCash(profits * 2);
         UIManager.instance.ShowUIMoneyProfit(profits * 2);
         ProfileManager.Instance.playerData.ResetTipProfit();
         OnClose();

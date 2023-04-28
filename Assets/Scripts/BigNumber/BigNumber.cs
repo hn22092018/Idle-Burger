@@ -262,32 +262,35 @@ public class BigNumber {
     //***********************************************************************
 
     public static bool operator >(BigNumber bi1, BigNumber bi2) {
+        bi1.normalize();
+        bi2.normalize();
         int max = Math.Max(bi1.exp, bi2.exp);
-
         double v1 = bi1.value;
         double v2 = bi2.value;
         for (int i = 0; i < max - bi1.exp; i++) {
-            v1 /= 1000;
+            v1 /= 1000f;
         }
 
         for (int i = 0; i < max - bi2.exp; i++) {
-            v2 /= 1000;
+            v2 /= 1000f;
         }
         return v1 > v2;
     }
 
     public static bool operator <(BigNumber bi1, BigNumber bi2) {
+        bi1.normalize();
+        bi2.normalize();
         int max = Math.Max(bi1.exp, bi2.exp);
 
         double v1 = bi1.value;
         double v2 = bi2.value;
 
         for (int i = 0; i < max - bi1.exp; i++) {
-            v1 /= 1000;
+            v1 /= 1000f;
         }
 
         for (int i = 0; i < max - bi2.exp; i++) {
-            v2 /= 1000;
+            v2 /= 1000f;
         }
 
         return v1 < v2;

@@ -20,7 +20,7 @@ public class Tutorials : MonoBehaviour {
     private string textToWrite;
     List<TutorialStep> steps = new List<TutorialStep>();
     TutorialStep currentTut;
-    public bool IsRunStory, IsReadyShowTutBuildTable, IsReadyShowTutHireStaff, IsFinishIntroKitchen, IsShowIntro;
+    public bool IsRunStory, IsReadyShowTutBuildTable, IsReadyShowIntroKitchen, IsFinishIntroKitchen, IsShowIntro;
     string s1 = "At last, our very own restaurant can be launched!. I can't wait. Let's open it and make delecious foods for everyone!";
     string s2 = "Oh, look! Our first customer!";
     string s3 = "Here our cooks will creat all the essential ingreadients needed for our foods.";
@@ -146,52 +146,16 @@ public class Tutorials : MonoBehaviour {
             });
             characterTutGr.SetActive(false);
             Debug.Log("Finish Story 2");
+           
             // kết thúc story 2 khi người chơi đã mua thành công table 1. 
             // CustomerOrderTableState continue task order.
         }
         // Wait... to customer start state CustomerUseFoodState and sit in table.
         {
-            // Story 3 Show Tutorial Hire Staff
-            // Trigger in CustomerUseFoodState/SitInTable/ICheckTutStoryIsRunning
-            Debug.Log("Start Story 3");
-            Debug.Log("-----Story 3----Waiting to customer sit in table");
-            IsBlockInput = true;
-            while (!IsReadyShowTutHireStaff) {
+            while (!IsReadyShowIntroKitchen) {
                 // wait tut 
                 yield return new WaitForEndOfFrame();
             }
-            Debug.Log("-----Story 3----Show Tut HireStaff ");
-            CameraMove.instance.StopFollowStory();
-            CameraMove.instance.ChangePosition(currentTut.cameraPos, null);
-            currentTut = GetTutorial(TutorialStepID.HireStaff, 1);
-            for (int i = 0; i < currentTut.textLocalizeIds.Count; i++) {
-
-                characterTutGr.SetActive(true);
-                characterTutGr.GetComponent<Animator>().SetTrigger("IsShow" + (Random.Range(0, 2) == 0 ? "" : 2));
-                sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(currentTut.textLocalizeIds[i]);
-                AddTextWriter(sInfo);
-                while (characterIndex < textToWrite.Length) {
-                    ShowText();
-                    yield return new WaitForEndOfFrame();
-                }
-                delayTime = 2;
-                while (delayTime > 0) {
-                    yield return new WaitForEndOfFrame();
-                }
-            }
-            ChangeBlockerPos(currentTut.blockerCenterPos);
-            characterTutGr.SetActive(false);
-            while (GameManager.instance.SmallTablesRoom[0].staffSetting.config.totalStaffCurrent < 1) {
-                yield return new WaitForEndOfFrame();
-            }
-            while (UIManager.instance.isHasPopupOnScene) {
-                yield return new WaitForEndOfFrame();
-            }
-            currentTut = null;
-            Debug.Log("Finish Story 3");
-            // Story 3 finished when you close popup hire staff.
-        }
-        {
             Debug.Log("Start Story 4");
             Debug.Log("-----Story 4----Intro Kitchen");
             // Story 4
@@ -301,7 +265,7 @@ public class Tutorials : MonoBehaviour {
             else if (currentTut.stepID == TutorialStepID.AdBoost)
                 OnShow(UIManager.instance.btnAdBoost.transform);
             else if (currentTut.stepID == TutorialStepID.SelectNewWorld)
-                OnShow(UIManager.instance.btnWorldSelect.transform);
+                OnShow(UIManager.instance.btnStatistic.transform);
             else if (currentTut.stepID == TutorialStepID.Research)
                 OnShow(UIManager.instance.btnTech.transform);
         }

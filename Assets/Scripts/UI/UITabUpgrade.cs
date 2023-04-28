@@ -15,7 +15,6 @@ public class UITabUpgrade : MonoBehaviour {
     public Text txtItemLevel;
     public Text txtItemUpgradePrice;
     public Text txtUpgrade;
-    public Text txtUpgradePoint;
     public Button btnUpgrade;
     public GameObject btnMaxUpgrade;
     public GameObject grMoney;
@@ -35,7 +34,6 @@ public class UITabUpgrade : MonoBehaviour {
     [SerializeField] RectTransform rectTextPrice;
     float timeRebuildLayout = 0;
     IRoomController currentRoom;
-    string sPoint = "";
     float dtTimeUpgradeHover;
     private void Awake() {
         //btnUpgrade.onClick.AddListener(() => {
@@ -159,8 +157,6 @@ public class UITabUpgrade : MonoBehaviour {
             //else txtItemEnergy.text = currentRoom.GetEnergyEarnItem(index).ToString() + " <color=yellow>(+" + currentRoom.GetEnergyEarnIncreaseInNextLevel(index).ToString() + ") </color>";
 
         } else {
-            sPoint = ProfileManager.Instance.dataConfig.GameText.GetTextByID(474);
-            txtUpgradePoint.text = sPoint + ": +" + 1;
             //grEnergy.gameObject.SetActive(true);
             //grTimeReduce.gameObject.SetActive(true);
             //grMoney.gameObject.SetActive(true);
@@ -200,8 +196,8 @@ public class UITabUpgrade : MonoBehaviour {
         /// check enough money true => upgrade model
         if (GameManager.instance.IsEnoughCash(priceUpgrade) && GameManager.instance.IsEnoughEnergy(energyRequire)) {
             btnUpgrade.transform.localScale = Vector3.one;
-            btnUpgrade.transform.DOScale(new Vector3(1.15f, 1.1f, 1), 0.2f).SetEase(Ease.Linear).OnComplete(() => {
-                btnUpgrade.transform.localScale = Vector3.one;
+            btnUpgrade.transform.DOScale(new Vector3(1.15f, 1.15f, 1), 0.2f).SetEase(Ease.Linear).OnComplete(() => {
+                btnUpgrade.transform.DOScale(new Vector3(1f, 1, 1), 0.2f);
             });
             BigNumber priceUpgradeCache = priceUpgrade;
             int energyRequireCache = energyRequire;

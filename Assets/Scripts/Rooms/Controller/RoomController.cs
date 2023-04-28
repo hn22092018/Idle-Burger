@@ -42,9 +42,11 @@ public interface IRoomController {
     public Vector3 GetPositionItem(int index);
     public int GetTotalUpgradePoint();
     public void OnLockRoom();
+    public ManagerStaffID GetManagerStaffID();
 
 }
 public class RoomController<T> : MonoBehaviour, IRoomController {
+    public ManagerStaffID managerStaffID;
     public BaseRoom<T> roomSetting;
     public BaseStaffSetting staffSetting;
     [InlineEditor]
@@ -66,17 +68,17 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
         if (_ObjBuildRoom) _ObjBuildRoom.GetComponent<UIBuildTarget>().GroupID = roomSetting.GroupID;
     }
     public void OnLockRoom() {
-        GetComponent<Collider>().enabled = false;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(true);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(false);
     }
     public void OnHideRoom() {
-        GetComponent<Collider>().enabled = false;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(false);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(false);
     }
     public void OnLoadRoom() {
-        GetComponent<Collider>().enabled = true;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = true;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(false);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(true);
         LoadFromSaveData(ProfileManager.Instance.playerData.GetRoomData(roomSetting));
@@ -146,18 +148,18 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
                 model.currentModel = t;
             }
         }
-      
+
         totalMoneyEarn = GetTotalMoneyAfterUpgradeItem(index);
         timeService = GetTimeService();
         //totalEnergyUsed = GetTotalEnergyUsed();
         totalEnergyEarn = GetTotalEnergyEarn();
         TriggerQuestUpgrade(index);
-        GameManager.instance.UpdateStarProcess();
+        GameManager.instance.LoadMapUpgradeProcess();
         ProfileManager.Instance.playerData.SaveRoomData(roomSetting);
 
     }
     bool IsReplaceModel(int level) {
-        if (level == 1 || level == 21 || level == 51) return true; 
+        if (level == 1 || level == 21 || level == 51) return true;
         return false;
     }
     public void OnHireStaff() {
@@ -230,7 +232,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
     }
     BigNumber GetTotalMoneyAfterUpgradeItem(int index) {
         T type = roomSetting.modelPositions[index].type;
-        totalMoneyEarn += totalMoneyEarn * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString())/100f);
+        totalMoneyEarn += totalMoneyEarn * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString()) / 100f);
         return totalMoneyEarn;
     }
     public float GetTimeService() {
@@ -308,12 +310,12 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
     public BigNumber GetUpgradePriceItem(int itemIndex) {
         T type = roomSetting.modelPositions[itemIndex].type;
         int level = roomSetting.modelPositions[itemIndex].level;
-        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level)  * RoomPowerRate;
+        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level) * RoomPowerRate;
         return price;
     }
     public BigNumber GetUpgradePriceItemByLevel(int itemIndex, int level) {
         T type = roomSetting.modelPositions[itemIndex].type;
-        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level)  * RoomPowerRate;
+        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level) * RoomPowerRate;
         return price;
     }
     /// <summary>
@@ -433,6 +435,9 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
             }
         }
         return total;
+    }
+    public ManagerStaffID GetManagerStaffID() {
+        return managerStaffID;
     }
     [Button]
     public void LoadStaffEditor() {

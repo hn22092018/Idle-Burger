@@ -12,7 +12,6 @@ public class PanelOrderBook : UIPanel {
     [SerializeField] UIOrderBookOffer uiOrderBookOffer;
     [SerializeField] UIOrderBookWaiting uiOrderBookWaiting;
     [SerializeField] Button btnClose;
-    int contentShow = 3;
     public override void Awake() {
         instance = this;
         panelType = UIPanelType.PanelOrderBook;

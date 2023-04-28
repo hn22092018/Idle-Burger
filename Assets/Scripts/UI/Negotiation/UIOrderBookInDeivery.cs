@@ -22,6 +22,7 @@ public class UIOrderBookInDeivery : UIEffect {
         btnSkipGem.onClick.AddListener(OnSkipGem);
     }
     public void Setup(Order order) {
+        if (order.GetProcess() == 0) processSlider.fillAmount = 0;
         currentOrder = order;
         txtCashProfit.text = order.cashProfit.ToString();
         txtBurgerPoint.text = order.bCoinProfit.ToString();

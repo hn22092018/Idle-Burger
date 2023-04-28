@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StaffManager : BaseStaff {
+    public SkinnedMeshRenderer skinnedMeshRenderer;
     public Transform[] targetMoves;
     Vector3 currentTarget = Vector3.zero;
-    float idleTime=2;
+    float idleTime = 2;
     float dtTimeIdle;
-    public void InitStaff(Transform[] targets) {
+    public void InitStaff(ManagerStaffID id, Transform[] targets) {
+        CardManagerSave cardSaveInfo = ProfileManager.PlayerData.GetCardManager().GetCardManager(id);
+        CardManagerConfig cardConfig = ProfileManager.Instance.dataConfig.cardData.GetCardManagerInfo(id, cardSaveInfo.rarity);
+        skinnedMeshRenderer.sharedMesh = cardConfig.mesh;
         targetMoves = targets;
         if (_BaseStaffMoveSystem) _BaseStaffMoveSystem.OnDisableAI();
-        transform.position= targetMoves[Random.Range(0, targetMoves.Length)].position;
+        transform.position = targetMoves[Random.Range(0, targetMoves.Length)].position;
     }
     public override void OnIdleStart() {
         if (_BaseStaffMoveSystem) _BaseStaffMoveSystem.OnDisableAI();
@@ -29,7 +33,7 @@ public class StaffManager : BaseStaff {
 
     public override void OnMoveStart() {
         Vector3 newTarget = targetMoves[Random.Range(0, targetMoves.Length)].position;
-        if(Vector3.Distance(currentTarget, newTarget)<=0.1f) {
+        if (Vector3.Distance(currentTarget, newTarget) <= 0.1f) {
             StateMachine.ChangeState(StaffIdleState.Instance);
             OnDisableMove();
             return;

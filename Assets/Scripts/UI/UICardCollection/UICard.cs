@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UICard : MonoBehaviour {
-    public CardInfo cardInfo;
+    public CardNormalConfig cardInfo;
     [SerializeField] Sprite frameSprite;
     [SerializeField] Image cardIcon;
     [SerializeField] Image cardFrame;
@@ -21,7 +21,7 @@ public class UICard : MonoBehaviour {
         btnDetail.onClick.AddListener(CardPress);
         btnUpgrade.onClick.AddListener(UpgradeCard);
     }
-    public void LoadCard(CardInfo cardIn, Sprite frame) {
+    public void LoadCard(CardNormalConfig cardIn, Sprite frame) {
         cardInfo = cardIn;
         cardType = cardInfo.cardType;
         switch (cardType)

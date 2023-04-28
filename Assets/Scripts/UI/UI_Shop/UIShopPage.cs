@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIShopPage : MonoBehaviour {
     public TabName shopName;
-    protected List<CardIAP> listCardIAPs = new List<CardIAP>();
+    protected List<CardIAPConfig> listCardIAPs = new List<CardIAPConfig>();
     protected List<OfferData> listOfferData = new List<OfferData>();
     RectTransform rectTransform;
     private void Awake() {

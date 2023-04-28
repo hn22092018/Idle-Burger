@@ -36,7 +36,7 @@ public class Waiter : BaseStaff {
     }
     void UpdateSpeed(bool IsMultiplySkin = false) {
         if (_BaseStaffMoveSystem) {
-            _BaseStaffMoveSystem.MultiplySpeedAI(GameManager.instance.waiterSpeedRate);
+            _BaseStaffMoveSystem.MultiplySpeedAI(GameManager.instance.waiterSpeedRate + WaiterManager.GetManagerRateProcessing() * 0.7f);
             if (IsMultiplySkin) _BaseStaffMoveSystem.MultiplySpeedAI(GetBuffSpeedEfficiencybySkin());
         }
 
@@ -89,7 +89,7 @@ public class Waiter : BaseStaff {
             }
         }
     }
- 
+
     #endregion IDLE STATE
 
     #region ServingFood State
@@ -98,7 +98,7 @@ public class Waiter : BaseStaff {
         base.OnDoWorkStart();
         UpdateSpeed(true);
         isFree = false;
-        if(_BaseStaffMoveSystem) _BaseStaffMoveSystem.SetDestination(servingTable.serverTransform.position);
+        if (_BaseStaffMoveSystem) _BaseStaffMoveSystem.SetDestination(servingTable.serverTransform.position);
         OnEnableMove();
         deltaTime = 0;
         m_Animator.SetBool("IsBringFood", true);

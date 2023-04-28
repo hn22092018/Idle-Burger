@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UICardIAP : MonoBehaviour {
-    CardIAP _CurrentCardIAP;
+    CardIAPConfig _CurrentCardIAP;
     [SerializeField] Text nameText;
     [SerializeField] Text descriptionText;
     [SerializeField] Text priceText;
@@ -19,7 +19,7 @@ public class UICardIAP : MonoBehaviour {
         buyButton.onClick.AddListener(BuyCardOffer);
     }
     TabName _shopName;
-    public void InitData(CardIAP cardIAP, TabName shopName) {
+    public void InitData(CardIAPConfig cardIAP, TabName shopName) {
         _shopName = shopName;
         _CurrentCardIAP = cardIAP;
         buyButton.gameObject.SetActive(true);

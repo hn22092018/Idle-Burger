@@ -109,7 +109,7 @@ public class CustomerUseFoodState : State<Customer> {
     }
     IEnumerator CallWaiter() {
         if (Tutorials.instance.IsRunStory) {
-            Tutorials.instance.IsReadyShowTutHireStaff = true;
+            Tutorials.instance.IsReadyShowIntroKitchen = true;
             while (!Tutorials.instance.IsFinishIntroKitchen) {
                 yield return new WaitForEndOfFrame();
             }

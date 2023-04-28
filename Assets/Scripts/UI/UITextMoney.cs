@@ -12,7 +12,7 @@ public class UITextMoney : MonoBehaviour {
         EventManager.AddListener(EventName.UpdateMoney.ToString(), UpdateMoney);
     }
     void UpdateMoney() {
-        txtMoney.text = new BigNumber(GameManager.instance.GetCash()).ToString();
+        txtMoney.text = ProfileManager.PlayerData.GetCash().ToString();
     }
    
 }

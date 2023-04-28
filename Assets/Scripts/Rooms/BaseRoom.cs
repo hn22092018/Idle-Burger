@@ -26,7 +26,6 @@ public enum RoomID {
     BigTable13,
     BigTable14,
     Kitchen,
-    Clean,
     Restroom,
     Restroom2,
     Power,

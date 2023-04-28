@@ -77,7 +77,7 @@ public class PanelBalanceOffline : UIPanel {
     }
     private void OpenShop() {
         if (GameManager.instance && !isCollectBonusCash) {
-            GameManager.instance.AddCash(profit);
+            ProfileManager.PlayerData.AddCash(profit);
         }
         if (!isCollectBonusReputation) {
             ProfileManager.PlayerData.researchManager.AddResearchValue(reputation);
@@ -90,7 +90,7 @@ public class PanelBalanceOffline : UIPanel {
         if (GameManager.instance.IsEnoughGem(gemPriceX3)) {
             SoundManager.instance.PlaySoundEffect(SoundID.CASH_COLLECT);
             ProfileManager.PlayerData.ConsumeGem(gemPriceX3);
-            GameManager.instance.AddCash(profit * 3);
+            ProfileManager.PlayerData.AddCash(profit * 3);
             isCollectBonusCash = true;
             ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Spend_X3_Cash, gemPriceX3);
         }
@@ -109,7 +109,7 @@ public class PanelBalanceOffline : UIPanel {
 
     void OnAdsX2Success() {
         isCollectBonusCash = true;
-        if (GameManager.instance) GameManager.instance.AddCash(profit * 2);
+        ProfileManager.PlayerData.AddCash(profit * 2);
         if (UIManager.instance) UIManager.instance.ShowUIMoneyProfit(profit * 2);
     }
 
@@ -142,7 +142,7 @@ public class PanelBalanceOffline : UIPanel {
         bntContinueGame.gameObject.SetActive(false);
         SoundManager.instance.PlaySoundEffect(SoundID.CASH_COLLECT);
         if (GameManager.instance && !isCollectBonusCash) {
-            GameManager.instance.AddCash(profit);
+            ProfileManager.PlayerData.AddCash(profit);
             if (UIManager.instance) UIManager.instance.ShowUIMoneyProfit(profit);
         }
         if (!isCollectBonusReputation) {

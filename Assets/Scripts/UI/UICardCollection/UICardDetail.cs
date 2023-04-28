@@ -20,7 +20,7 @@ public class UICardDetail : MonoBehaviour {
     void OnClose() {
         gameObject.SetActive(false);
     }
-    public void LoadCardDetail(CardInfo cardInfo) {
+    public void LoadCardDetail(CardNormalConfig cardInfo) {
         switch (cardInfo.cardType)
         {
             case CardType.NormalCard:

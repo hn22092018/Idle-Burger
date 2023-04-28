@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,28 +56,32 @@ public class PanelManagerBuild : UIPanel {
     private void OnEnable() {
         timeRebuildLayout = 0;
     }
+    bool b1, b2, b3;
     private void Update() {
         if (timeRebuildLayout <= 1) {
             timeRebuildLayout += Time.deltaTime;
             LayoutRebuilder.MarkLayoutForRebuild(rectTransformRequire);
         }
-        btnBuild.interactable = GameManager.instance.IsEnoughCash(price) && GameManager.instance.IsEnoughEnergy(energy) && ProfileManager.PlayerData.GetTotalStarEarned() >= buildData.starRequire;
-        if (buildData.starRequire > 0) {
-            if (ProfileManager.PlayerData.GetTotalStarEarned() < buildData.starRequire) {
-                btnGoPower.gameObject.SetActive(false);
-                grEnergyAndMoneyRequire.gameObject.SetActive(false);
-                grStarRequire.gameObject.SetActive(true);
-            } else {
-                grEnergyAndMoneyRequire.gameObject.SetActive(true);
-                grStarRequire.gameObject.SetActive(false);
-                btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
-            }
-        } else {
-            grEnergyAndMoneyRequire.gameObject.SetActive(true);
-            grStarRequire.gameObject.SetActive(false);
-            btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
-        }
+        b1 = GameManager.instance.IsEnoughCash(price);
+        b2 = GameManager.instance.IsEnoughEnergy(energy);
+        btnBuild.interactable = b1 && b2;
+        //if (buildData.starRequire > 0) {
+        //    if (ProfileManager.PlayerData.GetTotalStarEarned() < buildData.starRequire) {
+        //        btnGoPower.gameObject.SetActive(false);
+        //        grEnergyAndMoneyRequire.gameObject.SetActive(false);
+        //        grStarRequire.gameObject.SetActive(true);
+        //    } else {
+        //        grEnergyAndMoneyRequire.gameObject.SetActive(true);
+        //        grStarRequire.gameObject.SetActive(false);
+        //        btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
+        //    }
+        //} else {
+        grEnergyAndMoneyRequire.gameObject.SetActive(true);
+        grStarRequire.gameObject.SetActive(false);
+        btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
+        //}
     }
+
     void OnBuild() {
         if (Tutorials.instance.IsShow) {
             Tutorials.instance.FinishTutorial();

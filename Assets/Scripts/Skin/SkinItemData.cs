@@ -72,9 +72,9 @@ public class SkinItemData : ScriptableObject {
         LoadReceptionSkin();
         LoadChefSkin();
         LoadWaiterSkin();
-        LoadCleanerSkin();
-        LoadBartenderSkin();
-        LoadBaristaSkin();
+        //LoadCleanerSkin();
+        LoadDeliverSkin();
+        //LoadBaristaSkin();
     }
 
     
@@ -205,12 +205,12 @@ public class SkinItemData : ScriptableObject {
         AllSkins.AddRange(_BaristaSkins);
     }
 
-    private void LoadBartenderSkin() {
+    private void LoadDeliverSkin() {
         _BartenderSkins.Clear();
 
         SkinItem skin0 = new SkinItem() {
             id = 101,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Vinicius",
             skinIcon = GetSpriteByName("Bartender_0"),
             workMesh = GetMeshByName("Bartender_0"),
@@ -223,7 +223,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin1 = new SkinItem() {
             id = 20,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Naruhodo",
             skinIcon = GetSpriteByName("Bartender_1"),
             workMesh = GetMeshByName("Bartender_1"),
@@ -238,7 +238,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin2 = new SkinItem() {
             id = 28,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Risako",
             skinIcon = GetSpriteByName("Bartender_2"),
             workMesh = GetMeshByName("Bartender_2"),
@@ -253,7 +253,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin3 = new SkinItem() {
             id = 29,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Dantenda",
             skinIcon = GetSpriteByName("Bartender_3"),
             workMesh = GetMeshByName("Bartender_3"),
@@ -268,7 +268,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin4 = new SkinItem() {
             id = 39,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Xiao",
             skinIcon = GetSpriteByName("Bartender_4"),
             workMesh = GetMeshByName("Bartender_4"),
@@ -283,7 +283,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin5 = new SkinItem() {
             id = 44,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Mateo",
             skinIcon = GetSpriteByName("Bartender_5"),
             workMesh = GetMeshByName("Bartender_5"),
@@ -298,7 +298,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin6 = new SkinItem() {
             id = 12,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Oliver",
             skinIcon = GetSpriteByName("Bar Staff VIP"),
             workMesh = GetMeshByName("Bar Staff VIP"),
@@ -311,7 +311,7 @@ public class SkinItemData : ScriptableObject {
         };
         SkinItem skin7 = new SkinItem() {
             id = 5,
-            staffType = StaffID.Bartender,
+            staffType = StaffID.Deliver,
             skinName = "Hornick",
             skinIcon = GetSpriteByName("Bar Staff SVIP"),
             workMesh = GetMeshByName("Bar Staff SVIP"),
@@ -332,159 +332,159 @@ public class SkinItemData : ScriptableObject {
         _BartenderSkins.Add(skin7);
         AllSkins.AddRange(_BartenderSkins);
     }
-    private void LoadCleanerSkin() {
-        _CleanerSkins.Clear();
-        SkinItem skin0 = new SkinItem() {
-            id = 102,
-            staffType = StaffID.Cleaner,
-            skinName = "Robert",
-            skinIcon = GetSpriteByName("Cleaner_0"),
-            workMesh = GetMeshByName("Cleaner_0"),
-            skinType = SkinType.Default,
-            diligenceWork = DiligenceWork.Normal,
-            workEfficiency = 0,
-            specialSkillChance = 0
-        };
+    //private void LoadCleanerSkin() {
+    //    _CleanerSkins.Clear();
+    //    SkinItem skin0 = new SkinItem() {
+    //        id = 102,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Robert",
+    //        skinIcon = GetSpriteByName("Cleaner_0"),
+    //        workMesh = GetMeshByName("Cleaner_0"),
+    //        skinType = SkinType.Default,
+    //        diligenceWork = DiligenceWork.Normal,
+    //        workEfficiency = 0,
+    //        specialSkillChance = 0
+    //    };
 
-        SkinItem skin1 = new SkinItem() {
-            id = 30,
-            staffType = StaffID.Cleaner,
-            skinName = "Ryoichi",
-            skinIcon = GetSpriteByName("Cleaner_1"),
-            workMesh = GetMeshByName("Cleaner_1"),
-            skinType = SkinType.Video,
-            diligenceWork = DiligenceWork.Normal,
-            skinPrice = 1,
-            workEfficiency = 10,
-            incomeX2Chance = 10,
-            specialSkillChance = 15,
-            reputationDropChance=10
+    //    SkinItem skin1 = new SkinItem() {
+    //        id = 30,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Ryoichi",
+    //        skinIcon = GetSpriteByName("Cleaner_1"),
+    //        workMesh = GetMeshByName("Cleaner_1"),
+    //        skinType = SkinType.Video,
+    //        diligenceWork = DiligenceWork.Normal,
+    //        skinPrice = 1,
+    //        workEfficiency = 10,
+    //        incomeX2Chance = 10,
+    //        specialSkillChance = 15,
+    //        reputationDropChance=10
 
-        };
+    //    };
 
-        SkinItem skin2 = new SkinItem() {
-            id = 45,
-            staffType = StaffID.Cleaner,
-            skinName = "Angelica",
-            skinIcon = GetSpriteByName("Cleaner_2"),
-            workMesh = GetMeshByName("Cleaner_2"),
-            skinType = SkinType.Video,
-            diligenceWork = DiligenceWork.Hard,
-            skinPrice = 3,
-            workEfficiency = 20,
-            incomeX2Chance = 20,
-            specialSkillChance = 20,
-            reputationDropChance = 15
-        };
-        SkinItem skin3 = new SkinItem() {
-            id = 114,
-            staffType = StaffID.Cleaner,
-            skinName = "Irenka",
-            skinIcon = GetSpriteByName("Cleaner_3"),
-            workMesh = GetMeshByName("Cleaner_3"),
-            skinType = SkinType.Video,
-            diligenceWork = DiligenceWork.Hard,
-            skinPrice = 3,
-            workEfficiency = 30,
-            incomeX2Chance = 20,
-            specialSkillChance = 30,
-            reputationDropChance = 20
-        };
-        SkinItem skin4 = new SkinItem() {
-            id = 106,
-            staffType = StaffID.Cleaner,
-            skinName = "Daniels",
-            skinIcon = GetSpriteByName("Cleaner_4"),
-            workMesh = GetMeshByName("Cleaner_4"),
-            skinType = SkinType.Video,
-            diligenceWork = DiligenceWork.Hard,
-            skinPrice = 5,
-            workEfficiency = 30,
-            incomeX2Chance = 40,
-            specialSkillChance = 30,
-            reputationDropChance = 30
-        };
-        SkinItem skin5 = new SkinItem() {
-            id = 112,
-            staffType = StaffID.Cleaner,
-            skinName = "Thomas",
-            skinIcon = GetSpriteByName("Cleaner_5"),
-            workMesh = GetMeshByName("Cleaner_5"),
-            skinType = SkinType.Gem,
-            diligenceWork = DiligenceWork.Hard,
-            skinPrice = 100,
-            workEfficiency = 30,
-            incomeX2Chance = 30,
-            specialSkillChance = 20,
-            reputationDropChance = 20
-        };
-        SkinItem skin6 = new SkinItem() {
-            id = 113,
-            staffType = StaffID.Cleaner,
-            skinName = "Hornik",
-            skinIcon = GetSpriteByName("Cleaner_6"),
-            workMesh = GetMeshByName("Cleaner_6"),
-            skinType = SkinType.Gem,
-            diligenceWork = DiligenceWork.Hard,
-            skinPrice = 300,
-            workEfficiency = 40,
-            incomeX2Chance = 40,
-            specialSkillChance = 30,
-            reputationDropChance = 30
-        };
-        SkinItem skin7 = new SkinItem() {
-            id = 19,
-            staffType = StaffID.Cleaner,
-            skinName = "Henderson",
-            skinIcon = GetSpriteByName("Cleaner_7"),
-            workMesh = GetMeshByName("Cleaner_7"),
-            skinType = SkinType.Gem,
-            diligenceWork = DiligenceWork.Crazy,
-            skinPrice = 400,
-            workEfficiency = 45,
-            incomeX2Chance = 60,
-            specialSkillChance = 40,
-            reputationDropChance = 30
-        };
+    //    SkinItem skin2 = new SkinItem() {
+    //        id = 45,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Angelica",
+    //        skinIcon = GetSpriteByName("Cleaner_2"),
+    //        workMesh = GetMeshByName("Cleaner_2"),
+    //        skinType = SkinType.Video,
+    //        diligenceWork = DiligenceWork.Hard,
+    //        skinPrice = 3,
+    //        workEfficiency = 20,
+    //        incomeX2Chance = 20,
+    //        specialSkillChance = 20,
+    //        reputationDropChance = 15
+    //    };
+    //    SkinItem skin3 = new SkinItem() {
+    //        id = 114,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Irenka",
+    //        skinIcon = GetSpriteByName("Cleaner_3"),
+    //        workMesh = GetMeshByName("Cleaner_3"),
+    //        skinType = SkinType.Video,
+    //        diligenceWork = DiligenceWork.Hard,
+    //        skinPrice = 3,
+    //        workEfficiency = 30,
+    //        incomeX2Chance = 20,
+    //        specialSkillChance = 30,
+    //        reputationDropChance = 20
+    //    };
+    //    SkinItem skin4 = new SkinItem() {
+    //        id = 106,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Daniels",
+    //        skinIcon = GetSpriteByName("Cleaner_4"),
+    //        workMesh = GetMeshByName("Cleaner_4"),
+    //        skinType = SkinType.Video,
+    //        diligenceWork = DiligenceWork.Hard,
+    //        skinPrice = 5,
+    //        workEfficiency = 30,
+    //        incomeX2Chance = 40,
+    //        specialSkillChance = 30,
+    //        reputationDropChance = 30
+    //    };
+    //    SkinItem skin5 = new SkinItem() {
+    //        id = 112,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Thomas",
+    //        skinIcon = GetSpriteByName("Cleaner_5"),
+    //        workMesh = GetMeshByName("Cleaner_5"),
+    //        skinType = SkinType.Gem,
+    //        diligenceWork = DiligenceWork.Hard,
+    //        skinPrice = 100,
+    //        workEfficiency = 30,
+    //        incomeX2Chance = 30,
+    //        specialSkillChance = 20,
+    //        reputationDropChance = 20
+    //    };
+    //    SkinItem skin6 = new SkinItem() {
+    //        id = 113,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Hornik",
+    //        skinIcon = GetSpriteByName("Cleaner_6"),
+    //        workMesh = GetMeshByName("Cleaner_6"),
+    //        skinType = SkinType.Gem,
+    //        diligenceWork = DiligenceWork.Hard,
+    //        skinPrice = 300,
+    //        workEfficiency = 40,
+    //        incomeX2Chance = 40,
+    //        specialSkillChance = 30,
+    //        reputationDropChance = 30
+    //    };
+    //    SkinItem skin7 = new SkinItem() {
+    //        id = 19,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Henderson",
+    //        skinIcon = GetSpriteByName("Cleaner_7"),
+    //        workMesh = GetMeshByName("Cleaner_7"),
+    //        skinType = SkinType.Gem,
+    //        diligenceWork = DiligenceWork.Crazy,
+    //        skinPrice = 400,
+    //        workEfficiency = 45,
+    //        incomeX2Chance = 60,
+    //        specialSkillChance = 40,
+    //        reputationDropChance = 30
+    //    };
 
-        SkinItem skin8 = new SkinItem() {
-            id = 11,
-            staffType = StaffID.Cleaner,
-            skinName = "Jacob",
-            skinIcon = GetSpriteByName("Cleaning Staff VIP"),
-            workMesh = GetMeshByName("Cleaning Staff VIP"),
-            skinType = SkinType.PremiumSuit,
-            diligenceWork = DiligenceWork.Crazy,
-            workEfficiency = 60,
-            incomeX2Chance = 80,
-            specialSkillChance = 40,
-            reputationDropChance = 40
-        };
-        SkinItem skin9 = new SkinItem() {
-            id = 4,
-            staffType = StaffID.Cleaner,
-            skinName = "Harland",
-            skinIcon = GetSpriteByName("Cleaning Staff SVIP"),
-            workMesh = GetMeshByName("Cleaning Staff SVIP"),
-            skinType = SkinType.GoldenSuit,
-            diligenceWork = DiligenceWork.Crazy,
-            workEfficiency = 60,
-            incomeX2Chance = 100,
-            specialSkillChance = 50,
-            reputationDropChance = 50
-        };
-        _CleanerSkins.Add(skin0);
-        _CleanerSkins.Add(skin1);
-        _CleanerSkins.Add(skin2);
-        _CleanerSkins.Add(skin3);
-        _CleanerSkins.Add(skin4);
-        _CleanerSkins.Add(skin5);
-        _CleanerSkins.Add(skin6);
-        _CleanerSkins.Add(skin7);
-        _CleanerSkins.Add(skin8);
-        _CleanerSkins.Add(skin9);
-        AllSkins.AddRange(_CleanerSkins);
-    }
+    //    SkinItem skin8 = new SkinItem() {
+    //        id = 11,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Jacob",
+    //        skinIcon = GetSpriteByName("Cleaning Staff VIP"),
+    //        workMesh = GetMeshByName("Cleaning Staff VIP"),
+    //        skinType = SkinType.PremiumSuit,
+    //        diligenceWork = DiligenceWork.Crazy,
+    //        workEfficiency = 60,
+    //        incomeX2Chance = 80,
+    //        specialSkillChance = 40,
+    //        reputationDropChance = 40
+    //    };
+    //    SkinItem skin9 = new SkinItem() {
+    //        id = 4,
+    //        staffType = StaffID.Cleaner,
+    //        skinName = "Harland",
+    //        skinIcon = GetSpriteByName("Cleaning Staff SVIP"),
+    //        workMesh = GetMeshByName("Cleaning Staff SVIP"),
+    //        skinType = SkinType.GoldenSuit,
+    //        diligenceWork = DiligenceWork.Crazy,
+    //        workEfficiency = 60,
+    //        incomeX2Chance = 100,
+    //        specialSkillChance = 50,
+    //        reputationDropChance = 50
+    //    };
+    //    _CleanerSkins.Add(skin0);
+    //    _CleanerSkins.Add(skin1);
+    //    _CleanerSkins.Add(skin2);
+    //    _CleanerSkins.Add(skin3);
+    //    _CleanerSkins.Add(skin4);
+    //    _CleanerSkins.Add(skin5);
+    //    _CleanerSkins.Add(skin6);
+    //    _CleanerSkins.Add(skin7);
+    //    _CleanerSkins.Add(skin8);
+    //    _CleanerSkins.Add(skin9);
+    //    AllSkins.AddRange(_CleanerSkins);
+    //}
     private void LoadWaiterSkin() {
         _WaiterSkins.Clear();
 
@@ -832,7 +832,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin0 = new SkinItem() {
             id =105,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Alexander",
             skinIcon = GetSpriteByName("Reception_0"),
             workMesh = GetMeshByName("Reception_0"),
@@ -845,7 +845,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin1 = new SkinItem() {
             id = 16,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Ericson",
             skinIcon = GetSpriteByName("Reception_1"),
             workMesh = GetMeshByName("Reception_1"),
@@ -860,7 +860,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin2 = new SkinItem() {
             id = 26,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Eiko",
             skinIcon = GetSpriteByName("Reception_2"),
             workMesh = GetMeshByName("Reception_2"),
@@ -876,7 +876,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin3 = new SkinItem() {
             id = 36,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Juan",
             skinIcon = GetSpriteByName("Reception_3"),
             workMesh = GetMeshByName("Reception_3"),
@@ -890,7 +890,7 @@ public class SkinItemData : ScriptableObject {
         };
         SkinItem skin4 = new SkinItem() {
             id = 37,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Alesha",
             skinIcon = GetSpriteByName("Reception_4"),
             workMesh = GetMeshByName("Reception_4"),
@@ -905,7 +905,7 @@ public class SkinItemData : ScriptableObject {
 
         SkinItem skin5 = new SkinItem() {
             id = 48,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Champtoshi",
             skinIcon = GetSpriteByName("Reception_5"),
             workMesh = GetMeshByName("Reception_5"),
@@ -919,7 +919,7 @@ public class SkinItemData : ScriptableObject {
         };
         SkinItem skin6 = new SkinItem() {
             id = 8,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Jones",
             skinIcon = GetSpriteByName("Receptionist VIP"),
             workMesh = GetMeshByName("Receptionist VIP"),
@@ -933,7 +933,7 @@ public class SkinItemData : ScriptableObject {
         };
         SkinItem skin7 = new SkinItem() {
             id = 1,
-            staffType = StaffID.Lobby_Receptioner,
+            staffType = StaffID.Receptionist,
             skinName = "Robbie",
             skinIcon = GetSpriteByName("Receptionist SVIP"),
             workMesh = GetMeshByName("Receptionist SVIP"),

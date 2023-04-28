@@ -10,11 +10,6 @@ public class RestroomController : RoomController<RestroomModelType> {
         RestroomModelType type = roomSetting.modelPositions[indexItem].type;
         int level = roomSetting.modelPositions[indexItem].level;
         switch (type) {
-            case RestroomModelType.Restroom_HandsDryer:
-                for (int i = 1; i <= level; i++) {
-                    questManager.TriggerQuest(QuestType.Upgrade_Restroom_HandDryer, i);
-                }
-                break;
             case RestroomModelType.Restroom_SinkFemale:
                 for (int i = 1; i <= level; i++) {
                     questManager.TriggerQuest(QuestType.Upgrade_Restroom_FemaleSink, i);
@@ -52,9 +47,6 @@ public class RestroomController : RoomController<RestroomModelType> {
                 break;
             case QuestType.Upgrade_Restroom_FemaleSink:
                 index = GetFirstItemIndexByType(RestroomModelType.Restroom_SinkFemale.ToString());
-                break;
-            case QuestType.Upgrade_Restroom_HandDryer:
-                index = GetFirstItemIndexByType(RestroomModelType.Restroom_HandsDryer.ToString());
                 break;
         }
         return index;

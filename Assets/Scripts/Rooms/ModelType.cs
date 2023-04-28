@@ -7,21 +7,12 @@ public enum LobbyModelType {
     Lobby_Case,
     Lobby_Decor
 }
-public enum ParkingModelType {
-    ParkingSlot
-}
-public enum CleanModelType {
-    Clean_Vacuum,
-    Clean_Trolley,
-    Clean_Broom,
-    Clean_ProductClean
-}
+
 public enum RestroomModelType {
     Restroom_SinkMale,
     Restroom_SinkFemale,
     Restroom_StallFemale,
     Restroom_StallMale,
-    Restroom_HandsDryer
 }
 public enum KitchenModelType {
     Kitchen_Fridge,
@@ -63,27 +54,6 @@ public enum PowerModelType {
     Power_SmallGenerator
 }
 
-public enum VIPRoomModelType {
-    VIPRoom_Table,
-    VIPRoom_Television,
-    VIPRoom_Camera,
-    VIPRoom_Decor,
-    VIPRoom_Chair,
-    VIPRoom_Food,
-    VIPRoom_Clock,
-    VIPRoom_Lamp,
-    VIPRoom_Decor2,
-}
-public enum ConveyorModelType {
-    Fridge,
-    Cupboards,
-    ChoppingStation,
-    Stove_Oven,
-    Sink,
-    Chair,
-    Table
-
-}
 public enum ModelType {
 
 }

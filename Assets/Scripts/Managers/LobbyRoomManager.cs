@@ -25,10 +25,24 @@ public class LobbyRoomManager : MonoBehaviour {
     public List<Customer> customersInQueue;
     float orderTime = 5;
     int countStaff;
-
+    float managerRateIcome, managerRateProcessing;
     private void Awake() {
         instance = this;
         AllRoomManager.instance._LobbyManager = this;
+    }
+    private void Start() {
+        LoadManagerRate();
+        EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
+            if ((int)x == (int)roomController.GetManagerStaffID()) {
+                LoadManagerRate();
+            }
+        });
+    }
+    void LoadManagerRate() {
+        CardManagerSave saver = ProfileManager.PlayerData.GetCardManager().GetCardManager(roomController.GetManagerStaffID());
+        managerRateIcome = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity);
+        managerRateProcessing =
+            1f - ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity) / 100f;
     }
 
     List<Transform> listStaffTrans = new List<Transform>();
@@ -42,7 +56,7 @@ public class LobbyRoomManager : MonoBehaviour {
     }
 
     public void ProcessOrder(LobbyPosition lobby) {
-        orderTime = (float)roomController.GetTimeServiceCurrent() * GameManager.instance. receptionOrderTimeRate;
+        orderTime = (float)roomController.GetTimeServiceCurrent() * GameManager.instance. receptionOrderTimeRate*managerRateProcessing;
         if (Tutorials.instance.IsRunStory) orderTime = 2;
         lobby.staff.StartOrder(orderTime);
     }
@@ -51,10 +65,10 @@ public class LobbyRoomManager : MonoBehaviour {
     }
     BigNumber orderValue;
     public void PaymentOrder(LobbyPosition lobby) {
-        orderValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate();
+        orderValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate()*managerRateIcome;
         lobby.staff.FinishOrder();
         lobby.staff.CalculateSkinBuffIncome(ref orderValue);
-        GameManager.instance.AddCash(orderValue);
+        ProfileManager.PlayerData.AddCash(orderValue);
         //UIManager.instance.CreatUIMoneyEff(orderValue, lobby.staff.transform);
         ProfileManager.PlayerData.AddTipReception(orderValue * GameManager.instance.tipBaseRate * GameManager.instance.tipReceptionRate);
     }

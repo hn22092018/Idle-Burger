@@ -11,18 +11,27 @@ public class WCManager : MonoBehaviour {
     [HideInInspector] public int GroupID;
     public RoomController<RestroomModelType> currentRoom;
     public List<WCPosition> wcPositionsSetting;
+    float managerRateIcome, managerRateProcessing;
     private void Awake() {
         GroupID = currentRoom.GetGroupID();
         AllRoomManager.instance.RegistryRestroomManager(this);
     }
-    public void CloseRestaurant() {
-        for (int i = 0; i < wcPositionsSetting.Count; i++) {
-            if (wcPositionsSetting[i].customer) {
-                Payment(wcPositionsSetting[i]);
-                wcPositionsSetting[i].customer = null;
-            }
+    private void Start() {
+        LoadManagerRate();
+        if (GroupID == 0) {
+            EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
+                if ((int)x == (int)currentRoom.GetManagerStaffID()) {
+                    LoadManagerRate();
+                }
+            });
         }
     }
+    void LoadManagerRate() {
+        CardManagerSave saver = ProfileManager.PlayerData.GetCardManager().GetCardManager(GameManager.instance.LobbyRoom.GetManagerStaffID());
+        managerRateIcome = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity);
+        managerRateProcessing = 1f - ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity) / 100f;
+    }
+
     public void AddPosition(WCPosition pos) {
         if (!wcPositionsSetting.Contains(pos)) {
             wcPositionsSetting.Add(pos);
@@ -74,18 +83,18 @@ public class WCManager : MonoBehaviour {
     List<WCPosition> GetListPositionEmpty(Customer customer) {
         listEmpty = new List<WCPosition>();
         for (int i = 0; i < wcPositionsSetting.Count; i++) {
-            if (wcPositionsSetting[i].customer == null && wcPositionsSetting[i].IsMale == customer.IsMale )
+            if (wcPositionsSetting[i].customer == null && wcPositionsSetting[i].IsMale == customer.IsMale)
                 listEmpty.Add(wcPositionsSetting[i]);
         }
         return listEmpty;
     }
     BigNumber value;
     public void Payment(WCPosition pos) {
-        value = currentRoom.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate();
-        GameManager.instance.AddCash(value);
+        value = currentRoom.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate() * managerRateIcome;
+        ProfileManager.PlayerData.AddCash(value);
         UIManager.instance.CreatUIMoneyEff(value, pos.transform);
     }
     public float GetTimeService() {
-        return currentRoom.GetTimeServiceCurrent() * GameManager.instance.customerWCTimeRate;
+        return currentRoom.GetTimeServiceCurrent() * GameManager.instance.customerWCTimeRate * managerRateProcessing;
     }
 }

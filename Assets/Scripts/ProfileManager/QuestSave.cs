@@ -16,8 +16,8 @@ public class QuestSave {
             questManager_3 = dataSave.questManager_3;
         }
         questManager_a.InitQuest(ProfileManager.Instance.dataConfig.QuestDataConfig_W1.questList);
-        questManager_2.InitQuest(ProfileManager.Instance.dataConfig.QuestDataConfig_W2.questList);
-        questManager_3.InitQuest(ProfileManager.Instance.dataConfig.QuestDataConfig_W3.questList);
+        //questManager_2.InitQuest(ProfileManager.Instance.dataConfig.QuestDataConfig_W2.questList);
+        //questManager_3.InitQuest(ProfileManager.Instance.dataConfig.QuestDataConfig_W3.questList);
     }
     public void IsMarkChangeData() {
         IsChangeData = true;

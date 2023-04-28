@@ -7,7 +7,6 @@ public class ModelDataAsset : ScriptableObject {
     public List<SmalTableModelDataConfig> smallTableModelConfigs;
     public List<LobbyModelDataConfig> lobbyModelConfigs;
     public List<ManagerModelDataConfig> managerModelConfigs;
-    public List<CleanerModelDataConfig> cleanModelConfigs;
     public List<PowerModelDataConfig> powerModelConfigs;
     public List<RestroomModelDataConfig> restroomModelConfigs;
     public List<KitchenModelDataConfig> kitchenModelConfigs;
@@ -29,10 +28,6 @@ public class ModelDataAsset : ScriptableObject {
         } else if (type is ManagerModelType) {
             for (int i = 0; i < managerModelConfigs.Count; i++) {
                 if (managerModelConfigs[i].type.ToString() == type.ToString()) return managerModelConfigs[i].models;
-            }
-        } else if (type is CleanModelType) {
-            for (int i = 0; i < cleanModelConfigs.Count; i++) {
-                if (cleanModelConfigs[i].type.ToString() == type.ToString()) return cleanModelConfigs[i].models;
             }
         } else if (type is PowerModelType) {
             for (int i = 0; i < powerModelConfigs.Count; i++) {
@@ -80,12 +75,7 @@ public class ManagerModelDataConfig {
     public List<GameObject> models;
     public Sprite spr;
 }
-[System.Serializable]
-public class CleanerModelDataConfig {
-    public CleanModelType type;
-    public List<GameObject> models;
-    public Sprite spr;
-}
+
 [System.Serializable]
 public class PowerModelDataConfig {
     public PowerModelType type;

@@ -10,7 +10,6 @@ public class PanelRoomInfo : UIPanel {
     public static PanelRoomInfo instance;
     [SerializeField] RectTransform _RectGroupButtonTabs;
     [SerializeField] private Button btnClose, btnTabUpgrade, btnTabStaff;
-   
     [SerializeField] private Sprite[] sprBtnTabs;
     [SerializeField] private Color[] clrTxtBtnTabs;
     [SerializeField] private Text[] txtBtnTabs;
@@ -70,6 +69,7 @@ public class PanelRoomInfo : UIPanel {
     public void OnShowInfoItem(int index) {
         GameManager.instance.selectedRoom.TurnOnSelectedEffectItem(index);
         uiTabUpgrade.OnShowInfoItem(index);
+
         if (Tutorials.instance.IsShow) {
             TutorialStepID step = Tutorials.instance.GetTutorialStep();
             if (step == TutorialStepID.UpgradeTable) {
@@ -105,13 +105,9 @@ public class PanelRoomInfo : UIPanel {
             TutorialStepID step = Tutorials.instance.GetTutorialStep();
             if (step == TutorialStepID.UpgradeTable) {
                 isBlockClose = true;
-                Transform slot = uiTabUpgrade.rootUIItem.GetChild(4).transform;
+                Transform slot = uiTabUpgrade.rootUIItem.GetChild(3).transform;
                 Tutorials.instance.OnShow(slot);
-            } else if (step == TutorialStepID.HireStaff) {
-                isBlockClose = true;
-                btnTabUpgrade.interactable = false;
-                Tutorials.instance.OnShow(btnTabStaff.transform);
-            }
+            } 
         }
     }
 
@@ -143,9 +139,6 @@ public class PanelRoomInfo : UIPanel {
         Tutorials.instance.OnCloseTutorial();
         GameManager.instance.selectedRoom.TurnOffSelectedEffectItem();
         UIManager.instance.ClosePanelRoomInfo();
-        if (AdsManager.Instance.IsGoodToShowBannerAds()) {
-            AdsManager.Instance.ShowBannerAds();
-        }
     }
     private void OnEnable() {
         AdsManager.Instance.HideBannerAds();

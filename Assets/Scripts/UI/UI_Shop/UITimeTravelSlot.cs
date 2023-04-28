@@ -80,22 +80,22 @@ public class UITimeTravelSlot : UIShopSlot {
             switch (currentOfferData.offerID) {
                 case OfferID.TimeTrave_30M:
                     ProfileManager.PlayerData.ResourceSave.ConsumeTimeSkipTicket_1H(1);
-                    GameManager.instance.AddCash(reward);
+                    ProfileManager.PlayerData.AddCash(reward);
                     break;
                 case OfferID.TimeTrave_60M:
                     ProfileManager.PlayerData.ResourceSave.ConsumeTimeSkipTicket_4H(1);
-                    GameManager.instance.AddCash(reward);
+                    ProfileManager.PlayerData.AddCash(reward);
                     break;
                 case OfferID.TimeTrave_2H:
                     ProfileManager.PlayerData.ResourceSave.ConsumeTimeSkipTicket_24H(1);
-                    GameManager.instance.AddCash(reward);
+                    ProfileManager.PlayerData.AddCash(reward);
                     break;
             }
             ShowReward();
         } else {
             if (GameManager.instance.IsEnoughGem(price)) {
                 ProfileManager.Instance.playerData.ConsumeGem(price);
-                GameManager.instance.AddCash(reward);
+                ProfileManager.PlayerData.AddCash(reward);
                 ShowReward();
                 ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Spend_TimeTravel, price);
             }

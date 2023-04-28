@@ -9,35 +9,17 @@ public class UITabStaff : MonoBehaviour {
     public List<Image> imgStaffIcons;
     public List<GameObject> imgSwapStaffIcons;
     public Color[] colorStaffIcons;
-    public Text txtSalary, txtTotalSalary;
-    public Button btnHire;
-    int salary, cost;
+    //public Text txtSalary, txtTotalSalary;
+    //int salary, cost;
     int totalStaff, totalStaffCurrent;
-    [SerializeField] GameObject panelWarningChef;
+    //[SerializeField] GameObject panelWarningChef;
     [SerializeField] RectTransform contentRebuild;
     IRoomController room;
     float timeRebuildLayout = 0;
     [HideInInspector]
     public bool isHiring;
     [HideInInspector] public int _SelectedIndexStaff;
-    private void Awake() {
-        btnHire.onClick.AddListener(() => {
-            isHiring = true;
-            _SelectedIndexStaff = totalStaffCurrent;
-            SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
-            UIManager.instance.ShowPanelSkin(room.GetStaffSetting().config.staffID);
-            PanelSkin.instance._OnClosePopup = OnEventPanelSkinClose;
-        });
-    }
-
-    private void OnEventPanelSkinClose() {
-        isHiring = false;
-        if (isShowTut) {
-            isShowTut = false;
-            PanelRoomInfo.instance.OnShowTutClosePanel();
-        }
-    }
-
+   
     public void Setup() {
         isHiring = false;
         room = GameManager.instance.selectedRoom;
@@ -55,48 +37,36 @@ public class UITabStaff : MonoBehaviour {
         for (int i = 0; i < imgSwapStaffIcons.Count; i++) {
             imgSwapStaffIcons[i].SetActive(i < totalStaffCurrent ? true : false);
         }
-            cost = room.GetStaffSetting().staffData.costPerStaff;
+            //cost = room.GetStaffSetting().staffData.costPerStaff;
         //salary = room.GetStaffSetting().staffData.salaryPerStaff;
-        txtSalary.text = salary.ToString();
-        txtTotalSalary.text = (salary * totalStaffCurrent).ToString();
-        btnHire.gameObject.SetActive(totalStaffCurrent < room.GetStaffSetting().GetTotalStaffAvaiableHire());
+        //txtSalary.text = salary.ToString();
+        //txtTotalSalary.text = (salary * totalStaffCurrent).ToString();
+        //btnHire.gameObject.SetActive(totalStaffCurrent < room.GetStaffSetting().GetTotalStaffAvaiableHire());
         timeRebuildLayout = 0;
 
     }
-    bool isShowTut;
     private void Update() {
         if (timeRebuildLayout < 1) {
             timeRebuildLayout += Time.deltaTime;
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRebuild);
-            if (Tutorials.instance.IsShow && !isShowTut) {
-                TutorialStepID step = Tutorials.instance.GetTutorialStep();
-                if (step == TutorialStepID.HireStaff) {
-                    isShowTut = true;
-                    Tutorials.instance.OnShow(btnHire.transform);
-                }
-            } 
         }
-        if (room.GetRoomID() == RoomID.Kitchen) {
-            if (totalStaffCurrent < room.GetStaffSetting().GetTotalStaff()) panelWarningChef.SetActive(!btnHire.gameObject.activeInHierarchy);
-            else panelWarningChef.SetActive(false);
-        } else panelWarningChef.SetActive(false);
     }
     public void CheckOnHire() {
-        if (!isHiring) return;
-        isHiring = false;
-        IRoomController roomControl = GameManager.instance.selectedRoom;
-        roomControl.OnHireStaff();
-        totalStaffCurrent = roomControl.GetStaffSetting().GetTotalStaffCurrent();
-        for (int i = 0; i < imgStaffIcons.Count; i++) {
-            imgStaffIcons[i].color = colorStaffIcons[i < totalStaffCurrent ? 0 : 1];
-        }
-        for (int i = 0; i < imgSwapStaffIcons.Count; i++) {
-            imgSwapStaffIcons[i].SetActive(i < totalStaffCurrent ? true : false);
-        }
-        txtTotalSalary.text = (salary * totalStaffCurrent).ToString();
-        btnHire.gameObject.SetActive(totalStaffCurrent < room.GetStaffSetting().GetTotalStaffAvaiableHire());
-        PanelRoomInfo.instance.SetupTabProfit();
-        if (isShowTut) ProfileManager.PlayerData.SaveData();
+        //if (!isHiring) return;
+        //isHiring = false;
+        //IRoomController roomControl = GameManager.instance.selectedRoom;
+        //roomControl.OnHireStaff();
+        //totalStaffCurrent = roomControl.GetStaffSetting().GetTotalStaffCurrent();
+        //for (int i = 0; i < imgStaffIcons.Count; i++) {
+        //    imgStaffIcons[i].color = colorStaffIcons[i < totalStaffCurrent ? 0 : 1];
+        //}
+        //for (int i = 0; i < imgSwapStaffIcons.Count; i++) {
+        //    imgSwapStaffIcons[i].SetActive(i < totalStaffCurrent ? true : false);
+        //}
+        //txtTotalSalary.text = (salary * totalStaffCurrent).ToString();
+        //btnHire.gameObject.SetActive(totalStaffCurrent < room.GetStaffSetting().GetTotalStaffAvaiableHire());
+        //PanelRoomInfo.instance.SetupTabProfit();
+        //if (isShowTut) ProfileManager.PlayerData.SaveData();
     }
 
     public void ShowPanelSelectSkin(int indexStaff) {

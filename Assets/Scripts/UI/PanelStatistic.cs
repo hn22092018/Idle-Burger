@@ -10,13 +10,6 @@ public class PanelStatistic : UIPanel {
     [SerializeField] Transform contentUIRooms;
     [SerializeField] UIRoomStatistic prefab;
     List<UIRoomStatistic> listUIRooms = new List<UIRoomStatistic>();
-    [SerializeField] GameObject ObjNextMapCondition;
-    [SerializeField] Button btnClaimReward;
-    [SerializeField] Image imgProcessRank;
-    [SerializeField] Image imgNextMap;
-    [SerializeField] Text txtConditionNextMap;
-    [SerializeField] Text txtMasterPoint;
-    [SerializeField] GameObject objGemEff;
     GameManager gameManager;
     bool isCreatedUI;
 
@@ -27,68 +20,12 @@ public class PanelStatistic : UIPanel {
             SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
             OnClose();
         });
-        btnClaimReward.onClick.AddListener(OnClaimRewardRank);
         gameManager = GameManager.instance;
     }
     private void OnEnable() {
-        string strDay = "Day ";
-        if (ProfileManager.Instance.dataConfig.GameText.GetTextByID(79) != "") {
-            strDay = ProfileManager.Instance.dataConfig.GameText.GetTextByID(79) + " ";
-        }
         LoadUI();
-        LoadStarInfo();
     }
-    private void Update() {
-        LoadStarInfo();
-    }
-    float currentProcessPerStar;
-    void LoadStarInfo() {
-        int star = ProfileManager.PlayerData.GetTotalStarEarned();
-        int selectedMap = ProfileManager.PlayerData.GetSelectedWorld();
-        if (selectedMap > 0 && selectedMap < 3) {
-            ObjNextMapCondition.gameObject.SetActive(true);
-            txtConditionNextMap.text = star.ToString();
-            WorldBaseData nextMapData = ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(selectedMap + 1);
-            imgNextMap.sprite = nextMapData.restaurantIcon;
-            txtConditionNextMap.text = star + "/" + nextMapData.starNeededToUnlock;
-        } else {
-            ObjNextMapCondition.gameObject.SetActive(false);
-        }
-        if (ProfileManager.PlayerData.ResourceSave.countRewardRank == 0) {
-            currentProcessPerStar = ProfileManager.PlayerData.GetTotalUpgradeProcess() % 40;
-            imgProcessRank.fillAmount = currentProcessPerStar / 40;
-            txtMasterPoint.text = (ProfileManager.PlayerData.GetTotalUpgradeProcess()) + "/40";
-            if (star >= 1) {
-                btnClaimReward.interactable = true;
-                imgProcessRank.fillAmount = 1;
-            } else {
-                btnClaimReward.interactable = false;
-            }
-        } else if (ProfileManager.PlayerData.ResourceSave.countRewardRank == 1) {
-            currentProcessPerStar = (ProfileManager.PlayerData.GetTotalUpgradeProcess() - 40) % 60;
-            imgProcessRank.fillAmount = currentProcessPerStar / 60;
-            txtMasterPoint.text = currentProcessPerStar + "/60";
-            if (star >= 2) {
-                btnClaimReward.interactable = true;
-                imgProcessRank.fillAmount = 1;
-                txtMasterPoint.text = (ProfileManager.PlayerData.GetTotalUpgradeProcess() - 40) + "/60";
-            } else {
-                btnClaimReward.interactable = false;
-            }
-        } else {
-            currentProcessPerStar = (ProfileManager.PlayerData.GetTotalUpgradeProcess() - 100) % 100;
-            if (ProfileManager.PlayerData.ResourceSave.countRewardRank < star) {
-                btnClaimReward.interactable = true;
-                imgProcessRank.fillAmount = 1;
-                txtMasterPoint.text = (currentProcessPerStar + (star - ProfileManager.PlayerData.ResourceSave.countRewardRank) * 100) + "/100";
 
-            } else {
-                txtMasterPoint.text = currentProcessPerStar + "/100";
-                btnClaimReward.interactable = false;
-                imgProcessRank.fillAmount = currentProcessPerStar / 100;
-            }
-        }
-    }
     void LoadUI() {
         List<RoomID> roomIDs = GameManager.instance.GetAllRoomID();
         roomIDs.Sort(SortRoom);
@@ -189,22 +126,5 @@ public class PanelStatistic : UIPanel {
             _ => throw new System.NotImplementedException(),
         };
     }
-    int reward = 10;
-    void OnClaimRewardRank() {
-        for (int i = 0; i < 10; i++) {
-            Transform eff = Instantiate(objGemEff.transform, btnClaimReward.transform);
-            eff.transform.localPosition = Vector3.zero;
-            eff.DOMove(eff.position + new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), 0), 0.5f).SetDelay(i * 0.01f).OnComplete(() => {
-                eff.transform.DOMove(UIManager.instance._UIPanelResourceGem.txtGem.transform.position, 0.5f).OnComplete(() => {
-                    Destroy(eff.gameObject);
-                });
-            });
-        }
-        ProfileManager.PlayerData.ResourceSave.ClaimRewardRank();
-        ProfileManager.PlayerData.AddGem(reward);
-        LoadStarInfo();
-        ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Earn_StarProcess, reward);
-        int star = ProfileManager.PlayerData.GetTotalStarEarned();
-        ABIAnalyticsManager.Instance.TrackEventStarUp(star);
-    }
+   
 }

@@ -110,13 +110,11 @@ public class ResearchManager {
         }
         ReloadListCache(currentResearch);
         SaveData();
-        if (GameManager.instance) GameManager.instance.UpdateStarUpgrade();
     }
     public void UpgradeResearch(ResearchName researchName) {
         ResearchSave researchSaveData = GetResearchInSaver(researchName);
         ConsumeResearchValue(ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName).CalulateReseachPrice(researchSaveData.level));
         researchSaveData.level++;
-        if (GameManager.instance) GameManager.instance.UpdateStarUpgrade();
         SaveData();
     }
     /// <summary>

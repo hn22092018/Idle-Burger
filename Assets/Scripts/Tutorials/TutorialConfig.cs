@@ -143,7 +143,7 @@ public class TutorialStep {
                 }
                 break;
             case TutorialStepID.SelectNewWorld:
-                if (ProfileManager.PlayerData.GetTotalStarEarned() >= ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(2).starNeededToUnlock) return true;
+                return false;
                 break;
             case TutorialStepID.ClaimQuest:
                 if (ProfileManager.PlayerData.GetQuestManager().hasQuestClaimable) {

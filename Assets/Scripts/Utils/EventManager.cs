@@ -18,7 +18,8 @@ public enum EventName
     UpgradeCard,
     EventProcessUpdate,
     UpdateStaffSuit,
-    UpdateBCoin
+    UpdateBCoin,
+    UpdateCardManager
 }
 
 public class EventManager : Singleton<EventManager>

@@ -23,8 +23,8 @@ public class CardOpenGetAnimation : UIPanel
     [SerializeField] Text cardAmountTxt;
     [SerializeField] GameObject upgradeAlert;
     [SerializeField] Slider amountSlider;
-    CardSaveInfor cardSaveInfo;
-    CardInfo openingCard;
+    CardNormalSave cardSaveInfo;
+    CardNormalConfig openingCard;
     int cardAmount;
     bool sliderRun;
     float sliderValue;

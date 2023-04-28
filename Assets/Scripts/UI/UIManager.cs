@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Transform uiMoneyEffRoot;
     public PanelResourceGem _UIPanelResourceGem;
     [SerializeField] Button btnShop, btnCardCollection;
-    public Button btnMission, btnAdBoost, btnMarketingCampaign, btnWorldSelect;
+    public Button btnMission, btnAdBoost, btnMarketingCampaign, btnStatistic;
     [SerializeField] Button btnOrderBook;
     [SerializeField] Button btnSetting;
     [SerializeField] GameObject questNotify;
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour {
         btnFreeGemAds.GetComponent<Button>().onClick.AddListener(ShowPanelFreeGemAds);
         btnOrderBook.onClick.AddListener(ShowPanelOrderBook);
         btnSetting.onClick.AddListener(ShowPanelSetting);
-        btnWorldSelect.onClick.AddListener(ShowPanelWorldSelect);
+        btnStatistic.onClick.AddListener(ShowPanelStatistic);
         if (btnDailyReward) btnDailyReward.onClick.AddListener(ShowPanelDailyReward);
         if (btnTech) btnTech.onClick.AddListener(ShowPanelTech);
         if (btnWareHouse) btnWareHouse.onClick.AddListener(ShowPanelWareHouse);
@@ -118,6 +118,7 @@ public class UIManager : MonoBehaviour {
         btnTech.gameObject.SetActive(isShow);
         btnIAPResearcherPack.gameObject.SetActive(isShow);
         btnWareHouse.gameObject.SetActive(isShow);
+        btnStatistic.gameObject.SetActive(isShow);
     }
     void OnLoadUIButtonIAPPackage() {
         btnIapPackage_Vip3Pack.onClick.AddListener(() => ShowPanelIAPPackage(OfferID.Vip3Pack));
@@ -583,6 +584,27 @@ public class UIManager : MonoBehaviour {
         CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelPremiumResearcherPack);
         GetPanel(UIPanelType.PanelPremiumResearcherPack).SetActive(false);
     }
+    public void ShowPanelManagerCardLevelUp() {
+        if (Tutorials.instance.IsShow) return;
+        SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
+        isHasPopupOnScene = true;
+        GetPanel(UIPanelType.PanelManagerCardLevelUp).SetActive(true);
+    }
+    public void ClosePanelManagerCardLevelUp() {
+        CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelManagerCardLevelUp);
+        GetPanel(UIPanelType.PanelManagerCardLevelUp).SetActive(false);
+    }
+    public void ShowPanelManagerCardBuyResources(ManagerStaffID staffID) {
+        if (Tutorials.instance.IsShow) return;
+        SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
+        isHasPopupOnScene = true;
+        GetPanel(UIPanelType.PanelManagerCardBuyResources).SetActive(true);
+    
+    }
+    public void ClosePanelManagerCardBuyResources() {
+        CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelManagerCardBuyResources);
+        GetPanel(UIPanelType.PanelManagerCardBuyResources).SetActive(false);
+    }
     public void CloseAllPopup() {
         isHasPopupOnScene = false;
         SoundManager.instance.StopSubMusic();
@@ -709,6 +731,12 @@ public class UIManager : MonoBehaviour {
                     break;
                 case UIPanelType.PanelPremiumResearcherPack:
                     panel = Instantiate(Resources.Load("UI/PanelPremiumResearcherPack") as GameObject, mainCanvas);
+                    break;
+                case UIPanelType.PanelManagerCardLevelUp:
+                    panel = Instantiate(Resources.Load("UI/PanelManagerCardLevelUp") as GameObject, mainCanvas);
+                    break;
+                case UIPanelType.PanelManagerCardBuyResources:
+                    panel = Instantiate(Resources.Load("UI/PanelManagerCardBuyResources") as GameObject, mainCanvas);
                     break;
             }
             if (panel) panel.SetActive(true);

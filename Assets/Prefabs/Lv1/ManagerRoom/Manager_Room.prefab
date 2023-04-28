@@ -267,7 +267,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643865597221825602}
-  - component: {fileID: 517975691409364002}
   - component: {fileID: 4485753443186142783}
   - component: {fileID: 7181145623884015799}
   m_Layer: 0
@@ -286,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 422660884614327716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 0, z: -34}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2996087463902925834}
@@ -297,19 +296,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &517975691409364002
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422660884614327716}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 13, y: 1, z: 20}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4485753443186142783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04e250f26056444b8c074166578b159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerStaffID: 2
   roomSetting:
     roomID: 26
     GroupID: 0
@@ -457,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403755430305416135}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.3, y: 0, z: -3.73}
+  m_LocalPosition: {x: 5.3, y: 0, z: -4.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -558,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    staffID: 6
+    staffID: 4
     GroupID: 0
     staffPositions:
     - {fileID: 1920052377684673697}
@@ -2363,6 +2350,10 @@ PrefabInstance:
     - target: {fileID: 5620171236763837636, guid: eeb6fe8904ae272478f3862e324d0d83, type: 3}
       propertyPath: m_Name
       value: bookshelf_LV3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295004332576411270, guid: eeb6fe8904ae272478f3862e324d0d83, type: 3}
+      propertyPath: m_Extents.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeb6fe8904ae272478f3862e324d0d83, type: 3}

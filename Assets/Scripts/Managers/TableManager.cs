@@ -7,13 +7,26 @@ public class TableManager : MonoBehaviour {
     public static TableManager instance;
     public List<Table> tables = new List<Table>();
     GameManager GameManager;
+    float managerRateIcome, managerRateProcessing;
     // Start is called before the first frame update
     void Awake() {
         instance = this;
         AllRoomManager.instance._TableManager = this;
     }
+
+    void LoadManagerRate() {
+        CardManagerSave saver = ProfileManager.PlayerData.GetCardManager().GetCardManager(GameManager.instance.SmallTablesRoom[0].GetManagerStaffID());
+        managerRateIcome = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity);
+        managerRateProcessing = 1f - ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity) / 100f;
+    }
     private void Start() {
         GameManager = GameManager.instance;
+        LoadManagerRate();
+        EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
+            if ((int)x == (int)ManagerStaffID.MainRoom_1) {
+                LoadManagerRate();
+            }
+        });
     }
 
     public void CloseRestaurant() {
@@ -60,7 +73,9 @@ public class TableManager : MonoBehaviour {
     public float GetTimeServiceOnTable(TablePosition tablePosition) {
         for (int i = 0; i < tables.Count; i++) {
             if (tables[i].IsContainerTablePosition(tablePosition)) {
-                return (float)tables[i].roomController.GetTimeServiceCurrent() * GameManager.instance.customerEatingTimeRate;
+                float time = (float)tables[i].roomController.GetTimeServiceCurrent() * GameManager.instance.customerEatingTimeRate * managerRateProcessing;
+                if (time <= 3) time = 3;
+                return time;
             }
         }
         return 0;
@@ -73,10 +88,10 @@ public class TableManager : MonoBehaviour {
         for (int i = 0; i < tables.Count; i++) {
             if (tables[i].IsContainerTablePosition(tablePosition)) {
                 BigNumber money = tables[i].GetMoneyEarnInTable();
-                money *= GameManager.GetTotalIncomeRate() * tablePosition.customer.GetVipRate();
+                money *= GameManager.GetTotalIncomeRate() * tablePosition.customer.GetVipRate() * managerRateIcome;
                 UIManager.instance.CreatUIMoneyEff(money, tablePosition.customer.GetTransform());
                 GameManager.SpawnCashFx(tablePosition.customer.GetTransform());
-                GameManager.AddCash(money);
+                ProfileManager.PlayerData.AddCash(money);
                 break;
             }
         }

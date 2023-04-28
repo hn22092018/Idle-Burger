@@ -29,7 +29,7 @@ public class CardReward : MonoBehaviour
     void Start() {
         rt = GetComponent<RectTransform>();
     }
-    public void SetUp(CardInfo card) 
+    public void SetUp(CardNormalConfig card) 
     {   
         UIIcon.sprite = card.sprOn;
         UIName.text = card.GetName();

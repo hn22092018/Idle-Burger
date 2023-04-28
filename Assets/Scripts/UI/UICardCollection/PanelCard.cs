@@ -40,7 +40,7 @@ public class PanelCard : UIPanel {
         cardNotify.SetActive(isHasFreeChest);
     }
     public void LoadCards() {
-        List<CardInfo> allCards = ProfileManager.Instance.dataConfig.cardData.cardList;
+        List<CardNormalConfig> allCards = ProfileManager.Instance.dataConfig.cardData.cardList;
         for (int i = 0; i < allCards.Count; i++) {
             GameObject card = null;
             switch (allCards[i].cardRarity) {

@@ -30,12 +30,29 @@ public class DeliverRoomManager : MonoBehaviour {
     [SerializeField] Transform DeliverCarCustomerPrefab;
     int DeliverCarCustomerSpawnTime = 2;
     float dtTimeSpawn;
+    float managerRateIcome, managerRateProcessing;
     private void Awake() {
         instance = this;
         GroupID = roomController.GetGroupID();
         AllRoomManager.instance._DeliverManagers = this;
-    }
 
+    }
+    private void Start() {
+        LoadManagerRate();
+        if (GroupID == 0) {
+            EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
+                if ((int)x == (int)roomController.GetManagerStaffID()) {
+                    LoadManagerRate();
+                }
+            });
+        }
+    }
+    void LoadManagerRate() {
+
+        CardManagerSave saver = ProfileManager.PlayerData.GetCardManager().GetCardManager(roomController.GetManagerStaffID());
+        managerRateIcome = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity);
+        managerRateProcessing = 1f - ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity) / 100f;
+    }
     private void Update() {
         dtTimeSpawn -= Time.deltaTime;
         if (dtTimeSpawn <= 0) {
@@ -88,7 +105,7 @@ public class DeliverRoomManager : MonoBehaviour {
             }
         }
     }
- 
+
     public void OutPosition(DeliverCarCustomer customer) {
         for (int i = 0; i < deliverPositionsSetting.Count; i++) {
             if (deliverPositionsSetting[i].customer == customer) {
@@ -134,7 +151,7 @@ public class DeliverRoomManager : MonoBehaviour {
                 // Add new cake position
                 cakePositionsSetting.Add(pos);
             }
-          
+
         }
     }
 
@@ -167,14 +184,14 @@ public class DeliverRoomManager : MonoBehaviour {
     }
     #endregion
     public float GetTimeService() {
-        return roomController.GetTimeService();
+        return roomController.GetTimeService() * managerRateProcessing;
     }
 
     BigNumber roomValue;
     public void Payment(DeliverPosition pos) {
-        roomValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate();
+        roomValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate() * managerRateIcome;
         UIManager.instance.CreatUIMoneyEff(roomValue, pos.customer.transform);
-        GameManager.instance.AddCash(roomValue);
+        ProfileManager.PlayerData.AddCash(roomValue);
     }
 
 }

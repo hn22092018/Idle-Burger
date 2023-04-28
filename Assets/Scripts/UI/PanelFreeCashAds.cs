@@ -28,7 +28,7 @@ public class PanelFreeCashAds : UIPanel {
     private void OnGetCashAdsSuccess() {
         SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
         UIManager.instance.ShowUIMoneyProfit(cashValue);
-        GameManager.instance.AddCash(cashValue);
+        ProfileManager.PlayerData.AddCash(cashValue);
         GameManager.instance.ResetFreeCashRate();
         OnClose();
     }
@@ -36,7 +36,7 @@ public class PanelFreeCashAds : UIPanel {
         ProfileManager.PlayerData.ResourceSave.ConsumeADTicket();
         SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
         UIManager.instance.ShowUIMoneyProfit(cashValue);
-        GameManager.instance.AddCash(cashValue);
+        ProfileManager.PlayerData.AddCash(cashValue);
         GameManager.instance.ResetFreeCashRate();
         OnClose();
     }

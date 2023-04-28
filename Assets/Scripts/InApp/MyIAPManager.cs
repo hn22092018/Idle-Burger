@@ -211,7 +211,7 @@ public class MyIAPManager : MonoBehaviour, IStoreListener {
                 break;
             case product_Finance1:
             case product_Offline1:
-                CardIAP cardIAP = ProfileManager.Instance.dataConfig.shopConfig.GetOfferCardIAPDataByProductID(productID);
+                CardIAPConfig cardIAP = ProfileManager.Instance.dataConfig.shopConfig.GetOfferCardIAPDataByProductID(productID);
                 ProfileManager.PlayerData.GetCardManager().AddCardIAP(cardIAP.id);
                 break;
 

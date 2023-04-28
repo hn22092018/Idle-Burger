@@ -28,14 +28,6 @@ public class RoomSave {
     public RoomSaveData GetRoomSaveData() {
         return roomManager_a;
     }
-    public void SaveProcessUpgrade(int process) {
-        RoomSaveData data = GetRoomSaveData();
-        data.processUpgrade = process;
-    }
-    public int GetProcessUpgrade() {
-        RoomSaveData data = GetRoomSaveData();
-        return data.processUpgrade;
-    }
 }
 [System.Serializable]
 public class RoomSaveData {
@@ -44,20 +36,16 @@ public class RoomSaveData {
     public List<BaseRoom<KitchenModelType>> kitchenRoomDatas = new List<BaseRoom<KitchenModelType>>();
     public List<BaseRoom<LobbyModelType>> lobbyRoomDatas = new List<BaseRoom<LobbyModelType>>();
     public List<BaseRoom<ManagerModelType>> managerRoomDatas = new List<BaseRoom<ManagerModelType>>();
-    public List<BaseRoom<CleanModelType>> cleanRoomDatas = new List<BaseRoom<CleanModelType>>();
     public List<BaseRoom<PowerModelType>> powerRoomDatas = new List<BaseRoom<PowerModelType>>();
     public List<BaseRoom<RestroomModelType>> restroomDatas = new List<BaseRoom<RestroomModelType>>();
     public List<BaseRoom<DeliverModelType>> deliverRoomDatas = new List<BaseRoom<DeliverModelType>>();
-    public List<BaseRoom<ConveyorModelType>> conveyorRoomDatas = new List<BaseRoom<ConveyorModelType>>();
     public List<StaffConfig> staffConfigData = new List<StaffConfig>();
-    public int processUpgrade;
 
     const string SmallTableModelType = "SmallTableModelType";
     const string BigTableModelType = "BigTableModelType";
     const string LobbyModelType = "LobbyModelType";
     const string ManagerModelType = "ManagerModelType";
     const string KitchenModelType = "KitchenModelType";
-    const string CleanModelType = "CleanModelType";
     const string PowerModelType = "PowerModelType";
     const string RestroomModelType = "RestroomModelType";
     const string DeliverModelType = "DeliverModelType";
@@ -65,24 +53,14 @@ public class RoomSaveData {
     public BaseRoom<T> GetRoomData<T>(RoomID roomID, int GroupID) {
         switch (roomID) {
             case RoomID.Lobby:
-                for (int i = 0; i < lobbyRoomDatas.Count; i++) {
-                    if (lobbyRoomDatas[i].roomID == roomID && lobbyRoomDatas[i].GroupID == GroupID) {
-                        return lobbyRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
+                return GetRoomData(lobbyRoomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.Table1:
             case RoomID.Table2:
             case RoomID.Table3:
             case RoomID.Table4:
             case RoomID.Table5:
             case RoomID.Table6:
-                for (int i = 0; i < smallTableRoomDatas.Count; i++) {
-                    if (smallTableRoomDatas[i].roomID == roomID && smallTableRoomDatas[i].GroupID == GroupID) {
-                        return smallTableRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
+                return GetRoomData(smallTableRoomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.BigTable1:
             case RoomID.BigTable2:
             case RoomID.BigTable3:
@@ -97,149 +75,68 @@ public class RoomSaveData {
             case RoomID.BigTable12:
             case RoomID.BigTable13:
             case RoomID.BigTable14:
-                for (int i = 0; i < bigTableRoomDatas.Count; i++) {
-                    if (bigTableRoomDatas[i].roomID == roomID && bigTableRoomDatas[i].GroupID == GroupID) {
-                        return bigTableRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
+                return GetRoomData(bigTableRoomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.Kitchen:
-                for (int i = 0; i < kitchenRoomDatas.Count; i++) {
-                    if (kitchenRoomDatas[i].roomID == roomID && kitchenRoomDatas[i].GroupID == GroupID) {
-                        return kitchenRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
+                return GetRoomData(kitchenRoomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.Manager:
-                for (int i = 0; i < managerRoomDatas.Count; i++) {
-                    if (managerRoomDatas[i].roomID == roomID && managerRoomDatas[i].GroupID == GroupID) {
-                        return managerRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
-            case RoomID.Clean:
-                for (int i = 0; i < cleanRoomDatas.Count; i++) {
-                    if (cleanRoomDatas[i].roomID == roomID && cleanRoomDatas[i].GroupID == GroupID) {
-                        return cleanRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
+                return GetRoomData(managerRoomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.Power:
-                for (int i = 0; i < powerRoomDatas.Count; i++) {
-                    if (powerRoomDatas[i].roomID == roomID && powerRoomDatas[i].GroupID == GroupID) {
-                        return powerRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
+                return GetRoomData(powerRoomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.Restroom:
             case RoomID.Restroom2:
-                for (int i = 0; i < restroomDatas.Count; i++) {
-                    if (restroomDatas[i].roomID == roomID && restroomDatas[i].GroupID == GroupID) {
-                        return restroomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
-           
+                return GetRoomData(restroomDatas, roomID, GroupID) as BaseRoom<T>;
             case RoomID.DeliverRoom:
-                for (int i = 0; i < deliverRoomDatas.Count; i++) {
-                    if (deliverRoomDatas[i].roomID == roomID && deliverRoomDatas[i].GroupID == GroupID) {
-                        return deliverRoomDatas[i] as BaseRoom<T>;
-                    }
-                }
-                break;
-          
+                return GetRoomData(deliverRoomDatas, roomID, GroupID) as BaseRoom<T>;
+
+        }
+        return null;
+    }
+    public BaseRoom<T> GetRoomData<T>(List<BaseRoom<T>> list, RoomID roomID, int GroupID) {
+        for (int i = 0; i < list.Count; i++) {
+            if (list[i].roomID == roomID && list[i].GroupID == GroupID) {
+                return list[i];
+            }
         }
         return null;
     }
     public void SaveRoomData<T>(BaseRoom<T> room, bool isOverideData = true) {
-        bool IsHasData = false;
         switch (typeof(T).ToString()) {
             case SmallTableModelType:
-                for (int i = 0; i < smallTableRoomDatas.Count; i++) {
-                    if (smallTableRoomDatas[i].roomID == room.roomID && smallTableRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) smallTableRoomDatas[i] = room as BaseRoom<SmallTableModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) smallTableRoomDatas.Add(room as BaseRoom<SmallTableModelType>);
+                SaveRoomData(smallTableRoomDatas, room as BaseRoom<SmallTableModelType>, isOverideData);
                 break;
             case BigTableModelType:
-                for (int i = 0; i < bigTableRoomDatas.Count; i++) {
-                    if (bigTableRoomDatas[i].roomID == room.roomID && bigTableRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) bigTableRoomDatas[i] = room as BaseRoom<BigTableModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) bigTableRoomDatas.Add(room as BaseRoom<BigTableModelType>);
+                SaveRoomData(bigTableRoomDatas, room as BaseRoom<BigTableModelType>, isOverideData);
                 break;
             case LobbyModelType:
-                for (int i = 0; i < lobbyRoomDatas.Count; i++) {
-                    if (lobbyRoomDatas[i].roomID == room.roomID && lobbyRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) lobbyRoomDatas[i] = room as BaseRoom<LobbyModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) lobbyRoomDatas.Add(room as BaseRoom<LobbyModelType>);
+                SaveRoomData(lobbyRoomDatas, room as BaseRoom<LobbyModelType>, isOverideData);
                 break;
-
             case KitchenModelType:
-                for (int i = 0; i < kitchenRoomDatas.Count; i++) {
-                    if (kitchenRoomDatas[i].roomID == room.roomID && kitchenRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) kitchenRoomDatas[i] = room as BaseRoom<KitchenModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) kitchenRoomDatas.Add(room as BaseRoom<KitchenModelType>);
+                SaveRoomData(kitchenRoomDatas, room as BaseRoom<KitchenModelType>, isOverideData);
                 break;
             case ManagerModelType:
-
-                for (int i = 0; i < managerRoomDatas.Count; i++) {
-                    if (managerRoomDatas[i].roomID == room.roomID && managerRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) managerRoomDatas[i] = room as BaseRoom<ManagerModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) managerRoomDatas.Add(room as BaseRoom<ManagerModelType>);
-                break;
-            case CleanModelType:
-                for (int i = 0; i < cleanRoomDatas.Count; i++) {
-                    if (cleanRoomDatas[i].roomID == room.roomID && cleanRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) cleanRoomDatas[i] = room as BaseRoom<CleanModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) cleanRoomDatas.Add(room as BaseRoom<CleanModelType>);
+                SaveRoomData(managerRoomDatas, room as BaseRoom<ManagerModelType>, isOverideData);
                 break;
             case PowerModelType:
-                for (int i = 0; i < powerRoomDatas.Count; i++) {
-                    if (powerRoomDatas[i].roomID == room.roomID && powerRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) powerRoomDatas[i] = room as BaseRoom<PowerModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) powerRoomDatas.Add(room as BaseRoom<PowerModelType>);
+                SaveRoomData(powerRoomDatas, room as BaseRoom<PowerModelType>, isOverideData);
                 break;
             case RestroomModelType:
-                for (int i = 0; i < restroomDatas.Count; i++) {
-                    if (restroomDatas[i].roomID == room.roomID && restroomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) restroomDatas[i] = room as BaseRoom<RestroomModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) restroomDatas.Add(room as BaseRoom<RestroomModelType>);
+                SaveRoomData(restroomDatas, room as BaseRoom<RestroomModelType>, isOverideData);
                 break;
-            
             case DeliverModelType:
-                for (int i = 0; i < deliverRoomDatas.Count; i++) {
-                    if (deliverRoomDatas[i].roomID == room.roomID && deliverRoomDatas[i].GroupID == room.GroupID) {
-                        if (isOverideData) deliverRoomDatas[i] = room as BaseRoom<DeliverModelType>;
-                        IsHasData = true;
-                    }
-                }
-                if (!IsHasData) deliverRoomDatas.Add(room as BaseRoom<DeliverModelType>);
+                SaveRoomData(deliverRoomDatas, room as BaseRoom<DeliverModelType>, isOverideData);
                 break;
-           
+
         }
+    }
+    public void SaveRoomData<T>(List<BaseRoom<T>> list, BaseRoom<T> room, bool isOverideData = true) {
+        bool isHasData = false;
+        for (int i = 0; i < list.Count; i++) {
+            if (list[i].roomID == room.roomID && list[i].GroupID == room.GroupID) {
+                if (isOverideData) list[i] = room;
+                isHasData = true;
+            }
+        }
+        if (!isHasData) list.Add(room);
     }
     public StaffConfig GetStaffConfigData(StaffConfig staffConfig) {
         for (int i = 0; i < staffConfigData.Count; i++) {

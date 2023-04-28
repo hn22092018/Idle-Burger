@@ -39,7 +39,6 @@ public class PanelWorldSelect : UIPanel {
         }
     }
     void UpdateWorldsInfo() {
-        starCountTxt.text = ProfileManager.PlayerData.GetTotalStarEarned().ToString() ;
     }
 
 }

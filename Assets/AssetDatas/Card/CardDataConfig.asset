@@ -237,3 +237,102 @@ MonoBehaviour:
     sprOff: {fileID: 21300000, guid: eb9684536c391524ab4af0599e44b9f6, type: 3}
     cardAmountLevel: 010000000a000000140000001e00000032000000
     cardType: 0
+  cardManagerList:
+  - name: Keith Potter
+    staffType: 0
+    rarity: 1
+    mesh: {fileID: 2819528711294543753, guid: 30d1ba663d177284db2268de62409456, type: 3}
+    sprIcon: {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Maggie Mcgee
+    staffType: 0
+    rarity: 2
+    mesh: {fileID: 2819528711294543753, guid: 30d1ba663d177284db2268de62409456, type: 3}
+    sprIcon: {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Marcus Olson
+    staffType: 0
+    rarity: 3
+    mesh: {fileID: 2819528711294543753, guid: 30d1ba663d177284db2268de62409456, type: 3}
+    sprIcon: {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Francis Wood
+    staffType: 2
+    rarity: 1
+    mesh: {fileID: -5585299838729658224, guid: df76742bae73b8742b297017e4d2444f, type: 3}
+    sprIcon: {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Hugo Larson
+    staffType: 2
+    rarity: 2
+    mesh: {fileID: -5585299838729658224, guid: df76742bae73b8742b297017e4d2444f, type: 3}
+    sprIcon: {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Gregg Harper
+    staffType: 2
+    rarity: 3
+    mesh: {fileID: -5585299838729658224, guid: df76742bae73b8742b297017e4d2444f, type: 3}
+    sprIcon: {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Casey Mccarthy
+    staffType: 1
+    rarity: 1
+    mesh: {fileID: 3842321357539976858, guid: d6267bc94334543439af1277a7b1f23f, type: 3}
+    sprIcon: {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Nichole Taylor
+    staffType: 1
+    rarity: 2
+    mesh: {fileID: 3842321357539976858, guid: d6267bc94334543439af1277a7b1f23f, type: 3}
+    sprIcon: {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Hazel Riley
+    staffType: 1
+    rarity: 3
+    mesh: {fileID: 3842321357539976858, guid: d6267bc94334543439af1277a7b1f23f, type: 3}
+    sprIcon: {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Drew Houston
+    staffType: 3
+    rarity: 1
+    mesh: {fileID: 6264614908709895786, guid: 49a2801fbba9b354b8ad5e7d21282e00, type: 3}
+    sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Jim Franklin
+    staffType: 3
+    rarity: 2
+    mesh: {fileID: 6264614908709895786, guid: 49a2801fbba9b354b8ad5e7d21282e00, type: 3}
+    sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  - name: Tom Mcdonald
+    staffType: 3
+    rarity: 3
+    mesh: {fileID: 6264614908709895786, guid: 49a2801fbba9b354b8ad5e7d21282e00, type: 3}
+    sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
+    sprCardPieceIcon: {fileID: 0}
+  cardPieceRequireByLevel: 010000000200000004000000080000000c00000012000000180000001e000000240000002a000000
+  burgerCoinRequireByLevel: 00000000190000003200000064000000c80000005e0100002602000020030000b0040000dc050000
+  incomeRateByLevel:
+  - 1
+  - 1.5
+  - 2
+  - 2.5
+  - 3.5
+  - 5
+  - 10
+  - 15
+  - 20
+  - 30
+  - 50
+  processingRateByLevel:
+  - 0
+  - 10
+  - 12
+  - 15
+  - 18
+  - 23
+  - 27
+  - 32
+  - 38
+  - 44
+  - 50

@@ -15,7 +15,6 @@ public class DeliverRoomController : RoomController<DeliverModelType> {
                 for (int i = 1; i <= level; i++) {
                     ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_StaffTable, i);
                 }
-                questManager.TriggerQuest(QuestType.Buy_DeliverStaffTables, GetTotalTableUnlock());
                 break;
            
             case DeliverModelType.Deliver_BakeryGlass:

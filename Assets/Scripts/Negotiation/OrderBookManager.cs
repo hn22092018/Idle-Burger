@@ -51,7 +51,7 @@ public class OrderBookManager {
         Order offer1 = new Order {
             id = GetNextID(),
             bugerRequire = 30,
-            cashProfit = GameManager.instance.GetCashProfit(2),
+            cashProfit = GameManager.instance.GetCashProfit(3),
             bCoinProfit = 5,
             sprOrderStaff = spr1,
             isFreeAccept = true
@@ -59,7 +59,7 @@ public class OrderBookManager {
         Order offer2 = new Order {
             id = offer1.id + 1,
             bugerRequire = 40,
-            cashProfit = GameManager.instance.GetCashProfit(3),
+            cashProfit = GameManager.instance.GetCashProfit(4),
             bCoinProfit = 7,
             sprOrderStaff = spr2,
             isFreeAccept = true
@@ -67,7 +67,7 @@ public class OrderBookManager {
         Order offer3 = new Order {
             id = offer2.id + 1,
             bugerRequire = 40,
-            cashProfit = GameManager.instance.GetCashProfit(7),
+            cashProfit = GameManager.instance.GetCashProfit(10),
             bCoinProfit = 16,
             sprOrderStaff = spr3,
             isFreeAccept = false

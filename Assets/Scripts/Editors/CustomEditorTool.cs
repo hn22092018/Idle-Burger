@@ -94,9 +94,9 @@ public class CustomEditorTool : EditorWindow {
         TextAsset cardData = AssetDatabase.LoadAssetAtPath<TextAsset>(cardTextPath);
         List<Dictionary<string, object>> data = CSVReader.Read(cardData);
 
-        asset.cardList = new List<CardInfo>();
+        asset.cardList = new List<CardNormalConfig>();
         for (int i = asset.cardList.Count; i < data.Count; i++) {
-            asset.cardList.Add(new CardInfo());
+            asset.cardList.Add(new CardNormalConfig());
         }
         for (var i = 0; i < data.Count; i++) {
             string strID = data[i]["ID"].ToString();
@@ -111,7 +111,7 @@ public class CustomEditorTool : EditorWindow {
             string sprOffName = data[i]["SpriteOffName"].ToString();
             Sprite sprOn = AssetDatabase.LoadAssetAtPath<Sprite>(cardSpritePath + sprOnName + ".png");
             Sprite sprOff = AssetDatabase.LoadAssetAtPath<Sprite>(cardSpritePath + sprOffName + ".png");
-            CardInfo card = new CardInfo();
+            CardNormalConfig card = new CardNormalConfig();
             card.ID = id;
             card.name = name;
             card.NameLocalizeID = nameLocalizeID;
@@ -139,24 +139,7 @@ public class CustomEditorTool : EditorWindow {
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("Tool/Custom/Creat Quest Data_NE")]
-    public static void CreatQuestData_NE() {
-        RoomLoadID = -1;
-        string questPath = "Assets/AssetDatas/QuestDataConfig_NE.asset";
-        QuestData asset = AssetDatabase.LoadAssetAtPath<QuestData>(questPath);
-        if (asset == null) {
-            Debug.Log("Creat New Data QuestData Config NE");
-            asset = ScriptableObject.CreateInstance<QuestData>();
-            FillDataQuest(asset);
-            AssetDatabase.CreateAsset(asset, questPath);
-            AssetDatabase.SaveAssets();
-        } else {
-            Debug.Log("Overide Data QuestData Config NE");
-            FillDataQuest(asset);
-        }
-        EditorUtility.FocusProjectWindow();
-        Selection.activeObject = asset;
-    }
+  
     [MenuItem("Tool/Custom/Creat Quest Data_W1")]
     public static void CreatQuestData_W1() {
         RoomLoadID = 1;
@@ -213,7 +196,7 @@ public class CustomEditorTool : EditorWindow {
         Selection.activeObject = asset;
     }
     static void FillDataQuest(QuestData asset) {
-        string questTextPath = "Assets/AssetDatas/csv/ABI Idle Restaurant  - Quest_W" + RoomLoadID + ".csv";
+        string questTextPath = "Assets/AssetDatas/csv/Idle Burger - Quest_W" + RoomLoadID + ".csv";
         TextAsset questData = AssetDatabase.LoadAssetAtPath<TextAsset>(questTextPath);
         List<Dictionary<string, object>> data = CSVReader.Read(questData);
 
@@ -231,13 +214,10 @@ public class CustomEditorTool : EditorWindow {
             int gemReward = string.IsNullOrEmpty(strgem) ? 0 : int.Parse(strgem);
             string strcash = data[i]["Cash Reward"].ToString();
             int cashReward = string.IsNullOrEmpty(strcash) ? 0 : int.Parse(strcash);
-            string des = data[i]["Description"].ToString();
-            string strdesLocalizeID = data[i]["Des Localize ID"].ToString();
-            int desLocalizeID = string.IsNullOrEmpty(strdesLocalizeID) ? 0 : int.Parse(strdesLocalizeID);
             Quest quest = new Quest();
             quest.questID = id;
             quest.type = (QuestType)Enum.Parse(typeof(QuestType), typeStr);
-            quest.roomTarget = roomTarget;
+            quest.roomTarget = (RoomID)Enum.Parse(typeof(RoomID), roomTarget);
             quest.priority = priority;
             quest.level = level;
             quest.reward = new ItemReward();
@@ -249,9 +229,6 @@ public class CustomEditorTool : EditorWindow {
                 quest.reward.type = ItemType.Gem;
                 quest.reward.amount = gemReward;
             }
-
-            quest.des = string.Format(des, level);
-            quest.DesLocalizeID = desLocalizeID;
             asset.questList[i] = quest;
         }
 

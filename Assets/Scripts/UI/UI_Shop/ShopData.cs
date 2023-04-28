@@ -7,7 +7,7 @@ public class ShopData : ScriptableObject {
     public Sprite[] sprConfig;
     public List<OfferData> chestOfferDatas = new List<OfferData>();
     public List<OfferData> gemOfferDatas = new List<OfferData>();
-    public List<CardIAP> cardIAPList = new List<CardIAP>();
+    public List<CardIAPConfig> cardIAPList = new List<CardIAPConfig>();
     public List<OfferData> IAPPackages = new List<OfferData>();
     public List<OfferData> adTicketDatas = new List<OfferData>();
     public List<OfferData> timeTravelDatas = new List<OfferData>();
@@ -27,7 +27,7 @@ public class ShopData : ScriptableObject {
     void LoadCardIAP() {
         cardIAPList.Clear();
         //======OFFLINE
-        CardIAP card_off_1 = new CardIAP();
+        CardIAPConfig card_off_1 = new CardIAPConfig();
         card_off_1.name = "Cary Grant";
         card_off_1.id = 2;
         card_off_1.icon = GetSpriteByName("cardiap_3");
@@ -40,7 +40,7 @@ public class ShopData : ScriptableObject {
         card_off_1.productID = MyIAPManager.product_Offline1;
 
         //============ FINANCE
-        CardIAP card_finance_1 = new CardIAP();
+        CardIAPConfig card_finance_1 = new CardIAPConfig();
         card_finance_1.name = "ACCOUNTANT";
         card_finance_1.id = 4;
         card_finance_1.icon = GetSpriteByName("cardiap_5");
@@ -55,15 +55,15 @@ public class ShopData : ScriptableObject {
         cardIAPList.Add(card_off_1);
         cardIAPList.Add(card_finance_1);
     }
-    public CardIAP GetCardByID(int cardID) {
-        foreach (CardIAP card in cardIAPList) {
+    public CardIAPConfig GetCardByID(int cardID) {
+        foreach (CardIAPConfig card in cardIAPList) {
             if (card.id == cardID)
                 return card;
         }
         return null;
     }
-    public CardIAP GetCardByOfferID(CardIapProductType type) {
-        foreach (CardIAP card in cardIAPList) {
+    public CardIAPConfig GetCardByOfferID(CardIapProductType type) {
+        foreach (CardIAPConfig card in cardIAPList) {
             if (card.productType == type)
                 return card;
         }
@@ -426,7 +426,7 @@ public class ShopData : ScriptableObject {
         }
         return null;
     }
-    public CardIAP GetOfferCardIAPDataByProductID(string productID) {
+    public CardIAPConfig GetOfferCardIAPDataByProductID(string productID) {
         foreach (var offer in cardIAPList) {
             if (offer.productID == productID) return offer;
         }
