@@ -178,7 +178,7 @@ namespace SDK {
             };
             ABIFirebaseManager.Instance.LogFirebaseEvent("WareHouse", parameters);
         }
-        public void TrackEventResearch(ResearchAction action, ResearchName name) {
+        public void TrackEventResearch(ResearchAction action, ResearchType name) {
             Parameter[] parameters = new Parameter[] {
                 new Parameter("action",action.ToString()+"_"+name.ToString())
             };

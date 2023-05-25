@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIRoomStatistic : MonoBehaviour {
+public class UIRoomStatistic : UIEffect {
     [SerializeField] RoomID roomID;
     [SerializeField] int GroupID;
     [SerializeField] Text txtRoomName;
@@ -14,14 +14,17 @@ public class UIRoomStatistic : MonoBehaviour {
     [SerializeField] Button btnGoRoom;
     [SerializeField] GameObject lockRoom;
     [SerializeField] Text txtLockInfo;
+    [SerializeField] GameObject notifyEnableUpgrade;
     GameManager gameManager;
     BigNumber income;
     bool isUnlock;
     float process;
+    BigNumber minUpgradeValue;
+    int indexHasMinUpgrade;
     private void Awake() {
         btnGoRoom.onClick.AddListener(() => {
             SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
-            GoToRoom();
+            ScaleEffectButton(btnGoRoom, GoToRoom);
         });
         gameManager = GameManager.instance;
     }
@@ -31,16 +34,17 @@ public class UIRoomStatistic : MonoBehaviour {
     public void OnLoadRoomInfo() {
         txtRoomName.text = ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomID);
         string strNotUnlock = " is not unlocked yet.";
-        if (ProfileManager.Instance.dataConfig.GameText.GetTextByID(88) != "") {
-            strNotUnlock = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(88);
-        }
+        //if (ProfileManager.Instance.dataConfig.GameText.GetTextByID(88) != "") {
+        //    strNotUnlock = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(88);
+        //}
         txtLockInfo.text = ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomID) + strNotUnlock;
         LoadState();
         lockRoom.SetActive(!isUnlock);
-        btnGoRoom.gameObject.SetActive(isUnlock);
         txtRoomIncome.text = new BigNumber(income).ToString();
         fillProcessUpgrade.localScale = new Vector3(process, 1, 1);
         txtRoomUpgradeProcess.text = Math.Round(process * 100, 1) + "%";
+        btnGoRoom.gameObject.SetActive(process < 1 && isUnlock);
+
     }
     void GoToRoom() {
         UIManager.instance.ClosePanelStatistic();
@@ -51,7 +55,7 @@ public class UIRoomStatistic : MonoBehaviour {
             case RoomID.Table4:
             case RoomID.Table5:
             case RoomID.Table6:
-                if (gameManager.IsUnlockSmallTable((int)roomID-1))
+                if (gameManager.IsUnlockSmallTable((int)roomID - 1))
                     ShowPanelRoomInfo(gameManager.SmallTablesRoom[(int)roomID - 1]);
                 else UIManager.instance.ShowPanelManagerBuild(roomID);
                 break;
@@ -114,9 +118,7 @@ public class UIRoomStatistic : MonoBehaviour {
             case RoomID.Table4:
             case RoomID.Table5:
             case RoomID.Table6:
-                isUnlock = gameManager.IsUnlockSmallTable((int)roomID - 1);
-                income = gameManager.SmallTablesRoom[(int)roomID - 1].GetTotalMoneyEarn();
-                process = gameManager.SmallTablesRoom[(int)roomID - 1].GetProcessUpgrade();
+                SetRoomValues(gameManager.IsUnlockSmallTable((int)roomID - 1), gameManager.SmallTablesRoom[(int)roomID - 1].GetTotalMoneyEarn(), gameManager.SmallTablesRoom[(int)roomID - 1].GetProcessUpgrade(), gameManager.SmallTablesRoom[(int)roomID - 1].GetMinUpgradeValue(), gameManager.SmallTablesRoom[(int)roomID - 1].GetIndexHasMinUpgradeValue());
                 break;
             case RoomID.BigTable1:
             case RoomID.BigTable2:
@@ -132,50 +134,44 @@ public class UIRoomStatistic : MonoBehaviour {
             case RoomID.BigTable12:
             case RoomID.BigTable13:
             case RoomID.BigTable14:
-                GetBigTableValue((int)roomID - 7);
+                SetRoomValues(gameManager.IsUnlockBigTable((int)roomID - 7), gameManager.BigTablesRoom[(int)roomID - 7].GetTotalMoneyEarn(), gameManager.BigTablesRoom[(int)roomID - 7].GetProcessUpgrade(), gameManager.BigTablesRoom[(int)roomID - 7].GetMinUpgradeValue(), gameManager.BigTablesRoom[(int)roomID - 7].GetIndexHasMinUpgradeValue());
                 break;
             case RoomID.Lobby:
-                isUnlock = true;
-                income = gameManager.LobbyRoom.GetTotalMoneyEarn();
-                process = gameManager.LobbyRoom.GetProcessUpgrade();
+                SetRoomValues(true, gameManager.LobbyRoom.GetTotalMoneyEarn(), gameManager.LobbyRoom.GetProcessUpgrade(), gameManager.LobbyRoom.GetMinUpgradeValue(), gameManager.LobbyRoom.GetIndexHasMinUpgradeValue());
                 break;
             case RoomID.Kitchen:
-                isUnlock = true;
-                income = gameManager.KitchenRoom.GetTotalMoneyEarn();
-                process = gameManager.KitchenRoom.GetProcessUpgrade();
+                SetRoomValues(true, gameManager.KitchenRoom.GetTotalMoneyEarn(), gameManager.KitchenRoom.GetProcessUpgrade(), gameManager.KitchenRoom.GetMinUpgradeValue(), gameManager.KitchenRoom.GetIndexHasMinUpgradeValue());
                 break;
             case RoomID.Restroom:
-                isUnlock = gameManager.IsUnlockRestroom(gameManager.WCRooms[0]);
-                income = gameManager.WCRooms[0].GetTotalMoneyEarn();
-                process = gameManager.WCRooms[0].GetProcessUpgrade();
+                SetRoomValues(gameManager.IsUnlockRestroom(gameManager.WCRooms[0]), gameManager.WCRooms[0].GetTotalMoneyEarn(), gameManager.WCRooms[0].GetProcessUpgrade(), gameManager.WCRooms[0].GetMinUpgradeValue(), gameManager.WCRooms[0].GetIndexHasMinUpgradeValue());
                 break;
             case RoomID.Restroom2:
-                isUnlock = gameManager.IsUnlockRestroom(gameManager.WCRooms[1]);
-                income = gameManager.WCRooms[1].GetTotalMoneyEarn();
-                process = gameManager.WCRooms[1].GetProcessUpgrade();
+                SetRoomValues(gameManager.IsUnlockRestroom(gameManager.WCRooms[1]), gameManager.WCRooms[1].GetTotalMoneyEarn(), gameManager.WCRooms[1].GetProcessUpgrade(), gameManager.WCRooms[1].GetMinUpgradeValue(), gameManager.WCRooms[1].GetIndexHasMinUpgradeValue());
                 break;
 
             case RoomID.DeliverRoom:
-                isUnlock = gameManager.IsUnlockDeliverRoom();
-                income = gameManager.DeliverRoom.GetTotalMoneyEarn();
-                process = gameManager.DeliverRoom.GetProcessUpgrade();
+                SetRoomValues(gameManager.IsUnlockDeliverRoom(), gameManager.DeliverRoom.GetTotalMoneyEarn(), gameManager.DeliverRoom.GetProcessUpgrade(), gameManager.DeliverRoom.GetMinUpgradeValue(), gameManager.DeliverRoom.GetIndexHasMinUpgradeValue());
                 break;
             case RoomID.Power:
-                isUnlock = true;
-                income = 0;
-                process = gameManager.PowerRoom.GetProcessUpgrade();
+                SetRoomValues(true, 0, gameManager.PowerRoom.GetProcessUpgrade(), gameManager.PowerRoom.GetMinUpgradeValue(), gameManager.PowerRoom.GetIndexHasMinUpgradeValue());
                 break;
         }
+    }
+    void SetRoomValues(bool _isUnlock, BigNumber _income, float _process, BigNumber _minUpgrade, int _indexHasMinUpgrade) {
+        isUnlock = _isUnlock;
+        income = _income;
+        process = _process;
+        minUpgradeValue = _minUpgrade;
+        indexHasMinUpgrade = _indexHasMinUpgrade;
     }
     void ShowPanelRoomInfo(IRoomController room) {
         GameManager.instance.selectedRoom = room;
         CameraMove.instance.ChangePosition(room.GetTransform().position - new Vector3(0, 6.5f, 0f), null);
-        UIManager.instance.ShowPanelRoomInfo(room);
-    }
-    void GetBigTableValue(int id) {
-        isUnlock = gameManager.IsUnlockBigTable(id);
-        income = gameManager.BigTablesRoom[id].GetTotalMoneyEarn();
-        process = gameManager.BigTablesRoom[id].GetProcessUpgrade();
+        UIManager.instance.ShowPanelRoomInfoSpecifiedIndex(room, indexHasMinUpgrade);
     }
 
+    private void Update() {
+        btnGoRoom.interactable = gameManager.IsEnoughCash(minUpgradeValue);
+        notifyEnableUpgrade.SetActive(btnGoRoom.interactable && process < 1);
+    }
 }

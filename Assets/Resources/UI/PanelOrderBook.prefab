@@ -789,14 +789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fea6d923dfcde243bfdf4ea37829c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprCharacters:
-  - {fileID: 21300000, guid: 5f782de463e4b6d4e909ce8646c9aac2, type: 3}
-  - {fileID: 21300000, guid: 20710a8e8c301f54db2c3153317e5aba, type: 3}
-  - {fileID: 21300000, guid: 1092f1d80023b4f4db8eecacdd6b2695, type: 3}
-  - {fileID: 21300000, guid: ade03c00de3092d47af7bb6431e440b9, type: 3}
-  - {fileID: 21300000, guid: 1343aaabbec11504fa5b10a60300ef76, type: 3}
-  - {fileID: 21300000, guid: bda54eafb1d111d4eacdd48aed7187dc, type: 3}
-  - {fileID: 21300000, guid: 17d3772b04cf8474abae35fa247e4a01, type: 3}
   btnOffers:
   - {fileID: 5346253714596488053}
   - {fileID: 5970939392026660697}
@@ -817,7 +809,7 @@ MonoBehaviour:
   offers: []
   currentOffer:
     id: 0
-    sprOrderStaff: {fileID: 0}
+    sprOrderStaffName: 
     bugerCollected: 0
     bugerRequire: 0
     cashProfit:
@@ -3993,8 +3985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 243, y: 142.2}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 262, y: 147}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3920534871031934891
 CanvasRenderer:
@@ -4018,7 +4010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4026,7 +4018,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 571fd5fec56721247b8585dedc43f29b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4725,7 +4717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7035,6 +7027,14 @@ MonoBehaviour:
   isRegisterInUI: 1
   Content: {fileID: 0}
   IsFixContent: 0
+  sprCharacters:
+  - {fileID: 21300000, guid: 5f782de463e4b6d4e909ce8646c9aac2, type: 3}
+  - {fileID: 21300000, guid: 20710a8e8c301f54db2c3153317e5aba, type: 3}
+  - {fileID: 21300000, guid: 1092f1d80023b4f4db8eecacdd6b2695, type: 3}
+  - {fileID: 21300000, guid: ade03c00de3092d47af7bb6431e440b9, type: 3}
+  - {fileID: 21300000, guid: 1343aaabbec11504fa5b10a60300ef76, type: 3}
+  - {fileID: 21300000, guid: bda54eafb1d111d4eacdd48aed7187dc, type: 3}
+  - {fileID: 21300000, guid: 17d3772b04cf8474abae35fa247e4a01, type: 3}
   containerTrans: {fileID: 8153995871564837328}
   uiInDeiveryPrefab: {fileID: 1485923082353189639}
   uiInDeiveryList: []

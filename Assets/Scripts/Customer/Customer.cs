@@ -181,7 +181,7 @@ public class Customer : MonoBehaviour, ICustomer {
         return IsOnTable;
     }
     public float GetOrderFoodValue() {
-        int level = ProfileManager.PlayerData.researchManager.GetLevelByName(foodOrder.researchName);
+        int level = ProfileManager.PlayerData.researchManager.GetLevelByName(foodOrder.researchType);
         if (foodOrder != null && level > 0 )
             return (float) foodOrder.CalculateProfit(level);
         return 0;

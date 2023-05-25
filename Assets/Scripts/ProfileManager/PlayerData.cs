@@ -274,12 +274,7 @@ public class PlayerData {
     public BigNumber GetTipChef() {
         return ResourceSave.GetTipChef(selectedWorld);
     }
-    public void AddTipCleaner(BigNumber value) {
-        ResourceSave.AddTipCleaner(selectedWorld, value);
-    }
-    public BigNumber GetTipCleaner() {
-        return ResourceSave.GetTipCleaner(selectedWorld);
-    }
+   
     public void AddTipReception(BigNumber value) {
         ResourceSave.AddTipReception(selectedWorld, value);
     }

@@ -42,7 +42,7 @@ public class WorldInfoItem : MonoBehaviour {
     public void Setup(WorldBaseData info) {
         currentWorldBaseData = info;
         selectedWorld = info.selectedWorld;
-        starToUnlock = info.starNeededToUnlock;
+        starToUnlock = info.burgerRequire;
         resNameTxt.text = info.GetName();
         resDesTxt.text = info.GetDes();
     }

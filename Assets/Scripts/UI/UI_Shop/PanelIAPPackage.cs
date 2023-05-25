@@ -51,21 +51,22 @@ public class PanelIAPPackage : UIPanel
     }
     public void OnBuy()
     {
-        if (currentOfferId == OfferID.Vip2Pack || currentOfferId == OfferID.Vip3Pack)
-        {
-            if (!ProfileManager.PlayerData.ResourceSave.activeGoldenSuit)
-            {
-                hasSkin = true;
-            }
-            else
-            {
-                hasSkin = false;
-            }
-        }
-        else
-        {
-            hasSkin = false;
-        }
+        //if (currentOfferId == OfferID.Vip2Pack || currentOfferId == OfferID.Vip3Pack)
+        //{
+        //    if (!ProfileManager.PlayerData.ResourceSave.activeGoldenSuit)
+        //    {
+        //        hasSkin = true;
+        //    }
+        //    else
+        //    {
+        //        hasSkin = false;
+        //    }
+        //}
+        //else
+        //{
+        //    hasSkin = false;
+        //}
+        hasSkin = false;
         SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
         MyIAPManager.instance.Buy(currentIAPPackage.productID, OnBuySuccess);
     }

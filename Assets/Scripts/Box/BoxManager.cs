@@ -131,37 +131,15 @@ public class BoxManager {
             ensureAmount += boxToOpen.cardEarnable[i].preEarn;
             totalChanceToOpen += boxToOpen.cardEarnable[i].earnableChance;
         }
-        // Character Card
-        amountOfEachType.Add(0);
-        totalChanceToOpen += boxToOpen.characterCardRate;
         // generate type by chance.
-        bool gotCard = false;
         for (int j = 0; j < boxToOpen.cardEarnAmount - ensureAmount; j++) {
-            gotCard = false;
             float rand = Random.Range(0f, totalChanceToOpen);
             float top = 0f;
             for (int i = 0; i < boxToOpen.cardEarnable.Count; i++) {
                 top += boxToOpen.cardEarnable[i].earnableChance;
                 if (rand < top) {
                     amountOfEachType[i] += 1;
-                    gotCard = true;
                     break;
-                }
-            }
-            // Get character card
-            if(!gotCard)
-            {
-                top += boxToOpen.characterCardRate;
-                if (rand < top)
-                {
-                    if(amountOfEachType[boxToOpen.cardEarnable.Count] > 0 || cardListByType[4].Count == 0)
-                    {
-                        amountOfEachType[boxToOpen.cardEarnable.Count - 1] += 1;
-                    }
-                    else
-                    {
-                        amountOfEachType[boxToOpen.cardEarnable.Count] += 1;
-                    } 
                 }
             }
         }
@@ -174,15 +152,15 @@ public class BoxManager {
                 AddToCountList(cardListByType[i][cardIndex]);
             }
         }
-        if(amountOfEachType[boxToOpen.cardEarnable.Count] > 0 )
-        {
-            for(int i = 0; i < amountOfEachType[boxToOpen.cardEarnable.Count]; i++)
-            {
-                int cardIndex = Random.Range(0, cardListByType[4].Count);
-                QueueEarnableList.Add(cardListByType[4][cardIndex]);
-                AddToCountList(cardListByType[4][cardIndex]);
-            }
-        }
+        //if(amountOfEachType[boxToOpen.cardEarnable.Count] > 0 )
+        //{
+        //    for(int i = 0; i < amountOfEachType[boxToOpen.cardEarnable.Count]; i++)
+        //    {
+        //        int cardIndex = Random.Range(0, cardListByType[4].Count);
+        //        QueueEarnableList.Add(cardListByType[4][cardIndex]);
+        //        AddToCountList(cardListByType[4][cardIndex]);
+        //    }
+        //}
     }
 
     void AddToCountList(CardNormalConfig cardToCount) {
@@ -205,6 +183,7 @@ public class BoxManager {
                 case CardType.NormalCard:
                     ProfileManager.PlayerData.GetCardManager().AddCard(amountOfEachCard[i].card.ID, amountOfEachCard[i].amount);
                     break;
+
                 default:
                     break;
             }

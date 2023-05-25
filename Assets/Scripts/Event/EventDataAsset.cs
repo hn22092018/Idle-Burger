@@ -157,11 +157,7 @@ public class EventDataAsset : ScriptableObject {
             checkPoint = 2700,
             reward = new ItemReward() { type = ItemType.AdvancedChest, amount = 1, spr = GetSpriteByName("chest_1") }
         });
-        Events[0].missionCustomers.Add(new MissionTarget() {
-            missionID = 20,
-            checkPoint = 3000,
-            reward = new ItemReward() { type = ItemType.SpecialCharactor, amount = 1, eventStaffID = 0, spr = GetSpriteByName("Santa Claus") }
-        });
+      
     }
     public Sprite GetSpriteByName(string name) {
         foreach (Sprite spr in sprs) {

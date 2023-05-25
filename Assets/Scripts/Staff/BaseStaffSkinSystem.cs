@@ -22,6 +22,7 @@ public class BaseStaffSkinSystem : MonoBehaviour {
     }
 
     public void UpdateStaffSkin() {
+        return;
         baseStaff._SkinUsing = ProfileManager.PlayerData.skinManager.GetSkinConfig(_StaffIndex, charaterType);
         if (_WorkMeshRender == null || _DefaultWorkMesh == null) return;
         Mesh toChangeMesh = ProfileManager.PlayerData.skinManager.GetMesh(charaterType, _StaffIndex);

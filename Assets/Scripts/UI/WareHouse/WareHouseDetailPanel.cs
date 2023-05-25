@@ -12,7 +12,6 @@ public class WareHouseDetailPanel : MonoBehaviour {
     [SerializeField] Text txtTimeCreateCoolDown;
     [SerializeField] Text txtCoolDownPrice;
     [SerializeField] Image imgIcon;
-    [SerializeField] Image imgIconType;
     [SerializeField] Button btnSale;
     [SerializeField] Button btnGemPay;
     [SerializeField] float timeShowSetting = 5f;
@@ -20,7 +19,6 @@ public class WareHouseDetailPanel : MonoBehaviour {
     [SerializeField] GameObject objCreateCoolDown;
     [SerializeField] GameObject objTimeCoolDownWrap;
     [SerializeField] RectTransform rectGemPriceRebuild;
-    [SerializeField] Sprite sprBiscuit, sprMelon, sprCandy, sprSushi, sprPotato;
     float timeShow;
     int level;
     int price;
@@ -58,24 +56,7 @@ public class WareHouseDetailPanel : MonoBehaviour {
         this.currentWareHouseSlot = wareHouseSlotMaterial;
         btnSale.gameObject.SetActive(true);
         btnSale.interactable = true;
-        imgIconType.transform.parent.gameObject.SetActive(true);
-        switch (wareHouseMaterial.wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
-                imgIconType.sprite = sprBiscuit;
-                break;
-            case WareHouseMaterialType.Melon:
-                imgIconType.sprite = sprMelon;
-                break;
-            case WareHouseMaterialType.Candy:
-                imgIconType.sprite = sprCandy;
-                break;
-            case WareHouseMaterialType.Sushi:
-                imgIconType.sprite = sprSushi;
-                break;
-            case WareHouseMaterialType.Potato:
-                imgIconType.sprite = sprPotato;
-                break;
-        }
+       
     }
     public void CloseDetail() {
         btnSale.interactable = false;
@@ -127,6 +108,5 @@ public class WareHouseDetailPanel : MonoBehaviour {
         bgCanvas.DOFade(1f, .25f);
         txtTitle.text = materialType.ToString();
         imgIcon.sprite = icon;
-        imgIconType.transform.parent.gameObject.SetActive(true);
     }
 }

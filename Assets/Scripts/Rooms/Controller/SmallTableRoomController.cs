@@ -6,30 +6,23 @@ public class SmallTableRoomController : RoomController<SmallTableModelType> {
 
     public override void TriggerQuestUpgrade(int indexItem) {
         base.TriggerQuestUpgrade(indexItem);
-        SmallTableModelType type = roomSetting.modelPositions[indexItem].type;
         int level = roomSetting.modelPositions[indexItem].level;
+        if (level < 10 || (level > 10 && level % 25 != 0)) return;
+        SmallTableModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case SmallTableModelType.SmallTable_Table:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Table, i);
-                }
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Table, level);
                 break;
             case SmallTableModelType.SmallTable_Chair:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Chair, i);
-                }
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Chair, level);
                 break;
 
             case SmallTableModelType.SmallTable_Plate:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Plates, i);
-                }
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Plates, level);
                 break;
 
             case SmallTableModelType.SmallTable_Decor:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Decor, i);
-                }
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Decor, level);
                 break;
         }
     }

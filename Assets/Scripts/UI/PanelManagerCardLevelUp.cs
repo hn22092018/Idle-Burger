@@ -86,7 +86,7 @@ public class PanelManagerCardLevelUp : UIPanel {
     string StaffIDToManagerFuncName(ManagerStaffID id) {
         return id switch {
             ManagerStaffID.Chef => "Kitchen Manager",
-            ManagerStaffID.MainRoom_1 => "Direct Manager",
+            ManagerStaffID.MainRoom_1 => "Manager",
             ManagerStaffID.Deliver_1 => "Deliver Manager",
             ManagerStaffID.Restroom_1 => "Restroom Manager",
             _ => throw new NotImplementedException(),

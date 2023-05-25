@@ -8,9 +8,7 @@ public class DataConfig
     public DailyRewardsData dailyRewardConfig;
     public ShopData shopConfig;
     public CardDataConfig cardData;
-    public QuestData QuestDataConfig_W1;
-    public QuestData QuestDataConfig_W2;
-    public QuestData QuestDataConfig_W3;
+    public QuestData QuestDataConfig;
     public BoxDataConfig boxData;
     public EventDataAsset eventDataConfig;
     public WorldDataAsset worldDataAsset;

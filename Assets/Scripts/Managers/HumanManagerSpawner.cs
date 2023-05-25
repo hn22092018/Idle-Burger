@@ -12,7 +12,7 @@ public class HumanManagerSpawner : MonoBehaviour {
     private void Awake() {
         SpawnManager();
         EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
-            if ((int)x == (int)(staffID)) SpawnManager();
+            if ((int)x == (int)(staffID) && !isSpawned) SpawnManager();
         });
     }
     void SpawnManager() {

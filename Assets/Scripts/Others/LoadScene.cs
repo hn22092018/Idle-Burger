@@ -16,11 +16,7 @@ public class LoadScene : MonoBehaviour {
     // Start is called before the first frame update
     private void Start() {
         int index = ProfileManager.PlayerData.GetSelectedWorld();
-        if (index < 0) {
-           if(index==-1) StartCoroutine(OnLoadingNextScene("Event_NE"));
-
-        } else
-            StartCoroutine(OnLoadingNextScene("Level" + index));
+        StartCoroutine(OnLoadingNextScene("Level" + index));
     }
     IEnumerator OnLoadingNextScene(string sceneName) {
         m_SliderBar.transform.localScale = new Vector3(0, 1, 1);
@@ -37,10 +33,8 @@ public class LoadScene : MonoBehaviour {
         yield return new WaitForSeconds(loadTime);
         m_AsyncLoad.allowSceneActivation = true;
     }
-    private void Update()
-    {
-        if (loadCounter < 100 && startLoad)
-        {
+    private void Update() {
+        if (loadCounter < 100 && startLoad) {
             loadCounter += Time.deltaTime * 100f / loadTime;
         }
         loadedPercent.text = ((int)loadCounter).ToString() + "%";

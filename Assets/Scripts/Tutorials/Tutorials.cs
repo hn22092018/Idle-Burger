@@ -240,7 +240,7 @@ public class Tutorials : MonoBehaviour {
             }
             sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(currentTut.textLocalizeIds[i]);
             if (currentTut.stepID == TutorialStepID.SelectNewWorld) {
-                sInfo = string.Format(sInfo, ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(2).starNeededToUnlock);
+                sInfo = string.Format(sInfo, ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(2).burgerRequire);
             }
             AddTextWriter(sInfo);
             while (characterIndex < textToWrite.Length) {

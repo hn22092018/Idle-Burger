@@ -19,6 +19,7 @@ public class UITabManagerInfo : MonoBehaviour {
     }
     public void OnLoadManagerInfo() {
         currentStaffID = GameManager.instance.selectedRoom.GetManagerStaffID();
+        if (currentStaffID == ManagerStaffID.None) return;
         CardManagerSave cardSaveInfo = ProfileManager.PlayerData.GetCardManager().GetCardManager(currentStaffID);
         txtLevel.text = "LV " + cardSaveInfo.level;
         imgIcon.sprite = ProfileManager.Instance.dataConfig.cardData.GetCardManagerInfo(cardSaveInfo.staffID, cardSaveInfo.rarity).sprIcon;

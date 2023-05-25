@@ -13,7 +13,6 @@ public class PanelRoomInfo : UIPanel {
     [SerializeField] private Sprite[] sprBtnTabs;
     [SerializeField] private Color[] clrTxtBtnTabs;
     [SerializeField] private Text[] txtBtnTabs;
-    [SerializeField] private Image[] iconBtnTabs;
     public UITabUpgrade uiTabUpgrade;
     public UITabStaff uiTabStaff;
     [SerializeField] private UITabProfit uiTabProfit;
@@ -44,8 +43,6 @@ public class PanelRoomInfo : UIPanel {
         btnTabStaff.image.sprite = sprBtnTabs[0];
         txtBtnTabs[0].color = clrTxtBtnTabs[1];
         txtBtnTabs[1].color = clrTxtBtnTabs[0];
-        iconBtnTabs[0].color = clrTxtBtnTabs[1];
-        iconBtnTabs[1].color = clrTxtBtnTabs[0];
         uiTabStaff.gameObject.SetActive(false);
         uiTabUpgrade.gameObject.SetActive(true);
         uiTabUpgrade.Setup();
@@ -58,8 +55,6 @@ public class PanelRoomInfo : UIPanel {
         btnTabStaff.image.sprite = sprBtnTabs[1];
         txtBtnTabs[0].color = clrTxtBtnTabs[0];
         txtBtnTabs[1].color = clrTxtBtnTabs[1];
-        iconBtnTabs[0].color = clrTxtBtnTabs[0];
-        iconBtnTabs[1].color = clrTxtBtnTabs[1];
         uiTabUpgrade.gameObject.SetActive(false);
         uiTabStaff.gameObject.SetActive(true);
         uiTabStaff.Setup();
@@ -69,7 +64,6 @@ public class PanelRoomInfo : UIPanel {
     public void OnShowInfoItem(int index) {
         GameManager.instance.selectedRoom.TurnOnSelectedEffectItem(index);
         uiTabUpgrade.OnShowInfoItem(index);
-
         if (Tutorials.instance.IsShow) {
             TutorialStepID step = Tutorials.instance.GetTutorialStep();
             if (step == TutorialStepID.UpgradeTable) {
@@ -85,9 +79,10 @@ public class PanelRoomInfo : UIPanel {
     public void Setup(IRoomController roomManager, bool IsShowUpgradeFirst = true) {
         if (!ProfileManager.PlayerData.ResourceSave.activeRemoveAds) AdsManager.Instance.ShowInterstitial(null, null);
         SoundManager.instance.PlaySubMusic(roomManager.GetRoomID());
-        if (roomManager.GetStaffSetting() == null || roomManager.GetRoomID() == RoomID.Manager) {
-            btnTabStaff.gameObject.SetActive(false);
-        } else btnTabStaff.gameObject.SetActive(roomManager.GetStaffSetting().GetTotalStaff() > 0);
+        btnTabStaff.gameObject.SetActive(false);
+        //if (roomManager.GetStaffSetting() == null || roomManager.GetRoomID() == RoomID.Manager) {
+        //    btnTabStaff.gameObject.SetActive(false);
+        //} else btnTabStaff.gameObject.SetActive(roomManager.GetStaffSetting().GetTotalStaff() > 0);
         txtRoomName.text = ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomManager.GetRoomID()).ToUpper();
         if (IsShowUpgradeFirst) OnShowTabUpgrade();
         else OnShowTabStaff();

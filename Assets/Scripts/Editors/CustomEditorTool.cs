@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -89,16 +90,13 @@ public class CustomEditorTool : EditorWindow {
         Selection.activeObject = asset;
     }
     static void FillDataCard(CardDataConfig asset) {
-        string cardTextPath = "Assets/AssetDatas/csv/Card.csv";
+        string cardTextPath = "Assets/AssetDatas/csv/Idle Burger - Card.csv";
         string cardSpritePath = "Assets/Sprites/card/card_game/";
         TextAsset cardData = AssetDatabase.LoadAssetAtPath<TextAsset>(cardTextPath);
         List<Dictionary<string, object>> data = CSVReader.Read(cardData);
 
-        asset.cardList = new List<CardNormalConfig>();
-        for (int i = asset.cardList.Count; i < data.Count; i++) {
-            asset.cardList.Add(new CardNormalConfig());
-        }
-        for (var i = 0; i < data.Count; i++) {
+        var cardList = new List<CardNormalConfig>();
+        for (var i = 0; i < 15; i++) {
             string strID = data[i]["ID"].ToString();
             if (string.IsNullOrEmpty(strID)) continue;
             int id = int.Parse(data[i]["ID"].ToString());
@@ -107,8 +105,8 @@ public class CustomEditorTool : EditorWindow {
             int desLocalizeID = int.Parse(data[i]["Des Localize ID"].ToString());
             string des = data[i]["Description"].ToString();
             string rarity = data[i]["Rarity"].ToString();
-            string sprOnName = data[i]["SpriteOnName"].ToString();
-            string sprOffName = data[i]["SpriteOffName"].ToString();
+            string sprOnName = data[i]["SpriteOn"].ToString();
+            string sprOffName = data[i]["SpriteOff"].ToString();
             Sprite sprOn = AssetDatabase.LoadAssetAtPath<Sprite>(cardSpritePath + sprOnName + ".png");
             Sprite sprOff = AssetDatabase.LoadAssetAtPath<Sprite>(cardSpritePath + sprOffName + ".png");
             CardNormalConfig card = new CardNormalConfig();
@@ -122,16 +120,12 @@ public class CustomEditorTool : EditorWindow {
             for (int k = 0; k < 5; k++) {
                 card.cardValues.Add(float.Parse(data[i]["Level " + (k + 1)].ToString()));
             }
-            int level = 1;
-            card.cardAmountLevel = new List<int>();
-            while (level <= 5) {
-                card.cardAmountLevel.Add(int.Parse(data[i]["AmountLevel" + level].ToString()));
-                level++;
-            }
+            card.cardAmountLevel = new List<int>() { 1, 6, 12, 18, 24 };
             card.sprOn = sprOn;
             card.sprOff = sprOff;
-            asset.cardList[i] = card;
+            cardList.Add(card);
         }
+        asset.cardList = cardList;
 #if UNITY_EDITOR
         EditorUtility.SetDirty(asset);
 #endif
@@ -139,14 +133,14 @@ public class CustomEditorTool : EditorWindow {
         AssetDatabase.Refresh();
     }
 
-  
+
     [MenuItem("Tool/Custom/Creat Quest Data_W1")]
     public static void CreatQuestData_W1() {
         RoomLoadID = 1;
-        string questPath = "Assets/AssetDatas/QuestDataConfig_W1.asset";
+        string questPath = "Assets/AssetDatas/QuestDataConfig.asset";
         QuestData asset = AssetDatabase.LoadAssetAtPath<QuestData>(questPath);
         if (asset == null) {
-            Debug.Log("Creat New Data QuestData Config W1");
+            Debug.Log("Creat New Data QuestData Config");
             asset = ScriptableObject.CreateInstance<QuestData>();
             FillDataQuest(asset);
             AssetDatabase.CreateAsset(asset, questPath);
@@ -162,7 +156,7 @@ public class CustomEditorTool : EditorWindow {
 
     public static void CreatQuestData_W2() {
         RoomLoadID = 2;
-        string questPath = "Assets/AssetDatas/QuestDataConfig_W2.asset";
+        string questPath = "Assets/AssetDatas/QuestDataConfig.asset";
         QuestData asset = AssetDatabase.LoadAssetAtPath<QuestData>(questPath);
         if (asset == null) {
             Debug.Log("Creat New Data QuestData Config W2");
@@ -180,7 +174,7 @@ public class CustomEditorTool : EditorWindow {
     [MenuItem("Tool/Custom/Creat Quest Data_W3")]
     public static void CreatQuestData_W3() {
         RoomLoadID = 3;
-        string questPath = "Assets/AssetDatas/QuestDataConfig_W3.asset";
+        string questPath = "Assets/AssetDatas/QuestDataConfig.asset";
         QuestData asset = AssetDatabase.LoadAssetAtPath<QuestData>(questPath);
         if (asset == null) {
             Debug.Log("Creat New Data QuestData Config W3");
@@ -199,10 +193,11 @@ public class CustomEditorTool : EditorWindow {
         string questTextPath = "Assets/AssetDatas/csv/Idle Burger - Quest_W" + RoomLoadID + ".csv";
         TextAsset questData = AssetDatabase.LoadAssetAtPath<TextAsset>(questTextPath);
         List<Dictionary<string, object>> data = CSVReader.Read(questData);
+        List<Quest> listConfig = new List<Quest>();
 
-        asset.questList = new List<Quest>();
-        for (int i = asset.questList.Count; i < data.Count; i++) {
-            asset.questList.Add(new Quest());
+        listConfig = new List<Quest>();
+        for (int i = listConfig.Count; i < data.Count; i++) {
+            listConfig.Add(new Quest());
         }
         for (var i = 0; i < data.Count; i++) {
             int id = int.Parse(data[i]["QuestID"].ToString());
@@ -229,29 +224,74 @@ public class CustomEditorTool : EditorWindow {
                 quest.reward.type = ItemType.Gem;
                 quest.reward.amount = gemReward;
             }
-            asset.questList[i] = quest;
+            listConfig[i] = quest;
         }
 
         // Sort Quest list by Priority
-
-        Quest temp = new Quest();
-        for (int j = 0; j < asset.questList.Count - 1; j++) {
-            for (int i = 0; i < asset.questList.Count - 1; i++) {
-                if (asset.questList[i].priority > asset.questList[i + 1].priority) {
-                    temp = asset.questList[i + 1];
-                    asset.questList[i + 1] = asset.questList[i];
-                    asset.questList[i] = temp;
-                }
-            }
-        }
-
+        listConfig.Sort((x, y) => x.priority.CompareTo(y.priority));
+        if (RoomLoadID == 1) asset.questList_W1 = listConfig;
+        else if (RoomLoadID == 2) asset.questList_W2 = listConfig;
+        else if (RoomLoadID == 3) asset.questList_W3 = listConfig;
 #if UNITY_EDITOR
         EditorUtility.SetDirty(asset);
 #endif
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
-
+    [MenuItem("Tool/Custom/Creat Research")]
+    public static void CreatResearch() {
+        string path = "Assets/AssetDatas/ResearchData.asset";
+        ResearchData asset = AssetDatabase.LoadAssetAtPath<ResearchData>(path);
+        if (asset == null) {
+            Debug.Log("Creat New ResearchData");
+            asset = ScriptableObject.CreateInstance<ResearchData>();
+            FillResearchData(asset);
+            AssetDatabase.CreateAsset(asset, path);
+            AssetDatabase.SaveAssets();
+        } else {
+            Debug.Log("Overide Data QuestData Config W3");
+            FillResearchData(asset);
+        }
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = asset;
+    }
+    static void FillResearchData(ResearchData asset) {
+        string questTextPath = "Assets/AssetDatas/csv/Idle Burger - ResearchMenu" + ".csv";
+        string spritePath = "Assets/3D Art Lv2_3/Foods and Drinks/icons/";
+        string modelPath = "Assets/3D Art Lv2_3/Foods and Drinks/Models/";
+        TextAsset questData = AssetDatabase.LoadAssetAtPath<TextAsset>(questTextPath);
+        List<Dictionary<string, object>> data = CSVReader.Read(questData);
+        List<Research> listConfig = new List<Research>();
+        for (int i = listConfig.Count; i < data.Count; i++) {
+            listConfig.Add(new Research());
+        }
+        for (var i = 0; i < data.Count; i++) {
+            string strName = data[i]["Name"].ToString();
+            string strResearchType = data[i]["ResearchType"].ToString();
+            string strModelName = data[i]["3D Name"].ToString();
+            int profit = int.Parse(data[i]["Profit"].ToString());
+            float time = float.Parse(data[i]["Food Time"].ToString());
+            int upgradePrice = int.Parse(data[i]["Upgrade Price"].ToString());
+            int blockTime = int.Parse(data[i]["Block Time"].ToString());
+            Research research = new Research() {
+                foodName = strName,
+                researchType = (ResearchType)Enum.Parse(typeof(ResearchType), strResearchType),
+                objFood = AssetDatabase.LoadAssetAtPath<GameObject>(modelPath + strModelName + ".fbx"),
+                foodIcon = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath + strModelName + ".png"),
+                foodProfit = profit,
+                makeTime = time,
+                priceUpgrade = upgradePrice,
+                foodBlockTime = blockTime * 60
+            };
+            listConfig[i] = research;
+        }
+        asset.foodResearchs = listConfig;
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(asset);
+#endif
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+    }
     static int RoomLoadID;
     [MenuItem("Tool/Custom/LoadRoomCost_W1")]
     static void LoadRoomCost() {
@@ -483,7 +523,7 @@ public class CustomEditorTool : EditorWindow {
                 EditorUtility.SetDirty(roomDataAsset);
 #endif
                 break;
-            
+
             case RoomID.Power:
                 PowerModelType powerModelType = (PowerModelType)Enum.Parse(typeof(PowerModelType), sModelType);
                 PowerRoomDataAsset powerRoomDataAsset = GetAllRoomDataAssets<PowerRoomDataAsset>()[0];

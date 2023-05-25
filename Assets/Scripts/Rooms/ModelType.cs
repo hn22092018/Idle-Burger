@@ -13,6 +13,7 @@ public enum RestroomModelType {
     Restroom_SinkFemale,
     Restroom_StallFemale,
     Restroom_StallMale,
+    Restroom_HandsDryer
 }
 public enum KitchenModelType {
     Kitchen_Fridge,

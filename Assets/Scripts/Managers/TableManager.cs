@@ -87,7 +87,7 @@ public class TableManager : MonoBehaviour {
     public void PaymentTable(TablePosition tablePosition) {
         for (int i = 0; i < tables.Count; i++) {
             if (tables[i].IsContainerTablePosition(tablePosition)) {
-                BigNumber money = tables[i].GetMoneyEarnInTable();
+                BigNumber money = tables[i].GetMoneyEarnInTable() + tablePosition.customer.GetOrderFoodValue();
                 money *= GameManager.GetTotalIncomeRate() * tablePosition.customer.GetVipRate() * managerRateIcome;
                 UIManager.instance.CreatUIMoneyEff(money, tablePosition.customer.GetTransform());
                 GameManager.SpawnCashFx(tablePosition.customer.GetTransform());

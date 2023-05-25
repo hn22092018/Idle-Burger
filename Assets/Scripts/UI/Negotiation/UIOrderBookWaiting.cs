@@ -64,12 +64,18 @@ public class UIOrderBookWaiting : UIEffect {
             btnGetGem.gameObject.SetActive(false);
             btnGetTicket.gameObject.SetActive(false);
         } else {
-            txtTimeBlock.text = sWaitToNewOrder + " " + ProfileManager.PlayerData.GetOrderBookManager().GetTimeToNewOffer() + "s";
-            int adTicket = ProfileManager.PlayerData.ResourceSave.GetADTicket();
-            btnGetTicket.gameObject.SetActive(adTicket > 0);
-            btnGetAds.gameObject.SetActive(adTicket <= 0);
-            btnGetGem.gameObject.SetActive(true);
-            btnGetGem.interactable = GameManager.instance.IsEnoughGem(gemPriceSkip);
+            int time = ProfileManager.PlayerData.GetOrderBookManager().GetTimeToNewOffer();
+            if (time > 0) {
+                txtTimeBlock.text = sWaitToNewOrder + " " + time + "s";
+                int adTicket = ProfileManager.PlayerData.ResourceSave.GetADTicket();
+                btnGetTicket.gameObject.SetActive(adTicket > 0);
+                btnGetAds.gameObject.SetActive(adTicket <= 0);
+                btnGetGem.gameObject.SetActive(true);
+                btnGetGem.interactable = GameManager.instance.IsEnoughGem(gemPriceSkip);
+            } else {
+                ProfileManager.PlayerData.GetOrderBookManager().SkipWaitToNewOffer();
+                PanelOrderBook.instance.ReloadUIOffer();
+            }
         }
 
     }

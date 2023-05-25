@@ -6,29 +6,22 @@ public class LobbyRoomController : RoomController<LobbyModelType> {
     QuestManager questManager;
     public override void TriggerQuestUpgrade(int indexItem) {
         base.TriggerQuestUpgrade(indexItem);
+        int level = roomSetting.modelPositions[indexItem].level;
+        if (level < 10 || (level > 10 && level % 25 != 0)) return;
         if (questManager == null) questManager = ProfileManager.PlayerData.GetQuestManager();
         LobbyModelType type = roomSetting.modelPositions[indexItem].type;
-        int level = roomSetting.modelPositions[indexItem].level;
         switch (type) {
             case LobbyModelType.Lobby_Desk:
-                for (int i = 1; i <= level; i++) {
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Desk, i);
-                }
+                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Desk, level);
                 break;
             case LobbyModelType.Lobby_Computer:
-                for (int i = 1; i <= level; i++) {
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Computer, i);
-                }
+                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Computer, level);
                 break;
             case LobbyModelType.Lobby_Case:
-                for (int i = 1; i <= level; i++) {
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Case, i);
-                }
+                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Case, level);
                 break;
             case LobbyModelType.Lobby_Decor:
-                for (int i = 1; i <= level; i++) {
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Decor, i);
-                }
+                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Decor, level);
                 break;
         }
     }

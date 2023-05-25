@@ -221,6 +221,13 @@ public class UIManager : MonoBehaviour {
         GetPanel(UIPanelType.PanelRoomInfo).SetActive(true);
         GetPanel(UIPanelType.PanelRoomInfo).GetComponent<PanelRoomInfo>().Setup(roomManager);
     }
+    public void ShowPanelRoomInfoSpecifiedIndex(IRoomController roomManager, int index) {
+        isHasPopupOnScene = true;
+        SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
+        GetPanel(UIPanelType.PanelRoomInfo).SetActive(true);
+        GetPanel(UIPanelType.PanelRoomInfo).GetComponent<PanelRoomInfo>().Setup(roomManager);
+        GetPanel(UIPanelType.PanelRoomInfo).GetComponent<PanelRoomInfo>().OnShowInfoItem(index);
+    }
     public void ShowPanelRoomInfo_Staff(IRoomController roomManager) {
         isHasPopupOnScene = true;
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);

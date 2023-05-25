@@ -73,8 +73,6 @@ public class WaiterManager : MonoBehaviour {
         waiter.CalculateSkinBuffIncome(ref foodValue);
         tip = foodValue * GameManager.instance.tipWaiterRateCard * GameManager.instance.tipBaseRate;
         ProfileManager.PlayerData.AddTipWaiter(tip);
-        ProfileManager.PlayerData.AddCash(foodValue);
-        UIManager.instance.CreatUIMoneyEff(foodValue, waiter.servingTable.customer.GetTransform());
     }
 
     public void OnCheckWork() {

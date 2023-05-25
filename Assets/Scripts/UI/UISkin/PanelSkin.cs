@@ -12,7 +12,7 @@ public class PanelSkin : UIPanel {
     [SerializeField] Button btnClose, btnBuyCash, btnBuyGem, btnUnlockVideo;
     [SerializeField] Button btnSelect, btnRemove;
     [SerializeField] Text txtCash, txtGem, txtVideo;
-    [SerializeField] Text txtSkinName, txtDiligence, txtSkinWorkEfficiency, txtSkinIncome, txtSkinSpecialSkill, txtSkinReputation;
+    [SerializeField] Text txtSkinName, txtDiligence, txtSkinWorkEfficiency, txtSkinIncome, txtSkinSpecialSkill;
     [SerializeField] Text txtSkinState;
     [SerializeField] Image imgSkinIcon;
     [SerializeField] Transform rootUISkin;
@@ -118,8 +118,6 @@ public class PanelSkin : UIPanel {
         txtSkinWorkEfficiency.text = string.Format(sWorkEfficiency, selectSkin.workEfficiency);
         txtSkinIncome.text = string.Format(sIncome, selectSkin.incomeX2Chance);
         txtSkinSpecialSkill.text = string.Format(sSpecialSkill, selectSkin.specialSkillChance);
-        txtSkinReputation.text = "+" + selectSkin.reputationDropChance + "%";
-        txtSkinReputation.gameObject.SetActive(selectSkin.reputationDropChance > 0);
         btnBuyCash.gameObject.SetActive(false);
         btnBuyGem.gameObject.SetActive(false);
         btnUnlockVideo.gameObject.SetActive(false);

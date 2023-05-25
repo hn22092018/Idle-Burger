@@ -9,7 +9,6 @@ public class PanelTipProfit : UIPanel {
     [SerializeField] Text txtProfitReceptionist;
     [SerializeField] Text txtProfitWatier;
     [SerializeField] Text txtProfitChef;
-    [SerializeField] Text txtProfitCleaner;
     [SerializeField] Text txtTotal;
     [SerializeField] Button btnClaim, btnClaimX2, btnGoToCard, btnClose, btnClaimX2Ticket;
     BigNumber profits;
@@ -26,7 +25,6 @@ public class PanelTipProfit : UIPanel {
         txtProfitReceptionist.text = "+" + ProfileManager.PlayerData.GetTipReception();
         txtProfitWatier.text = "+" + ProfileManager.PlayerData.GetTipWaiter();
         txtProfitChef.text = "+" + ProfileManager.PlayerData.GetTipChef();
-        txtProfitCleaner.text = "+" + ProfileManager.PlayerData.GetTipCleaner();
         txtTotal.text= "+" + ProfileManager.Instance.playerData.GetTotalTipProfit();
         btnClaimX2.interactable = AdsManager.Instance.IsRewardVideoLoaded();
         btnClaimX2Ticket.gameObject.SetActive(ProfileManager.PlayerData.ResourceSave.GetADTicket() > 0);

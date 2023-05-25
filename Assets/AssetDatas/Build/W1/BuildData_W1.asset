@@ -37,7 +37,7 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 18c192f2a259b6f4290de1a4bbe2ae06, type: 3}
     energyRequire: 50
     cashRequire: 1000000
-    starRequire: 0
+    starRequire: 10
     timeRequire: 120
   - buildTarget: 1
     DesLocalizeID: 115
@@ -56,7 +56,7 @@ MonoBehaviour:
       waitress.
     sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
     energyRequire: 10
-    cashRequire: 500
+    cashRequire: 100
     starRequire: 0
     timeRequire: 0
   - buildTarget: 7
@@ -67,7 +67,7 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
     energyRequire: 30
     cashRequire: 6000
-    starRequire: 0
+    starRequire: 3
     timeRequire: 60
   - buildTarget: 8
     DesLocalizeID: 115
@@ -77,7 +77,7 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
     energyRequire: 40
     cashRequire: 6000
-    starRequire: 0
+    starRequire: 3
     timeRequire: 60
   - buildTarget: 9
     DesLocalizeID: 115
@@ -87,7 +87,7 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
     energyRequire: 50
     cashRequire: 6000
-    starRequire: 0
+    starRequire: 3
     timeRequire: 60
   - buildTarget: 10
     DesLocalizeID: 115
@@ -97,7 +97,7 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 83cc521cb9962d84697bff1ad11bfbcf, type: 3}
     energyRequire: 60
     cashRequire: 6000
-    starRequire: 0
+    starRequire: 3
     timeRequire: 60
   - buildTarget: 0
     DesLocalizeID: 0
@@ -115,3 +115,67 @@ MonoBehaviour:
     cashRequire: 0
     starRequire: 0
     timeRequire: 0
+  - buildTarget: 3
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 20
+    cashRequire: 100
+    starRequire: 2
+    timeRequire: 0
+  - buildTarget: 4
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 20
+    cashRequire: 100
+    starRequire: 3
+    timeRequire: 0
+  - buildTarget: 5
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 30
+    cashRequire: 100
+    starRequire: 3
+    timeRequire: 0
+  - buildTarget: 6
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 30
+    cashRequire: 100
+    starRequire: 3
+    timeRequire: 0
+  - buildTarget: 11
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 70
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 12
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 80
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 13
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 100
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60
+  - buildTarget: 14
+    DesLocalizeID: 0
+    buildDes: 
+    sprBuild: {fileID: 0}
+    energyRequire: 150
+    cashRequire: 6000
+    starRequire: 3
+    timeRequire: 60

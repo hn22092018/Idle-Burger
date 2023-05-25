@@ -21,7 +21,8 @@ public enum ManagerStaffID {
     Chef,
     Deliver_1,
     MainRoom_1,
-    Restroom_1
+    Restroom_1,
+    None
 }
 [System.Serializable]
 public class CardNormalConfig {
@@ -83,7 +84,7 @@ public class CardIAPConfig {
         return description;
     }
     public string GetName() {
-        if (NameLocalizeID>0&& !string.IsNullOrEmpty(ProfileManager.Instance.dataConfig.GameText.GetTextByID(NameLocalizeID))) {
+        if (NameLocalizeID > 0 && !string.IsNullOrEmpty(ProfileManager.Instance.dataConfig.GameText.GetTextByID(NameLocalizeID))) {
             return ProfileManager.Instance.dataConfig.GameText.GetTextByID(NameLocalizeID);
         }
         return name;

@@ -49,7 +49,7 @@ public class PanelResearch : UIPanel {
         panelCustomerPack.SetActive(false);
         panelResearchDetail.gameObject.SetActive(false);
         for (int i = 0; i < researchTabs.Count; i++) {
-            researchTabs[i].IsBlock= false;
+            researchTabs[i].IsBlock = false;
         }
         IsBlockClose = false;
         if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() == TutorialStepID.Research) StartCoroutine(ShowTut());
@@ -59,15 +59,9 @@ public class PanelResearch : UIPanel {
         ResearchData researchData = ProfileManager.Instance.dataConfig.researchDataConfig;
         for (int i = 0; i < groupMainParent.childCount; i++)
             groupMainParent.GetChild(i).gameObject.SetActive(false);
-        for (int i = 0; i < researchData.groupResearches.Count; i++) {
-            ResearchGroup newTechGroup = Instantiate(researchGroupPref, groupMainParent);
-            newTechGroup.InitData(researchData.groupResearches[i]);
-            researchGroupMains.Add(newTechGroup);
-            newTechGroup.gameObject.SetActive(false);
-            researchTabs[i].InitData(i, researchData.groupResearches[i].researchGroupName, this);
-        }
-        if (researchTabs.Count > 0)
-            OnSelectTab(researchTabs[0]);
+        ResearchGroup newTechGroup = Instantiate(researchGroupPref, groupMainParent);
+        newTechGroup.InitData(researchData.foodResearchs);
+        researchGroupMains.Add(newTechGroup);
     }
     private void Update() {
         notifyFreeCustomer.gameObject.SetActive(ProfileManager.PlayerData.researchManager.IsHasFreeCustomerCanWatched());
@@ -77,10 +71,10 @@ public class PanelResearch : UIPanel {
         ReloadData();
         LayoutRebuilder.ForceRebuildLayoutImmediate(tabParent);
     }
-    public void ShowDetail(ResearchName researchName) {
+    public void ShowDetail(ResearchType researchName) {
         panelResearchDetail.ShowDetail(researchName);
     }
-    public ResearchName GetCurrentResearchNameOnDetail() {
+    public ResearchType GetCurrentResearchNameOnDetail() {
         return panelResearchDetail.GetCurrentResearchNameOnDetail();
     }
     public void OnOpen() {
@@ -118,7 +112,6 @@ public class PanelResearch : UIPanel {
     }
     public void ReloadData() {
         for (int i = 0; i < researchGroupMains.Count; i++)
-            if (i == currenTab.index)
                 researchGroupMains[i].ReloadData();
         txtResearchValues.text = ProfileManager.PlayerData.researchManager.researchValue.ToString();
         int onUpgradeRemain = ProfileManager.PlayerData.researchManager.currentResearchs.Count;
@@ -168,7 +161,7 @@ public class PanelResearch : UIPanel {
             // end intro. Show tut press research slot
             yield return new WaitForSeconds(0.5f);
             panelCustomerPack.SetActive(false);
-            Transform slot = researchGroupMains.Where(x => x.researchGroupName == GroupResearchName.Food).ToList()[0].GetResearchSlotTran(ResearchName.FrenchFries);
+            Transform slot = researchGroupMains[0].GetResearchSlotTran(ResearchType.Hamburger);
             Tutorials.instance.OnShow(slot);
             // Check Condition To Show Tut Free Claim Customer
             if (ProfileManager.PlayerData.researchManager.Free_Customer_NonAds <= 0)

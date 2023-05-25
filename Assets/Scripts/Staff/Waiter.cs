@@ -112,7 +112,6 @@ public class Waiter : BaseStaff {
                 if (servingCustomer != null) AIRotateToTarget(servingCustomer.GetTransform().position);
                 deltaTime += Time.deltaTime;
             } else {
-                DropReputation();
                 WaiterManager.PaymentFoodOrder(this);
                 m_Animator.SetBool("IsBringFood", false);
                 foodOnHand.SetActive(false);

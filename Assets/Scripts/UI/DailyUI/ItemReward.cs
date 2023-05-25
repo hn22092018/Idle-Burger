@@ -21,30 +21,26 @@ public enum ItemType {
     AdvancedSkinBox,
     ExpertSkinBox,
     VIPMarketing,
-    SpecialCharactor,
     Uniform,
     ResearchValue,
     Researcher,
     Reputation,
-    Reputation_IncreasePercent,
-    Biscuit5,
-    Candy5,
-    Melon5,
-    Potato5,
-    Sushi5
+    BurgerCoin,
+    Cheese,
+    Pepper,
+    Sugar,
+    Carot,
+    Flour
 }
 [System.Serializable]
 public class ItemReward {
     public ItemType type;
     public Sprite spr;
     public int amount;
-    [HideInInspector] public bool specialCharactorReward;
     [HideInInspector] public bool skinReward;
-    [ConditionalHide("specialCharactorReward", true)] public int eventStaffID;
     [ConditionalHide("skinReward", true)] public int skinID;
     public void OnEnable()
     {
-        specialCharactorReward = type == ItemType.SpecialCharactor;
         skinReward = type == ItemType.Uniform;
     }
     public string AmountToString() {
@@ -68,17 +64,16 @@ public class ItemReward {
             ItemType.AdvancedSkinBox => "+" + amount + "",
             ItemType.ExpertSkinBox => "+" + amount + "",
             ItemType.VIPMarketing => "",
-            ItemType.SpecialCharactor => "",
             ItemType.Uniform => "",
             ItemType.ResearchValue => "+" + amount + "",
             ItemType.Reputation => "+" + amount + "",
             ItemType.Researcher => "+" + amount + "",
-            ItemType.Reputation_IncreasePercent => "+" + amount + "%",
-            ItemType.Biscuit5 => "+" + amount + "",
-            ItemType.Candy5 => "+" + amount + "",
-            ItemType.Melon5 => "+" + amount + "",
-            ItemType.Potato5 => "+" + amount + "",
-            ItemType.Sushi5 => "+" + amount + "",
+            ItemType.Cheese => "+" + amount + "",
+            ItemType.Pepper => "+" + amount + "",
+            ItemType.Sugar => "+" + amount + "",
+            ItemType.Carot => "+" + amount + "",
+            ItemType.Flour => "+" + amount + "",
+            ItemType.BurgerCoin => "+" + amount + "",
             _ => throw new System.NotImplementedException(),
         };
     }
@@ -103,12 +98,11 @@ public class ItemReward {
             ItemType.AdvancedSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(164).ToUpper(),
             ItemType.ExpertSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(413).ToUpper(),
             ItemType.VIPMarketing => ProfileManager.Instance.dataConfig.GameText.GetTextByID(162).ToUpper(),
-            ItemType.SpecialCharactor => ProfileManager.Instance.dataConfig.GameText.GetTextByID(414).ToUpper(),
             ItemType.Uniform => ProfileManager.Instance.dataConfig.GameText.GetTextByID(420).ToUpper(),
             ItemType.ResearchValue => "Research".ToUpper(),
             ItemType.Researcher => ProfileManager.Instance.dataConfig.GameText.GetTextByID(454).ToUpper(),
             ItemType.Reputation => ProfileManager.Instance.dataConfig.GameText.GetTextByID(453).ToUpper(),
-            ItemType.Reputation_IncreasePercent => ProfileManager.Instance.dataConfig.GameText.GetTextByID(453).ToUpper(),
+            ItemType.BurgerCoin => "Burger Coin".ToUpper(),
             _ => "",
            
         };

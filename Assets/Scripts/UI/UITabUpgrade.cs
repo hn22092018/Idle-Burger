@@ -11,35 +11,31 @@ public class UITabUpgrade : MonoBehaviour {
     public Transform prefabUIItem;
     public Text txtItemName;
     public Image imgItemIcon;
-    public Text txtItemInfo;
     public Text txtItemLevel;
     public Text txtItemUpgradePrice;
     public Text txtUpgrade;
     public Button btnUpgrade;
     public GameObject btnMaxUpgrade;
     public GameObject grMoney;
-    //public Text txtItemMoneyEarn;
-    //public Text txtTimeReduce;
-    //public GameObject grTimeReduce;
-    //public Text txtItemEnergy;
-    //public GameObject grEnergy;
+    public Button btnEvolve;
+    public Text txtEvolvePrice;
     public Transform transProcessUpgrade;
     public Transform objGemEff1, objGemEff2;
     public GameObject objCompleteReward1, objCompleteReward2;
+    [SerializeField] GameObject uiTabManagerInfo;
     List<UIUpgradeItem> listUpgradeItems = new List<UIUpgradeItem>();
     int selectedItemID;
-    BigNumber priceUpgrade;
-    public int energyRequire;
-    public RectTransform rectTransform;
+    BigNumber priceUpgrade = new BigNumber(0);
+    int evolvePrice;
     [SerializeField] RectTransform rectTextPrice;
     float timeRebuildLayout = 0;
     IRoomController currentRoom;
     float dtTimeUpgradeHover;
     private void Awake() {
-        //btnUpgrade.onClick.AddListener(() => {
-        //    SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
-        //    OnUpgradeItem();
-        //});
+        btnEvolve.onClick.AddListener(() => {
+            SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
+            OnEvolVeItem();
+        });
     }
     /// <summary>
     /// update status upgrade button & UIUpgradeItems when game money change
@@ -47,10 +43,9 @@ public class UITabUpgrade : MonoBehaviour {
     private void Update() {
         if (timeRebuildLayout <= 1) {
             timeRebuildLayout += Time.deltaTime;
-            LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
             LayoutRebuilder.MarkLayoutForRebuild(rectTextPrice);
         }
-        btnUpgrade.interactable = IsEnoughConditionUpgrade();
+        btnUpgrade.interactable = GameManager.instance.IsEnoughCash(priceUpgrade);
         if (IsUpgradeButtonSelected && btnUpgrade.gameObject.activeInHierarchy) {
             dtTimeUpgradeHover -= Time.deltaTime;
             if (dtTimeUpgradeHover <= 0) {
@@ -61,9 +56,6 @@ public class UITabUpgrade : MonoBehaviour {
         }
     }
 
-    public bool IsEnoughConditionUpgrade() {
-        return GameManager.instance.IsEnoughCash(priceUpgrade) && GameManager.instance.IsEnoughEnergy(energyRequire);
-    }
     /// <summary>
     /// Load UI by room control
     /// </summary>
@@ -71,8 +63,8 @@ public class UITabUpgrade : MonoBehaviour {
     public void Setup() {
         rootUIItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         priceUpgrade = 0;
-        energyRequire = 0;
         currentRoom = GameManager.instance.selectedRoom;
+        uiTabManagerInfo.gameObject.SetActive(currentRoom.GetManagerStaffID() != ManagerStaffID.None);
         int totalModel = currentRoom.GetTotalModel();
         while (rootUIItem.childCount < totalModel) {
             Instantiate(prefabUIItem, rootUIItem);
@@ -120,14 +112,7 @@ public class UITabUpgrade : MonoBehaviour {
     /// Show All Info Model When user click room in game or change other model in UI.
     /// </summary>
     /// <param name="index"></param>
-    string subColor1 = " <color=red>(+";
-    string subColor2_1 = " <color=yellow>(+";
-    string subColor2_2 = " <color=yellow>(-";
-    string subColor3 = ") </color>";
-    int energyRequire1;
-    int energyRequire2;
-    float timeReduce;
-    float timeReduce2;
+
     public void OnShowInfoItem(int index) {
         transProcessUpgrade.transform.localScale = new Vector3(currentRoom.GetProcessUpgrade(), 1, 1);
         listUpgradeItems[selectedItemID].OnSelect(false);
@@ -139,53 +124,23 @@ public class UITabUpgrade : MonoBehaviour {
         int level = currentRoom.GetLevelItem(index);
         int maxLevel = currentRoom.GetLevelMaxItem(index);
         btnUpgrade.gameObject.SetActive(level != maxLevel);
+        btnEvolve.gameObject.SetActive(false);
         btnMaxUpgrade.gameObject.SetActive(level == maxLevel);
+        if (level > 0 && level % 25 == 0 && level < maxLevel) {
+            btnUpgrade.gameObject.SetActive(false);
+            btnEvolve.gameObject.SetActive(true);
+            evolvePrice = GameManager.instance.GetEvolvePriceByLevel(level);
+            txtEvolvePrice.text = evolvePrice + "";
+            btnEvolve.interactable = GameManager.instance.IsEnoughBurgetCoin(evolvePrice);
+        }
         if (level == maxLevel) IsUpgradeButtonSelected = false;
         string strLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(27).ToUpper() + ": ";
         txtItemLevel.text = strLevel + level.ToString();
         priceUpgrade = currentRoom.GetUpgradePriceItem(index);
-        txtItemUpgradePrice.text = new BigNumber(priceUpgrade).ToString2();
+        txtItemUpgradePrice.text = new BigNumber(priceUpgrade).ToString();
         string strShow = ProfileManager.Instance.dataConfig.GameText.GetTextByID(109).ToUpper();
         string strUpgrade = ProfileManager.Instance.dataConfig.GameText.GetTextByID(149).ToUpper();
         txtUpgrade.text = level == 0 ? strShow : strUpgrade;
-        if (currentRoom.GetRoomID() == RoomID.Power) {
-            energyRequire = 0;
-            //grEnergy.gameObject.SetActive(true);
-            //grTimeReduce.gameObject.SetActive(false);
-            //grMoney.gameObject.SetActive(false);
-            //if (level == maxLevel) txtItemEnergy.text = currentRoom.GetEnergyEarnItem(index).ToString();
-            //else txtItemEnergy.text = currentRoom.GetEnergyEarnItem(index).ToString() + " <color=yellow>(+" + currentRoom.GetEnergyEarnIncreaseInNextLevel(index).ToString() + ") </color>";
-
-        } else {
-            //grEnergy.gameObject.SetActive(true);
-            //grTimeReduce.gameObject.SetActive(true);
-            //grMoney.gameObject.SetActive(true);
-            /*
-            if (level == maxLevel) {
-                txtItemMoneyEarn.text = currentRoom.GetMoneyEarnItem(index).ToString("0.00");
-                txtItemEnergy.text = currentRoom.GetEnergyRequireItem(index).ToString();
-                txtTimeReduce.text = "-" + currentRoom.GetTimeReduce(index).ToString() + "s";
-                grTimeReduce.gameObject.SetActive(currentRoom.GetTimeReduce(index) != 0);
-                grEnergy.gameObject.SetActive(currentRoom.GetEnergyRequireItem(index) > 0);
-            } else {
-                txtItemMoneyEarn.text = currentRoom.GetMoneyEarnItem(index).ToString("0.00") + subColor2_1 + currentRoom.GetMoneyIncreaseInNextLevel(index).ToString("0.00") + subColor3;
-                energyRequire1 = currentRoom.GetEnergyRequireItem(index);
-                energyRequire2 = currentRoom.GetEnergyRequirePreviorLevel(index);
-                energyRequire = energyRequire1 - energyRequire2;
-                grEnergy.gameObject.SetActive(energyRequire1 != 0 || energyRequire2 != 0);
-                if (GameManager.instance.IsEnoughEnergy(energyRequire)) {
-                    txtItemEnergy.text = energyRequire2.ToString() + subColor2_1 + energyRequire + subColor3;
-                } else {
-                    txtItemEnergy.text = energyRequire2.ToString() + subColor1 + energyRequire + subColor3;
-                }
-                timeReduce = currentRoom.GetTimeReduce(index);
-                timeReduce2 = currentRoom.GetTimeReduceIncreaseInNextLevel(index);
-                grTimeReduce.gameObject.SetActive(timeReduce != 0 || timeReduce2 != 0);
-                txtTimeReduce.text = "-" + timeReduce + "s" + subColor2_2 + timeReduce2.ToString() + "s" + subColor3;
-            }
-             */
-        }
-
         timeRebuildLayout = 0;
         CameraMove.instance.ChangePosition(-new Vector3(0, 6.5f, 0f) + GameManager.instance.selectedRoom.GetPositionItem(selectedItemID), null);
     }
@@ -194,13 +149,12 @@ public class UITabUpgrade : MonoBehaviour {
     /// </summary>
     private void OnUpgradeItem() {
         /// check enough money true => upgrade model
-        if (GameManager.instance.IsEnoughCash(priceUpgrade) && GameManager.instance.IsEnoughEnergy(energyRequire)) {
+        if (GameManager.instance.IsEnoughCash(priceUpgrade)) {
             btnUpgrade.transform.localScale = Vector3.one;
             btnUpgrade.transform.DOScale(new Vector3(1.15f, 1.15f, 1), 0.2f).SetEase(Ease.Linear).OnComplete(() => {
                 btnUpgrade.transform.DOScale(new Vector3(1f, 1, 1), 0.2f);
             });
             BigNumber priceUpgradeCache = priceUpgrade;
-            int energyRequireCache = energyRequire;
             /// call room control action Upgrade
             currentRoom.OnUpgradeItem(selectedItemID);
             /// reload info ui
@@ -209,7 +163,6 @@ public class UITabUpgrade : MonoBehaviour {
             OnShowInfoItem(selectedItemID);
             PanelRoomInfo.instance.SetupTabProfit();
             PanelRoomInfo.instance.OnPressUpgradeButton();
-            EventManager.TriggerEvent(EventName.UpdateEnergy.ToString());
             ProfileManager.PlayerData.ConsumeCash(priceUpgradeCache);
             if (currentRoom.GetProcessUpgrade() >= 1f && !ProfileManager.PlayerData._RewardRoomManager.IsCollectReward(currentRoom.GetRoomID(), RewardRoomType.Stage_2)) {
                 OnClaimReward2();
@@ -218,6 +171,23 @@ public class UITabUpgrade : MonoBehaviour {
             }
         }
 
+    }
+    void OnEvolVeItem() {
+        if (GameManager.instance.IsEnoughBurgetCoin(evolvePrice)) {
+            IsUpgradeButtonSelected = false;
+            ProfileManager.PlayerData.ConsumeBCoin(evolvePrice);
+            currentRoom.OnUpgradeItem(selectedItemID);
+            /// reload info ui
+            UIUpgradeItem ui = listUpgradeItems[selectedItemID];
+            ui.SetupNextLevel(currentRoom.GetLevelItem(selectedItemID));
+            OnShowInfoItem(selectedItemID);
+            PanelRoomInfo.instance.SetupTabProfit();
+            if (currentRoom.GetProcessUpgrade() >= 1f && !ProfileManager.PlayerData._RewardRoomManager.IsCollectReward(currentRoom.GetRoomID(), RewardRoomType.Stage_2)) {
+                OnClaimReward2();
+            } else if (currentRoom.GetProcessUpgrade() >= 0.5f && !ProfileManager.PlayerData._RewardRoomManager.IsCollectReward(currentRoom.GetRoomID(), RewardRoomType.Stage_1)) {
+                OnClaimReward1();
+            }
+        }
     }
     void OnClaimReward1() {
         for (int i = 0; i < 10; i++) {

@@ -161,7 +161,7 @@ public class BigNumber {
             this.value *= Math.Pow(10, e2);
             exp -= e2;
         }
-        this.value = Math.Round(value,4);
+        //this.value = Math.Round(value,2);
         return this;
     }
     // Compute the equivalent number at 1.Eexp (note: assumes exp is greater than this.exp).
@@ -242,15 +242,11 @@ public class BigNumber {
         if (exp <= 5 && value <= 9) return (value * Math.Pow(10, exp)).ToString("0.00");
         return this.value.ToString("0.00") + "" + powTenToName[this.exp / 3];
     }
-    public string ToString2(string format = "") {
-        normalize();
-        if (exp <= 5 && value <= 9) return (value * Math.Pow(10, exp)).ToString(format);
-        return this.value.ToString(format) + "" + powTenToName[this.exp / 3];
-    }
-    public string IntToString(string format = "") {
+
+    public string IntToString(string format = "0") {
         normalize();
         if (exp <= 5 && value <= 9) return ((int)(value * Math.Pow(10, exp))).ToString(format);
-        return Math.Round(value, 2).ToString(format) + "" + powTenToName[this.exp / 3];
+        return value.ToString(format) + "" + powTenToName[this.exp / 3];
     }
     public int ToIntValue() {
         normalize();

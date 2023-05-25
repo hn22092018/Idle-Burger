@@ -160,17 +160,11 @@ public class PanelReward : UIPanel {
 
     public Sprite GetFrameByRarity(Rarity r, CardType t = CardType.NormalCard)
     {
-        switch (t)
-        {
-            case CardType.NormalCard:
-                return cardFrames[(int)r];
-            case CardType.CharacterCard:
-                return charCardFrame;
-                break;
-            default:
-                return cardFrames[0];
-                break;
-        }
+        return t switch {
+            CardType.NormalCard => cardFrames[(int)r],
+            CardType.CharacterCard => charCardFrame,
+            _ => cardFrames[0],
+        };
     }
 
     void FillListBackUp()

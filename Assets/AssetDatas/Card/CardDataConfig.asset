@@ -20,14 +20,14 @@ MonoBehaviour:
     cardValues:
     - 2
     - 4
-    - 7
+    - 8
     - 12
     - 20
     description: Increases the movement speed of waiters.
     DesLocalizeID: 214
     sprOn: {fileID: 21300000, guid: 47fb022dfecedc243971458cdc80bff1, type: 3}
     sprOff: {fileID: 21300000, guid: e376648cc8158014ba32e617d97d24a7, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Guest Speed
     NameLocalizeID: 195
@@ -36,206 +36,222 @@ MonoBehaviour:
     cardValues:
     - 2
     - 4
-    - 7
+    - 8
     - 12
     - 20
     description: Increases Guest's Movement Speed.
     DesLocalizeID: 215
     sprOn: {fileID: 21300000, guid: fbd79b1c6e809f3479378dab688783da, type: 3}
     sprOff: {fileID: 21300000, guid: 2d7898083b4be1a46a0be313ceb5f87f, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Cook Speed
     NameLocalizeID: 197
-    ID: 4
+    ID: 3
     cardRarity: 0
     cardValues:
     - 2
     - 4
-    - 7
+    - 8
     - 12
     - 20
     description: Increase the cooking speed of the chef.
     DesLocalizeID: 217
     sprOn: {fileID: 21300000, guid: b8748d03ebadf6b46a082500ae9ade51, type: 3}
     sprOff: {fileID: 21300000, guid: 9b0e9fb6aa9b7534184ac6ba6348f6c5, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
+    cardType: 0
+  - name: Deliver Speed
+    NameLocalizeID: 197
+    ID: 4
+    cardRarity: 0
+    cardValues:
+    - 2
+    - 4
+    - 8
+    - 12
+    - 20
+    description: Increase the deliver's staff speed.
+    DesLocalizeID: 217
+    sprOn: {fileID: 21300000, guid: ca5f10348128a9747b8df44539a3f72e, type: 3}
+    sprOff: {fileID: 21300000, guid: ba4b16264de26864abea1a6f53d3c108, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Guest Relax
     NameLocalizeID: 201
-    ID: 8
+    ID: 5
     cardRarity: 1
     cardValues:
     - 5
     - 8
+    - 8
     - 12
     - 20
-    - 30
     description: Customers will wait longer before leaving.
     DesLocalizeID: 221
     sprOn: {fileID: 21300000, guid: a8f9f18c8323b794bb7895ae88e3ba64, type: 3}
     sprOff: {fileID: 21300000, guid: c6b4fd5dbe72c1841be353f472a8dcd1, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Toilet Performance
     NameLocalizeID: 202
-    ID: 9
+    ID: 6
     cardRarity: 1
     cardValues:
     - 5
     - 8
+    - 8
     - 12
     - 20
-    - 30
     description: Reduce customer's toilet use time.
     DesLocalizeID: 222
     sprOn: {fileID: 21300000, guid: 6e16af3e893876d40bf0da153839326e, type: 3}
     sprOff: {fileID: 21300000, guid: 0c69cbf8976ba6b4f82ed6543e8fdef2, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Hungry
     NameLocalizeID: 203
-    ID: 10
+    ID: 7
     cardRarity: 1
     cardValues:
     - 2
     - 4
     - 8
-    - 15
-    - 25
+    - 12
+    - 20
     description: Customers will eat faster.
     DesLocalizeID: 223
     sprOn: {fileID: 21300000, guid: f644cf16100c2cd4ab0964fd798ef21c, type: 3}
     sprOff: {fileID: 21300000, guid: 2b2da21e9afa427488144f88f9441e87, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
+    cardType: 0
+  - name: Reception Master
+    NameLocalizeID: 205
+    ID: 8
+    cardRarity: 1
+    cardValues:
+    - 2
+    - 4
+    - 8
+    - 12
+    - 20
+    description: The reception speed of the reception is faster.
+    DesLocalizeID: 225
+    sprOn: {fileID: 21300000, guid: 740948d0aab98bc479868698e3b80c8a, type: 3}
+    sprOff: {fileID: 21300000, guid: 253e0b8a59d1c6a41b0eec386e53fb3b, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Delicious
     NameLocalizeID: 204
+    ID: 9
+    cardRarity: 2
+    cardValues:
+    - 2
+    - 4
+    - 8
+    - 12
+    - 20
+    description: Customers pay more.
+    DesLocalizeID: 224
+    sprOn: {fileID: 21300000, guid: 584793b3905d9da49a0c9f408775daf6, type: 3}
+    sprOff: {fileID: 21300000, guid: 542885467a4a46a44b58568947a5692a, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
+    cardType: 0
+  - name: Waiter Tip
+    NameLocalizeID: 209
+    ID: 10
+    cardRarity: 2
+    cardValues:
+    - 2
+    - 4
+    - 8
+    - 12
+    - 20
+    description: Increase tips for waiters.
+    DesLocalizeID: 229
+    sprOn: {fileID: 21300000, guid: f222733cd8dd75f409c3bbae178596c8, type: 3}
+    sprOff: {fileID: 21300000, guid: ac026f1f3d6521c49a80500d475b5e9f, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
+    cardType: 0
+  - name: Reception Tip
+    NameLocalizeID: 210
     ID: 11
     cardRarity: 2
     cardValues:
     - 2
     - 4
     - 8
-    - 15
-    - 25
-    description: Customers pay more.
-    DesLocalizeID: 224
-    sprOn: {fileID: 21300000, guid: 584793b3905d9da49a0c9f408775daf6, type: 3}
-    sprOff: {fileID: 21300000, guid: 542885467a4a46a44b58568947a5692a, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    - 12
+    - 20
+    description: Increase tip for Receptionist.
+    DesLocalizeID: 230
+    sprOn: {fileID: 21300000, guid: f3d3a87bf9032014e82818c897ff2e64, type: 3}
+    sprOff: {fileID: 21300000, guid: c09a59d83a274cd47b63769187467e1d, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
-  - name: Receptionist
-    NameLocalizeID: 205
+  - name: Cook Tip
+    NameLocalizeID: 211
     ID: 12
     cardRarity: 2
     cardValues:
     - 2
     - 4
     - 8
-    - 15
-    - 25
-    description: The reception speed of the reception is faster.
-    DesLocalizeID: 225
-    sprOn: {fileID: 21300000, guid: 740948d0aab98bc479868698e3b80c8a, type: 3}
-    sprOff: {fileID: 21300000, guid: 253e0b8a59d1c6a41b0eec386e53fb3b, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    - 12
+    - 20
+    description: Increase tip for Chef.
+    DesLocalizeID: 231
+    sprOn: {fileID: 21300000, guid: cd42ed0032316244a9b871ff28f67909, type: 3}
+    sprOff: {fileID: 21300000, guid: 76e425d272e4beb449e102d1edb584de, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
-  - name: Satisfaction
-    NameLocalizeID: 206
+  - name: Michellin Star
+    NameLocalizeID: 213
     ID: 13
     cardRarity: 3
     cardValues:
     - 2
     - 4
     - 8
-    - 15
-    - 25
-    description: Customer satisfaction.
-    DesLocalizeID: 226
-    sprOn: {fileID: 21300000, guid: ad5beb0a1d0e83a4fbfe4857e265a6fb, type: 3}
-    sprOff: {fileID: 21300000, guid: b2be2a3b52904fc419aef0faa157a2ed, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    - 12
+    - 20
+    description: Increase the total earnings of the restaurant.
+    DesLocalizeID: 233
+    sprOn: {fileID: 21300000, guid: 5c72ec3fd417a064f9ad6b82b4712469, type: 3}
+    sprOff: {fileID: 21300000, guid: eb9684536c391524ab4af0599e44b9f6, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
-  - name: Popularity
-    NameLocalizeID: 207
+  - name: Satisfaction
+    NameLocalizeID: 206
     ID: 14
     cardRarity: 3
     cardValues:
     - 2
     - 4
     - 8
-    - 15
-    - 25
+    - 12
+    - 20
+    description: Customer satisfaction.
+    DesLocalizeID: 226
+    sprOn: {fileID: 21300000, guid: ad5beb0a1d0e83a4fbfe4857e265a6fb, type: 3}
+    sprOff: {fileID: 21300000, guid: b2be2a3b52904fc419aef0faa157a2ed, type: 3}
+    cardAmountLevel: 01000000060000000c0000001200000018000000
+    cardType: 0
+  - name: Popularity
+    NameLocalizeID: 207
+    ID: 15
+    cardRarity: 3
+    cardValues:
+    - 2
+    - 4
+    - 8
+    - 12
+    - 20
     description: Restaurant's popularity.
     DesLocalizeID: 227
     sprOn: {fileID: 21300000, guid: 7b9fb9f44b6cca74c9c088d7c167b219, type: 3}
     sprOff: {fileID: 21300000, guid: 121fabeb7b6259f45bb2b5b3426e9169, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
-    cardType: 0
-  - name: Waiter Tip
-    NameLocalizeID: 209
-    ID: 16
-    cardRarity: 2
-    cardValues:
-    - 2
-    - 4
-    - 8
-    - 15
-    - 25
-    description: Increase tips for waiters.
-    DesLocalizeID: 229
-    sprOn: {fileID: 21300000, guid: f222733cd8dd75f409c3bbae178596c8, type: 3}
-    sprOff: {fileID: 21300000, guid: ac026f1f3d6521c49a80500d475b5e9f, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
-    cardType: 0
-  - name: Reception Tip
-    NameLocalizeID: 210
-    ID: 17
-    cardRarity: 2
-    cardValues:
-    - 2
-    - 4
-    - 8
-    - 15
-    - 25
-    description: Increase tip for Receptionist.
-    DesLocalizeID: 230
-    sprOn: {fileID: 21300000, guid: f3d3a87bf9032014e82818c897ff2e64, type: 3}
-    sprOff: {fileID: 21300000, guid: c09a59d83a274cd47b63769187467e1d, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
-    cardType: 0
-  - name: Cook Tip
-    NameLocalizeID: 211
-    ID: 18
-    cardRarity: 2
-    cardValues:
-    - 2
-    - 4
-    - 8
-    - 15
-    - 25
-    description: Increase tip for Chef.
-    DesLocalizeID: 231
-    sprOn: {fileID: 21300000, guid: cd42ed0032316244a9b871ff28f67909, type: 3}
-    sprOff: {fileID: 21300000, guid: 76e425d272e4beb449e102d1edb584de, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
-    cardType: 0
-  - name: Michellin Star
-    NameLocalizeID: 213
-    ID: 20
-    cardRarity: 3
-    cardValues:
-    - 5
-    - 7
-    - 12
-    - 18
-    - 25
-    description: Increase the total earnings of the restaurant.
-    DesLocalizeID: 233
-    sprOn: {fileID: 21300000, guid: 5c72ec3fd417a064f9ad6b82b4712469, type: 3}
-    sprOff: {fileID: 21300000, guid: eb9684536c391524ab4af0599e44b9f6, type: 3}
-    cardAmountLevel: 010000000a000000140000001e00000032000000
+    cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   cardManagerList:
   - name: Keith Potter
@@ -295,19 +311,19 @@ MonoBehaviour:
   - name: Drew Houston
     staffType: 3
     rarity: 1
-    mesh: {fileID: 6264614908709895786, guid: 49a2801fbba9b354b8ad5e7d21282e00, type: 3}
+    mesh: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
     sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
     sprCardPieceIcon: {fileID: 0}
   - name: Jim Franklin
     staffType: 3
     rarity: 2
-    mesh: {fileID: 6264614908709895786, guid: 49a2801fbba9b354b8ad5e7d21282e00, type: 3}
+    mesh: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
     sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
     sprCardPieceIcon: {fileID: 0}
   - name: Tom Mcdonald
     staffType: 3
     rarity: 3
-    mesh: {fileID: 6264614908709895786, guid: 49a2801fbba9b354b8ad5e7d21282e00, type: 3}
+    mesh: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
     sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
     sprCardPieceIcon: {fileID: 0}
   cardPieceRequireByLevel: 010000000200000004000000080000000c00000012000000180000001e000000240000002a000000
@@ -326,13 +342,13 @@ MonoBehaviour:
   - 50
   processingRateByLevel:
   - 0
-  - 10
-  - 12
-  - 15
-  - 18
-  - 23
-  - 27
-  - 32
-  - 38
-  - 44
+  - 20
+  - 25
+  - 30
+  - 25
+  - 40
+  - 43
+  - 46
   - 50
+  - 53
+  - 55

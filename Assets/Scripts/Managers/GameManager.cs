@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour {
     public Sprite[] emoji_funny;
     public Sprite[] emoji_angry;
     [HideInInspector] public float mapProcess;
+    private AsyncOperation m_AsyncLoadLoadingScene;
+
     private void Awake() {
         instance = this;
         timeManager = ProfileManager.PlayerData.GetCustomTimeManager();
@@ -86,6 +88,15 @@ public class GameManager : MonoBehaviour {
         });
         EventManager.AddListener(EventName.UpgradeCard.ToString(), LoadCardRate);
         //LoadRoomCostServer();
+    }
+    private void Start() {
+        AllRoomManager.instance.UpdateStaffListAll();
+        deltaTimeFamousCustomer = timeFamousCustomer;
+        LoadCardRate();
+        CalculateProfitOffline();
+        LoadMapUpgradeProcess();
+        StartCoroutine(IOnLoadSceneLoading());
+
     }
     void LoadCardRate() {
         UpdateFinanceRate();
@@ -115,16 +126,20 @@ public class GameManager : MonoBehaviour {
         AllRoomManager.instance.UpdateStaffList(staffID);
     }
 
-    private void Start() {
-        AllRoomManager.instance.UpdateStaffListAll();
-        deltaTimeFamousCustomer = timeFamousCustomer;
-        LoadCardRate();
-        CalculateProfitOffline();
-        LoadMapUpgradeProcess();
+
+    IEnumerator IOnLoadSceneLoading() {
+        m_AsyncLoadLoadingScene = SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Additive);
+        m_AsyncLoadLoadingScene.allowSceneActivation = false;
+        yield return new WaitForEndOfFrame();
+    }
+    public void OnExpanNewWorld() {
+        ProfileManager.PlayerData.UnlockWorld(ProfileManager.PlayerData.selectedWorld + 1);
+        ProfileManager.PlayerData.selectedWorld++;
+        m_AsyncLoadLoadingScene.allowSceneActivation = true;
+        SceneManager.UnloadSceneAsync("LoadScene");
     }
     void LoadRoom() {
         ManagerRoom.OnLoadRoom();
-        ManagerRoom.TriggerQuestWhenUnlock();
         LobbyRoom.OnLoadRoom();
         LobbyRoom.TriggerQuestWhenUnlock();
         KitchenRoom.OnLoadRoom();
@@ -147,8 +162,10 @@ public class GameManager : MonoBehaviour {
         //    //objCashTipClean.SetActive(false);
         //}
         // Load DeliverRoom
-        if (IsUnlockDeliverRoom()) DeliverRoom.OnLoadRoom();
-        else DeliverRoom.OnLockRoom();
+        if (DeliverRoom != null) {
+            if (IsUnlockDeliverRoom()) DeliverRoom.OnLoadRoom();
+            else DeliverRoom.OnLockRoom();
+        }
         // Load Tables
         OnLoadTablesStage();
         if (!IsUnlockSmallTable(0) && ProfileManager.PlayerData.GetCash() < 1000) ProfileManager.PlayerData.AddCash(1000);
@@ -559,7 +576,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (IsUnlockDeliverRoom()) {
+        if (DeliverRoom != null && IsUnlockDeliverRoom()) {
             total += buildData.GetBuildEnergy(RoomID.DeliverRoom);
         }
 
@@ -691,6 +708,7 @@ public class GameManager : MonoBehaviour {
 
     BigNumber CalculateProfitDeliver(int time) {
         BigNumber profit = 0;
+        if (DeliverRoom == null) return 0;
         if (!IsUnlockDeliverRoom()) return 0;
         int timePerTurn = 8;
         int totalMinutes = time / 60;
@@ -767,6 +785,7 @@ public class GameManager : MonoBehaviour {
         baseProfit += CalculateProfitRestroom(timeLoan);
         baseProfit += CalculateProfitDeliver(timeLoan);
         baseProfit *= financeRate;
+        if (baseProfit <= 1000) baseProfit = 1000;
         return baseProfit;
     }
     public void LoadMapUpgradeProcess() {
@@ -780,13 +799,15 @@ public class GameManager : MonoBehaviour {
         if (IsUnlockPowerRoom()) {
             current += PowerRoom.GetProcessUpgrade();
         }
-        total+= WCRooms.Count;
+        total += WCRooms.Count;
         foreach (var room in WCRooms) {
             if (IsUnlockRestroom(room)) current += room.GetProcessUpgrade();
         }
-        total ++;
-        if (IsUnlockDeliverRoom()) current += DeliverRoom.GetProcessUpgrade();
-        total+= SmallTablesRoom.Length;
+        if (DeliverRoom != null) {
+            total++;
+            if (IsUnlockDeliverRoom()) current += DeliverRoom.GetProcessUpgrade();
+        }
+        total += SmallTablesRoom.Length;
         for (int i = 0; i < SmallTablesRoom.Length; i++) {
             if (IsUnlockSmallTable(i)) current += SmallTablesRoom[i].GetProcessUpgrade();
         }
@@ -830,7 +851,7 @@ public class GameManager : MonoBehaviour {
         foreach (var room in WCRooms) {
             list.Add(room.GetRoomID());
         }
-        list.Add(DeliverRoom.GetRoomID());
+        if (DeliverRoom) list.Add(DeliverRoom.GetRoomID());
         list.Add(PowerRoom.GetRoomID());
         return list;
     }
@@ -932,29 +953,29 @@ public class GameManager : MonoBehaviour {
             case ItemType.Reputation:
                 ProfileManager.PlayerData.researchManager.AddResearchValue(reward.amount);
                 break;
-            case ItemType.Biscuit5:
+            case ItemType.Cheese:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Biscuit, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Cheese, 5);
                 }
                 break;
-            case ItemType.Candy5:
+            case ItemType.Pepper:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Candy, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Sugar, 5);
                 }
                 break;
-            case ItemType.Melon5:
+            case ItemType.Sugar:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Melon, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Pepper, 5);
                 }
                 break;
-            case ItemType.Potato5:
+            case ItemType.Carot:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Potato, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Flour, 5);
                 }
                 break;
-            case ItemType.Sushi5:
+            case ItemType.Flour:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Sushi, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Carot, 5);
                 }
                 break;
         }
@@ -1071,7 +1092,16 @@ public class GameManager : MonoBehaviour {
         value = (int)(slot * turn * 0.6f);
         return value;
     }
-
+    public int GetEvolvePriceByLevel(int level) {
+        if (level == 25) {
+            return 5;
+        } else if (level == 50) {
+            return 15;
+        } else if (level == 75) {
+            return 20;
+        }
+        return 10;
+    }
     System.DateTime lastPauseTime = System.DateTime.Now;
     private void OnApplicationPause(bool pause) {
         if (pause) {
@@ -1085,5 +1115,8 @@ public class GameManager : MonoBehaviour {
             CalculateProfitOffline();
             IsPauseGame = false;
         }
+    }
+    public bool IsEnoughConditionToPassMap() {
+        return mapProcess >= 1 && ProfileManager.PlayerData.GetBurgerCoin() >= ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(ProfileManager.PlayerData.selectedWorld + 1).burgerRequire;
     }
 }

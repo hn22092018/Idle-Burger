@@ -8,10 +8,10 @@ public class PanelManagerBuild : UIPanel {
     BuildData data;
     BuildDataSetting buildData;
     [SerializeField] private Image imgBuild;
-    [SerializeField] private Text txtBuildName, txtBuildDes, txtEnergyRequire, txtCashRequire, txtStarRequire;
+    [SerializeField] private Text txtBuildName, txtBuildDes, txtEnergyRequire, txtCashRequire;
     [SerializeField] private Button btnBuild, btnGoPower, btnClose;
     [SerializeField]
-    private GameObject grStarRequire, grEnergyRequire, grEnergyAndMoneyRequire;
+    private GameObject grEnergyRequire, grEnergyAndMoneyRequire;
     float price;
     int energy;
     [SerializeField] private RectTransform rectTransformRequire;
@@ -46,7 +46,6 @@ public class PanelManagerBuild : UIPanel {
         price = data.GetBuildCashPrice(buildTarget);
         txtCashRequire.text = new BigNumber(price).IntToString();
         sStarRequire = ProfileManager.Instance.dataConfig.GameText.GetTextByID(472);
-        txtStarRequire.text = string.Format(sStarRequire, buildData.starRequire);
         if (Tutorials.instance.IsShow) {
             float y = mainContent.anchoredPosition.y + mainContent.rect.height / 2 + btnBuild.GetComponent<RectTransform>().anchoredPosition.y;
             Tutorials.instance.ChangeBlockerPos(new Vector2(0, y));
@@ -77,7 +76,6 @@ public class PanelManagerBuild : UIPanel {
         //    }
         //} else {
         grEnergyAndMoneyRequire.gameObject.SetActive(true);
-        grStarRequire.gameObject.SetActive(false);
         btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
         //}
     }

@@ -14,36 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxs:
   - boxType: 1
-    gemPrice: 0
     cardEarnAmount: 10
     cardEarnable:
     - cardRarity: 0
-      earnableChance: 50
-      preEarn: 0
-    - cardRarity: 1
-      earnableChance: 50
-      preEarn: 0
-    characterCardRate: 0
-  - boxType: 2
-    gemPrice: 200
-    cardEarnAmount: 40
-    cardEarnable:
-    - cardRarity: 0
-      earnableChance: 50
+      earnableChance: 60
       preEarn: 0
     - cardRarity: 1
       earnableChance: 40
       preEarn: 0
     - cardRarity: 2
-      earnableChance: 10
+      earnableChance: 0
       preEarn: 0
-    characterCardRate: 0
-  - boxType: 3
-    gemPrice: 500
-    cardEarnAmount: 120
+    - cardRarity: 3
+      earnableChance: 0
+      preEarn: 0
+  - boxType: 2
+    cardEarnAmount: 10
     cardEarnable:
     - cardRarity: 0
-      earnableChance: 10
+      earnableChance: 30
       preEarn: 0
     - cardRarity: 1
       earnableChance: 50
@@ -52,6 +41,20 @@ MonoBehaviour:
       earnableChance: 20
       preEarn: 0
     - cardRarity: 3
-      earnableChance: 10
+      earnableChance: 0
       preEarn: 0
-    characterCardRate: 10
+  - boxType: 3
+    cardEarnAmount: 10
+    cardEarnable:
+    - cardRarity: 0
+      earnableChance: 0
+      preEarn: 0
+    - cardRarity: 1
+      earnableChance: 40
+      preEarn: 0
+    - cardRarity: 2
+      earnableChance: 40
+      preEarn: 0
+    - cardRarity: 3
+      earnableChance: 20
+      preEarn: 0
