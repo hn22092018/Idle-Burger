@@ -151,9 +151,9 @@ public class PanelResearch : UIPanel {
             Tutorials.instance.OffBlocker();
             // intro why need to research food.
             Tutorials.instance.ShowIntro(new List<string> {
-             ProfileManager.Instance.dataConfig.GameText.GetTextByID(436),
-              ProfileManager.Instance.dataConfig.GameText.GetTextByID(437),
-               ProfileManager.Instance.dataConfig.GameText.GetTextByID(438),
+             ProfileManager.Instance.dataConfig.GameText.GetTextByID(20),
+              ProfileManager.Instance.dataConfig.GameText.GetTextByID(229),
+               ProfileManager.Instance.dataConfig.GameText.GetTextByID(230),
             });
             while (Tutorials.instance.IsShowIntro) {
                 yield return new WaitForEndOfFrame();
@@ -185,7 +185,7 @@ public class PanelResearch : UIPanel {
             Tutorials.instance.OffBlocker();
             //show intro skip
             Tutorials.instance.ShowIntro(new List<string> {
-             ProfileManager.Instance.dataConfig.GameText.GetTextByID(439)
+             ProfileManager.Instance.dataConfig.GameText.GetTextByID(231)
             });
             while (Tutorials.instance.IsShowIntro) {
                 yield return new WaitForEndOfFrame();
@@ -206,7 +206,7 @@ public class PanelResearch : UIPanel {
             Tutorials.instance.OffBlocker();
             //show intro  claim customer reseach value.
             Tutorials.instance.ShowIntro(new List<string> {
-             ProfileManager.Instance.dataConfig.GameText.GetTextByID(441)
+             ProfileManager.Instance.dataConfig.GameText.GetTextByID(232)
             });
             while (Tutorials.instance.IsShowIntro) {
                 yield return new WaitForEndOfFrame();

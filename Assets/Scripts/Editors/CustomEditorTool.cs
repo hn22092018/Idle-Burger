@@ -32,28 +32,9 @@ public class CustomEditorTool : EditorWindow {
 
     }
     static void FillDataLocalize(GameText asset) {
-        string enPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - EN.csv";
+        string enPath = "Assets/AssetDatas/csv/Idle Burger - Localizes.csv";
         FillDataLocalizeByCountry(enPath, asset.ens);
-        //string cnPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - CN.csv";
-        //FillDataLocalizeByCountry(cnPath, asset.cns);
-        //string dePath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - DE.csv";
-        //FillDataLocalizeByCountry(dePath, asset.des);
-        //string esPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - ES.csv";
-        //FillDataLocalizeByCountry(esPath, asset.ess);
-        //string frPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - FR.csv";
-        //FillDataLocalizeByCountry(frPath, asset.frs);
-        ////string inPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - IN.csv";
-        ////FillDataLocalizeByCountry(inPath, asset.inds);
-        //string itPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - IT.csv";
-        //FillDataLocalizeByCountry(itPath, asset.its);
-        //string jpPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - JP.csv";
-        //FillDataLocalizeByCountry(jpPath, asset.jps);
-        //string koPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - KO.csv";
-        //FillDataLocalizeByCountry(koPath, asset.kos);
-        //string ptPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - PT.csv";
-        //FillDataLocalizeByCountry(ptPath, asset.pts);
-        //string vnPath = "Assets/AssetDatas/csv/Localizes/Abi Idle Restaurent Localize - VN.csv";
-        //FillDataLocalizeByCountry(vnPath, asset.vns);
+       
 #if UNITY_EDITOR
         EditorUtility.SetDirty(asset);
 #endif

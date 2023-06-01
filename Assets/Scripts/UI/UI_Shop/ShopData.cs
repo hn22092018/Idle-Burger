@@ -34,7 +34,7 @@ public class ShopData : ScriptableObject {
         card_off_1.type = CardIAPType.OFFLINE_TIME;
         card_off_1.productType = CardIapProductType.OFFLINE_TIME_10;
         card_off_1.description = "This director knows how to manage a restaurant with a firm hand and will make the restaurant work for quite a long time while you're not playing.";
-        card_off_1.DesLocalizeID = 186;
+        card_off_1.DesLocalizeID = 195;
         card_off_1.extraValue = 10;
         card_off_1.price = "9.99$";
         card_off_1.productID = MyIAPManager.product_Offline1;
@@ -47,7 +47,7 @@ public class ShopData : ScriptableObject {
         card_finance_1.type = CardIAPType.FINANCIAL_MANAGER;
         card_finance_1.productType = CardIapProductType.FINANCIAL_MANAGER_100;
         card_finance_1.description = "This civil servant will use small accounting tricks to permanently increase profits.";
-        card_finance_1.DesLocalizeID = 189;
+        card_finance_1.DesLocalizeID = 196;
         card_finance_1.extraValue = 100;
         card_finance_1.price = "5.99$";
         card_finance_1.productID = MyIAPManager.product_Finance1;
@@ -149,7 +149,7 @@ public class ShopData : ScriptableObject {
         OfferData chest1 = new OfferData();
         chest1.icon = GetSpriteByName("chest_3");
         chest1.titleDeal = "Free";
-        chest1.titleDealLocalizeID = 166;
+        chest1.titleDealLocalizeID = 193;
         chest1.price = 0;
         chest1.offerID = OfferID.FreeChest;
         chest1.itemRewards = new List<ItemReward>() {
@@ -159,7 +159,7 @@ public class ShopData : ScriptableObject {
         OfferData chest2 = new OfferData();
         chest2.icon = GetSpriteByName("chest_2");
         chest2.titleDeal = "Normal";
-        chest2.titleDealLocalizeID = 165;
+        chest2.titleDealLocalizeID = 192;
         chest2.price = 50;
         chest2.offerID = OfferID.NormalChest;
         chest2.itemRewards = new List<ItemReward>() {
@@ -169,7 +169,7 @@ public class ShopData : ScriptableObject {
         OfferData chest3 = new OfferData();
         chest3.icon = GetSpriteByName("chest_1");
         chest3.titleDeal = "Advanced";
-        chest3.titleDealLocalizeID = 164;
+        chest3.titleDealLocalizeID = 191;
         chest3.price = 140;
         chest3.offerID = OfferID.AdvancedChest;
         chest3.itemRewards = new List<ItemReward>() {
@@ -254,7 +254,7 @@ public class ShopData : ScriptableObject {
         noAds2.itemRewards = rewards;
         IAPPackages.Add(noAds2);
 
-        LoadWareHousePacks();
+        //LoadWareHousePacks();
 
     }
     public OfferData GetIAPPackageByOfferID(OfferID id) {
@@ -360,7 +360,7 @@ public class ShopData : ScriptableObject {
         chest3.price = 1200;
         chest3.offerID = OfferID.ExpertSkinBox;
         chest3.itemRewards = new List<ItemReward>() {
-         new ItemReward(){type= ItemType.ExpertSkinBox, amount=1}
+         new ItemReward(){type= ItemType.FreeSkinBox, amount=1}
         };
 
         skinBoxDatas.Add(chest1);
@@ -525,7 +525,7 @@ public class ShopData : ScriptableObject {
             case ItemType.AdvancedSkinBox:
                 newItem.spr = GetSpriteByName("2");
                 break;
-            case ItemType.ExpertSkinBox:
+            case ItemType.FreeSkinBox:
                 newItem.spr = GetSpriteByName("3");
                 break;
             case ItemType.VIPMarketing:

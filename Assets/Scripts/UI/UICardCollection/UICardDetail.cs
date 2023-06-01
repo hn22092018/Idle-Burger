@@ -70,7 +70,7 @@ public class UICardDetail : MonoBehaviour {
                 }
                 else
                 {
-                    string strNextLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(234).ToUpper() + ": +";
+                    string strNextLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(80).ToUpper() + ": +";
                     cardBuff.text = strNextLevel + cardInfo.cardValues[level].ToString() + " % ";
                     cardIcon.sprite = cardInfo.sprOff;
                     cardFrame.sprite = frameLock;
@@ -80,7 +80,7 @@ public class UICardDetail : MonoBehaviour {
                 break;
         }
         
-        string strLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(27).ToUpper() + " ";
+        string strLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(86).ToUpper() + " ";
         cardLevel.text = strLevel + level.ToString();
         
         ownedCardText.text = currentAmount.ToString();

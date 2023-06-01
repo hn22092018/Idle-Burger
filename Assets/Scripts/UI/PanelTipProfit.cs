@@ -10,7 +10,7 @@ public class PanelTipProfit : UIPanel {
     [SerializeField] Text txtProfitWatier;
     [SerializeField] Text txtProfitChef;
     [SerializeField] Text txtTotal;
-    [SerializeField] Button btnClaim, btnClaimX2, btnGoToCard, btnClose, btnClaimX2Ticket;
+    [SerializeField] Button btnClaim, btnClaimX2, btnClose, btnClaimX2Ticket;
     BigNumber profits;
     public override void Awake() {
         panelType = UIPanelType.PanelTipProfit;
@@ -18,7 +18,6 @@ public class PanelTipProfit : UIPanel {
         btnClaim.onClick.AddListener(OnClaim);
         btnClaimX2.onClick.AddListener(OnClaimVideo);
         btnClaimX2Ticket.onClick.AddListener(OnClaimX2Ticket);
-        btnGoToCard.onClick.AddListener(GoToPanelCard);
         btnClose.onClick.AddListener(OnClose);
     }
     private void Update() {
@@ -59,11 +58,7 @@ public class PanelTipProfit : UIPanel {
         ProfileManager.Instance.playerData.ResetTipProfit();
         OnClose();
     }
-    void GoToPanelCard() {
-        SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
-        UIManager.instance.CloseAllPopup();
-        UIManager.instance.ShowPanelCardCollection();
-    }
+
     public void OnClose() {
         UIManager.instance.ClosePanelTipProfit();
     }

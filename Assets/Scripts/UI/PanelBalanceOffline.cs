@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PanelBalanceOffline : UIPanel {
     [SerializeField] Button btnX2, btnX3, btnMoreCard, btnX2Ticket;
-    [SerializeField] Button btnX2_Reputation, btnX3_Reputation, btnX2Ticket_Reputation;
+    [SerializeField] Button  btnX3_Reputation;
     [SerializeField] Button bntContinueGame;
     [SerializeField] Text txtProfitOffline, txtTotalReputation;
     [SerializeField] Text txtHourLimitedMax, txtOfflineTime;
@@ -20,12 +20,8 @@ public class PanelBalanceOffline : UIPanel {
         base.Awake();
         btnX2.onClick.AddListener(OnX2);
         btnX2Ticket.onClick.AddListener(OnX2Ticket);
-        btnX3.onClick.AddListener(OnX3);
-
-        btnX2_Reputation.onClick.AddListener(OnX2_Reputation);
-        btnX2Ticket_Reputation.onClick.AddListener(OnX2Ticket_Reputation);
         btnX3_Reputation.onClick.AddListener(OnX3_Reputation);
-
+        btnX3.onClick.AddListener(OnX3);
         btnMoreCard.onClick.AddListener(OpenShop);
         bntContinueGame.onClick.AddListener(OnDefaultClaim);
     }
@@ -36,13 +32,13 @@ public class PanelBalanceOffline : UIPanel {
         txtTotalReputation.text = "+" + reputation;
         txtProfitOffline.text = "+" +profit.ToString();
         int hourOfflineMax = ProfileManager.PlayerData.GetCardManager().GetExtraHour_OfflineTimeCardIAP();
-        string strLimited = ProfileManager.Instance.dataConfig.GameText.GetTextByID(56) + " ";
+        string strLimited = ProfileManager.Instance.dataConfig.GameText.GetTextByID(30) + " ";
         txtHourLimitedMax.text = strLimited + hourOfflineMax + "H";
         string timeOffline = GameManager.instance.timeManager.FormatOfflineTimeToString();
         string str1 = "You have been away for ";
         string str2 = " and have only received earnings for ";
-        if (ProfileManager.Instance.dataConfig.GameText.GetTextByID(57) != "") str1 = ProfileManager.Instance.dataConfig.GameText.GetTextByID(57) + " ";
-        if (ProfileManager.Instance.dataConfig.GameText.GetTextByID(58) != "") str2 = ProfileManager.Instance.dataConfig.GameText.GetTextByID(58) + " ";
+         str1 = ProfileManager.Instance.dataConfig.GameText.GetTextByID(31) + " ";
+        str2 = ProfileManager.Instance.dataConfig.GameText.GetTextByID(32) + " ";
         txtOfflineTime.text = str1 + timeOffline + " " + str2 + hourOfflineMax + "h.";
         bntContinueGame.gameObject.SetActive(false);
         isCollectBonusCash = false;
@@ -65,13 +61,9 @@ public class PanelBalanceOffline : UIPanel {
         }
         if (isCollectBonusReputation) {
             btnX3_Reputation.gameObject.SetActive(false);
-            btnX2Ticket_Reputation.gameObject.SetActive(false);
-            btnX2_Reputation.gameObject.SetActive(false);
         } else {
             btnX3_Reputation.gameObject.SetActive(true);
             btnX3_Reputation.interactable = GameManager.instance.IsEnoughGem(gemPriceX3);
-            btnX2_Reputation.gameObject.SetActive(ProfileManager.PlayerData.ResourceSave.GetADTicket() <= 0);
-            btnX2Ticket_Reputation.gameObject.SetActive(ProfileManager.PlayerData.ResourceSave.GetADTicket() > 0);
         }
 
     }

@@ -31,12 +31,10 @@ public class UIRoomStatistic : UIEffect {
     public void OnSetupRoomID(RoomID id) {
         roomID = id;
     }
+    string strNotUnlock;
     public void OnLoadRoomInfo() {
         txtRoomName.text = ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomID);
-        string strNotUnlock = " is not unlocked yet.";
-        //if (ProfileManager.Instance.dataConfig.GameText.GetTextByID(88) != "") {
-        //    strNotUnlock = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(88);
-        //}
+        strNotUnlock = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(125);
         txtLockInfo.text = ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomID) + strNotUnlock;
         LoadState();
         lockRoom.SetActive(!isUnlock);

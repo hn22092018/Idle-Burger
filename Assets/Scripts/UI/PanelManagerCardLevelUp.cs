@@ -12,12 +12,13 @@ public class PanelManagerCardLevelUp : UIPanel {
     public Text txtLevel;
     public Text txtLevelUp;
     public Text txtCardLevelUpRequire, txtBurgerPointLevelUpRequire;
-    public Image imgCardIcon, imgRoom, imgCardPiece;
+    public Image imgCardIcon, imgCardBorder, imgRoom, imgCardPiece;
+    public Sprite[] sprBorders;
     CardManagerSave cardSaveInfo;
     CardManagerConfig cardConfig;
     int requireBurgerCoin, requireCard;
     bool isEnoughConditionToLevelUp;
-    string sUnlock, sLevelup;
+    string sUnlock, sLevelup, sLevel, sMaxLevel;
     public override void Awake() {
         panelType = UIPanelType.PanelManagerCardLevelUp;
         base.Awake();
@@ -28,8 +29,10 @@ public class PanelManagerCardLevelUp : UIPanel {
         LoadCardManager();
     }
     void LoadCardManager() {
-        sUnlock = "UNLOCK";
-        sLevelup = "LEVEL UP";
+        sMaxLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(169);
+        sLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(86);
+        sUnlock = ProfileManager.Instance.dataConfig.GameText.GetTextByID(168);
+        sLevelup = ProfileManager.Instance.dataConfig.GameText.GetTextByID(80);
         cardSaveInfo = ProfileManager.PlayerData.GetCardManager().GetCardManager(GameManager.instance.selectedRoom.GetManagerStaffID());
         cardConfig = ProfileManager.Instance.dataConfig.cardData.GetCardManagerInfo(cardSaveInfo.staffID, cardSaveInfo.rarity);
         LoadProfitsCard();
@@ -41,6 +44,7 @@ public class PanelManagerCardLevelUp : UIPanel {
         txtCardRarity.text = cardSaveInfo.rarity.ToString();
         txtCardName.text = cardConfig.name;
         imgCardIcon.sprite = cardConfig.sprIcon;
+        imgCardBorder.sprite = sprBorders[(int)cardSaveInfo.rarity-1];
         txtCardManagerFunc.text = StaffIDToManagerFuncName(cardSaveInfo.staffID).ToUpper();
         if (cardSaveInfo.level < 10) {
             float incomeCurrent = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(cardSaveInfo.level);
@@ -50,14 +54,15 @@ public class PanelManagerCardLevelUp : UIPanel {
             float processingCurrent = ProfileManager.Instance.dataConfig.cardData.GetProcessingRateByLevel(cardSaveInfo.level);
             float processingNext = ProfileManager.Instance.dataConfig.cardData.GetProcessingRateByLevel(cardSaveInfo.level + 1);
             txtProcessingCurrent.text = "<color=#FFC500>" + "+" + processingCurrent + "%</color>" + " " + "<color=#42FF07> (+" + processingNext + "%)</color>";
-            txtLevel.text = "LEVEL " + cardSaveInfo.level;
+            txtLevel.text = sLevel + " " + cardSaveInfo.level;
+            btnLevelUp.gameObject.SetActive(true);
 
         } else {
             float incomeCurrent = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(cardSaveInfo.level);
             float processingCurrent = ProfileManager.Instance.dataConfig.cardData.GetProcessingRateByLevel(cardSaveInfo.level);
             txtIncomeCurrent.text = "<color=#FFC500>" + "x" + incomeCurrent + "</color>";
             txtProcessingCurrent.text = "<color=#FFC500>" + "+" + processingCurrent + "%</color>";
-            txtLevel.text = "MAX LEVEL";
+            txtLevel.text = sMaxLevel.ToUpper();
             btnLevelUp.gameObject.SetActive(false);
         }
         imgRoom.sprite = GameManager.instance.buildData.GetData(GameManager.instance.selectedRoom.GetRoomID()).sprBuild;
@@ -81,12 +86,13 @@ public class PanelManagerCardLevelUp : UIPanel {
         txtCardLevelUpRequire.gameObject.SetActive(requireCard > 0);
         isEnoughConditionToLevelUp = amount1 >= requireBurgerCoin && amount2 >= requireCard;
         txtLevelUp.text = cardSaveInfo.level == 0 ? sUnlock : sLevelup;
+        btnLevelUp.gameObject.SetActive(cardSaveInfo.level < 10);
     }
 
     string StaffIDToManagerFuncName(ManagerStaffID id) {
         return id switch {
             ManagerStaffID.Chef => "Kitchen Manager",
-            ManagerStaffID.MainRoom_1 => "Manager",
+            ManagerStaffID.MainRoom_1 => "Lobby Manager",
             ManagerStaffID.Deliver_1 => "Deliver Manager",
             ManagerStaffID.Restroom_1 => "Restroom Manager",
             _ => throw new NotImplementedException(),

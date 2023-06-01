@@ -205,7 +205,7 @@ public class ResourceSave {
             case ItemType.AdvancedSkinBox:
                 advancedSkinBox--;
                 break;
-            case ItemType.ExpertSkinBox:
+            case ItemType.FreeSkinBox:
                 expertSkinBox--;
                 break;
             default:

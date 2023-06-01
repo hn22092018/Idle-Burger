@@ -84,9 +84,6 @@ public class PlayerData {
     public int GetSelectedWorld() {
         return PlayerPrefs.GetInt("SelectedWorld", 1);
     }
-    public int GetEventSelected() {
-        return PlayerPrefs.GetInt("SelectedEvent", 0);
-    }
     public int GetUnlockedWorld() {
         return PlayerPrefs.GetInt("UnlockedWorld", 1);
     }
@@ -126,7 +123,6 @@ public class PlayerData {
         researchManager.SaveData();
         skinManager.SaveData();
         wareHouseManager.SaveData();
-        SaveUnlockedWorld();
         deltaTimeSaving = 0;
         isSaving = false;
     }
@@ -213,8 +209,11 @@ public class PlayerData {
         return false;
     }
     public void UnlockWorld(int world) {
-        if (world > GetUnlockedWorld())
+        if (world >= GetUnlockedWorld()) {
             unlockedWorld = world;
+            SaveUnlockedWorld();
+        }
+
     }
     #endregion Room Data
 
@@ -274,7 +273,7 @@ public class PlayerData {
     public BigNumber GetTipChef() {
         return ResourceSave.GetTipChef(selectedWorld);
     }
-   
+
     public void AddTipReception(BigNumber value) {
         ResourceSave.AddTipReception(selectedWorld, value);
     }

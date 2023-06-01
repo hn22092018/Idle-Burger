@@ -272,13 +272,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667798576845407220}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 782b5e024ff493d4694bdf1be37e27d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextID: 454
-  isUpper: 0
+  TextID: 188
+  isUpper: 1
   IsRunUpdate: 0
 --- !u!1 &2285038755826709986
 GameObject:
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ac9d0ae5fe1cd44ebe19a9a4be346ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 887b9591ea743204ababbba27b4fb882, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 2701306722765942739}
   - component: {fileID: 2701306722765942742}
   - component: {fileID: 2701306722765942737}
+  - component: {fileID: 5243908929120947390}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -626,7 +627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 91, y: -212}
+  m_AnchoredPosition: {x: 104, y: -212}
   m_SizeDelta: {x: 250, y: 167.6475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2701306722765942742
@@ -650,15 +651,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9528302, g: 0.5342885, b: 0.15730685, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c97a926677df67408a5115fc2e660d4, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 0e0c31dad11e44544a30d6949b5ac284, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -667,6 +668,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5243908929120947390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701306722765942738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3167713953801233575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,12 +1110,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4366067952785171334}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 782b5e024ff493d4694bdf1be37e27d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextID: 456
+  TextID: 234
   isUpper: 0
   IsRunUpdate: 0
 --- !u!1 &4366067953458235420
@@ -1245,7 +1261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 206d18c4ad1c7f9459b85c86c2fd7989, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fc38c3c626e6de419f4bdf16f39ace5, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1520,7 +1536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 206d18c4ad1c7f9459b85c86c2fd7989, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fc38c3c626e6de419f4bdf16f39ace5, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1600,7 +1616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 206d18c4ad1c7f9459b85c86c2fd7989, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fc38c3c626e6de419f4bdf16f39ace5, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1885,7 +1901,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PREMIUM  PACK '
+  m_Text: Premium Researcher Pack
 --- !u!114 &8858890254689383061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,12 +1922,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8459468306200941394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 782b5e024ff493d4694bdf1be37e27d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextID: 455
+  TextID: 233
   isUpper: 1
   IsRunUpdate: 0
 --- !u!1 &8459468306613795286
@@ -2240,11 +2256,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8855648281325028312}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 782b5e024ff493d4694bdf1be37e27d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextID: 454
-  isUpper: 0
+  TextID: 187
+  isUpper: 1
   IsRunUpdate: 0

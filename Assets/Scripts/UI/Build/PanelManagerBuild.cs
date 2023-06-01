@@ -39,7 +39,7 @@ public class PanelManagerBuild : UIPanel {
         buildData = data.GetData(buildTarget);
         imgBuild.sprite = buildData.sprBuild;
         txtBuildName.text = buildData.GetBuildName().ToUpper();
-        txtBuildDes.text = buildData.GetDes();
+        //txtBuildDes.text = buildData.GetDes();
         energy = buildData.energyRequire;
         txtEnergyRequire.text = energy.ToString();
         grEnergyRequire.gameObject.SetActive(energy > 0);

@@ -134,12 +134,12 @@ public class UITabUpgrade : MonoBehaviour {
             btnEvolve.interactable = GameManager.instance.IsEnoughBurgetCoin(evolvePrice);
         }
         if (level == maxLevel) IsUpgradeButtonSelected = false;
-        string strLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(27).ToUpper() + ": ";
+        string strLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(86).ToUpper() + ": ";
         txtItemLevel.text = strLevel + level.ToString();
         priceUpgrade = currentRoom.GetUpgradePriceItem(index);
         txtItemUpgradePrice.text = new BigNumber(priceUpgrade).ToString();
-        string strShow = ProfileManager.Instance.dataConfig.GameText.GetTextByID(109).ToUpper();
-        string strUpgrade = ProfileManager.Instance.dataConfig.GameText.GetTextByID(149).ToUpper();
+        string strShow = ProfileManager.Instance.dataConfig.GameText.GetTextByID(135).ToUpper();
+        string strUpgrade = ProfileManager.Instance.dataConfig.GameText.GetTextByID(88).ToUpper();
         txtUpgrade.text = level == 0 ? strShow : strUpgrade;
         timeRebuildLayout = 0;
         CameraMove.instance.ChangePosition(-new Vector3(0, 6.5f, 0f) + GameManager.instance.selectedRoom.GetPositionItem(selectedItemID), null);

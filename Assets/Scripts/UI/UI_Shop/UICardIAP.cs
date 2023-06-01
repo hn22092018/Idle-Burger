@@ -29,9 +29,9 @@ public class UICardIAP : MonoBehaviour {
         priceText.text = priceLocal != "$0.01" ? priceLocal : cardIAP.price.ToString();
         cardID = cardIAP.id;
         icon.sprite = cardIAP.icon;
-        string strHour = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(169).ToLower();
+        string strHour = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(189).ToLower();
         if (shopName == TabName.OfflineTime) {
-            valueDescription.text = "<color=#63FF26>+" + cardIAP.extraValue.ToString() + strHour + "</color>";
+            valueDescription.text = "<color=#63FF26>+" + cardIAP.extraValue.ToString() +"H "+ strHour + "</color>";
             rewardIcons[0].SetActive(true);
             rewardIcons[1].SetActive(false);
         } else {
@@ -46,9 +46,9 @@ public class UICardIAP : MonoBehaviour {
         if (_CurrentCardIAP != null) {
             nameText.text = _CurrentCardIAP.GetName().ToUpper();
             descriptionText.text = _CurrentCardIAP.GetDes();
-            string strHour = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(169).ToLower();
+            string strHour = " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(189).ToLower();
             if (_shopName == TabName.OfflineTime) {
-                valueDescription.text = "<color=#63FF26>+" + _CurrentCardIAP.extraValue.ToString() + strHour + "</color>";
+                valueDescription.text = "<color=#63FF26>+" + _CurrentCardIAP.extraValue.ToString() + "H " + strHour + "</color>";
             } 
         }
     }

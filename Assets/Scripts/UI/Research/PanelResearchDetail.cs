@@ -20,7 +20,6 @@ public class PanelResearchDetail : MonoBehaviour {
     [SerializeField] Text txtTimeMake;
     [SerializeField] Text txtTimeDetail;
     [SerializeField] Text txtPrice;
-    [SerializeField] Text txtNotice;
     [SerializeField] Text txtGemSkipTime;
     [SerializeField] Text txtUpgradePrice;
     [Header("Image")]
@@ -179,7 +178,7 @@ public class PanelResearchDetail : MonoBehaviour {
         imgBGDetail.sprite = sprNormal;
         processUpgrade.fillAmount = 0;
         txtPrice.text = researchData.CalulateReseachPrice(levelResearchDetail).ToString();
-        objNotice.SetActive(false);
+        //objNotice.SetActive(false);
         objComplete.SetActive(false);
         btnImprove.gameObject.SetActive(true);
         btnReduce.gameObject.SetActive(false);
@@ -192,7 +191,7 @@ public class PanelResearchDetail : MonoBehaviour {
         txtTimeDetail.text = TimeUtil.TimeToString(ProfileManager.PlayerData.researchManager.GetTimeCoolDown(researchDetailName));
         imgBGDetail.sprite = sprNormal;
         objComplete.SetActive(false);
-        objNotice.SetActive(false);
+        //objNotice.SetActive(false);
         btnImprove.gameObject.SetActive(false);
         btnUpgrade.gameObject.SetActive(false);
         btnReduce.gameObject.SetActive(true);
@@ -203,7 +202,7 @@ public class PanelResearchDetail : MonoBehaviour {
     void DetailOnUpgrade() {
         objTimeWrap.SetActive(false);
         objComplete.SetActive(false);
-        objNotice.SetActive(false);
+        //objNotice.SetActive(false);
         btnImprove.gameObject.SetActive(false);
         btnReduce.gameObject.SetActive(false);
         btnFinish.gameObject.SetActive(false);
@@ -216,7 +215,7 @@ public class PanelResearchDetail : MonoBehaviour {
         updateTime = false;
         imgBGDetail.sprite = sprUpgradeDone;
         objComplete.SetActive(true);
-        objNotice.SetActive(false);
+        //objNotice.SetActive(false);
         btnImprove.gameObject.SetActive(false);
         btnReduce.gameObject.SetActive(false);
         btnFinish.gameObject.SetActive(false);
@@ -230,7 +229,7 @@ public class PanelResearchDetail : MonoBehaviour {
         processUpgrade.fillAmount = 0;
         txtPrice.text = researchData.CalulateReseachPrice(levelResearchDetail).ToString();
         txtLevel.text = "0/10";
-        objNotice.SetActive(true);
+        //objNotice.SetActive(true);
         objComplete.SetActive(false);
         btnImprove.gameObject.SetActive(false);
         btnImprove.interactable = false;

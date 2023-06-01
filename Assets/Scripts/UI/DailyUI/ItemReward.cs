@@ -19,10 +19,7 @@ public enum ItemType {
     ADTicket,
     NormalSkinBox,
     AdvancedSkinBox,
-    ExpertSkinBox,
-    VIPMarketing,
-    Uniform,
-    ResearchValue,
+    FreeSkinBox,
     Researcher,
     Reputation,
     BurgerCoin,
@@ -30,7 +27,8 @@ public enum ItemType {
     Pepper,
     Sugar,
     Carot,
-    Flour
+    Flour,
+    VIPMarketing
 }
 [System.Serializable]
 public class ItemReward {
@@ -41,7 +39,7 @@ public class ItemReward {
     [ConditionalHide("skinReward", true)] public int skinID;
     public void OnEnable()
     {
-        skinReward = type == ItemType.Uniform;
+        //skinReward = type == ItemType.Uniform;
     }
     public string AmountToString() {
         return type switch {
@@ -62,10 +60,7 @@ public class ItemReward {
             ItemType.ADTicket => "+" + amount + "",
             ItemType.NormalSkinBox => "+" + amount + "",
             ItemType.AdvancedSkinBox => "+" + amount + "",
-            ItemType.ExpertSkinBox => "+" + amount + "",
-            ItemType.VIPMarketing => "",
-            ItemType.Uniform => "",
-            ItemType.ResearchValue => "+" + amount + "",
+            ItemType.FreeSkinBox => "+" + amount + "",
             ItemType.Reputation => "+" + amount + "",
             ItemType.Researcher => "+" + amount + "",
             ItemType.Cheese => "+" + amount + "",
@@ -74,37 +69,35 @@ public class ItemReward {
             ItemType.Carot => "+" + amount + "",
             ItemType.Flour => "+" + amount + "",
             ItemType.BurgerCoin => "+" + amount + "",
+            ItemType.VIPMarketing => "",
             _ => throw new System.NotImplementedException(),
         };
     }
     public string TypeToString() {
         return type switch {
-            ItemType.Gem => ProfileManager.Instance.dataConfig.GameText.GetTextByID(160).ToUpper(),
-            ItemType.FreeChest => ProfileManager.Instance.dataConfig.GameText.GetTextByID(166).ToUpper(),
-            ItemType.NormalChest => ProfileManager.Instance.dataConfig.GameText.GetTextByID(165).ToUpper(),
-            ItemType.AdvancedChest => ProfileManager.Instance.dataConfig.GameText.GetTextByID(164).ToUpper(),
+            ItemType.Gem => ProfileManager.Instance.dataConfig.GameText.GetTextByID(200).ToUpper(),
+            ItemType.FreeChest => ProfileManager.Instance.dataConfig.GameText.GetTextByID(193).ToUpper(),
+            ItemType.NormalChest => ProfileManager.Instance.dataConfig.GameText.GetTextByID(192).ToUpper(),
+            ItemType.AdvancedChest => ProfileManager.Instance.dataConfig.GameText.GetTextByID(191).ToUpper(),
             ItemType.Card => "Card".ToUpper(),
             ItemType.Cash => "Cash".ToUpper(),
-            ItemType.PremiumSuit => ProfileManager.Instance.dataConfig.GameText.GetTextByID(159).ToUpper(),
-            ItemType.GodenSuit => ProfileManager.Instance.dataConfig.GameText.GetTextByID(158).ToUpper(),
-            ItemType.OfflineTime => ProfileManager.Instance.dataConfig.GameText.GetTextByID(161).ToUpper(),
-            ItemType.IncreaseProfit => ProfileManager.Instance.dataConfig.GameText.GetTextByID(32).ToUpper(),
-            ItemType.RemoveAds => ProfileManager.Instance.dataConfig.GameText.GetTextByID(174).ToUpper(),
+            ItemType.PremiumSuit => "",
+            ItemType.GodenSuit => "",
+            ItemType.OfflineTime => ProfileManager.Instance.dataConfig.GameText.GetTextByID(201).ToUpper(),
+            ItemType.IncreaseProfit => ProfileManager.Instance.dataConfig.GameText.GetTextByID(38).ToUpper(),
+            ItemType.RemoveAds => ProfileManager.Instance.dataConfig.GameText.GetTextByID(172).ToUpper(),
             ItemType.TimeSkip_1H => ProfileManager.Instance.dataConfig.GameText.GetTextByID(177).ToUpper() + " 1H",
             ItemType.TimeSkip_4H => ProfileManager.Instance.dataConfig.GameText.GetTextByID(177).ToUpper() + " 4H",
             ItemType.TimeSkip_24H => ProfileManager.Instance.dataConfig.GameText.GetTextByID(177).ToUpper() + " 24H",
-            ItemType.ADTicket => ProfileManager.Instance.dataConfig.GameText.GetTextByID(175).ToUpper(),
-            ItemType.NormalSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(165).ToUpper(),
-            ItemType.AdvancedSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(164).ToUpper(),
-            ItemType.ExpertSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(413).ToUpper(),
-            ItemType.VIPMarketing => ProfileManager.Instance.dataConfig.GameText.GetTextByID(162).ToUpper(),
-            ItemType.Uniform => ProfileManager.Instance.dataConfig.GameText.GetTextByID(420).ToUpper(),
-            ItemType.ResearchValue => "Research".ToUpper(),
-            ItemType.Researcher => ProfileManager.Instance.dataConfig.GameText.GetTextByID(454).ToUpper(),
-            ItemType.Reputation => ProfileManager.Instance.dataConfig.GameText.GetTextByID(453).ToUpper(),
-            ItemType.BurgerCoin => "Burger Coin".ToUpper(),
+            ItemType.ADTicket => ProfileManager.Instance.dataConfig.GameText.GetTextByID(190).ToUpper(),
+            ItemType.FreeSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(193).ToUpper(),
+            ItemType.NormalSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(192).ToUpper(),
+            ItemType.AdvancedSkinBox => ProfileManager.Instance.dataConfig.GameText.GetTextByID(191).ToUpper(),
+            ItemType.Researcher => ProfileManager.Instance.dataConfig.GameText.GetTextByID(187).ToUpper(),
+            ItemType.Reputation => "",
+            ItemType.BurgerCoin => "",
+            ItemType.VIPMarketing => "VIP Marketing",
             _ => "",
-           
         };
     }
 }

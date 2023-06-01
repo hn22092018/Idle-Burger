@@ -19,6 +19,7 @@ public class LoadScene : MonoBehaviour {
         StartCoroutine(OnLoadingNextScene("Level" + index));
     }
     IEnumerator OnLoadingNextScene(string sceneName) {
+        Debug.Log("OnLoadingNextScene_" + sceneName);
         m_SliderBar.transform.localScale = new Vector3(0, 1, 1);
         loadCounter = 0;
         startLoad = false;

@@ -25,8 +25,6 @@ public class Tutorials : MonoBehaviour {
     string s2 = "Oh, look! Our first customer!";
     string s3 = "Here our cooks will creat all the essential ingreadients needed for our foods.";
     string s4 = "They will continue to cook as soon as they have new customers";
-    string s5 = "Oh! Look, we also completed a mission while doing so!";
-    string s6 = "Missions are a good way to earn a juicy money boost for our restaurant! Complete as many as you can.";
     float delayTime = 0;
     private void Awake() {
         instance = this;
@@ -79,7 +77,7 @@ public class Tutorials : MonoBehaviour {
             characterTutGr.SetActive(true);
             characterTutGr.GetComponent<Animator>().SetTrigger("IsShow");
             sInfo = s1;
-            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(423);
+            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(225);
             AddTextWriter(sInfo);
             while (characterIndex < textToWrite.Length) {
                 ShowText();
@@ -94,7 +92,7 @@ public class Tutorials : MonoBehaviour {
             characterTutGr.SetActive(true);
             characterTutGr.GetComponent<Animator>().SetTrigger("IsShow2");
             sInfo = s2;
-            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(424);
+            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(226);
             AddTextWriter(sInfo);
             while (characterIndex < textToWrite.Length) {
                 ShowText();
@@ -171,7 +169,7 @@ public class Tutorials : MonoBehaviour {
             characterTutGr.SetActive(true);
             characterTutGr.GetComponent<Animator>().SetTrigger("IsShow");
             sInfo = s3;
-            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(425);
+            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(227);
             AddTextWriter(sInfo);
             while (characterIndex < textToWrite.Length) {
                 ShowText();
@@ -187,7 +185,7 @@ public class Tutorials : MonoBehaviour {
             characterTutGr.SetActive(true);
             characterTutGr.GetComponent<Animator>().SetTrigger("IsShow2");
             sInfo = s4;
-            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(426);
+            sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(228);
             AddTextWriter(sInfo);
             while (characterIndex < textToWrite.Length) {
                 ShowText();
@@ -239,9 +237,6 @@ public class Tutorials : MonoBehaviour {
                 characterTutGr.GetComponent<Animator>().SetTrigger("IsShow");
             }
             sInfo = ProfileManager.Instance.dataConfig.GameText.GetTextByID(currentTut.textLocalizeIds[i]);
-            if (currentTut.stepID == TutorialStepID.SelectNewWorld) {
-                sInfo = string.Format(sInfo, ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(2).burgerRequire);
-            }
             AddTextWriter(sInfo);
             while (characterIndex < textToWrite.Length) {
                 ShowText();

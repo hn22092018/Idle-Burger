@@ -16,11 +16,19 @@ public class HumanManagerSpawner : MonoBehaviour {
         });
     }
     void SpawnManager() {
+        switch (staffID) {
+            case ManagerStaffID.Deliver_1:
+                if (!GameManager.instance.IsUnlockDeliverRoom()) return;
+                break;
+            case ManagerStaffID.Restroom_1:
+                if (!GameManager.instance.IsUnlockRestroom(GameManager.instance.WCRooms[0])) return;
+                break;
+        }
         cardSaveInfo = ProfileManager.PlayerData.GetCardManager().GetCardManager(staffID);
         if (cardSaveInfo.level > 0) {
             isSpawned = true;
             Transform t = Instantiate(Prefab);
-            t.GetComponent<StaffManager>().InitStaff(staffID,Nodes);
+            t.GetComponent<StaffManager>().InitStaff(staffID, Nodes);
         }
     }
 

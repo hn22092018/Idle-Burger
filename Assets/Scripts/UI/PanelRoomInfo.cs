@@ -130,9 +130,9 @@ public class PanelRoomInfo : UIPanel {
     public void OnClose() {
         if (isBlockClose) return;
         SoundManager.instance.StopSubMusic();
-        CameraMove.instance.ZoomInCamera();
+        CameraMove.instance.ZoomInCamera(20);
         Tutorials.instance.OnCloseTutorial();
-        GameManager.instance.selectedRoom.TurnOffSelectedEffectItem();
+        GameManager.instance.StopFocusRoom();
         UIManager.instance.ClosePanelRoomInfo();
     }
     private void OnEnable() {

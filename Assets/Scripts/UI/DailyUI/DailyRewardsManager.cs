@@ -102,8 +102,7 @@ public class DailyRewardsManager {
                 break;
             case ItemType.ADTicket:
                 break;
-            case ItemType.VIPMarketing:
-                break;
+           
             default:
                 break;
         }

@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Button btnWareHouse;
     [SerializeField] GameObject _WareHouseNotify;
     [SerializeField] GameObject _FreeGemAdsNotify;
+    [SerializeField] GameObject processMap;
     public DOTweenManager dotweenManager;
     public bool isHasPopupOnScene = false;
     float deltaTimeFreeResourceAds;
@@ -60,7 +61,6 @@ public class UIManager : MonoBehaviour {
     // Start is called before the first frame update
     void Awake() {
         instance = this;
-        //btnManagerStaff.onClick.AddListener(ShowPanelManagerStaff);
         btnShop.onClick.AddListener(ShowPanelShop);
         btnAdBoost.onClick.AddListener(ShowPanelAdBoost);
         btnMarketingCampaign.onClick.AddListener(ShowPanelMarketingCampaign);
@@ -119,6 +119,7 @@ public class UIManager : MonoBehaviour {
         btnIAPResearcherPack.gameObject.SetActive(isShow);
         btnWareHouse.gameObject.SetActive(isShow);
         btnStatistic.gameObject.SetActive(isShow);
+        processMap.gameObject.SetActive(isShow);
     }
     void OnLoadUIButtonIAPPackage() {
         btnIapPackage_Vip3Pack.onClick.AddListener(() => ShowPanelIAPPackage(OfferID.Vip3Pack));
@@ -422,7 +423,7 @@ public class UIManager : MonoBehaviour {
         GetPanel(UIPanelType.PanelOrderBook).SetActive(false);
     }
     public void ShowPanelStatistic() {
-        if (Tutorials.instance.IsShow) return;
+        if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() != TutorialStepID.SelectNewWorld) return;
         if (!ProfileManager.PlayerData.ResourceSave.activeRemoveAds) AdsManager.Instance.ShowInterstitial(null, null);
         isHasPopupOnScene = true;
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);

@@ -128,14 +128,15 @@ public class GameManager : MonoBehaviour {
 
 
     IEnumerator IOnLoadSceneLoading() {
-        m_AsyncLoadLoadingScene = SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Additive);
+        m_AsyncLoadLoadingScene = SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Single);
         m_AsyncLoadLoadingScene.allowSceneActivation = false;
         yield return new WaitForEndOfFrame();
     }
     public void OnExpanNewWorld() {
+        PoolManager.Pools["GameEntity"].DespawnAll();
         ProfileManager.PlayerData.UnlockWorld(ProfileManager.PlayerData.selectedWorld + 1);
-        ProfileManager.PlayerData.selectedWorld++;
-        m_AsyncLoadLoadingScene.allowSceneActivation = true;
+        ProfileManager.PlayerData.ChangeSelectedWorld(ProfileManager.PlayerData.selectedWorld + 1);
+      m_AsyncLoadLoadingScene.allowSceneActivation = true;
         SceneManager.UnloadSceneAsync("LoadScene");
     }
     void LoadRoom() {
@@ -771,7 +772,7 @@ public class GameManager : MonoBehaviour {
         cashRateTime = 0;
     }
     public int GetFreeGemAdsProfit() {
-        return Random.Range(2, 5) * 5;
+        return Random.Range(2, 4) * 5;
     }
     /// <summary>
     /// Calculate Cash Earn In Time (Minute)
@@ -942,12 +943,10 @@ public class GameManager : MonoBehaviour {
             case ItemType.AdvancedSkinBox:
                 ProfileManager.PlayerData.ResourceSave.AddAdvanceSkinBox(reward.amount);
                 break;
-            case ItemType.ExpertSkinBox:
+            case ItemType.FreeSkinBox:
                 ProfileManager.PlayerData.ResourceSave.AddExpertSkinBox(reward.amount);
                 break;
-            case ItemType.Uniform:
-                ProfileManager.PlayerData.skinManager.AddSkin(reward.skinID);
-                break;
+            
             case ItemType.Researcher:
                 break;
             case ItemType.Reputation:

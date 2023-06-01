@@ -16,12 +16,7 @@ public enum RestroomModelType {
     Restroom_HandsDryer
 }
 public enum KitchenModelType {
-    Kitchen_Fridge,
-    Kitchen_Cupboards,
-    Kitchen_ChoppingStation,
     Kitchen_Stove_Oven,
-    Kitchen_Sink,
-    Kitchen_Food,
     Kitchen_Decor
 }
 public enum DeliverModelType {
@@ -51,7 +46,6 @@ public enum ManagerModelType {
 }
 public enum PowerModelType {
     Power_BigGenerator,
-    Power_MediumGenerator,
     Power_SmallGenerator
 }
 

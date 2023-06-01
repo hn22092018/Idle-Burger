@@ -22,14 +22,12 @@ public class UITabManagerInfo : MonoBehaviour {
         if (currentStaffID == ManagerStaffID.None) return;
         CardManagerSave cardSaveInfo = ProfileManager.PlayerData.GetCardManager().GetCardManager(currentStaffID);
         txtLevel.text = "LV " + cardSaveInfo.level;
-        imgIcon.sprite = ProfileManager.Instance.dataConfig.cardData.GetCardManagerInfo(cardSaveInfo.staffID, cardSaveInfo.rarity).sprIcon;
-        imgBorder.color = Color.white;
         if (cardSaveInfo.level == 0) {
             imgBorder.sprite = sprBorders[0];
-            imgBorder.color = Color.gray;
+            imgIcon.sprite = ProfileManager.Instance.dataConfig.cardData.GetCardManagerInfo(cardSaveInfo.staffID, cardSaveInfo.rarity).sprIconOff;
         } else {
-            imgBorder.sprite = sprBorders[(int)cardSaveInfo.rarity];
-            imgBorder.color = Color.white;
+            imgIcon.sprite = ProfileManager.Instance.dataConfig.cardData.GetCardManagerInfo(cardSaveInfo.staffID, cardSaveInfo.rarity).sprIcon;
+            imgBorder.sprite = sprBorders[(int)cardSaveInfo.rarity-1];
         }
     }
     private void OnShow() {

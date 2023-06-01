@@ -39,13 +39,13 @@ public class CardNormalConfig {
     public string RarityToString() {
         switch (cardRarity) {
             case Rarity.Common:
-                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(22);
+                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(81);
             case Rarity.Rare:
-                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(23);
+                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(82);
             case Rarity.Epic:
-                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(24);
+                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(83);
             case Rarity.Legendary:
-                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(25);
+                return ProfileManager.Instance.dataConfig.GameText.GetTextByID(84);
         }
         return "";
     }
@@ -99,6 +99,7 @@ public class CardManagerConfig {
     public Mesh mesh;
     [PreviewField(70, ObjectFieldAlignment.Left)]
     public Sprite sprIcon;
+    public Sprite sprIconOff;
     public Sprite sprCardPieceIcon;
 }
 

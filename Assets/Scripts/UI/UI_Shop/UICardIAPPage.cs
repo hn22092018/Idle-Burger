@@ -39,8 +39,8 @@ public class UICardIAPPage : UIShopPage {
     }
     string sSub = "";
     private void OnEnable() {
-        if (shopName == TabName.OfflineTime) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(181) + ": ";
-        else if (shopName == TabName.Financial) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(182) + ": ";
+        if (shopName == TabName.OfflineTime) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(184) + ": ";
+        else if (shopName == TabName.Financial) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(185) + ": ";
     }
     private void Update() {
         if (shopName == TabName.OfflineTime) txtTotalBuff.text = sSub + ProfileManager.Instance.playerData.cardManager.GetExtraHour_OfflineTimeCardIAP().ToString() + "H";

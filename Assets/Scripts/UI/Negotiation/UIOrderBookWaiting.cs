@@ -20,6 +20,8 @@ public class UIOrderBookWaiting : UIEffect {
     }
 
     private void OnEnable() {
+        sWaitToNewOrder = ProfileManager.Instance.dataConfig.GameText.GetTextByID(145);
+        sMax = ProfileManager.Instance.dataConfig.GameText.GetTextByID(148);
         txtGemPriceSkip.text = gemPriceSkip.ToString();
         int adTicket = ProfileManager.PlayerData.ResourceSave.GetADTicket();
         btnGetTicket.gameObject.SetActive(adTicket > 0);

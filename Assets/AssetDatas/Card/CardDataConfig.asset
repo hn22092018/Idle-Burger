@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardList:
   - name: Waiter Speed
-    NameLocalizeID: 194
+    NameLocalizeID: 49
     ID: 1
     cardRarity: 0
     cardValues:
@@ -24,13 +24,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increases the movement speed of waiters.
-    DesLocalizeID: 214
+    DesLocalizeID: 64
     sprOn: {fileID: 21300000, guid: 47fb022dfecedc243971458cdc80bff1, type: 3}
     sprOff: {fileID: 21300000, guid: e376648cc8158014ba32e617d97d24a7, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Guest Speed
-    NameLocalizeID: 195
+    NameLocalizeID: 50
     ID: 2
     cardRarity: 0
     cardValues:
@@ -40,13 +40,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increases Guest's Movement Speed.
-    DesLocalizeID: 215
+    DesLocalizeID: 65
     sprOn: {fileID: 21300000, guid: fbd79b1c6e809f3479378dab688783da, type: 3}
     sprOff: {fileID: 21300000, guid: 2d7898083b4be1a46a0be313ceb5f87f, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Cook Speed
-    NameLocalizeID: 197
+    NameLocalizeID: 51
     ID: 3
     cardRarity: 0
     cardValues:
@@ -56,13 +56,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increase the cooking speed of the chef.
-    DesLocalizeID: 217
+    DesLocalizeID: 66
     sprOn: {fileID: 21300000, guid: b8748d03ebadf6b46a082500ae9ade51, type: 3}
     sprOff: {fileID: 21300000, guid: 9b0e9fb6aa9b7534184ac6ba6348f6c5, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Deliver Speed
-    NameLocalizeID: 197
+    NameLocalizeID: 52
     ID: 4
     cardRarity: 0
     cardValues:
@@ -72,13 +72,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increase the deliver's staff speed.
-    DesLocalizeID: 217
+    DesLocalizeID: 67
     sprOn: {fileID: 21300000, guid: ca5f10348128a9747b8df44539a3f72e, type: 3}
     sprOff: {fileID: 21300000, guid: ba4b16264de26864abea1a6f53d3c108, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Guest Relax
-    NameLocalizeID: 201
+    NameLocalizeID: 53
     ID: 5
     cardRarity: 1
     cardValues:
@@ -88,13 +88,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Customers will wait longer before leaving.
-    DesLocalizeID: 221
+    DesLocalizeID: 68
     sprOn: {fileID: 21300000, guid: a8f9f18c8323b794bb7895ae88e3ba64, type: 3}
     sprOff: {fileID: 21300000, guid: c6b4fd5dbe72c1841be353f472a8dcd1, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Toilet Performance
-    NameLocalizeID: 202
+    NameLocalizeID: 54
     ID: 6
     cardRarity: 1
     cardValues:
@@ -104,13 +104,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Reduce customer's toilet use time.
-    DesLocalizeID: 222
+    DesLocalizeID: 69
     sprOn: {fileID: 21300000, guid: 6e16af3e893876d40bf0da153839326e, type: 3}
     sprOff: {fileID: 21300000, guid: 0c69cbf8976ba6b4f82ed6543e8fdef2, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Hungry
-    NameLocalizeID: 203
+    NameLocalizeID: 55
     ID: 7
     cardRarity: 1
     cardValues:
@@ -120,13 +120,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Customers will eat faster.
-    DesLocalizeID: 223
+    DesLocalizeID: 70
     sprOn: {fileID: 21300000, guid: f644cf16100c2cd4ab0964fd798ef21c, type: 3}
     sprOff: {fileID: 21300000, guid: 2b2da21e9afa427488144f88f9441e87, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Reception Master
-    NameLocalizeID: 205
+    NameLocalizeID: 56
     ID: 8
     cardRarity: 1
     cardValues:
@@ -136,13 +136,13 @@ MonoBehaviour:
     - 12
     - 20
     description: The reception speed of the reception is faster.
-    DesLocalizeID: 225
+    DesLocalizeID: 71
     sprOn: {fileID: 21300000, guid: 740948d0aab98bc479868698e3b80c8a, type: 3}
     sprOff: {fileID: 21300000, guid: 253e0b8a59d1c6a41b0eec386e53fb3b, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Delicious
-    NameLocalizeID: 204
+    NameLocalizeID: 57
     ID: 9
     cardRarity: 2
     cardValues:
@@ -152,13 +152,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Customers pay more.
-    DesLocalizeID: 224
+    DesLocalizeID: 72
     sprOn: {fileID: 21300000, guid: 584793b3905d9da49a0c9f408775daf6, type: 3}
     sprOff: {fileID: 21300000, guid: 542885467a4a46a44b58568947a5692a, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Waiter Tip
-    NameLocalizeID: 209
+    NameLocalizeID: 58
     ID: 10
     cardRarity: 2
     cardValues:
@@ -168,13 +168,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increase tips for waiters.
-    DesLocalizeID: 229
+    DesLocalizeID: 73
     sprOn: {fileID: 21300000, guid: f222733cd8dd75f409c3bbae178596c8, type: 3}
     sprOff: {fileID: 21300000, guid: ac026f1f3d6521c49a80500d475b5e9f, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Reception Tip
-    NameLocalizeID: 210
+    NameLocalizeID: 59
     ID: 11
     cardRarity: 2
     cardValues:
@@ -184,13 +184,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increase tip for Receptionist.
-    DesLocalizeID: 230
+    DesLocalizeID: 74
     sprOn: {fileID: 21300000, guid: f3d3a87bf9032014e82818c897ff2e64, type: 3}
     sprOff: {fileID: 21300000, guid: c09a59d83a274cd47b63769187467e1d, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Cook Tip
-    NameLocalizeID: 211
+    NameLocalizeID: 60
     ID: 12
     cardRarity: 2
     cardValues:
@@ -200,13 +200,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increase tip for Chef.
-    DesLocalizeID: 231
+    DesLocalizeID: 75
     sprOn: {fileID: 21300000, guid: cd42ed0032316244a9b871ff28f67909, type: 3}
     sprOff: {fileID: 21300000, guid: 76e425d272e4beb449e102d1edb584de, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Michellin Star
-    NameLocalizeID: 213
+    NameLocalizeID: 61
     ID: 13
     cardRarity: 3
     cardValues:
@@ -216,13 +216,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Increase the total earnings of the restaurant.
-    DesLocalizeID: 233
+    DesLocalizeID: 76
     sprOn: {fileID: 21300000, guid: 5c72ec3fd417a064f9ad6b82b4712469, type: 3}
     sprOff: {fileID: 21300000, guid: eb9684536c391524ab4af0599e44b9f6, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Satisfaction
-    NameLocalizeID: 206
+    NameLocalizeID: 62
     ID: 14
     cardRarity: 3
     cardValues:
@@ -232,13 +232,13 @@ MonoBehaviour:
     - 12
     - 20
     description: Customer satisfaction.
-    DesLocalizeID: 226
+    DesLocalizeID: 77
     sprOn: {fileID: 21300000, guid: ad5beb0a1d0e83a4fbfe4857e265a6fb, type: 3}
     sprOff: {fileID: 21300000, guid: b2be2a3b52904fc419aef0faa157a2ed, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
     cardType: 0
   - name: Popularity
-    NameLocalizeID: 207
+    NameLocalizeID: 63
     ID: 15
     cardRarity: 3
     cardValues:
@@ -248,7 +248,7 @@ MonoBehaviour:
     - 12
     - 20
     description: Restaurant's popularity.
-    DesLocalizeID: 227
+    DesLocalizeID: 78
     sprOn: {fileID: 21300000, guid: 7b9fb9f44b6cca74c9c088d7c167b219, type: 3}
     sprOff: {fileID: 21300000, guid: 121fabeb7b6259f45bb2b5b3426e9169, type: 3}
     cardAmountLevel: 01000000060000000c0000001200000018000000
@@ -258,74 +258,86 @@ MonoBehaviour:
     staffType: 0
     rarity: 1
     mesh: {fileID: 2819528711294543753, guid: 30d1ba663d177284db2268de62409456, type: 3}
-    sprIcon: {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: b92e217937d1e194da3cc7daaae93741, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 3de00e29dbd6cc542bdd82f2accb688a, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: ab91444f27804ed4e90d2fb0d7a24bcd, type: 3}
   - name: Maggie Mcgee
     staffType: 0
     rarity: 2
     mesh: {fileID: 2819528711294543753, guid: 30d1ba663d177284db2268de62409456, type: 3}
-    sprIcon: {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: b92e217937d1e194da3cc7daaae93741, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 3de00e29dbd6cc542bdd82f2accb688a, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: ab91444f27804ed4e90d2fb0d7a24bcd, type: 3}
   - name: Marcus Olson
     staffType: 0
     rarity: 3
     mesh: {fileID: 2819528711294543753, guid: 30d1ba663d177284db2268de62409456, type: 3}
-    sprIcon: {fileID: 21300000, guid: b766fe2636ef078438cb88ecb23d742d, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: b92e217937d1e194da3cc7daaae93741, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 3de00e29dbd6cc542bdd82f2accb688a, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: ab91444f27804ed4e90d2fb0d7a24bcd, type: 3}
   - name: Francis Wood
     staffType: 2
     rarity: 1
     mesh: {fileID: -5585299838729658224, guid: df76742bae73b8742b297017e4d2444f, type: 3}
-    sprIcon: {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: a2b114b258cbbdd40b5838b09086ef4a, type: 3}
+    sprIconOff: {fileID: 21300000, guid: c0e7663c004831b429cafb38c9dd29f0, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: 60c50cda9aab80543b7c8eeda5148762, type: 3}
   - name: Hugo Larson
     staffType: 2
     rarity: 2
     mesh: {fileID: -5585299838729658224, guid: df76742bae73b8742b297017e4d2444f, type: 3}
-    sprIcon: {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: a2b114b258cbbdd40b5838b09086ef4a, type: 3}
+    sprIconOff: {fileID: 21300000, guid: c0e7663c004831b429cafb38c9dd29f0, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: 60c50cda9aab80543b7c8eeda5148762, type: 3}
   - name: Gregg Harper
     staffType: 2
     rarity: 3
     mesh: {fileID: -5585299838729658224, guid: df76742bae73b8742b297017e4d2444f, type: 3}
-    sprIcon: {fileID: 21300000, guid: e095c3055bd1ee24493ba1dde659f74e, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: a2b114b258cbbdd40b5838b09086ef4a, type: 3}
+    sprIconOff: {fileID: 21300000, guid: c0e7663c004831b429cafb38c9dd29f0, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: 60c50cda9aab80543b7c8eeda5148762, type: 3}
   - name: Casey Mccarthy
     staffType: 1
     rarity: 1
     mesh: {fileID: 3842321357539976858, guid: d6267bc94334543439af1277a7b1f23f, type: 3}
-    sprIcon: {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: 77a0c827bbd90ed42906b73bc71826da, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 823a359646f814544b826ab9775aafdd, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: e73ee6bea9e67fc44a6a9c70cef6d425, type: 3}
   - name: Nichole Taylor
     staffType: 1
     rarity: 2
     mesh: {fileID: 3842321357539976858, guid: d6267bc94334543439af1277a7b1f23f, type: 3}
-    sprIcon: {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: 77a0c827bbd90ed42906b73bc71826da, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 823a359646f814544b826ab9775aafdd, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: e73ee6bea9e67fc44a6a9c70cef6d425, type: 3}
   - name: Hazel Riley
     staffType: 1
     rarity: 3
     mesh: {fileID: 3842321357539976858, guid: d6267bc94334543439af1277a7b1f23f, type: 3}
-    sprIcon: {fileID: 21300000, guid: 4d78de7305178d243a2bb70c9ead1a23, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: 77a0c827bbd90ed42906b73bc71826da, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 823a359646f814544b826ab9775aafdd, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: e73ee6bea9e67fc44a6a9c70cef6d425, type: 3}
   - name: Drew Houston
     staffType: 3
     rarity: 1
     mesh: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
-    sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: 21d3eefbfe0328341a2fcd4861f10527, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 1c405488c82f318459a5651b9492dac9, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: 4cbffb5e8ceb1434ebe34baf0c21243b, type: 3}
   - name: Jim Franklin
     staffType: 3
     rarity: 2
     mesh: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
-    sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: 21d3eefbfe0328341a2fcd4861f10527, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 1c405488c82f318459a5651b9492dac9, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: 4cbffb5e8ceb1434ebe34baf0c21243b, type: 3}
   - name: Tom Mcdonald
     staffType: 3
     rarity: 3
     mesh: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
-    sprIcon: {fileID: 21300000, guid: e78c4fdad7e1ec642857e38b712e962f, type: 3}
-    sprCardPieceIcon: {fileID: 0}
+    sprIcon: {fileID: 21300000, guid: 21d3eefbfe0328341a2fcd4861f10527, type: 3}
+    sprIconOff: {fileID: 21300000, guid: 1c405488c82f318459a5651b9492dac9, type: 3}
+    sprCardPieceIcon: {fileID: 21300000, guid: 4cbffb5e8ceb1434ebe34baf0c21243b, type: 3}
   cardPieceRequireByLevel: 010000000200000004000000080000000c00000012000000180000001e000000240000002a000000
   burgerCoinRequireByLevel: 00000000190000003200000064000000c80000005e0100002602000020030000b0040000dc050000
   incomeRateByLevel:

@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706c46d57a2a4034b98afa5c2d7e989c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 4
+  target: 7
   GroupID: 0
   txtPrice: {fileID: 0}
   IsGetPrice: 0
@@ -1769,9 +1769,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac88b60d3f82454383728311c39ba2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerStaffID: 0
+  managerStaffID: 2
   roomSetting:
-    roomID: 4
+    roomID: 7
     GroupID: 0
     modelPositions:
     - type: 0
@@ -1804,7 +1804,8 @@ MonoBehaviour:
     exp: 0
   totalEnergyEarn: 0
   IsLoadStaffFromSave: 0
-  _NextRoomsWhenUnlock: []
+  _NextRoomsWhenUnlock:
+  - {fileID: 0}
 --- !u!1 &7048435543050497085
 GameObject:
   m_ObjectHideFlags: 0
