@@ -37,6 +37,9 @@ public class UITabUpgrade : MonoBehaviour {
             OnEvolVeItem();
         });
     }
+    private void OnEnable() {
+        IsUpgradeButtonSelected = false;
+    }
     /// <summary>
     /// update status upgrade button & UIUpgradeItems when game money change
     /// </summary>
@@ -55,7 +58,6 @@ public class UITabUpgrade : MonoBehaviour {
             }
         }
     }
-
     /// <summary>
     /// Load UI by room control
     /// </summary>
@@ -127,6 +129,7 @@ public class UITabUpgrade : MonoBehaviour {
         btnEvolve.gameObject.SetActive(false);
         btnMaxUpgrade.gameObject.SetActive(level == maxLevel);
         if (level > 0 && level % 25 == 0 && level < maxLevel) {
+            IsUpgradeButtonSelected = false;
             btnUpgrade.gameObject.SetActive(false);
             btnEvolve.gameObject.SetActive(true);
             evolvePrice = GameManager.instance.GetEvolvePriceByLevel(level);
