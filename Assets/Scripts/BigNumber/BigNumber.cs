@@ -161,7 +161,7 @@ public class BigNumber {
             this.value *= Math.Pow(10, e2);
             exp -= e2;
         }
-        this.value = Math.Round(value,4);
+        //this.value = Math.Round(value,2);
         return this;
     }
     // Compute the equivalent number at 1.Eexp (note: assumes exp is greater than this.exp).
@@ -242,15 +242,11 @@ public class BigNumber {
         if (exp <= 5 && value <= 9) return (value * Math.Pow(10, exp)).ToString("0.00");
         return this.value.ToString("0.00") + "" + powTenToName[this.exp / 3];
     }
-    public string ToString2(string format = "") {
-        normalize();
-        if (exp <= 5 && value <= 9) return (value * Math.Pow(10, exp)).ToString(format);
-        return this.value.ToString(format) + "" + powTenToName[this.exp / 3];
-    }
-    public string IntToString(string format = "") {
+
+    public string IntToString(string format = "0") {
         normalize();
         if (exp <= 5 && value <= 9) return ((int)(value * Math.Pow(10, exp))).ToString(format);
-        return Math.Round(value, 2).ToString(format) + "" + powTenToName[this.exp / 3];
+        return value.ToString(format) + "" + powTenToName[this.exp / 3];
     }
     public int ToIntValue() {
         normalize();
@@ -262,32 +258,35 @@ public class BigNumber {
     //***********************************************************************
 
     public static bool operator >(BigNumber bi1, BigNumber bi2) {
+        bi1.normalize();
+        bi2.normalize();
         int max = Math.Max(bi1.exp, bi2.exp);
-
         double v1 = bi1.value;
         double v2 = bi2.value;
         for (int i = 0; i < max - bi1.exp; i++) {
-            v1 /= 1000;
+            v1 /= 1000f;
         }
 
         for (int i = 0; i < max - bi2.exp; i++) {
-            v2 /= 1000;
+            v2 /= 1000f;
         }
         return v1 > v2;
     }
 
     public static bool operator <(BigNumber bi1, BigNumber bi2) {
+        bi1.normalize();
+        bi2.normalize();
         int max = Math.Max(bi1.exp, bi2.exp);
 
         double v1 = bi1.value;
         double v2 = bi2.value;
 
         for (int i = 0; i < max - bi1.exp; i++) {
-            v1 /= 1000;
+            v1 /= 1000f;
         }
 
         for (int i = 0; i < max - bi2.exp; i++) {
-            v2 /= 1000;
+            v2 /= 1000f;
         }
 
         return v1 < v2;

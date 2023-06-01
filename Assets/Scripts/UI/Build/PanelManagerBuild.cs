@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,10 @@ public class PanelManagerBuild : UIPanel {
     BuildData data;
     BuildDataSetting buildData;
     [SerializeField] private Image imgBuild;
-    [SerializeField] private Text txtBuildName, txtBuildDes, txtEnergyRequire, txtCashRequire, txtStarRequire;
+    [SerializeField] private Text txtBuildName, txtBuildDes, txtEnergyRequire, txtCashRequire;
     [SerializeField] private Button btnBuild, btnGoPower, btnClose;
     [SerializeField]
-    private GameObject grStarRequire, grEnergyRequire, grEnergyAndMoneyRequire;
+    private GameObject grEnergyRequire, grEnergyAndMoneyRequire;
     float price;
     int energy;
     [SerializeField] private RectTransform rectTransformRequire;
@@ -38,14 +39,13 @@ public class PanelManagerBuild : UIPanel {
         buildData = data.GetData(buildTarget);
         imgBuild.sprite = buildData.sprBuild;
         txtBuildName.text = buildData.GetBuildName().ToUpper();
-        txtBuildDes.text = buildData.GetDes();
+        //txtBuildDes.text = buildData.GetDes();
         energy = buildData.energyRequire;
         txtEnergyRequire.text = energy.ToString();
         grEnergyRequire.gameObject.SetActive(energy > 0);
         price = data.GetBuildCashPrice(buildTarget);
         txtCashRequire.text = new BigNumber(price).IntToString();
         sStarRequire = ProfileManager.Instance.dataConfig.GameText.GetTextByID(472);
-        txtStarRequire.text = string.Format(sStarRequire, buildData.starRequire);
         if (Tutorials.instance.IsShow) {
             float y = mainContent.anchoredPosition.y + mainContent.rect.height / 2 + btnBuild.GetComponent<RectTransform>().anchoredPosition.y;
             Tutorials.instance.ChangeBlockerPos(new Vector2(0, y));
@@ -55,28 +55,31 @@ public class PanelManagerBuild : UIPanel {
     private void OnEnable() {
         timeRebuildLayout = 0;
     }
+    bool b1, b2, b3;
     private void Update() {
         if (timeRebuildLayout <= 1) {
             timeRebuildLayout += Time.deltaTime;
             LayoutRebuilder.MarkLayoutForRebuild(rectTransformRequire);
         }
-        btnBuild.interactable = GameManager.instance.IsEnoughCash(price) && GameManager.instance.IsEnoughEnergy(energy) && ProfileManager.PlayerData.GetTotalStarEarned() >= buildData.starRequire;
-        if (buildData.starRequire > 0) {
-            if (ProfileManager.PlayerData.GetTotalStarEarned() < buildData.starRequire) {
-                btnGoPower.gameObject.SetActive(false);
-                grEnergyAndMoneyRequire.gameObject.SetActive(false);
-                grStarRequire.gameObject.SetActive(true);
-            } else {
-                grEnergyAndMoneyRequire.gameObject.SetActive(true);
-                grStarRequire.gameObject.SetActive(false);
-                btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
-            }
-        } else {
-            grEnergyAndMoneyRequire.gameObject.SetActive(true);
-            grStarRequire.gameObject.SetActive(false);
-            btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
-        }
+        b1 = GameManager.instance.IsEnoughCash(price);
+        b2 = GameManager.instance.IsEnoughEnergy(energy);
+        btnBuild.interactable = b1 && b2;
+        //if (buildData.starRequire > 0) {
+        //    if (ProfileManager.PlayerData.GetTotalStarEarned() < buildData.starRequire) {
+        //        btnGoPower.gameObject.SetActive(false);
+        //        grEnergyAndMoneyRequire.gameObject.SetActive(false);
+        //        grStarRequire.gameObject.SetActive(true);
+        //    } else {
+        //        grEnergyAndMoneyRequire.gameObject.SetActive(true);
+        //        grStarRequire.gameObject.SetActive(false);
+        //        btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
+        //    }
+        //} else {
+        grEnergyAndMoneyRequire.gameObject.SetActive(true);
+        btnGoPower.gameObject.SetActive(!GameManager.instance.IsEnoughEnergy(energy));
+        //}
     }
+
     void OnBuild() {
         if (Tutorials.instance.IsShow) {
             Tutorials.instance.FinishTutorial();

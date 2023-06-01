@@ -40,7 +40,7 @@ public class PanelCard : UIPanel {
         cardNotify.SetActive(isHasFreeChest);
     }
     public void LoadCards() {
-        List<CardInfo> allCards = ProfileManager.Instance.dataConfig.cardData.cardList;
+        List<CardNormalConfig> allCards = ProfileManager.Instance.dataConfig.cardData.cardList;
         for (int i = 0; i < allCards.Count; i++) {
             GameObject card = null;
             switch (allCards[i].cardRarity) {
@@ -68,24 +68,13 @@ public class PanelCard : UIPanel {
 
     public Sprite GetCardFrameByRarity(Rarity r = Rarity.Common)
     {
-        switch (r)
-        {
-            case Rarity.Common:
-                return commonFrame;
-                break;
-            case Rarity.Rare:
-                return rareFrame;
-                break;
-            case Rarity.Epic:
-                return epicFrame;
-                break;
-            case Rarity.Legendary:
-                return legendaryFrame;
-                break;
-            default:
-                return commonFrame;
-                break;
-        }
+        return r switch {
+            Rarity.Common => commonFrame,
+            Rarity.Rare => rareFrame,
+            Rarity.Epic => epicFrame,
+            Rarity.Legendary => legendaryFrame,
+            _ => commonFrame,
+        };
     }
 
     public void OpenCardDetail() {

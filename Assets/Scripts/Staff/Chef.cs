@@ -54,7 +54,6 @@ public class Chef : BaseStaff {
         staffTools.ShowTool();
         m_Animator.SetBool("IsCook", true);
         yield return new WaitForSeconds(timeMakingFood);
-        DropReputation();
         timeIndicator.Hide();
         if (waiterOrdered) {
             AllRoomManager.instance._ChefManagers.Payment(this);

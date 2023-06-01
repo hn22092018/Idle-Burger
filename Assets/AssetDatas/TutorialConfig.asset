@@ -13,83 +13,83 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   steps:
-  - ID: -2
-    stepID: 10
-    levelRequire: 1
-    textLocalizeIds: 15000000
-    IsTutNonUI: 0
-    cameraPos: {x: 0, y: 7, z: 13}
-    blockerCenterPos: {x: 140, y: 250, z: 0}
-    IsFinish: 0
-  - ID: 16
-    stepID: 12
-    levelRequire: 1
-    textLocalizeIds: b2010000b3010000b4010000
-    IsTutNonUI: 0
-    cameraPos: {x: 27, y: 5, z: -19}
-    blockerCenterPos: {x: 140, y: -950, z: 0}
-    IsFinish: 0
   - ID: 0
     stepID: 1
     levelRequire: 1
-    textLocalizeIds: 0200000003000000
+    textLocalizeIds: 0100000002000000
     IsTutNonUI: 1
-    cameraPos: {x: 6, y: 0, z: 0}
-    blockerCenterPos: {x: 20, y: 30, z: 0}
-    IsFinish: 0
+    cameraPos: {x: 14, y: -9.5, z: 0}
+    blockerCenterPos: {x: 0, y: 0, z: 0}
+    IsFinish: 1
   - ID: 1
     stepID: 2
     levelRequire: 1
-    textLocalizeIds: 0400000005000000
+    textLocalizeIds: 0300000004000000
     IsTutNonUI: 1
-    cameraPos: {x: 6, y: 0, z: 0}
-    blockerCenterPos: {x: 20, y: 30, z: 0}
-    IsFinish: 0
-  - ID: 3
+    cameraPos: {x: 14, y: -9.5, z: 0}
+    blockerCenterPos: {x: 0, y: 0, z: 0}
+    IsFinish: 1
+  - ID: 2
     stepID: 4
     levelRequire: 1
-    textLocalizeIds: 08000000090000000a0000000b000000
+    textLocalizeIds: 05000000060000000700000008000000
     IsTutNonUI: 1
-    cameraPos: {x: 27, y: 5, z: -19}
+    cameraPos: {x: 37, y: 11.5, z: 0}
     blockerCenterPos: {x: 140, y: -950, z: 0}
-    IsFinish: 0
-  - ID: 13
-    stepID: 11
-    levelRequire: 1
-    textLocalizeIds: ab010000
-    IsTutNonUI: 0
-    cameraPos: {x: 27, y: 5, z: -19}
-    blockerCenterPos: {x: 140, y: -950, z: 0}
-    IsFinish: 0
-  - ID: 4
+    IsFinish: 1
+  - ID: 3
     stepID: 5
     levelRequire: 1
-    textLocalizeIds: 0c0000000d000000
+    textLocalizeIds: 090000000a000000
     IsTutNonUI: 1
-    cameraPos: {x: 30, y: 15, z: -30}
+    cameraPos: {x: 23, y: 25, z: 0}
     blockerCenterPos: {x: 140, y: -780, z: 0}
-    IsFinish: 0
-  - ID: 6
+    IsFinish: 1
+  - ID: 4
+    stepID: 11
+    levelRequire: 1
+    textLocalizeIds: 10000000
+    IsTutNonUI: 0
+    cameraPos: {x: 27, y: 5, z: -19}
+    blockerCenterPos: {x: 140, y: -950, z: 0}
+    IsFinish: 1
+  - ID: 5
     stepID: 7
     levelRequire: 1
-    textLocalizeIds: 11000000
+    textLocalizeIds: 0b000000
     IsTutNonUI: 0
     cameraPos: {x: 15, y: -5, z: -19}
     blockerCenterPos: {x: 130, y: -370, z: 0}
-    IsFinish: 0
-  - ID: 7
+    IsFinish: 1
+  - ID: 6
     stepID: 8
     levelRequire: 1
-    textLocalizeIds: 12000000
+    textLocalizeIds: 0c000000
     IsTutNonUI: 0
     cameraPos: {x: 15, y: -5, z: -19}
     blockerCenterPos: {x: 130, y: -370, z: 0}
-    IsFinish: 0
+    IsFinish: 1
+  - ID: 7
+    stepID: 12
+    levelRequire: 1
+    textLocalizeIds: 120000001300000014000000
+    IsTutNonUI: 0
+    cameraPos: {x: 27, y: 5, z: -19}
+    blockerCenterPos: {x: 140, y: -950, z: 0}
+    IsFinish: 1
   - ID: 8
     stepID: 9
     levelRequire: 1
-    textLocalizeIds: 1300000014000000
+    textLocalizeIds: 0d0000000e000000
     IsTutNonUI: 1
-    cameraPos: {x: 0, y: 10, z: 13}
+    cameraPos: {x: -7, y: 16, z: 13}
     blockerCenterPos: {x: -220, y: -290, z: 0}
-    IsFinish: 0
+    IsFinish: 1
+  - ID: 9
+    stepID: 10
+    levelRequire: 1
+    textLocalizeIds: 0f000000
+    IsTutNonUI: 0
+    cameraPos: {x: 0, y: 7, z: 13}
+    blockerCenterPos: {x: 140, y: 250, z: 0}
+    IsFinish: 1

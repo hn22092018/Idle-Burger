@@ -107,35 +107,35 @@ public class WareHouseManager {
     public void SaveData() { PlayerPrefs.SetString("WareHouseManager", JsonUtility.ToJson(this).ToString()); }
     public bool IsMaxLevel(WareHouseMaterialType wareHouseMaterialType, int level) {
         switch (wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
-                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.biscuit.Count;
-            case WareHouseMaterialType.Melon:
-                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.melon.Count;
-            case WareHouseMaterialType.Candy:
-                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.candy.Count;
-            case WareHouseMaterialType.Sushi:
-                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.sushi.Count;
-            case WareHouseMaterialType.Potato:
-                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.potato.Count;
+            case WareHouseMaterialType.Cheese:
+                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.cheese.Count;
+            case WareHouseMaterialType.Pepper:
+                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.pepper.Count;
+            case WareHouseMaterialType.Sugar:
+                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.sugar.Count;
+            case WareHouseMaterialType.Carot:
+                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.carot.Count;
+            case WareHouseMaterialType.Flour:
+                return level > ProfileManager.Instance.dataConfig.wareHouseDataConfig.flour.Count;
             default:
                 return false;
         }
     }
     public void SetTargetTime(WareHouseMaterialType wareHouseMaterialType) {
         switch (wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
+            case WareHouseMaterialType.Cheese:
                 biscuitCreateSave.strTimeTarget = DateTime.Now.AddMinutes(3f).ToString();
                 break;
-            case WareHouseMaterialType.Melon:
+            case WareHouseMaterialType.Pepper:
                 melonCreateSave.strTimeTarget = DateTime.Now.AddMinutes(3f).ToString();
                 break;
-            case WareHouseMaterialType.Candy:
+            case WareHouseMaterialType.Sugar:
                 candyCreateSave.strTimeTarget = DateTime.Now.AddMinutes(3f).ToString();
                 break;
-            case WareHouseMaterialType.Sushi:
+            case WareHouseMaterialType.Carot:
                 sushiCreateSave.strTimeTarget = DateTime.Now.AddMinutes(3f).ToString();
                 break;
-            case WareHouseMaterialType.Potato:
+            case WareHouseMaterialType.Flour:
                 potatoCreateSave.strTimeTarget = DateTime.Now.AddMinutes(3f).ToString();
                 break;
             default:
@@ -145,15 +145,15 @@ public class WareHouseManager {
     }
     public string GetTargetTime(WareHouseMaterialType wareHouseMaterialType) {
         switch (wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
+            case WareHouseMaterialType.Cheese:
                 return biscuitCreateSave.strTimeTarget;
-            case WareHouseMaterialType.Melon:
+            case WareHouseMaterialType.Pepper:
                 return melonCreateSave.strTimeTarget;
-            case WareHouseMaterialType.Candy:
+            case WareHouseMaterialType.Sugar:
                 return candyCreateSave.strTimeTarget;
-            case WareHouseMaterialType.Sushi:
+            case WareHouseMaterialType.Carot:
                 return sushiCreateSave.strTimeTarget;
-            case WareHouseMaterialType.Potato:
+            case WareHouseMaterialType.Flour:
                 return potatoCreateSave.strTimeTarget;
             default:
                 return "";
@@ -161,23 +161,23 @@ public class WareHouseManager {
     }
     public void ResetCountCreate(WareHouseMaterialType wareHouseMaterialType) {
         switch (wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
+            case WareHouseMaterialType.Cheese:
                 biscuitCreateSave.strTimeTarget = "";
                 biscuitCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Melon:
+            case WareHouseMaterialType.Pepper:
                 melonCreateSave.strTimeTarget = "";
                 melonCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Candy:
+            case WareHouseMaterialType.Sugar:
                 candyCreateSave.strTimeTarget = "";
                 candyCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Sushi:
+            case WareHouseMaterialType.Carot:
                 sushiCreateSave.strTimeTarget = "";
                 sushiCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Potato:
+            case WareHouseMaterialType.Flour:
                 potatoCreateSave.strTimeTarget = "";
                 potatoCreateSave.countCreate = countCreateMax;
                 break;
@@ -188,35 +188,35 @@ public class WareHouseManager {
     }
     public void ChangeCountCreate(WareHouseMaterialType wareHouseMaterialType, int value) {
         switch (wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
+            case WareHouseMaterialType.Cheese:
                 biscuitCreateSave.countCreate += value;
                 if (biscuitCreateSave.countCreate < 0)
                     biscuitCreateSave.countCreate = 0;
                 else if (biscuitCreateSave.countCreate > countCreateMax)
                     biscuitCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Melon:
+            case WareHouseMaterialType.Pepper:
                 melonCreateSave.countCreate += value;
                 if (melonCreateSave.countCreate < 0)
                     melonCreateSave.countCreate = 0;
                 else if (melonCreateSave.countCreate > countCreateMax)
                     melonCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Candy:
+            case WareHouseMaterialType.Sugar:
                 candyCreateSave.countCreate += value;
                 if (candyCreateSave.countCreate < 0)
                     candyCreateSave.countCreate = 0;
                 else if (candyCreateSave.countCreate > countCreateMax)
                     candyCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Sushi:
+            case WareHouseMaterialType.Carot:
                 sushiCreateSave.countCreate += value;
                 if (sushiCreateSave.countCreate < 0)
                     sushiCreateSave.countCreate = 0;
                 else if (sushiCreateSave.countCreate > countCreateMax)
                     sushiCreateSave.countCreate = countCreateMax;
                 break;
-            case WareHouseMaterialType.Potato:
+            case WareHouseMaterialType.Flour:
                 potatoCreateSave.countCreate += value;
                 if (potatoCreateSave.countCreate < 0)
                     potatoCreateSave.countCreate = 0;
@@ -230,15 +230,15 @@ public class WareHouseManager {
     }
     public int GetCountCreate(WareHouseMaterialType wareHouseMaterialType) {
         switch (wareHouseMaterialType) {
-            case WareHouseMaterialType.Biscuit:
+            case WareHouseMaterialType.Cheese:
                 return biscuitCreateSave.countCreate;
-            case WareHouseMaterialType.Melon:
+            case WareHouseMaterialType.Pepper:
                 return melonCreateSave.countCreate;
-            case WareHouseMaterialType.Candy:
+            case WareHouseMaterialType.Sugar:
                 return candyCreateSave.countCreate;
-            case WareHouseMaterialType.Sushi:
+            case WareHouseMaterialType.Carot:
                 return sushiCreateSave.countCreate;
-            case WareHouseMaterialType.Potato:
+            case WareHouseMaterialType.Flour:
                 return potatoCreateSave.countCreate;
             default:
                 return 0;

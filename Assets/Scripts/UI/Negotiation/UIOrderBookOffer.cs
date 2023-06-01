@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIOrderBookOffer : UIEffect {
-    public List<Sprite> sprCharacters;
     public Button[] btnOffers;
     public Button btnAccept, btnAcceptX2Ads, btnAcceptGem, btnReject, btnNextOffer, bntBackOffer;
     public Transform imgOfferSelected;
@@ -30,20 +29,20 @@ public class UIOrderBookOffer : UIEffect {
         btnOffers[2].onClick.AddListener(() => OnViewOffer(2));
     }
     public void InitOffer() {
-        ProfileManager.PlayerData.GetOrderBookManager().CheckCreatOffers(sprCharacters);
+        ProfileManager.PlayerData.GetOrderBookManager().CheckCreatOffers(PanelOrderBook.instance.sprCharacters);
         LoadListOffer(ProfileManager.PlayerData.GetOrderBookManager().currentOffers);
     }
     public void LoadListOffer(List<Order> list) {
         offers = list;
         currentOffer = offers[indexOrder];
-        btnOffers[0].GetComponent<Image>().sprite = offers[0].sprOrderStaff;
-        btnOffers[1].GetComponent<Image>().sprite = offers[1].sprOrderStaff;
-        btnOffers[2].GetComponent<Image>().sprite = offers[2].sprOrderStaff;
+        btnOffers[0].GetComponent<Image>().sprite = PanelOrderBook.instance.GetSpriteByName(offers[0].sprOrderStaffName);
+        btnOffers[1].GetComponent<Image>().sprite = PanelOrderBook.instance.GetSpriteByName(offers[1].sprOrderStaffName);
+        btnOffers[2].GetComponent<Image>().sprite = PanelOrderBook.instance.GetSpriteByName(offers[2].sprOrderStaffName);
         LoadOfferToUI();
     }
     void LoadOfferToUI() {
         txtRequire.text = currentOffer.bugerRequire + "";
-        txtOrderValue.text = currentOffer.cashProfit.ToString();
+        txtOrderValue.text = currentOffer.cashProfit.IntToString();
         txtBurgerPoint.text = currentOffer.bCoinProfit + "";
         objReject.SetActive(currentOffer.isReject);
         btnReject.gameObject.SetActive(!currentOffer.isReject);
@@ -53,7 +52,7 @@ public class UIOrderBookOffer : UIEffect {
         btnAcceptGem.interactable = GameManager.instance.IsEnoughGem(gemPriceBestDeal);
         imgOfferSelected.SetParent(btnOffers[indexOrder].transform);
         imgOfferSelected.localPosition = Vector3.zero;
-        imgIconCharacterOffer.sprite = currentOffer.sprOrderStaff;
+        imgIconCharacterOffer.sprite = PanelOrderBook.instance.GetSpriteByName(currentOffer.sprOrderStaffName);
         objGoodDeal.SetActive(!currentOffer.isFreeAccept);
 
     }

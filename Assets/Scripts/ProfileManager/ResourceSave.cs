@@ -165,12 +165,12 @@ public class ResourceSave {
     }
     public BigNumber GetTotalTipProfit(int world) {
         ResourcePerWorld data = GetResourceByWorld(world);
-        return data.trn + data.twr + data.tcf + data.tcr;
+        return data.trn + data.twr + data.tcf ;
     }
     public void ResetTipProfit(int world) {
         isChangeResource = true;
         ResourcePerWorld data = GetResourceByWorld(world);
-        data.trn = data.twr = data.tcf = data.tcr = 0;
+        data.trn = data.twr = data.tcf  = 0;
     }
     public void AddTipChef(int world, BigNumber value) {
         isChangeResource = true;
@@ -181,15 +181,7 @@ public class ResourceSave {
         ResourcePerWorld data = GetResourceByWorld(world);
         return data.tcf;
     }
-    public void AddTipCleaner(int world, BigNumber value) {
-        isChangeResource = true;
-        ResourcePerWorld data = GetResourceByWorld(world);
-        data.tcr += value;
-    }
-    public BigNumber GetTipCleaner(int world) {
-        ResourcePerWorld data = GetResourceByWorld(world);
-        return data.tcr;
-    }
+
     public void AddTipReception(int world, BigNumber value) {
         isChangeResource = true;
         ResourcePerWorld data = GetResourceByWorld(world);
@@ -213,7 +205,7 @@ public class ResourceSave {
             case ItemType.AdvancedSkinBox:
                 advancedSkinBox--;
                 break;
-            case ItemType.ExpertSkinBox:
+            case ItemType.FreeSkinBox:
                 expertSkinBox--;
                 break;
             default:
@@ -338,19 +330,8 @@ public class ResourcePerWorld {
     /// </summary>
     public BigNumber twr;
     /// <summary>
-    /// tip cleaner
-    /// </summary>
-    public BigNumber tcr;
-    /// <summary>
     /// tip reception
     /// </summary>
     public BigNumber trn;
-    /// <summary>
-    /// tip bar
-    /// </summary>
-    public BigNumber tbr;
-    /// <summary>
-    /// tip barista
-    /// </summary>
-    public BigNumber tbrt;
+
 }

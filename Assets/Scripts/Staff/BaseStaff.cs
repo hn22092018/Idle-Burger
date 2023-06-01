@@ -186,15 +186,7 @@ public class BaseStaff : MonoBehaviour {
         }
         return 7;
     }
-    protected void DropReputation() {
-        if (_SkinUsing != null) {
-            if (Random.Range(0, 100) <= _SkinUsing.reputationDropChance) {
-                Debug.Log("AddDropReputationStaff_" + _SkinUsing.reputationDropChance);
-                ProfileManager.PlayerData.researchManager.AddResearchValue(1);
-                //ProfileManager.PlayerData.AddDropReputationStaff(_SkinUsing.staffType);
-            }
-        }
-    }
+  
 }
 public class BaseStaffSleep : State<BaseStaff> {
     private static BaseStaffSleep m_Instance;

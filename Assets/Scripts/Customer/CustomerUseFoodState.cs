@@ -109,16 +109,16 @@ public class CustomerUseFoodState : State<Customer> {
     }
     IEnumerator CallWaiter() {
         if (Tutorials.instance.IsRunStory) {
-            Tutorials.instance.IsReadyShowTutHireStaff = true;
+            Tutorials.instance.IsReadyShowIntroKitchen = true;
             while (!Tutorials.instance.IsFinishIntroKitchen) {
                 yield return new WaitForEndOfFrame();
             }
             customer.foodOrder = ProfileManager.PlayerData.researchManager.GetTutorialFood();
-            customer.TablePositionTarget.SetFoodID((int)customer.foodOrder.researchName);
+            customer.TablePositionTarget.SetFoodID((int)customer.foodOrder.researchType);
             WaiterManager.AddTablePositionCallWaiter(customer.TablePositionTarget);
             if (customer.ui_foodOrder) {
                 customer.ui_foodOrder.gameObject.SetActive(true);
-                customer.ui_foodOrder.ShowIcon(customer.foodOrder.icon);
+                customer.ui_foodOrder.ShowIcon(customer.foodOrder.foodIcon);
             }
             Transform t_Chef = GameManager.instance.KitchenRoom.staffSetting.listStaffTrans[0];
             while (!t_Chef.GetComponent<Chef>().isFree) {
@@ -147,22 +147,22 @@ public class CustomerUseFoodState : State<Customer> {
         customer.foodOrder = ProfileManager.PlayerData.researchManager.GetRandomFood();
         if (customer.ui_foodOrder) {
             customer.ui_foodOrder.gameObject.SetActive(true);
-            customer.ui_foodOrder.ShowIcon(customer.foodOrder.icon);
+            customer.ui_foodOrder.ShowIcon(customer.foodOrder.foodIcon);
         }
-        customer.TablePositionTarget.SetFoodID((int)customer.foodOrder.researchName);
+        customer.TablePositionTarget.SetFoodID((int)customer.foodOrder.researchType);
         // check food order is research or not
-        bool IsUnlockFood = ProfileManager.PlayerData.researchManager.GetLevelByName(customer.foodOrder.researchName) > 0;
+        bool IsUnlockFood = ProfileManager.PlayerData.researchManager.GetLevelByName(customer.foodOrder.researchType) > 0;
         customer.deltaTime = 0;
         while (customer.deltaTime <= 6f && !IsUnlockFood) {
             yield return new WaitForSeconds(2);
             customer.deltaTime += 2;
-            IsUnlockFood = ProfileManager.PlayerData.researchManager.GetLevelByName(customer.foodOrder.researchName) > 0;
+            IsUnlockFood = ProfileManager.PlayerData.researchManager.GetLevelByName(customer.foodOrder.researchType) > 0;
         }
         customer.deltaTime = 0;
         if (IsUnlockFood) {
             WaiterManager.AddTablePositionCallWaiter(customer.TablePositionTarget);
             customer.timeUseFood = TableManager.instance.GetTimeServiceOnTable(customer.TablePositionTarget);
-            customer.timeUseFood += customer.foodOrder.time;
+            customer.timeUseFood += customer.foodOrder.makeTime;
 
         } else {
             // Out Restaurant

@@ -1,28 +1,29 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class Quest {
+    [ReadOnly]
     public int questID;
+    [ReadOnly]
     public QuestType type;
-    public string roomTarget;
+    [ReadOnly]
+    public RoomID roomTarget;
+    [ReadOnly]
     public int priority;
+    [ReadOnly]
     public int level;
+    [ReadOnly]
     public ItemReward reward;
+    [HideInInspector]
     public string des;
-    public int DesLocalizeID;
-
     public void GoToHelperUI() {
         QuestHelperUI.instance.OnGoQuest(this);
     }
     public string GetDes() {
-        if (!string.IsNullOrEmpty(ProfileManager.Instance.dataConfig.GameText.GetTextByID(DesLocalizeID))) {
-            string des = ProfileManager.Instance.dataConfig.GameText.GetTextByID(DesLocalizeID);
-            des = string.Format(des, level);
-            return des;
-        }
-        des = string.Format(des, level);
+        des = "Upgrade" + " " + ProfileManager.Instance.dataConfig.GameText.QuestTypeToShortString(type) + " " + "in" + " " + ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomTarget) + " " + "to level" + " " + level;
         return des;
     }
 }

@@ -7,12 +7,11 @@ using UnityEngine.UI;
 public class WorldBaseData {
     public int NameLocalizeID;
     public string restaurantName;
-    public int index;
     public int DesLocalizeID;
     public string restaurantDescription;
     public Sprite restaurantIcon;
     public int selectedWorld;
-    public int starNeededToUnlock;
+    public int burgerRequire;
     public string GetName() {
         return ProfileManager.Instance.dataConfig.GameText.GetTextByID(NameLocalizeID);
     }

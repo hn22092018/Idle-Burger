@@ -81,7 +81,7 @@ public class DailyRewardsManager {
             case ItemType.Card:
                 break;
             case ItemType.Cash:
-                GameManager.instance.AddCash(reward.amount);
+                ProfileManager.PlayerData.AddCash(reward.amount);
                 break;
             case ItemType.PremiumSuit:
                 break;
@@ -102,8 +102,7 @@ public class DailyRewardsManager {
                 break;
             case ItemType.ADTicket:
                 break;
-            case ItemType.VIPMarketing:
-                break;
+           
             default:
                 break;
         }

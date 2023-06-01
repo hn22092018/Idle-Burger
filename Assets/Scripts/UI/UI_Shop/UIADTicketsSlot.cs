@@ -10,14 +10,14 @@ public class UIADTicketsSlot : UIShopSlot {
         base.InitData(offerData);
         currentOfferData = offerData;
         reward = offerData.itemRewards[0].amount;
-        titleText.text = reward.ToString() + " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(168).ToUpper();
+        titleText.text = reward.ToString() + " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(190).ToUpper();
         productID = offerData.productID;
         string priceLocal = MyIAPManager.instance.GetProductPriceFromStore(productID);
         priceText.text = priceLocal != "$0.01" ? priceLocal : offerData.price.ToString() + "$";
     }
     private void OnEnable() {
         if (currentOfferData == null) return;
-        titleText.text = reward.ToString() + " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(168).ToUpper();
+        titleText.text = reward.ToString() + " " + ProfileManager.Instance.dataConfig.GameText.GetTextByID(190).ToUpper();
     }
     public override void OnBuy() {
         base.OnBuy();

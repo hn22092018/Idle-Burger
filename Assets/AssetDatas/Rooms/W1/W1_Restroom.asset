@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: W1_Restroom
   m_EditorClassIdentifier: 
   roomID: 23
-  timeService: 15
-  profitBase: 25
+  timeService: 10
+  profitBase: 150
   datas:
   - name: Sink
     type: 0
@@ -22,214 +22,114 @@ MonoBehaviour:
     - {fileID: 1531453165520499744, guid: bba2073fefa66da488f86ec63856266f, type: 3}
     - {fileID: 1531453165520499744, guid: 39bc690fb07cd6445937c4f80f13c521, type: 3}
     - {fileID: 1531453165520499744, guid: 422202cd207f5b14ea9de4b7157c9f8f, type: 3}
-    profitIncreaseRate: 0.5
+    profitIncreaseRate: 8
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.2
+    - value: 0.08
       exp: 3
-    - value: 220
+    - value: 90.39999961853027
       exp: 0
-    - value: 237.6
+    - value: 102.15199913787842
       exp: 0
-    - value: 256.61
+    - value: 115.43175853870392
       exp: 0
-    - value: 277.14
+    - value: 130.43788659831392
       exp: 0
-    - value: 299.31
+    - value: 147.39481123411844
       exp: 0
-    - value: 323.25
+    - value: 166.5561359917206
       exp: 0
-    - value: 349.11
+    - value: 188.2084328764427
       exp: 0
-    - value: 377.04
+    - value: 212.6755282529325
       exp: 0
-    - value: 407.2
+    - value: 240.3233459116978
       exp: 0
-    - value: 439.78
+    - value: 271.5653797342675
       exp: 0
-    - value: 474.96
+    - value: 306.8688778047976
       exp: 0
-    - value: 512.96
+    - value: 346.7618304561564
       exp: 0
-    - value: 554
+    - value: 391.8408667619675
       exp: 0
-    - value: 598.32
+    - value: 442.78017757258044
       exp: 0
-    - value: 646.19
+    - value: 500.3415985456755
       exp: 0
-    - value: 697.89
+    - value: 565.3860039707986
       exp: 0
-    - value: 753.72
+    - value: 638.8861817910318
       exp: 0
-    - value: 814.02
+    - value: 721.9413823774192
       exp: 0
-    - value: 879.14
+    - value: 815.793758643999
       exp: 0
-    - value: 949.47
+    - value: 921.8469433777111
       exp: 0
-    - value: 1.03
+    - value: 1.0416870416211048
       exp: 3
-    - value: 1.11
+    - value: 1.1771063520646976
       exp: 3
-    - value: 1.2
+    - value: 1.330130172220228
       exp: 3
-    - value: 1.3
+    - value: 1.5030470882663027
       exp: 3
-    - value: 1.4
+    - value: 1.698443202573835
       exp: 3
-    - value: 1.51
+    - value: 1.9192408108096253
       exp: 3
-    - value: 1.63
+    - value: 2.168742107063223
       exp: 3
-    - value: 1.76
+    - value: 2.4506785706400738
       exp: 3
-    - value: 1.9
+    - value: 2.769266773137537
       exp: 3
-    - value: 2.05
+    - value: 3.1292714404405237
       exp: 3
-    - value: 2.21
+    - value: 3.536076712776263
       exp: 3
-    - value: 2.39
+    - value: 3.9957666685758495
       exp: 3
-    - value: 2.58
+    - value: 4.51521631643741
       exp: 3
-    - value: 2.79
+    - value: 5.1021944160440444
       exp: 3
-    - value: 3.01
+    - value: 5.765479665800611
       exp: 3
-    - value: 3.25
+    - value: 6.514991994862741
       exp: 3
-    - value: 3.51
+    - value: 7.361940923128994
       exp: 3
-    - value: 3.79
+    - value: 8.318993208031294
       exp: 3
-    - value: 4.09
+    - value: 9.400462285407311
       exp: 3
-    - value: 4.42
+    - value: 10.622522337685364
       exp: 3
-    - value: 4.77
+    - value: 12.003450190932327
       exp: 3
-    - value: 5.15
+    - value: 13.563898658516619
       exp: 3
-    - value: 5.56
+    - value: 15.32720541944607
       exp: 3
-    - value: 6
+    - value: 17.319742050888248
       exp: 3
-    - value: 6.48
+    - value: 19.571308434916755
       exp: 3
-    - value: 7
+    - value: 22.115578438132662
       exp: 3
-    - value: 7.56
+    - value: 24.990603529634612
       exp: 3
-    - value: 8.16
+    - value: 28.239381869322628
       exp: 3
-    - value: 8.81
+    - value: 31.910501377678703
       exp: 3
-    - value: 9.51
-      exp: 3
-    - value: 10.27
-      exp: 3
-    - value: 11.09
-      exp: 3
-    - value: 11.98
-      exp: 3
-    - value: 12.94
-      exp: 3
-    - value: 13.98
-      exp: 3
-    - value: 15.1
-      exp: 3
-    - value: 16.31
-      exp: 3
-    - value: 17.61
-      exp: 3
-    - value: 19.02
-      exp: 3
-    - value: 20.54
-      exp: 3
-    - value: 22.18
-      exp: 3
-    - value: 23.95
-      exp: 3
-    - value: 25.87
-      exp: 3
-    - value: 27.94
-      exp: 3
-    - value: 30.18
-      exp: 3
-    - value: 32.59
-      exp: 3
-    - value: 35.2
-      exp: 3
-    - value: 38.02
-      exp: 3
-    - value: 41.06
-      exp: 3
-    - value: 44.34
-      exp: 3
-    - value: 47.89
-      exp: 3
-    - value: 51.72
-      exp: 3
-    - value: 55.86
-      exp: 3
-    - value: 60.33
-      exp: 3
-    - value: 65.16
-      exp: 3
-    - value: 70.37
-      exp: 3
-    - value: 76
-      exp: 3
-    - value: 82.08
-      exp: 3
-    - value: 88.65
-      exp: 3
-    - value: 95.74
-      exp: 3
-    - value: 103.4
-      exp: 3
-    - value: 111.67
-      exp: 3
-    - value: 120.6
-      exp: 3
-    - value: 130.25
-      exp: 3
-    - value: 140.67
-      exp: 3
-    - value: 151.92
-      exp: 3
-    - value: 164.07
-      exp: 3
-    - value: 177.2
-      exp: 3
-    - value: 191.38
-      exp: 3
-    - value: 206.69
-      exp: 3
-    - value: 223.23
-      exp: 3
-    - value: 241.09
-      exp: 3
-    - value: 260.38
-      exp: 3
-    - value: 281.21
-      exp: 3
-    - value: 303.71
-      exp: 3
-    - value: 328.01
-      exp: 3
-    - value: 354.25
-      exp: 3
-    - value: 382.59
-      exp: 3
-    - value: 413.2
-      exp: 3
-    - value: 446.26
+    - value: 36.058866404615806
       exp: 3
     energyEarns: 
-    levelMax: 100
+    levelMax: 50
     sprUI: {fileID: 21300000, guid: 55bb4673f60bca047a6c867102135ef6, type: 3}
   - name: Sink
     type: 1
@@ -237,214 +137,114 @@ MonoBehaviour:
     - {fileID: 6929892640411169546, guid: 1d9252e3f514df242b0c2be819f60c4c, type: 3}
     - {fileID: 6929892640411169546, guid: 3eb05eb95c8b1394bbf7b0ceb79a5a32, type: 3}
     - {fileID: 6929892640411169546, guid: b4c22fc23c3087240b668e7431a6ee0d, type: 3}
-    profitIncreaseRate: 0.5
+    profitIncreaseRate: 8
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.2
+    - value: 0.08
       exp: 3
-    - value: 220
+    - value: 90.39999961853027
       exp: 0
-    - value: 237.6
+    - value: 102.15199913787842
       exp: 0
-    - value: 256.61
+    - value: 115.43175853870392
       exp: 0
-    - value: 277.14
+    - value: 130.43788659831392
       exp: 0
-    - value: 299.31
+    - value: 147.39481123411844
       exp: 0
-    - value: 323.25
+    - value: 166.5561359917206
       exp: 0
-    - value: 349.11
+    - value: 188.2084328764427
       exp: 0
-    - value: 377.04
+    - value: 212.6755282529325
       exp: 0
-    - value: 407.2
+    - value: 240.3233459116978
       exp: 0
-    - value: 439.78
+    - value: 271.5653797342675
       exp: 0
-    - value: 474.96
+    - value: 306.8688778047976
       exp: 0
-    - value: 512.96
+    - value: 346.7618304561564
       exp: 0
-    - value: 554
+    - value: 391.8408667619675
       exp: 0
-    - value: 598.32
+    - value: 442.78017757258044
       exp: 0
-    - value: 646.19
+    - value: 500.3415985456755
       exp: 0
-    - value: 697.89
+    - value: 565.3860039707986
       exp: 0
-    - value: 753.72
+    - value: 638.8861817910318
       exp: 0
-    - value: 814.02
+    - value: 721.9413823774192
       exp: 0
-    - value: 879.14
+    - value: 815.793758643999
       exp: 0
-    - value: 949.47
+    - value: 921.8469433777111
       exp: 0
-    - value: 1.03
+    - value: 1.0416870416211048
       exp: 3
-    - value: 1.11
+    - value: 1.1771063520646976
       exp: 3
-    - value: 1.2
+    - value: 1.330130172220228
       exp: 3
-    - value: 1.3
+    - value: 1.5030470882663027
       exp: 3
-    - value: 1.4
+    - value: 1.698443202573835
       exp: 3
-    - value: 1.51
+    - value: 1.9192408108096253
       exp: 3
-    - value: 1.63
+    - value: 2.168742107063223
       exp: 3
-    - value: 1.76
+    - value: 2.4506785706400738
       exp: 3
-    - value: 1.9
+    - value: 2.769266773137537
       exp: 3
-    - value: 2.05
+    - value: 3.1292714404405237
       exp: 3
-    - value: 2.21
+    - value: 3.536076712776263
       exp: 3
-    - value: 2.39
+    - value: 3.9957666685758495
       exp: 3
-    - value: 2.58
+    - value: 4.51521631643741
       exp: 3
-    - value: 2.79
+    - value: 5.1021944160440444
       exp: 3
-    - value: 3.01
+    - value: 5.765479665800611
       exp: 3
-    - value: 3.25
+    - value: 6.514991994862741
       exp: 3
-    - value: 3.51
+    - value: 7.361940923128994
       exp: 3
-    - value: 3.79
+    - value: 8.318993208031294
       exp: 3
-    - value: 4.09
+    - value: 9.400462285407311
       exp: 3
-    - value: 4.42
+    - value: 10.622522337685364
       exp: 3
-    - value: 4.77
+    - value: 12.003450190932327
       exp: 3
-    - value: 5.15
+    - value: 13.563898658516619
       exp: 3
-    - value: 5.56
+    - value: 15.32720541944607
       exp: 3
-    - value: 6
+    - value: 17.319742050888248
       exp: 3
-    - value: 6.48
+    - value: 19.571308434916755
       exp: 3
-    - value: 7
+    - value: 22.115578438132662
       exp: 3
-    - value: 7.56
+    - value: 24.990603529634612
       exp: 3
-    - value: 8.16
+    - value: 28.239381869322628
       exp: 3
-    - value: 8.81
+    - value: 31.910501377678703
       exp: 3
-    - value: 9.51
-      exp: 3
-    - value: 10.27
-      exp: 3
-    - value: 11.09
-      exp: 3
-    - value: 11.98
-      exp: 3
-    - value: 12.94
-      exp: 3
-    - value: 13.98
-      exp: 3
-    - value: 15.1
-      exp: 3
-    - value: 16.31
-      exp: 3
-    - value: 17.61
-      exp: 3
-    - value: 19.02
-      exp: 3
-    - value: 20.54
-      exp: 3
-    - value: 22.18
-      exp: 3
-    - value: 23.95
-      exp: 3
-    - value: 25.87
-      exp: 3
-    - value: 27.94
-      exp: 3
-    - value: 30.18
-      exp: 3
-    - value: 32.59
-      exp: 3
-    - value: 35.2
-      exp: 3
-    - value: 38.02
-      exp: 3
-    - value: 41.06
-      exp: 3
-    - value: 44.34
-      exp: 3
-    - value: 47.89
-      exp: 3
-    - value: 51.72
-      exp: 3
-    - value: 55.86
-      exp: 3
-    - value: 60.33
-      exp: 3
-    - value: 65.16
-      exp: 3
-    - value: 70.37
-      exp: 3
-    - value: 76
-      exp: 3
-    - value: 82.08
-      exp: 3
-    - value: 88.65
-      exp: 3
-    - value: 95.74
-      exp: 3
-    - value: 103.4
-      exp: 3
-    - value: 111.67
-      exp: 3
-    - value: 120.6
-      exp: 3
-    - value: 130.25
-      exp: 3
-    - value: 140.67
-      exp: 3
-    - value: 151.92
-      exp: 3
-    - value: 164.07
-      exp: 3
-    - value: 177.2
-      exp: 3
-    - value: 191.38
-      exp: 3
-    - value: 206.69
-      exp: 3
-    - value: 223.23
-      exp: 3
-    - value: 241.09
-      exp: 3
-    - value: 260.38
-      exp: 3
-    - value: 281.21
-      exp: 3
-    - value: 303.71
-      exp: 3
-    - value: 328.01
-      exp: 3
-    - value: 354.25
-      exp: 3
-    - value: 382.59
-      exp: 3
-    - value: 413.2
-      exp: 3
-    - value: 446.26
+    - value: 36.058866404615806
       exp: 3
     energyEarns: 
-    levelMax: 100
+    levelMax: 50
     sprUI: {fileID: 21300000, guid: 55bb4673f60bca047a6c867102135ef6, type: 3}
   - name: Female Stall
     type: 2
@@ -452,214 +252,114 @@ MonoBehaviour:
     - {fileID: 4874966882819272599, guid: a96eae48908d9864fb0606aa074035de, type: 3}
     - {fileID: 4874966882819272599, guid: 4b54ce5803566dc4ea23c4fed76f2636, type: 3}
     - {fileID: 4874966882819272599, guid: bf8e372546bbfcb45a2045799a880caf, type: 3}
-    profitIncreaseRate: 0.5
+    profitIncreaseRate: 8
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.2
+    - value: 0.08
       exp: 3
-    - value: 220
+    - value: 90.39999961853027
       exp: 0
-    - value: 237.6
+    - value: 102.15199913787842
       exp: 0
-    - value: 256.61
+    - value: 115.43175853870392
       exp: 0
-    - value: 277.14
+    - value: 130.43788659831392
       exp: 0
-    - value: 299.31
+    - value: 147.39481123411844
       exp: 0
-    - value: 323.25
+    - value: 166.5561359917206
       exp: 0
-    - value: 349.11
+    - value: 188.2084328764427
       exp: 0
-    - value: 377.04
+    - value: 212.6755282529325
       exp: 0
-    - value: 407.2
+    - value: 240.3233459116978
       exp: 0
-    - value: 439.78
+    - value: 271.5653797342675
       exp: 0
-    - value: 474.96
+    - value: 306.8688778047976
       exp: 0
-    - value: 512.96
+    - value: 346.7618304561564
       exp: 0
-    - value: 554
+    - value: 391.8408667619675
       exp: 0
-    - value: 598.32
+    - value: 442.78017757258044
       exp: 0
-    - value: 646.19
+    - value: 500.3415985456755
       exp: 0
-    - value: 697.89
+    - value: 565.3860039707986
       exp: 0
-    - value: 753.72
+    - value: 638.8861817910318
       exp: 0
-    - value: 814.02
+    - value: 721.9413823774192
       exp: 0
-    - value: 879.14
+    - value: 815.793758643999
       exp: 0
-    - value: 949.47
+    - value: 921.8469433777111
       exp: 0
-    - value: 1.03
+    - value: 1.0416870416211048
       exp: 3
-    - value: 1.11
+    - value: 1.1771063520646976
       exp: 3
-    - value: 1.2
+    - value: 1.330130172220228
       exp: 3
-    - value: 1.3
+    - value: 1.5030470882663027
       exp: 3
-    - value: 1.4
+    - value: 1.698443202573835
       exp: 3
-    - value: 1.51
+    - value: 1.9192408108096253
       exp: 3
-    - value: 1.63
+    - value: 2.168742107063223
       exp: 3
-    - value: 1.76
+    - value: 2.4506785706400738
       exp: 3
-    - value: 1.9
+    - value: 2.769266773137537
       exp: 3
-    - value: 2.05
+    - value: 3.1292714404405237
       exp: 3
-    - value: 2.21
+    - value: 3.536076712776263
       exp: 3
-    - value: 2.39
+    - value: 3.9957666685758495
       exp: 3
-    - value: 2.58
+    - value: 4.51521631643741
       exp: 3
-    - value: 2.79
+    - value: 5.1021944160440444
       exp: 3
-    - value: 3.01
+    - value: 5.765479665800611
       exp: 3
-    - value: 3.25
+    - value: 6.514991994862741
       exp: 3
-    - value: 3.51
+    - value: 7.361940923128994
       exp: 3
-    - value: 3.79
+    - value: 8.318993208031294
       exp: 3
-    - value: 4.09
+    - value: 9.400462285407311
       exp: 3
-    - value: 4.42
+    - value: 10.622522337685364
       exp: 3
-    - value: 4.77
+    - value: 12.003450190932327
       exp: 3
-    - value: 5.15
+    - value: 13.563898658516619
       exp: 3
-    - value: 5.56
+    - value: 15.32720541944607
       exp: 3
-    - value: 6
+    - value: 17.319742050888248
       exp: 3
-    - value: 6.48
+    - value: 19.571308434916755
       exp: 3
-    - value: 7
+    - value: 22.115578438132662
       exp: 3
-    - value: 7.56
+    - value: 24.990603529634612
       exp: 3
-    - value: 8.16
+    - value: 28.239381869322628
       exp: 3
-    - value: 8.81
+    - value: 31.910501377678703
       exp: 3
-    - value: 9.51
-      exp: 3
-    - value: 10.27
-      exp: 3
-    - value: 11.09
-      exp: 3
-    - value: 11.98
-      exp: 3
-    - value: 12.94
-      exp: 3
-    - value: 13.98
-      exp: 3
-    - value: 15.1
-      exp: 3
-    - value: 16.31
-      exp: 3
-    - value: 17.61
-      exp: 3
-    - value: 19.02
-      exp: 3
-    - value: 20.54
-      exp: 3
-    - value: 22.18
-      exp: 3
-    - value: 23.95
-      exp: 3
-    - value: 25.87
-      exp: 3
-    - value: 27.94
-      exp: 3
-    - value: 30.18
-      exp: 3
-    - value: 32.59
-      exp: 3
-    - value: 35.2
-      exp: 3
-    - value: 38.02
-      exp: 3
-    - value: 41.06
-      exp: 3
-    - value: 44.34
-      exp: 3
-    - value: 47.89
-      exp: 3
-    - value: 51.72
-      exp: 3
-    - value: 55.86
-      exp: 3
-    - value: 60.33
-      exp: 3
-    - value: 65.16
-      exp: 3
-    - value: 70.37
-      exp: 3
-    - value: 76
-      exp: 3
-    - value: 82.08
-      exp: 3
-    - value: 88.65
-      exp: 3
-    - value: 95.74
-      exp: 3
-    - value: 103.4
-      exp: 3
-    - value: 111.67
-      exp: 3
-    - value: 120.6
-      exp: 3
-    - value: 130.25
-      exp: 3
-    - value: 140.67
-      exp: 3
-    - value: 151.92
-      exp: 3
-    - value: 164.07
-      exp: 3
-    - value: 177.2
-      exp: 3
-    - value: 191.38
-      exp: 3
-    - value: 206.69
-      exp: 3
-    - value: 223.23
-      exp: 3
-    - value: 241.09
-      exp: 3
-    - value: 260.38
-      exp: 3
-    - value: 281.21
-      exp: 3
-    - value: 303.71
-      exp: 3
-    - value: 328.01
-      exp: 3
-    - value: 354.25
-      exp: 3
-    - value: 382.59
-      exp: 3
-    - value: 413.2
-      exp: 3
-    - value: 446.26
+    - value: 36.058866404615806
       exp: 3
     energyEarns: 
-    levelMax: 100
+    levelMax: 50
     sprUI: {fileID: 21300000, guid: d32f4394e0ff8e046a6b2c7302d4c78d, type: 3}
   - name: Male Stall
     type: 3
@@ -667,214 +367,114 @@ MonoBehaviour:
     - {fileID: 8715593357367240144, guid: 003ded65882f7a24a8e07fc86bf0db37, type: 3}
     - {fileID: 8715593357367240144, guid: bfb4aa977b24e02468dafa76154120ce, type: 3}
     - {fileID: 8715593357367240144, guid: e52eff9a339a69448947151906dcd7c6, type: 3}
-    profitIncreaseRate: 0.5
+    profitIncreaseRate: 8
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.2
+    - value: 0.08
       exp: 3
-    - value: 220
+    - value: 90.39999961853027
       exp: 0
-    - value: 237.6
+    - value: 102.15199913787842
       exp: 0
-    - value: 256.61
+    - value: 115.43175853870392
       exp: 0
-    - value: 277.14
+    - value: 130.43788659831392
       exp: 0
-    - value: 299.31
+    - value: 147.39481123411844
       exp: 0
-    - value: 323.25
+    - value: 166.5561359917206
       exp: 0
-    - value: 349.11
+    - value: 188.2084328764427
       exp: 0
-    - value: 377.04
+    - value: 212.6755282529325
       exp: 0
-    - value: 407.2
+    - value: 240.3233459116978
       exp: 0
-    - value: 439.78
+    - value: 271.5653797342675
       exp: 0
-    - value: 474.96
+    - value: 306.8688778047976
       exp: 0
-    - value: 512.96
+    - value: 346.7618304561564
       exp: 0
-    - value: 554
+    - value: 391.8408667619675
       exp: 0
-    - value: 598.32
+    - value: 442.78017757258044
       exp: 0
-    - value: 646.19
+    - value: 500.3415985456755
       exp: 0
-    - value: 697.89
+    - value: 565.3860039707986
       exp: 0
-    - value: 753.72
+    - value: 638.8861817910318
       exp: 0
-    - value: 814.02
+    - value: 721.9413823774192
       exp: 0
-    - value: 879.14
+    - value: 815.793758643999
       exp: 0
-    - value: 949.47
+    - value: 921.8469433777111
       exp: 0
-    - value: 1.03
+    - value: 1.0416870416211048
       exp: 3
-    - value: 1.11
+    - value: 1.1771063520646976
       exp: 3
-    - value: 1.2
+    - value: 1.330130172220228
       exp: 3
-    - value: 1.3
+    - value: 1.5030470882663027
       exp: 3
-    - value: 1.4
+    - value: 1.698443202573835
       exp: 3
-    - value: 1.51
+    - value: 1.9192408108096253
       exp: 3
-    - value: 1.63
+    - value: 2.168742107063223
       exp: 3
-    - value: 1.76
+    - value: 2.4506785706400738
       exp: 3
-    - value: 1.9
+    - value: 2.769266773137537
       exp: 3
-    - value: 2.05
+    - value: 3.1292714404405237
       exp: 3
-    - value: 2.21
+    - value: 3.536076712776263
       exp: 3
-    - value: 2.39
+    - value: 3.9957666685758495
       exp: 3
-    - value: 2.58
+    - value: 4.51521631643741
       exp: 3
-    - value: 2.79
+    - value: 5.1021944160440444
       exp: 3
-    - value: 3.01
+    - value: 5.765479665800611
       exp: 3
-    - value: 3.25
+    - value: 6.514991994862741
       exp: 3
-    - value: 3.51
+    - value: 7.361940923128994
       exp: 3
-    - value: 3.79
+    - value: 8.318993208031294
       exp: 3
-    - value: 4.09
+    - value: 9.400462285407311
       exp: 3
-    - value: 4.42
+    - value: 10.622522337685364
       exp: 3
-    - value: 4.77
+    - value: 12.003450190932327
       exp: 3
-    - value: 5.15
+    - value: 13.563898658516619
       exp: 3
-    - value: 5.56
+    - value: 15.32720541944607
       exp: 3
-    - value: 6
+    - value: 17.319742050888248
       exp: 3
-    - value: 6.48
+    - value: 19.571308434916755
       exp: 3
-    - value: 7
+    - value: 22.115578438132662
       exp: 3
-    - value: 7.56
+    - value: 24.990603529634612
       exp: 3
-    - value: 8.16
+    - value: 28.239381869322628
       exp: 3
-    - value: 8.81
+    - value: 31.910501377678703
       exp: 3
-    - value: 9.51
-      exp: 3
-    - value: 10.27
-      exp: 3
-    - value: 11.09
-      exp: 3
-    - value: 11.98
-      exp: 3
-    - value: 12.94
-      exp: 3
-    - value: 13.98
-      exp: 3
-    - value: 15.1
-      exp: 3
-    - value: 16.31
-      exp: 3
-    - value: 17.61
-      exp: 3
-    - value: 19.02
-      exp: 3
-    - value: 20.54
-      exp: 3
-    - value: 22.18
-      exp: 3
-    - value: 23.95
-      exp: 3
-    - value: 25.87
-      exp: 3
-    - value: 27.94
-      exp: 3
-    - value: 30.18
-      exp: 3
-    - value: 32.59
-      exp: 3
-    - value: 35.2
-      exp: 3
-    - value: 38.02
-      exp: 3
-    - value: 41.06
-      exp: 3
-    - value: 44.34
-      exp: 3
-    - value: 47.89
-      exp: 3
-    - value: 51.72
-      exp: 3
-    - value: 55.86
-      exp: 3
-    - value: 60.33
-      exp: 3
-    - value: 65.16
-      exp: 3
-    - value: 70.37
-      exp: 3
-    - value: 76
-      exp: 3
-    - value: 82.08
-      exp: 3
-    - value: 88.65
-      exp: 3
-    - value: 95.74
-      exp: 3
-    - value: 103.4
-      exp: 3
-    - value: 111.67
-      exp: 3
-    - value: 120.6
-      exp: 3
-    - value: 130.25
-      exp: 3
-    - value: 140.67
-      exp: 3
-    - value: 151.92
-      exp: 3
-    - value: 164.07
-      exp: 3
-    - value: 177.2
-      exp: 3
-    - value: 191.38
-      exp: 3
-    - value: 206.69
-      exp: 3
-    - value: 223.23
-      exp: 3
-    - value: 241.09
-      exp: 3
-    - value: 260.38
-      exp: 3
-    - value: 281.21
-      exp: 3
-    - value: 303.71
-      exp: 3
-    - value: 328.01
-      exp: 3
-    - value: 354.25
-      exp: 3
-    - value: 382.59
-      exp: 3
-    - value: 413.2
-      exp: 3
-    - value: 446.26
+    - value: 36.058866404615806
       exp: 3
     energyEarns: 
-    levelMax: 100
+    levelMax: 50
     sprUI: {fileID: 21300000, guid: d32f4394e0ff8e046a6b2c7302d4c78d, type: 3}
   - name: Hands Dryer
     type: 4
@@ -882,212 +482,112 @@ MonoBehaviour:
     - {fileID: 333958739078716024, guid: 716a6dc906d013b4e87516733878e593, type: 3}
     - {fileID: 287810193870968176, guid: 8e5192ecd572b3c42b68d7867fdef789, type: 3}
     - {fileID: 287810193870968176, guid: d8c06b276987ecf49b8be3aa4746fd24, type: 3}
-    profitIncreaseRate: 0.5
+    profitIncreaseRate: 8
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.2
+    - value: 0.08
       exp: 3
-    - value: 220
+    - value: 90.39999961853027
       exp: 0
-    - value: 237.6
+    - value: 102.15199913787842
       exp: 0
-    - value: 256.61
+    - value: 115.43175853870392
       exp: 0
-    - value: 277.14
+    - value: 130.43788659831392
       exp: 0
-    - value: 299.31
+    - value: 147.39481123411844
       exp: 0
-    - value: 323.25
+    - value: 166.5561359917206
       exp: 0
-    - value: 349.11
+    - value: 188.2084328764427
       exp: 0
-    - value: 377.04
+    - value: 212.6755282529325
       exp: 0
-    - value: 407.2
+    - value: 240.3233459116978
       exp: 0
-    - value: 439.78
+    - value: 271.5653797342675
       exp: 0
-    - value: 474.96
+    - value: 306.8688778047976
       exp: 0
-    - value: 512.96
+    - value: 346.7618304561564
       exp: 0
-    - value: 554
+    - value: 391.8408667619675
       exp: 0
-    - value: 598.32
+    - value: 442.78017757258044
       exp: 0
-    - value: 646.19
+    - value: 500.3415985456755
       exp: 0
-    - value: 697.89
+    - value: 565.3860039707986
       exp: 0
-    - value: 753.72
+    - value: 638.8861817910318
       exp: 0
-    - value: 814.02
+    - value: 721.9413823774192
       exp: 0
-    - value: 879.14
+    - value: 815.793758643999
       exp: 0
-    - value: 949.47
+    - value: 921.8469433777111
       exp: 0
-    - value: 1.03
+    - value: 1.0416870416211048
       exp: 3
-    - value: 1.11
+    - value: 1.1771063520646976
       exp: 3
-    - value: 1.2
+    - value: 1.330130172220228
       exp: 3
-    - value: 1.3
+    - value: 1.5030470882663027
       exp: 3
-    - value: 1.4
+    - value: 1.698443202573835
       exp: 3
-    - value: 1.51
+    - value: 1.9192408108096253
       exp: 3
-    - value: 1.63
+    - value: 2.168742107063223
       exp: 3
-    - value: 1.76
+    - value: 2.4506785706400738
       exp: 3
-    - value: 1.9
+    - value: 2.769266773137537
       exp: 3
-    - value: 2.05
+    - value: 3.1292714404405237
       exp: 3
-    - value: 2.21
+    - value: 3.536076712776263
       exp: 3
-    - value: 2.39
+    - value: 3.9957666685758495
       exp: 3
-    - value: 2.58
+    - value: 4.51521631643741
       exp: 3
-    - value: 2.79
+    - value: 5.1021944160440444
       exp: 3
-    - value: 3.01
+    - value: 5.765479665800611
       exp: 3
-    - value: 3.25
+    - value: 6.514991994862741
       exp: 3
-    - value: 3.51
+    - value: 7.361940923128994
       exp: 3
-    - value: 3.79
+    - value: 8.318993208031294
       exp: 3
-    - value: 4.09
+    - value: 9.400462285407311
       exp: 3
-    - value: 4.42
+    - value: 10.622522337685364
       exp: 3
-    - value: 4.77
+    - value: 12.003450190932327
       exp: 3
-    - value: 5.15
+    - value: 13.563898658516619
       exp: 3
-    - value: 5.56
+    - value: 15.32720541944607
       exp: 3
-    - value: 6
+    - value: 17.319742050888248
       exp: 3
-    - value: 6.48
+    - value: 19.571308434916755
       exp: 3
-    - value: 7
+    - value: 22.115578438132662
       exp: 3
-    - value: 7.56
+    - value: 24.990603529634612
       exp: 3
-    - value: 8.16
+    - value: 28.239381869322628
       exp: 3
-    - value: 8.81
+    - value: 31.910501377678703
       exp: 3
-    - value: 9.51
-      exp: 3
-    - value: 10.27
-      exp: 3
-    - value: 11.09
-      exp: 3
-    - value: 11.98
-      exp: 3
-    - value: 12.94
-      exp: 3
-    - value: 13.98
-      exp: 3
-    - value: 15.1
-      exp: 3
-    - value: 16.31
-      exp: 3
-    - value: 17.61
-      exp: 3
-    - value: 19.02
-      exp: 3
-    - value: 20.54
-      exp: 3
-    - value: 22.18
-      exp: 3
-    - value: 23.95
-      exp: 3
-    - value: 25.87
-      exp: 3
-    - value: 27.94
-      exp: 3
-    - value: 30.18
-      exp: 3
-    - value: 32.59
-      exp: 3
-    - value: 35.2
-      exp: 3
-    - value: 38.02
-      exp: 3
-    - value: 41.06
-      exp: 3
-    - value: 44.34
-      exp: 3
-    - value: 47.89
-      exp: 3
-    - value: 51.72
-      exp: 3
-    - value: 55.86
-      exp: 3
-    - value: 60.33
-      exp: 3
-    - value: 65.16
-      exp: 3
-    - value: 70.37
-      exp: 3
-    - value: 76
-      exp: 3
-    - value: 82.08
-      exp: 3
-    - value: 88.65
-      exp: 3
-    - value: 95.74
-      exp: 3
-    - value: 103.4
-      exp: 3
-    - value: 111.67
-      exp: 3
-    - value: 120.6
-      exp: 3
-    - value: 130.25
-      exp: 3
-    - value: 140.67
-      exp: 3
-    - value: 151.92
-      exp: 3
-    - value: 164.07
-      exp: 3
-    - value: 177.2
-      exp: 3
-    - value: 191.38
-      exp: 3
-    - value: 206.69
-      exp: 3
-    - value: 223.23
-      exp: 3
-    - value: 241.09
-      exp: 3
-    - value: 260.38
-      exp: 3
-    - value: 281.21
-      exp: 3
-    - value: 303.71
-      exp: 3
-    - value: 328.01
-      exp: 3
-    - value: 354.25
-      exp: 3
-    - value: 382.59
-      exp: 3
-    - value: 413.2
-      exp: 3
-    - value: 446.26
+    - value: 36.058866404615806
       exp: 3
     energyEarns: 
-    levelMax: 100
+    levelMax: 50
     sprUI: {fileID: 21300000, guid: 63171d33da9afaa4bb71d9f0de242241, type: 3}

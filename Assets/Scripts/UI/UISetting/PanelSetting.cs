@@ -121,7 +121,6 @@ public class PanelSetting : UIPanel {
         UIManager.instance.ClosePanelSetting();
     }
     private void OnEnable() {
-        OnLoadTextLocalize();
         ResetTextField();
         ToggleStart();
     }
@@ -135,17 +134,11 @@ public class PanelSetting : UIPanel {
             if (languageInfos[i].languageID == id) _DropdownLanguage.value = i;
         }
     }
-    void OnLoadTextLocalize() {
-        txtTitle.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(342).ToUpper();
-        txtMusic.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(343);
-        txtSound.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(344);
-        txtLanguage.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(345);
-    }
+
     void DropdownValueChanged(Dropdown change) {
         activate = false;
         int value = change.value;
         ProfileManager.Instance._LanguageManager.SaveLanguage(languageInfos[value].languageID);
-        OnLoadTextLocalize();
     }
 
     private void Update()

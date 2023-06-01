@@ -22,10 +22,11 @@ public class UIOrderBookInDeivery : UIEffect {
         btnSkipGem.onClick.AddListener(OnSkipGem);
     }
     public void Setup(Order order) {
+        if (order.GetProcess() == 0) processSlider.fillAmount = 0;
         currentOrder = order;
-        txtCashProfit.text = order.cashProfit.ToString();
+        txtCashProfit.text = order.cashProfit.IntToString();
         txtBurgerPoint.text = order.bCoinProfit.ToString();
-        imgIcon.sprite = currentOrder.sprOrderStaff;
+        imgIcon.sprite = PanelOrderBook.instance.GetSpriteByName(currentOrder.sprOrderStaffName);
         //sComplete = ProfileManager.Instance.dataConfig.GameText.GetTextByID(140);
 
     }

@@ -42,7 +42,7 @@ public class WorldInfoItem : MonoBehaviour {
     public void Setup(WorldBaseData info) {
         currentWorldBaseData = info;
         selectedWorld = info.selectedWorld;
-        starToUnlock = info.starNeededToUnlock;
+        starToUnlock = info.burgerRequire;
         resNameTxt.text = info.GetName();
         resDesTxt.text = info.GetDes();
     }
@@ -119,18 +119,17 @@ public class WorldInfoItem : MonoBehaviour {
             unlockedStarField.SetActive(false);
             requireStar.SetActive(true);
             requireStarTxt.text = starToUnlock.ToString();
-            int currentTotalStar = ProfileManager.Instance.playerData.GetTotalStarEarned();
-            if (currentTotalStar >= starToUnlock) {
+            //if (currentTotalStar >= starToUnlock) {
                 travelBtn.SetActive(false);
                 alreadyHereAlert.SetActive(false);
                 ableToOpenBtn.SetActive(true);
                 unAbleToOpenBtn.SetActive(false);
-            } else {
-                travelBtn.SetActive(false);
-                alreadyHereAlert.SetActive(false);
-                ableToOpenBtn.SetActive(false);
-                unAbleToOpenBtn.SetActive(true);
-            }
+            //} else {
+            //    travelBtn.SetActive(false);
+            //    alreadyHereAlert.SetActive(false);
+            //    ableToOpenBtn.SetActive(false);
+            //    unAbleToOpenBtn.SetActive(true);
+            //}
             resNameTxt.color = new Color(1f, 1f, 1f, 1f);
             resDesTxt.color = resNameTxt.color;
             requireStarTxt.color = resNameTxt.color;

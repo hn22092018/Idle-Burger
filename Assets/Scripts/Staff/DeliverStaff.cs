@@ -47,9 +47,11 @@ public class DeliverStaff : BaseStaff {
                 if (IsFinishMoveOnNavemesh()) {
                     transform.eulerAngles = cakePosition.transform.eulerAngles;
                     OnDisableMove();
+                    m_Animator.SetBool("IsWork", true);
                     if (!timeIndicator.gameObject.activeInHierarchy) timeIndicator.InitTime(timeMakingFood / 2);
                     dtTimeTakeCake += Time.deltaTime;
                     if (dtTimeTakeCake >= timeMakingFood / 2) {
+                        m_Animator.SetBool("IsWork", false);
                         OnEnableMove();
                         IsHasCake = true;
                         if (_BaseStaffMoveSystem) _BaseStaffMoveSystem.SetDestination(defaultPos);
@@ -64,7 +66,11 @@ public class DeliverStaff : BaseStaff {
                 OnDisableMove();
                 if (!timeIndicator.gameObject.activeInHierarchy) timeIndicator.InitTime(timeMakingFood / 2);
                 dtDeliverCake += Time.deltaTime;
+                m_Animator.SetBool("IsWork", true);
                 if (dtDeliverCake >= timeMakingFood / 2) {
+                    DeliverRoomManager.instance.Payment(this);
+                    m_Animator.SetBool("IsWork", false);
+                    isFree = true;
                     timeIndicator.Hide();
                     customerOrder.OnReceiveFoodFromStaff();
                     StateMachine.ChangeState(StaffIdleState.Instance);
@@ -73,25 +79,5 @@ public class DeliverStaff : BaseStaff {
         }
 
     }
-    public override void OnDoWorkEnd() {
-        base.OnDoWorkEnd();
-    }
-    IEnumerator IMakingFood() {
-        m_Animator.SetBool("IsWork", true);
-        yield return new WaitForSeconds(timeMakingFood);
-        PaymentOrder();
-        m_Animator.SetBool("IsWork", false);
-        timeIndicator.Hide();
-        customerOrder.OnReceiveFoodFromStaff();
-        yield return new WaitForSeconds(0.5f);
-        isFree = true;
-    }
-    BigNumber orderValue;
-    public void PaymentOrder() {
-        DropReputation();
-        orderValue = customerOrder.GetOrderFoodValue() * GameManager.instance.GetTotalIncomeRate();
-        CalculateSkinBuffIncome(ref orderValue);
-        GameManager.instance.AddCash(orderValue);
-        //UIManager.instance.CreatUIMoneyEff(drinkValue, transform);
-    }
+
 }

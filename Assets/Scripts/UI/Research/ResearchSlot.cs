@@ -25,7 +25,7 @@ public class ResearchSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     [SerializeField] float duration;
     [SerializeField] Transform onUpgradeAnim;
     [SerializeField] Transform canUpgradeAnim;
-    public ResearchName researchName;
+    public ResearchType researchName;
     int level;
     float timeRemain;
     float timeTotal;
@@ -46,7 +46,7 @@ public class ResearchSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
         if (objProcess.activeSelf)
         {
             timeRemain = ProfileManager.PlayerData.researchManager.GetTimeCoolDown(researchName);
-            timeTotal = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName).timeBlock;
+            timeTotal = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName).foodBlockTime;
             imgProcess.fillAmount = 1f - timeRemain / timeTotal;
         }
     }
@@ -55,9 +55,9 @@ public class ResearchSlot : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public int scaleVibaration;
     float timeAnim;
     float timeReAnim;
-    public void InitDataResearch(ResearchName researchName) {
+    public void InitDataResearch(ResearchType researchName) {
         Research research = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName);
-        imgIcon.sprite = research.icon;
+        imgIcon.sprite = research.foodIcon;
         this.researchName = researchName;
         ChangeNameResearch();
     }

@@ -10,11 +10,9 @@ public class PanelRoomInfo : UIPanel {
     public static PanelRoomInfo instance;
     [SerializeField] RectTransform _RectGroupButtonTabs;
     [SerializeField] private Button btnClose, btnTabUpgrade, btnTabStaff;
-   
     [SerializeField] private Sprite[] sprBtnTabs;
     [SerializeField] private Color[] clrTxtBtnTabs;
     [SerializeField] private Text[] txtBtnTabs;
-    [SerializeField] private Image[] iconBtnTabs;
     public UITabUpgrade uiTabUpgrade;
     public UITabStaff uiTabStaff;
     [SerializeField] private UITabProfit uiTabProfit;
@@ -45,8 +43,6 @@ public class PanelRoomInfo : UIPanel {
         btnTabStaff.image.sprite = sprBtnTabs[0];
         txtBtnTabs[0].color = clrTxtBtnTabs[1];
         txtBtnTabs[1].color = clrTxtBtnTabs[0];
-        iconBtnTabs[0].color = clrTxtBtnTabs[1];
-        iconBtnTabs[1].color = clrTxtBtnTabs[0];
         uiTabStaff.gameObject.SetActive(false);
         uiTabUpgrade.gameObject.SetActive(true);
         uiTabUpgrade.Setup();
@@ -59,8 +55,6 @@ public class PanelRoomInfo : UIPanel {
         btnTabStaff.image.sprite = sprBtnTabs[1];
         txtBtnTabs[0].color = clrTxtBtnTabs[0];
         txtBtnTabs[1].color = clrTxtBtnTabs[1];
-        iconBtnTabs[0].color = clrTxtBtnTabs[0];
-        iconBtnTabs[1].color = clrTxtBtnTabs[1];
         uiTabUpgrade.gameObject.SetActive(false);
         uiTabStaff.gameObject.SetActive(true);
         uiTabStaff.Setup();
@@ -85,9 +79,10 @@ public class PanelRoomInfo : UIPanel {
     public void Setup(IRoomController roomManager, bool IsShowUpgradeFirst = true) {
         if (!ProfileManager.PlayerData.ResourceSave.activeRemoveAds) AdsManager.Instance.ShowInterstitial(null, null);
         SoundManager.instance.PlaySubMusic(roomManager.GetRoomID());
-        if (roomManager.GetStaffSetting() == null || roomManager.GetRoomID() == RoomID.Manager) {
-            btnTabStaff.gameObject.SetActive(false);
-        } else btnTabStaff.gameObject.SetActive(roomManager.GetStaffSetting().GetTotalStaff() > 0);
+        btnTabStaff.gameObject.SetActive(false);
+        //if (roomManager.GetStaffSetting() == null || roomManager.GetRoomID() == RoomID.Manager) {
+        //    btnTabStaff.gameObject.SetActive(false);
+        //} else btnTabStaff.gameObject.SetActive(roomManager.GetStaffSetting().GetTotalStaff() > 0);
         txtRoomName.text = ProfileManager.Instance.dataConfig.GameText.RoomIDToString(roomManager.GetRoomID()).ToUpper();
         if (IsShowUpgradeFirst) OnShowTabUpgrade();
         else OnShowTabStaff();
@@ -105,13 +100,9 @@ public class PanelRoomInfo : UIPanel {
             TutorialStepID step = Tutorials.instance.GetTutorialStep();
             if (step == TutorialStepID.UpgradeTable) {
                 isBlockClose = true;
-                Transform slot = uiTabUpgrade.rootUIItem.GetChild(4).transform;
+                Transform slot = uiTabUpgrade.rootUIItem.GetChild(3).transform;
                 Tutorials.instance.OnShow(slot);
-            } else if (step == TutorialStepID.HireStaff) {
-                isBlockClose = true;
-                btnTabUpgrade.interactable = false;
-                Tutorials.instance.OnShow(btnTabStaff.transform);
-            }
+            } 
         }
     }
 
@@ -139,13 +130,10 @@ public class PanelRoomInfo : UIPanel {
     public void OnClose() {
         if (isBlockClose) return;
         SoundManager.instance.StopSubMusic();
-        CameraMove.instance.ZoomInCamera();
+        CameraMove.instance.ZoomInCamera(20);
         Tutorials.instance.OnCloseTutorial();
-        GameManager.instance.selectedRoom.TurnOffSelectedEffectItem();
+        GameManager.instance.StopFocusRoom();
         UIManager.instance.ClosePanelRoomInfo();
-        if (AdsManager.Instance.IsGoodToShowBannerAds()) {
-            AdsManager.Instance.ShowBannerAds();
-        }
     }
     private void OnEnable() {
         AdsManager.Instance.HideBannerAds();

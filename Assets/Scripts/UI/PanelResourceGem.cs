@@ -20,7 +20,7 @@ public class PanelResourceGem : MonoBehaviour
         goToGemOffers.onClick.AddListener(GotoGemOffer);
     }
     void UpdateGem() {
-        txtGem.text = GameManager.instance.GetGem().ToString();
+        txtGem.text = ProfileManager.PlayerData.GetGem().ToString();
     }
     void GotoGemOffer() {
         UIManager.instance.GotoShopPage(TabName.Gems);

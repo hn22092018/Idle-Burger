@@ -84,9 +84,6 @@ public class PlayerData {
     public int GetSelectedWorld() {
         return PlayerPrefs.GetInt("SelectedWorld", 1);
     }
-    public int GetEventSelected() {
-        return PlayerPrefs.GetInt("SelectedEvent", 0);
-    }
     public int GetUnlockedWorld() {
         return PlayerPrefs.GetInt("UnlockedWorld", 1);
     }
@@ -126,7 +123,6 @@ public class PlayerData {
         researchManager.SaveData();
         skinManager.SaveData();
         wareHouseManager.SaveData();
-        SaveUnlockedWorld();
         deltaTimeSaving = 0;
         isSaving = false;
     }
@@ -204,86 +200,8 @@ public class PlayerData {
         }
 
     }
-    public void SaveUpgradeProcess(int process) {
-        switch (selectedWorld) {
-            case 1:
-                RoomSave_W1.SaveProcessUpgrade(process);
-                break;
-            case 2:
-                RoomSave_W2.SaveProcessUpgrade(process);
-                break;
-            case 3:
-                RoomSave_W3.SaveProcessUpgrade(process);
-                break;
-        }
-    }
-    public int GetStarWorld(int world = 1) {
-        int totalPoint = 0;
-        int star = 0;
-        switch (world) {
-            case 1:
-                totalPoint= RoomSave_W1.GetProcessUpgrade() / 100;
-                break;
-            case 2:
-                totalPoint= RoomSave_W2.GetProcessUpgrade() / 100;
-                break;
-            case 3:
-                totalPoint= RoomSave_W3.GetProcessUpgrade() / 100;
-                break;
-        }
 
-        if (totalPoint >= 40) {
-            star += 1;
-            totalPoint -= 40;
-        }
-        if (totalPoint >= 60) {
-            star += 1;
-            totalPoint -= 60;
-        }
-        star += totalPoint / 100;
-        return star;
-    }
 
-    public float GetTotalUpgradeProcess() {
-        int totalPoint = 0;
-        switch (selectedWorld) {
-            case 1:
-                totalPoint += RoomSave_W1.GetProcessUpgrade();
-                break;
-            case 2:
-                totalPoint += RoomSave_W2.GetProcessUpgrade();
-                break;
-            case 3:
-                totalPoint += RoomSave_W3.GetProcessUpgrade();
-                break;
-        }
-        return totalPoint;
-    }
-    public int GetTotalStarEarned() {
-        int totalPoint = 0;
-        int star = 0;
-        switch (selectedWorld) {
-            case 1:
-                totalPoint += RoomSave_W1.GetProcessUpgrade();
-                break;
-            case 2:
-                totalPoint += RoomSave_W2.GetProcessUpgrade();
-                break;
-            case 3:
-                totalPoint += RoomSave_W3.GetProcessUpgrade();
-                break;
-        }
-        if (totalPoint >= 40) {
-            star += 1;
-            totalPoint -= 40;
-        }
-        if (totalPoint >= 60) {
-            star += 1;
-            totalPoint -= 60;
-        }
-        star += totalPoint / 100;
-        return star;
-    }
     public bool IsWolrdUnlocked(int world) {
         if (world <= unlockedWorld) {
             return true;
@@ -291,14 +209,17 @@ public class PlayerData {
         return false;
     }
     public void UnlockWorld(int world) {
-        if (world > GetUnlockedWorld())
+        if (world >= GetUnlockedWorld()) {
             unlockedWorld = world;
+            SaveUnlockedWorld();
+        }
+
     }
     #endregion Room Data
 
     #region Resource
     public void ConsumeCash(BigNumber amount) {
-        ResourceSave.ConsumeCash(selectedWorld, amount);
+        ResourceSave.ConsumeCash(selectedWorld, new BigNumber(amount));
         EventManager.TriggerEvent(EventName.UpdateMoney.ToString());
     }
     public void AddCash(float amount) {
@@ -306,7 +227,7 @@ public class PlayerData {
         EventManager.TriggerEvent(EventName.UpdateMoney.ToString());
     }
     public void AddCash(BigNumber amount) {
-        ResourceSave.AddCash(selectedWorld, amount);
+        ResourceSave.AddCash(selectedWorld, new BigNumber(amount));
         EventManager.TriggerEvent(EventName.UpdateMoney.ToString());
     }
     public BigNumber GetCash() {
@@ -337,7 +258,7 @@ public class PlayerData {
         ResourceSave.AddBCoin(amount);
         EventManager.TriggerEvent(EventName.UpdateBCoin.ToString());
     }
-    public int GetBCoin() {
+    public int GetBurgerCoin() {
         return ResourceSave.GetBCoin();
     }
     public BigNumber GetTotalTipProfit() {
@@ -352,12 +273,7 @@ public class PlayerData {
     public BigNumber GetTipChef() {
         return ResourceSave.GetTipChef(selectedWorld);
     }
-    public void AddTipCleaner(BigNumber value) {
-        ResourceSave.AddTipCleaner(selectedWorld, value);
-    }
-    public BigNumber GetTipCleaner() {
-        return ResourceSave.GetTipCleaner(selectedWorld);
-    }
+
     public void AddTipReception(BigNumber value) {
         ResourceSave.AddTipReception(selectedWorld, value);
     }
@@ -453,5 +369,5 @@ public class PlayerData {
         }
         return false;
     }
- 
+
 }

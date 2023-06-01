@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Transform uiMoneyEffRoot;
     public PanelResourceGem _UIPanelResourceGem;
     [SerializeField] Button btnShop, btnCardCollection;
-    public Button btnMission, btnAdBoost, btnMarketingCampaign, btnWorldSelect;
+    public Button btnMission, btnAdBoost, btnMarketingCampaign, btnStatistic;
     [SerializeField] Button btnOrderBook;
     [SerializeField] Button btnSetting;
     [SerializeField] GameObject questNotify;
@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] Button btnWareHouse;
     [SerializeField] GameObject _WareHouseNotify;
     [SerializeField] GameObject _FreeGemAdsNotify;
+    [SerializeField] GameObject processMap;
     public DOTweenManager dotweenManager;
     public bool isHasPopupOnScene = false;
     float deltaTimeFreeResourceAds;
@@ -60,7 +61,6 @@ public class UIManager : MonoBehaviour {
     // Start is called before the first frame update
     void Awake() {
         instance = this;
-        //btnManagerStaff.onClick.AddListener(ShowPanelManagerStaff);
         btnShop.onClick.AddListener(ShowPanelShop);
         btnAdBoost.onClick.AddListener(ShowPanelAdBoost);
         btnMarketingCampaign.onClick.AddListener(ShowPanelMarketingCampaign);
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour {
         btnFreeGemAds.GetComponent<Button>().onClick.AddListener(ShowPanelFreeGemAds);
         btnOrderBook.onClick.AddListener(ShowPanelOrderBook);
         btnSetting.onClick.AddListener(ShowPanelSetting);
-        btnWorldSelect.onClick.AddListener(ShowPanelWorldSelect);
+        btnStatistic.onClick.AddListener(ShowPanelStatistic);
         if (btnDailyReward) btnDailyReward.onClick.AddListener(ShowPanelDailyReward);
         if (btnTech) btnTech.onClick.AddListener(ShowPanelTech);
         if (btnWareHouse) btnWareHouse.onClick.AddListener(ShowPanelWareHouse);
@@ -118,6 +118,8 @@ public class UIManager : MonoBehaviour {
         btnTech.gameObject.SetActive(isShow);
         btnIAPResearcherPack.gameObject.SetActive(isShow);
         btnWareHouse.gameObject.SetActive(isShow);
+        btnStatistic.gameObject.SetActive(isShow);
+        processMap.gameObject.SetActive(isShow);
     }
     void OnLoadUIButtonIAPPackage() {
         btnIapPackage_Vip3Pack.onClick.AddListener(() => ShowPanelIAPPackage(OfferID.Vip3Pack));
@@ -219,6 +221,13 @@ public class UIManager : MonoBehaviour {
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
         GetPanel(UIPanelType.PanelRoomInfo).SetActive(true);
         GetPanel(UIPanelType.PanelRoomInfo).GetComponent<PanelRoomInfo>().Setup(roomManager);
+    }
+    public void ShowPanelRoomInfoSpecifiedIndex(IRoomController roomManager, int index) {
+        isHasPopupOnScene = true;
+        SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
+        GetPanel(UIPanelType.PanelRoomInfo).SetActive(true);
+        GetPanel(UIPanelType.PanelRoomInfo).GetComponent<PanelRoomInfo>().Setup(roomManager);
+        GetPanel(UIPanelType.PanelRoomInfo).GetComponent<PanelRoomInfo>().OnShowInfoItem(index);
     }
     public void ShowPanelRoomInfo_Staff(IRoomController roomManager) {
         isHasPopupOnScene = true;
@@ -414,7 +423,7 @@ public class UIManager : MonoBehaviour {
         GetPanel(UIPanelType.PanelOrderBook).SetActive(false);
     }
     public void ShowPanelStatistic() {
-        if (Tutorials.instance.IsShow) return;
+        if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() != TutorialStepID.SelectNewWorld) return;
         if (!ProfileManager.PlayerData.ResourceSave.activeRemoveAds) AdsManager.Instance.ShowInterstitial(null, null);
         isHasPopupOnScene = true;
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
@@ -583,6 +592,27 @@ public class UIManager : MonoBehaviour {
         CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelPremiumResearcherPack);
         GetPanel(UIPanelType.PanelPremiumResearcherPack).SetActive(false);
     }
+    public void ShowPanelManagerCardLevelUp() {
+        if (Tutorials.instance.IsShow) return;
+        SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
+        isHasPopupOnScene = true;
+        GetPanel(UIPanelType.PanelManagerCardLevelUp).SetActive(true);
+    }
+    public void ClosePanelManagerCardLevelUp() {
+        CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelManagerCardLevelUp);
+        GetPanel(UIPanelType.PanelManagerCardLevelUp).SetActive(false);
+    }
+    public void ShowPanelManagerCardBuyResources(ManagerStaffID staffID) {
+        if (Tutorials.instance.IsShow) return;
+        SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
+        isHasPopupOnScene = true;
+        GetPanel(UIPanelType.PanelManagerCardBuyResources).SetActive(true);
+    
+    }
+    public void ClosePanelManagerCardBuyResources() {
+        CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelManagerCardBuyResources);
+        GetPanel(UIPanelType.PanelManagerCardBuyResources).SetActive(false);
+    }
     public void CloseAllPopup() {
         isHasPopupOnScene = false;
         SoundManager.instance.StopSubMusic();
@@ -709,6 +739,12 @@ public class UIManager : MonoBehaviour {
                     break;
                 case UIPanelType.PanelPremiumResearcherPack:
                     panel = Instantiate(Resources.Load("UI/PanelPremiumResearcherPack") as GameObject, mainCanvas);
+                    break;
+                case UIPanelType.PanelManagerCardLevelUp:
+                    panel = Instantiate(Resources.Load("UI/PanelManagerCardLevelUp") as GameObject, mainCanvas);
+                    break;
+                case UIPanelType.PanelManagerCardBuyResources:
+                    panel = Instantiate(Resources.Load("UI/PanelManagerCardBuyResources") as GameObject, mainCanvas);
                     break;
             }
             if (panel) panel.SetActive(true);

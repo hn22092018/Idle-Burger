@@ -4,13 +4,16 @@ using PathologicalGames;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public struct DeliverCarOrder {
+    public Research foodOrder;
+    public int amount;
+}
 public class DeliverCarCustomer : MonoBehaviour {
     [SerializeField] Transform[] meshs;
     [SerializeField] DOTweenPath currentPath;
-     public Research foodOrder;
+    public List<DeliverCarOrder> foodOrders;
     [SerializeField] Animator carAnimator;
-    [SerializeField] UIFoodOrderIcon foodOrderIcon;
+    [SerializeField] UIDeliverCarOrderIcon uiDeliverCarOrderIcon;
     [SerializeField] UIEmojiIcon emojiIcon;
     bool IsMove;
     bool IsCheckOverlapOtherCar;
@@ -27,7 +30,7 @@ public class DeliverCarCustomer : MonoBehaviour {
         IsMove = true;
         IsPauseTween = false;
         IsCheckOverlapOtherCar = true;
-        foodOrderIcon.gameObject.SetActive(false);
+        uiDeliverCarOrderIcon.gameObject.SetActive(false);
         emojiIcon.gameObject.SetActive(false);
     }
     void CheckQueue() {
@@ -50,27 +53,28 @@ public class DeliverCarCustomer : MonoBehaviour {
     }
     void OnOrderFood() {
         IsMove = false;
-        foodOrder = ProfileManager.PlayerData.researchManager.GetRandomFood();
-        foodOrderIcon.gameObject.SetActive(true);
-        foodOrderIcon.ShowIcon(foodOrder.icon);
+        uiDeliverCarOrderIcon.gameObject.SetActive(true);
+        for (int i = 0; i < Random.Range(1, 3); i++) {
+            foodOrders.Add(new DeliverCarOrder() { foodOrder = ProfileManager.PlayerData.researchManager.GetRandomFood(), amount = Random.Range(1, 4) });
+        }
+        uiDeliverCarOrderIcon.ShowOrder(foodOrders);
         DeliverRoomManager.instance.OrderStaff(this);
     }
     public float GetOrderFoodValue() {
-        int level = ProfileManager.PlayerData.researchManager.GetLevelByName(foodOrder.researchName);
-        if (foodOrder != null && level > 0)
-            return (float)foodOrder.CalculateProfit(level);
-        return 0;
+        float value = 0;
+        for (int i = 0; i < foodOrders.Count; i++) {
+            int level = ProfileManager.PlayerData.researchManager.GetLevelByName(foodOrders[i].foodOrder.researchType);
+            if (level > 0)
+                value += (float)foodOrders[i].foodOrder.CalculateProfit(level);
+        }
+        return value;
     }
     public void OnReceiveFoodFromStaff() {
         IsMove = true;
         IsCheckOverlapOtherCar = false;
-        foodOrderIcon.gameObject.SetActive(false);
+        uiDeliverCarOrderIcon.gameObject.SetActive(false);
         emojiIcon.gameObject.SetActive(true);
-        if (GetOrderFoodValue() > 0) {
-            emojiIcon.ShowFunnyEmoji(3);
-        } else {
-            emojiIcon.ShowAngryEmoji(3);
-        }
+        emojiIcon.ShowFunnyEmoji(3);
         DeliverRoomManager.instance.OutPosition(this);
         currentPath = DeliverRoomManager.instance.QueueOutPaths[deliverPosTarget.IndexQueue];
         transform.DOPath(currentPath.path.wps, currentPath.duration).SetSpeedBased(currentPath.isSpeedBased).SetEase(Ease.Linear).SetLookAt(0.01f, true).OnComplete(() => {
@@ -81,18 +85,16 @@ public class DeliverCarCustomer : MonoBehaviour {
     bool IsPauseTween;
     private void Update() {
         carAnimator.SetBool("IsIdle", !IsMove);
-        foodOrderIcon.UpdateAngle();
         //Debug.DrawRay(transform.position, transform.forward * rayLength, Color.red);
         if (IsCheckOverlapOtherCar) {
             RaycastHit raycastHit;
-            if(Physics.Raycast(transform.position+new Vector3(0,1f,0), transform.forward,out raycastHit, rayLength)){
+            if (Physics.Raycast(transform.position + new Vector3(0, 1f, 0), transform.forward, out raycastHit, rayLength)) {
                 if (raycastHit.collider.tag.Equals(compareTag)) {
                     transform.DOPause();
                     IsPauseTween = true;
                     IsMove = false;
                 }
-            }
-            else {
+            } else {
                 if (IsPauseTween) {
                     IsMove = true;
                     IsPauseTween = false;

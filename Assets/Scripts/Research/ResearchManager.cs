@@ -7,19 +7,18 @@ using System;
 
 [System.Serializable]
 public class ResearchSave {
-    public ResearchName researchName;
+    public ResearchType researchName;
     public int level;
 }
 [System.Serializable]
 public class CurrentResearch {
-    public ResearchName researchName;
-    public ResearchType researchDepend;
+    public ResearchType researchName;
     public string timeEnd;
 }
 [System.Serializable]
 public class ResearchManager {
     public List<ResearchSave> researchSave = new();
-    public List<CurrentResearch> currentResearchs= new List<CurrentResearch>();
+    public List<CurrentResearch> currentResearchs = new List<CurrentResearch>();
     public int researchValue;
     public int maxResearchCount = 1;
     public bool onResearch;
@@ -45,7 +44,7 @@ public class ResearchManager {
         Free_Customer_NonAds = 1;
     }
 
-    public float GetTimeCoolDown(ResearchName researchName) {
+    public float GetTimeCoolDown(ResearchType researchName) {
         for (int i = 0; i < currentResearchs.Count; i++) {
             if (currentResearchs[i].researchName == researchName)
                 return (float)Convert.ToDateTime(currentResearchs[i].timeEnd).Subtract(DateTime.Now).TotalSeconds;
@@ -75,20 +74,19 @@ public class ResearchManager {
         ReloadListCache();
     }
     void UnlockDefaultResearch() {
-        if (!researchSave.Exists(x => x.researchName == ResearchName.Hamburger))
+        if (!researchSave.Exists(x => x.researchName == ResearchType.Hamburger))
             researchSave.Add(new ResearchSave() {
-                researchName = ResearchName.Hamburger,
+                researchName = ResearchType.Hamburger,
                 level = 1
             });
     }
-    
+
     string GetJsonData() { return PlayerPrefs.GetString("ResearchManager"); }
     public void SaveData() { PlayerPrefs.SetString("ResearchManager", JsonUtility.ToJson(this).ToString()); }
     public void Research(Research researchData) {
         CurrentResearch newCurrentResearch = new CurrentResearch() {
-            researchName = researchData.researchName,
-            timeEnd = DateTime.Now.AddSeconds(researchData.timeBlock).ToString(),
-            researchDepend = researchData.researchType
+            researchName = researchData.researchType,
+            timeEnd = DateTime.Now.AddSeconds(researchData.foodBlockTime).ToString(),
         };
         currentResearchs.Add(newCurrentResearch);
         ConsumeResearchValue(researchData.CalulateReseachPrice(0));
@@ -108,15 +106,13 @@ public class ResearchManager {
                 level = 1
             });
         }
-        ReloadListCache(currentResearch);
+        ReloadListCache();
         SaveData();
-        if (GameManager.instance) GameManager.instance.UpdateStarUpgrade();
     }
-    public void UpgradeResearch(ResearchName researchName) {
+    public void UpgradeResearch(ResearchType researchName) {
         ResearchSave researchSaveData = GetResearchInSaver(researchName);
         ConsumeResearchValue(ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName).CalulateReseachPrice(researchSaveData.level));
         researchSaveData.level++;
-        if (GameManager.instance) GameManager.instance.UpdateStarUpgrade();
         SaveData();
     }
     /// <summary>
@@ -124,61 +120,17 @@ public class ResearchManager {
     /// </summary>
     List<Research> avaiables_food_default_unlock;
     List<Research> avaiables_food_default;
-    //List<Research> avaiables_food_japan_unlock;
-    //List<Research> avaiables_food_japan;
-    //List<Research> avaiables_food_mexico_unlock;
-    //List<Research> avaiables_food_mexico;
-    //List<Research> avaiables_drink_bar;
-    //List<Research> avaiables_drink_bar_unlock;
-    //List<Research> avaiables_drink_coffee;
-    //List<Research> avaiables_drink_coffee_unlock;
+
     /// <summary>
     ///  Load all cache  list for Function Get Random Food , Drink
     /// </summary>
     void ReloadListCache() {
-        List<Research> avaiables = ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_default;
-        avaiables_food_default_unlock = avaiables.Where(x => GetLevelByName(x.researchName) > 0).ToList();
+        List<Research> avaiables = new List<Research>(ProfileManager.Instance.dataConfig.researchDataConfig.foodResearchs);
+        avaiables_food_default_unlock = avaiables.Where(x => GetLevelByName(x.researchType) > 0).ToList();
         avaiables_food_default = avaiables;
-
-        //List<Research> avaiables_1 = ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_mexico;
-        //avaiables_food_mexico_unlock = avaiables_1.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-        //avaiables_food_mexico = avaiables_1;
-
-        //List<Research> avaiables_2 = ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_japan;
-        //avaiables_food_japan_unlock = avaiables_2.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-        //avaiables_food_japan = avaiables_2;
-
-        //avaiables_drink_bar = ProfileManager.Instance.dataConfig.researchDataConfig.GetGroupResearch(GroupResearchName.Drink).Where(x => x.researchType == ResearchType.DrinkBar).ToList();
-        //avaiables_drink_bar_unlock = avaiables_drink_bar.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-
-        //avaiables_drink_coffee = ProfileManager.Instance.dataConfig.researchDataConfig.GetGroupResearch(GroupResearchName.Drink).Where(x => x.researchType == ResearchType.DrinkCoffee).ToList();
-        //avaiables_drink_coffee_unlock = avaiables_drink_coffee.Where(x => GetLevelByName(x.researchName) > 0).ToList();
     }
 
-    void ReloadListCache(CurrentResearch currentResearch) {
-        switch (currentResearch.researchDepend) {
-            case ResearchType.DefaultFood:
-                List<Research> avaiables = ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_default;
-                avaiables_food_default_unlock = avaiables.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-                break;
-            //case ResearchType.MexicoFood:
-            //    List<Research> avaiables_1 = ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_mexico;
-            //    avaiables_food_mexico_unlock = avaiables_1.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-            //    break;
-            //case ResearchType.JapanFood:
-            //    List<Research> avaiables_2 = ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_japan;
-            //    avaiables_food_japan_unlock = avaiables_2.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-            //    break;
-            //case ResearchType.DrinkBar:
-            //    avaiables_drink_bar_unlock = avaiables_drink_bar.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-            //    break;
-            //case ResearchType.DrinkCoffee:
-            //    avaiables_drink_coffee_unlock = avaiables_drink_coffee.Where(x => GetLevelByName(x.researchName) > 0).ToList();
-            //    break;
-        }
-    }
-
-    public ResearchSave GetResearchInSaver(ResearchName researchName) {
+    public ResearchSave GetResearchInSaver(ResearchType researchName) {
         foreach (ResearchSave research in researchSave) {
             if (research.researchName == researchName)
                 return research;
@@ -190,13 +142,13 @@ public class ResearchManager {
     /// </summary>
     /// <param name="researchName"></param>
     /// <returns></returns>
-    public int GetLevelByName(ResearchName researchName) {
+    public int GetLevelByName(ResearchType researchName) {
         ResearchSave researchSave = GetResearchInSaver(researchName);
         if (researchSave != null)
             return researchSave.level;
         return 0;
     }
-    public bool CheckCurrentResearch(ResearchName researchName) {
+    public bool CheckCurrentResearch(ResearchType researchName) {
         if (!onResearch)
             return false;
         for (int i = 0; i < currentResearchs.Count; i++) {
@@ -205,21 +157,21 @@ public class ResearchManager {
         }
         return false;
     }
-    ResearchName researchOnShowDetail;
-    public void SkipNow(ResearchName researchName) {
+    ResearchType researchOnShowDetail;
+    public void SkipNow(ResearchType researchName) {
         for (int i = 0; i < currentResearchs.Count; i++) {
             if (currentResearchs[i].researchName == researchName)
                 currentResearchs[i].timeEnd = DateTime.Now.ToString();
         }
         SaveData();
     }
-    public void SkipByWatchVideo(ResearchName researchName) {
+    public void SkipByWatchVideo(ResearchType researchName) {
         researchOnShowDetail = researchName;
         if (!ProfileManager.PlayerData.ResourceSave.activeRemoveAds)
             AdsManager.Instance.ShowRewardVideo(WatchVideoRewardType.SkipResearch.ToString(), SkipFifteenMinutes);
         else SkipFifteenMinutes();
     }
-    public void SkipByTicket(ResearchName researchName) {
+    public void SkipByTicket(ResearchType researchName) {
         researchOnShowDetail = researchName;
         SkipFifteenMinutes();
     }
@@ -232,15 +184,15 @@ public class ResearchManager {
         }
         ProfileManager.Instance.playerData.SaveData();
     }
- 
-    public bool IsMaxLevel(ResearchName researchName) {
+
+    public bool IsMaxLevel(ResearchType researchName) {
         int levelSave = GetLevelByName(researchName);
         return levelSave >= 10;
     }
-    public bool IsUnlockResearch(ResearchName researchName) {
+    public bool IsUnlockResearch(ResearchType researchName) {
         return true;
     }
-    public bool IsEnoughResearchValue(ResearchName researchName) {
+    public bool IsEnoughResearchValue(ResearchType researchName) {
         if (IsMaxLevel(researchName))
             return false;
         Research research = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName);
@@ -256,7 +208,7 @@ public class ResearchManager {
         else
             researchValue -= value;
     }
-    public void AddResearchValue(int value=1) {
+    public void AddResearchValue(int value = 1) {
         researchValue += value;
     }
     /// <summary>
@@ -265,7 +217,7 @@ public class ResearchManager {
     ///  If Is Bought Researcher Pack 2 => IBRP2=true, // increase rate 30%
     /// </summary>
     /// <param name="value"></param>
- 
+
     public void AddResearchCount(int value, int max) {
         maxResearchCount += value;
         maxResearchCount = Mathf.Clamp(maxResearchCount, 1, max);
@@ -275,61 +227,13 @@ public class ResearchManager {
         return avaiables_food_default_unlock[UnityEngine.Random.Range(0, avaiables_food_default_unlock.Count)];
     }
     public Research GetRandomFood() {
-        int level = ProfileManager.PlayerData.selectedWorld;
-        switch (level) {
-            case 1: // Map 1
-                /// 80% call food have unlocked, or all food default unlocked
-                if ((UnityEngine.Random.Range(0, 100) >= 20 && avaiables_food_default_unlock.Count > 0) || avaiables_food_default.Count == 0) {
-                    return avaiables_food_default_unlock[UnityEngine.Random.Range(0, avaiables_food_default_unlock.Count)];
-                } else {
-                    return avaiables_food_default[UnityEngine.Random.Range(0, avaiables_food_default.Count)];
-                }
-            //case 2: // Japan - Map2
-            //    /// 70% call japan food, 30% call default food
-            //    if (UnityEngine.Random.Range(0, 100) >= 30) {
-            //        /// 80% call food have unlocked, or all food default unlocked
-            //        if ((UnityEngine.Random.Range(0, 100) >= 20 && avaiables_food_japan_unlock.Count > 0) || avaiables_food_japan.Count == 0) {
-            //            return avaiables_food_japan_unlock[UnityEngine.Random.Range(0, avaiables_food_japan_unlock.Count)];
-            //        } else {
-            //            return avaiables_food_japan[UnityEngine.Random.Range(0, avaiables_food_japan.Count)];
-            //        }
-            //    } else {
-            //        return ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_default[UnityEngine.Random.Range(0, ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_default.Count)];
-            //    }
-            //case 3:// Mexico - Map3
-            //    /// 70% call mexico food, 30% call default food
-            //    if (UnityEngine.Random.Range(0, 100) >= 30) {
-            //        /// 80% call food have unlocked, or all food default unlocked
-            //        if ((UnityEngine.Random.Range(0, 100) >= 20 && avaiables_food_mexico_unlock.Count > 0) || avaiables_food_mexico.Count == 0) {
-            //            return avaiables_food_mexico_unlock[UnityEngine.Random.Range(0, avaiables_food_mexico_unlock.Count)];
-            //        } else {
-            //            return avaiables_food_mexico[UnityEngine.Random.Range(0, avaiables_food_mexico.Count)];
-            //        }
-            //    } else {
-            //        return ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_default[UnityEngine.Random.Range(0, ProfileManager.Instance.dataConfig.researchDataConfig.avaiables_food_default.Count)];
-            //    }
-            default:
-                break;
+        /// 80% call food have unlocked, or all food default unlocked
+        if ((UnityEngine.Random.Range(0, 100) >= 20 && avaiables_food_default_unlock.Count > 0) || avaiables_food_default.Count == 0) {
+            return avaiables_food_default_unlock[UnityEngine.Random.Range(0, avaiables_food_default_unlock.Count)];
+        } else {
+            return avaiables_food_default[UnityEngine.Random.Range(0, avaiables_food_default.Count)];
         }
-        return null;
     }
-
-    //public Research GetRandomDrink_Bar() {
-    //    /// 80% call food have unlocked, or all drink bar default unlocked
-    //    if (UnityEngine.Random.Range(0, 100) >= 20 && avaiables_drink_bar_unlock.Count > 0) {
-    //        return avaiables_drink_bar_unlock[UnityEngine.Random.Range(0, avaiables_drink_bar_unlock.Count)];
-    //    } else {
-    //        return avaiables_drink_bar[UnityEngine.Random.Range(0, avaiables_drink_bar.Count)];
-    //    }
-    //}
-    //public Research GetRandomDrink_Coffee() {
-    //    /// 80% call food have unlocked, or all drink bar default unlocked
-    //    if (UnityEngine.Random.Range(0, 100) >= 20 && avaiables_drink_coffee_unlock.Count > 0) {
-    //        return avaiables_drink_coffee_unlock[UnityEngine.Random.Range(0, avaiables_drink_coffee_unlock.Count)];
-    //    } else {
-    //        return avaiables_drink_coffee[UnityEngine.Random.Range(0, avaiables_drink_coffee.Count)];
-    //    }
-    //}
 
     public bool IsHasFreeCustomerCanWatched() {
         if (Free_Customer_NonAds > 0 || Free_Customer_Ads_Watched < 5)

@@ -14,9 +14,9 @@ public class UICardIAPPage : UIShopPage {
     /// <param name="cardIAPs"></param>
     public override void InitData() {
         ShopData shopData = ProfileManager.Instance.dataConfig.shopConfig;
-        List<CardIAP> cardIApList = shopData.cardIAPList;
-        List<CardIAP> cardOfflineTimes = new List<CardIAP>();
-        List<CardIAP> cardFinancials = new List<CardIAP>();
+        List<CardIAPConfig> cardIApList = shopData.cardIAPList;
+        List<CardIAPConfig> cardOfflineTimes = new List<CardIAPConfig>();
+        List<CardIAPConfig> cardFinancials = new List<CardIAPConfig>();
         //Get card for each page
         for (int i = 0; i < cardIApList.Count; i++) {
             if (cardIApList[i].type == CardIAPType.FINANCIAL_MANAGER)
@@ -39,8 +39,8 @@ public class UICardIAPPage : UIShopPage {
     }
     string sSub = "";
     private void OnEnable() {
-        if (shopName == TabName.OfflineTime) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(181) + ": ";
-        else if (shopName == TabName.Financial) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(182) + ": ";
+        if (shopName == TabName.OfflineTime) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(184) + ": ";
+        else if (shopName == TabName.Financial) sSub = ProfileManager.Instance.dataConfig.GameText.GetTextByID(185) + ": ";
     }
     private void Update() {
         if (shopName == TabName.OfflineTime) txtTotalBuff.text = sSub + ProfileManager.Instance.playerData.cardManager.GetExtraHour_OfflineTimeCardIAP().ToString() + "H";

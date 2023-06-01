@@ -23,11 +23,11 @@ public class AllRoomManager : MonoBehaviour {
                     obj.UpdateStaffList();
                 }
                 break;
-            case (int)StaffID.Lobby_Receptioner:
+            case (int)StaffID.Receptionist:
                 if (_LobbyManager != null) _LobbyManager.UpdateStaffList();
                 break;
             case (int)StaffID.Deliver:
-                _DeliverManagers.UpdateStaffList();
+                if (_DeliverManagers) _DeliverManagers.UpdateStaffList();
                 break;
             case (int)StaffID.Manager:
                 break;
@@ -41,7 +41,7 @@ public class AllRoomManager : MonoBehaviour {
         foreach (var obj in _WaiterManagers) {
             obj.UpdateStaffList();
         }
-        _DeliverManagers.UpdateStaffList();
+        if (_DeliverManagers) _DeliverManagers.UpdateStaffList();
     }
 
     public void RegistryRestroomManager(WCManager manager) {

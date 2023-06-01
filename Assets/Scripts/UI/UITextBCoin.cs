@@ -12,7 +12,7 @@ public class UITextBCoin : MonoBehaviour {
         EventManager.AddListener(EventName.UpdateBCoin.ToString(), UpdateValue);
     }
     void UpdateValue() {
-        txtValue.text = ProfileManager.PlayerData.GetBCoin().ToString();
+        txtValue.text = ProfileManager.PlayerData.GetBurgerCoin().ToString();
     }
 
 }

@@ -5,12 +5,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum StaffID {
     Chef = 0,
-    Cleaner = 1,
-    Waiter = 2,
-    Lobby_Receptioner = 3,
-    Bartender = 4,
-    Deliver = 5,
-    Manager = 6,
+    Waiter = 1,
+    Receptionist = 2,
+    Deliver = 3,
+    Manager = 4,
 }
 [Serializable]
 public class StaffConfig {
@@ -90,6 +88,7 @@ public class BaseStaffSetting : MonoBehaviour {
         return staffData.TotalStaff;
     }
     public virtual int GetTotalStaffCurrent() {
+        config.totalStaffCurrent = Mathf.Clamp(config.totalStaffCurrent, 0, GetTotalStaff());
         return config.totalStaffCurrent;
     }
 

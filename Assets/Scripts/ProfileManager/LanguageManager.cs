@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum LANGUAGE_ID { EN = 0, FR, DE, IT, ES, PT, RU, CN, JP, KO, VN, IND }
+public enum LANGUAGE_ID { EN = 0, FR, DE, IT, ES, PT, CN, JP, KO, VN, IND }
 public class LanguageManager {
     public List<LanguageInfo> _LanguageInfoList = new List<LanguageInfo>();
     public LANGUAGE_ID _CurrentLanguageID = LANGUAGE_ID.EN;

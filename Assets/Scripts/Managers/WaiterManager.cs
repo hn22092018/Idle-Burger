@@ -5,18 +5,33 @@ using UnityEngine;
 
 public class WaiterManager : MonoBehaviour {
     [HideInInspector] public int GroupID;
+    public ManagerStaffID managerStaffID;
     public BaseStaffSetting staffSetting;
     public List<TablePosition> tablePositionsNeedWaiter = new List<TablePosition>();
     public List<Waiter> HiredWaiter = new List<Waiter>();
     int countHiredWaiter;
     ChefManager ChefManager;
-
+    float managerRateIcome, managerRateProcessing;
     private void Awake() {
         GroupID = staffSetting.config.GroupID;
         AllRoomManager.instance.RegistryWaiterManager(this);
     }
+    void LoadManagerRate() {
+
+        CardManagerSave saver = ProfileManager.PlayerData.GetCardManager().GetCardManager(GameManager.instance.LobbyRoom.GetManagerStaffID());
+        managerRateIcome = ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity);
+        managerRateProcessing = 1f - ProfileManager.Instance.dataConfig.cardData.GetIncomeRateByLevel(saver.level, saver.rarity) / 100f;
+    }
     private void Start() {
         ChefManager = AllRoomManager.instance._ChefManagers;
+        LoadManagerRate();
+        if (GroupID == 0) {
+            EventManager.AddListener(EventName.UpdateCardManager.ToString(), (x) => {
+                if ((int)x == (int)managerStaffID) {
+                    LoadManagerRate();
+                }
+            });
+        }
     }
     private void Update() {
         CallWaiter();
@@ -54,15 +69,16 @@ public class WaiterManager : MonoBehaviour {
     BigNumber tip;
     public void PaymentFoodOrder(Waiter waiter) {
         if (waiter.servingTable.customer == null) return;
-        foodValue = waiter.servingTable.customer.GetOrderFoodValue() * GameManager.instance.GetTotalIncomeRate();
+        foodValue = waiter.servingTable.customer.GetOrderFoodValue() * GameManager.instance.GetTotalIncomeRate() * managerRateIcome;
         waiter.CalculateSkinBuffIncome(ref foodValue);
         tip = foodValue * GameManager.instance.tipWaiterRateCard * GameManager.instance.tipBaseRate;
         ProfileManager.PlayerData.AddTipWaiter(tip);
-        GameManager.instance.AddCash(foodValue);
-        UIManager.instance.CreatUIMoneyEff(foodValue, waiter.servingTable.customer.GetTransform());
     }
 
     public void OnCheckWork() {
         CallWaiter();
+    }
+    public float GetManagerRateProcessing() {
+        return managerRateProcessing;
     }
 }

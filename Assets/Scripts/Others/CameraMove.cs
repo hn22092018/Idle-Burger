@@ -123,7 +123,7 @@ public class CameraMove : MonoBehaviour {
     }
     public void Story1() {
         ZoomOutCamera(40);
-        _TargetChangeCameraPos = new Vector3(-40, 30, -35);
+        _TargetChangeCameraPos = new Vector3(-40, 50, -35);
         _IsChangeCameraPos = true;
     }
     public void StopFollowStory() {

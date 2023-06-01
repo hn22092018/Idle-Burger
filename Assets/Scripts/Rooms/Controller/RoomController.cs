@@ -42,9 +42,13 @@ public interface IRoomController {
     public Vector3 GetPositionItem(int index);
     public int GetTotalUpgradePoint();
     public void OnLockRoom();
+    public ManagerStaffID GetManagerStaffID();
+    public BigNumber GetMinUpgradeValue();
+    public int GetIndexHasMinUpgradeValue();
 
 }
 public class RoomController<T> : MonoBehaviour, IRoomController {
+    public ManagerStaffID managerStaffID;
     public BaseRoom<T> roomSetting;
     public BaseStaffSetting staffSetting;
     [InlineEditor]
@@ -60,23 +64,25 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
     public int totalEnergyEarn;
     public bool IsLoadStaffFromSave = true;
     int selectedItemIndex;
+    BigNumber minUpgradeValue = new BigNumber(0);
+    int indexItemHasMinUpgrade;
     public List<GameObject> _NextRoomsWhenUnlock;
     public void OnApplyTargetBuildRoom() {
         if (_ObjBuildRoom) _ObjBuildRoom.GetComponent<UIBuildTarget>().target = roomSetting.roomID;
         if (_ObjBuildRoom) _ObjBuildRoom.GetComponent<UIBuildTarget>().GroupID = roomSetting.GroupID;
     }
     public void OnLockRoom() {
-        GetComponent<Collider>().enabled = false;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(true);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(false);
     }
     public void OnHideRoom() {
-        GetComponent<Collider>().enabled = false;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = false;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(false);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(false);
     }
     public void OnLoadRoom() {
-        GetComponent<Collider>().enabled = true;
+        if (GetComponent<Collider>()) GetComponent<Collider>().enabled = true;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(false);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(true);
         LoadFromSaveData(ProfileManager.Instance.playerData.GetRoomData(roomSetting));
@@ -115,7 +121,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
                 }
             }
         } catch (Exception e) {
-            Debug.Log(this.gameObject.name + "_Load Error");
+            Debug.Log(this.gameObject.name + "_Load Error_" + e.Message);
         }
     }
 
@@ -146,18 +152,18 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
                 model.currentModel = t;
             }
         }
-      
+
         totalMoneyEarn = GetTotalMoneyAfterUpgradeItem(index);
         timeService = GetTimeService();
         //totalEnergyUsed = GetTotalEnergyUsed();
         totalEnergyEarn = GetTotalEnergyEarn();
         TriggerQuestUpgrade(index);
-        GameManager.instance.UpdateStarProcess();
+        GameManager.instance.LoadMapUpgradeProcess();
         ProfileManager.Instance.playerData.SaveRoomData(roomSetting);
 
     }
     bool IsReplaceModel(int level) {
-        if (level == 1 || level == 21 || level == 51) return true; 
+        if (level == 1 || level == 26 || level == 51) return true;
         return false;
     }
     public void OnHireStaff() {
@@ -230,7 +236,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
     }
     BigNumber GetTotalMoneyAfterUpgradeItem(int index) {
         T type = roomSetting.modelPositions[index].type;
-        totalMoneyEarn += totalMoneyEarn * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString())/100f);
+        totalMoneyEarn += totalMoneyEarn * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString()) / 100f);
         return totalMoneyEarn;
     }
     public float GetTimeService() {
@@ -308,12 +314,12 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
     public BigNumber GetUpgradePriceItem(int itemIndex) {
         T type = roomSetting.modelPositions[itemIndex].type;
         int level = roomSetting.modelPositions[itemIndex].level;
-        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level)  * RoomPowerRate;
+        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level) * RoomPowerRate;
         return price;
     }
     public BigNumber GetUpgradePriceItemByLevel(int itemIndex, int level) {
         T type = roomSetting.modelPositions[itemIndex].type;
-        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level)  * RoomPowerRate;
+        BigNumber price = roomDataAsset.GetUpgradePrice(type.ToString(), level) * RoomPowerRate;
         return price;
     }
     /// <summary>
@@ -433,6 +439,37 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
             }
         }
         return total;
+    }
+    public ManagerStaffID GetManagerStaffID() {
+        return managerStaffID;
+    }
+    public void CalculateMinUpgrade() {
+        if (roomSetting.modelPositions.Count == 0) return;
+        indexItemHasMinUpgrade = 0;
+        minUpgradeValue = 0;
+        for (int i = 0; i < roomSetting.modelPositions.Count; i++) {
+            int level = roomSetting.modelPositions[i].level;
+            if (level >= GetLevelMaxItem(i)) continue;
+            indexItemHasMinUpgrade = i;
+            minUpgradeValue = GetUpgradePriceItem(i);
+            break;
+        }
+        for (int i = indexItemHasMinUpgrade; i < roomSetting.modelPositions.Count; i++) {
+            int level = roomSetting.modelPositions[i].level;
+            if (level >= GetLevelMaxItem(i)) continue;
+            BigNumber price = GetUpgradePriceItem(i);
+            if (price <= minUpgradeValue) {
+                indexItemHasMinUpgrade = i;
+                minUpgradeValue = price;
+            }
+        }
+    }
+
+    public BigNumber GetMinUpgradeValue() {
+        return minUpgradeValue;
+    }
+    public int GetIndexHasMinUpgradeValue() {
+        return indexItemHasMinUpgrade;
     }
     [Button]
     public void LoadStaffEditor() {

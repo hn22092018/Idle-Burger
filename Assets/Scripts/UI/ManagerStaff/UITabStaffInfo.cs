@@ -40,7 +40,7 @@ public class UITabStaffInfo : MonoBehaviour {
     }
     void OnHire() {
         if (GameManager.instance.IsEnoughCash(price)) {
-            GameManager.instance.ConsumeCash(price);
+            ProfileManager.PlayerData.ConsumeCash(price);
             setting.OnHireStaff();
             ProfileManager.Instance.playerData.SaveStaffData(setting.config);
             LoadStaffInfo2();

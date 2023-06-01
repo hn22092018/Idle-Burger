@@ -1,18 +1,19 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PanelOrderBook : UIPanel {
     public static PanelOrderBook instance;
+    public List<Sprite> sprCharacters;
     [SerializeField] Transform containerTrans;
     [SerializeField] GameObject uiInDeiveryPrefab;
     [SerializeField] List<UIOrderBookInDeivery> uiInDeiveryList;
     [SerializeField] UIOrderBookOffer uiOrderBookOffer;
     [SerializeField] UIOrderBookWaiting uiOrderBookWaiting;
     [SerializeField] Button btnClose;
-    int contentShow = 3;
     public override void Awake() {
         instance = this;
         panelType = UIPanelType.PanelOrderBook;
@@ -60,5 +61,9 @@ public class PanelOrderBook : UIPanel {
     public void OnClose() {
         SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
         UIManager.instance.ClosePanelOrderBook();
+    }
+    public Sprite GetSpriteByName(string name) {
+        Sprite spr = sprCharacters.Where(x => x.name == name).FirstOrDefault();
+        return spr != null ? spr : sprCharacters[0];
     }
 }

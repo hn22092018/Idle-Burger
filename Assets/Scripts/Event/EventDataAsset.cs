@@ -82,11 +82,11 @@ public class EventDataAsset : ScriptableObject {
             checkPoint = 100,
             reward = new ItemReward() { type = ItemType.NormalChest, amount = 1, spr = GetSpriteByName("chest_2") }
         });
-        Events[0].missionCustomers.Add(new MissionTarget() {
-            missionID = 5,
-            checkPoint = 150,
-            reward = new ItemReward() { type = ItemType.Uniform, amount = 1,skinID=51, spr = GetSpriteByName("Skin_Christmas_Waiter") }
-        });
+        //Events[0].missionCustomers.Add(new MissionTarget() {
+        //    missionID = 5,
+        //    checkPoint = 150,
+        //    reward = new ItemReward() { type = ItemType.Uniform, amount = 1,skinID=51, spr = GetSpriteByName("Skin_Christmas_Waiter") }
+        //});
         Events[0].missionCustomers.Add(new MissionTarget() {
             missionID = 6,
             checkPoint = 200,
@@ -102,11 +102,11 @@ public class EventDataAsset : ScriptableObject {
             checkPoint = 350,
             reward = new ItemReward() { type = ItemType.Gem, amount = 30, spr = GetSpriteByName("icon gem") }
         });
-        Events[0].missionCustomers.Add(new MissionTarget() {
-            missionID = 9,
-            checkPoint = 500,
-            reward = new ItemReward() { type = ItemType.Uniform, amount = 1, skinID = 19, spr = GetSpriteByName("Skin_Christmas_Cleaner") }
-        });
+        //Events[0].missionCustomers.Add(new MissionTarget() {
+        //    missionID = 9,
+        //    checkPoint = 500,
+        //    reward = new ItemReward() { type = ItemType.Uniform, amount = 1, skinID = 19, spr = GetSpriteByName("Skin_Christmas_Cleaner") }
+        //});
         Events[0].missionCustomers.Add(new MissionTarget() {
             missionID = 10,
             checkPoint = 650,
@@ -122,11 +122,11 @@ public class EventDataAsset : ScriptableObject {
             checkPoint = 1000,
             reward = new ItemReward() { type = ItemType.Gem, amount = 30, spr = GetSpriteByName("icon gem") }
         });
-        Events[0].missionCustomers.Add(new MissionTarget() {
-            missionID = 13,
-            checkPoint = 1200,
-            reward = new ItemReward() { type = ItemType.Uniform, amount = 1, skinID = 14, spr = GetSpriteByName("Skin_Christmas_Manager") }
-        });
+        //Events[0].missionCustomers.Add(new MissionTarget() {
+        //    missionID = 13,
+        //    checkPoint = 1200,
+        //    reward = new ItemReward() { type = ItemType.Uniform, amount = 1, skinID = 14, spr = GetSpriteByName("Skin_Christmas_Manager") }
+        //});
         Events[0].missionCustomers.Add(new MissionTarget() {
             missionID = 14,
             checkPoint = 1400,
@@ -147,21 +147,17 @@ public class EventDataAsset : ScriptableObject {
             checkPoint = 2000,
             reward = new ItemReward() { type = ItemType.Gem, amount = 50, spr = GetSpriteByName("icon gem") }
         });
-        Events[0].missionCustomers.Add(new MissionTarget() {
-            missionID = 18,
-            checkPoint = 2300,
-            reward = new ItemReward() { type = ItemType.Uniform, amount = 1, skinID = 52, spr = GetSpriteByName("Skin_Christmas_Chef") }
-        });
+        //Events[0].missionCustomers.Add(new MissionTarget() {
+        //    missionID = 18,
+        //    checkPoint = 2300,
+        //    reward = new ItemReward() { type = ItemType.Uniform, amount = 1, skinID = 52, spr = GetSpriteByName("Skin_Christmas_Chef") }
+        //});
         Events[0].missionCustomers.Add(new MissionTarget() {
             missionID = 19,
             checkPoint = 2700,
             reward = new ItemReward() { type = ItemType.AdvancedChest, amount = 1, spr = GetSpriteByName("chest_1") }
         });
-        Events[0].missionCustomers.Add(new MissionTarget() {
-            missionID = 20,
-            checkPoint = 3000,
-            reward = new ItemReward() { type = ItemType.SpecialCharactor, amount = 1, eventStaffID = 0, spr = GetSpriteByName("Santa Claus") }
-        });
+      
     }
     public Sprite GetSpriteByName(string name) {
         foreach (Sprite spr in sprs) {

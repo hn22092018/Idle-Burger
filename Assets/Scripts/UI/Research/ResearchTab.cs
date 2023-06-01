@@ -20,9 +20,8 @@ public class ResearchTab : MonoBehaviour, IPointerClickHandler, IPointerExitHand
     public int index;
     public UnityEvent onSelect, onDeselect;
     UnityAction action;
-    public void InitData(int index, GroupResearchName tabName, PanelResearch panelResearch) {
+    public void InitData(int index, PanelResearch panelResearch) {
         this.index = index;
-        txtName.text = tabName.ToString();
         this.panelResearch = panelResearch;
     }
     public void OnPointerClick(PointerEventData eventData)

@@ -67,7 +67,7 @@ public class TutorialStep {
                 }
                 break;
             case TutorialStepID.Research:
-                if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchName.FrenchFries).ToList().Count > 1) {
+                if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchType.Hamburger).ToList().Count > 1) {
                     FinishTut();
                 }
                 break;
@@ -87,8 +87,8 @@ public class TutorialStep {
         if (IsFinish) return false;
         if (stepID == TutorialStepID.Research) {
             int valueNeedToResearch = 20;
-            valueNeedToResearch = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(ResearchName.FrenchFries).CalulateReseachPrice(0);
-            if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchName.FrenchFries).ToList().Count == 0 &&
+            valueNeedToResearch = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(ResearchType.Hamburger).CalulateReseachPrice(1);
+            if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchType.Hamburger).ToList().Count == 0 &&
                   ProfileManager.PlayerData.researchManager.researchValue >= valueNeedToResearch) {
                 return true;
             }
@@ -143,8 +143,7 @@ public class TutorialStep {
                 }
                 break;
             case TutorialStepID.SelectNewWorld:
-                if (ProfileManager.PlayerData.GetTotalStarEarned() >= ProfileManager.Instance.dataConfig.worldDataAsset.GetDataByLevel(2).starNeededToUnlock) return true;
-                break;
+                return GameManager.instance.IsEnoughConditionToPassMap();
             case TutorialStepID.ClaimQuest:
                 if (ProfileManager.PlayerData.GetQuestManager().hasQuestClaimable) {
                     return true;

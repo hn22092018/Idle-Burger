@@ -2,11 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
+
+[System.Serializable]
+public class CardManagerSave {
+    public ManagerStaffID staffID;
+    public Rarity rarity;
+    public int level;
+    public int cardAmount;
+    public bool isSelected;
+}
+[System.Serializable]
+public class CardNormalSave {
+    public int ID;
+    public int level;
+    public int currentAmount;
+}
+
 [System.Serializable]
 public class CardManager {
-    public List<CardSaveInfor> ownedCards = new List<CardSaveInfor>();
-    public List<CardSaveInfor> ownedChars = new List<CardSaveInfor>();
-
+    public List<CardNormalSave> cardNormals = new List<CardNormalSave>();
+    public List<CardManagerSave> cardManagers = new List<CardManagerSave>();
     float financeRate;
     public List<int> ownerCardIAP_ID = new List<int>();
     public int bonusFinanceIAP;
@@ -17,8 +33,8 @@ public class CardManager {
         string jsonData = GetJsonData();
         if (!string.IsNullOrEmpty(jsonData)) {
             CardManager dataSave = JsonUtility.FromJson<CardManager>(jsonData);
-            ownedCards = dataSave.ownedCards;
-            ownedChars = dataSave.ownedChars;
+            cardNormals = dataSave.cardNormals;
+            cardManagers = dataSave.cardManagers;
             ownerCardIAP_ID = dataSave.ownerCardIAP_ID;
             bonusFinanceIAP = dataSave.bonusFinanceIAP;
             bonusOfflineTimeIAP = dataSave.bonusOfflineTimeIAP;
@@ -53,7 +69,7 @@ public class CardManager {
         financeRate += bonusFinanceIAP / 100f;
         return financeRate;
     }
-   
+
     #region CARD IAP ============================================================
     /// <summary>
     ///  Get Extra Hour From Offine Time Card IAP. Default Value is 1 Hour
@@ -63,7 +79,7 @@ public class CardManager {
         /// default value is 1 hour
         int value = 1;
         for (int i = 0; i < ownerCardIAP_ID.Count; i++) {
-            CardIAP card = GetCardIAPByID(ownerCardIAP_ID[i]);
+            CardIAPConfig card = GetCardIAPByID(ownerCardIAP_ID[i]);
             if (card.type == CardIAPType.OFFLINE_TIME) value += card.extraValue;
         }
         value += bonusOfflineTimeIAP;
@@ -77,7 +93,7 @@ public class CardManager {
     public float GetFinanceRate_CardIAP() {
         float rate = 100f;
         for (int i = 0; i < ownerCardIAP_ID.Count; i++) {
-            CardIAP card = GetCardIAPByID(ownerCardIAP_ID[i]);
+            CardIAPConfig card = GetCardIAPByID(ownerCardIAP_ID[i]);
             if (card.type == CardIAPType.FINANCIAL_MANAGER) rate += card.extraValue;
         }
         return rate /= 100f;
@@ -105,7 +121,7 @@ public class CardManager {
             return false;
         return true;
     }
-    CardIAP GetCardIAPByID(int id) {
+    CardIAPConfig GetCardIAPByID(int id) {
         return ProfileManager.Instance.dataConfig.shopConfig.GetCardByID(id);
     }
 
@@ -124,7 +140,7 @@ public class CardManager {
     public void Calculate_FinanceRate_FinanceCardIAP() {
         financeRate = 100f;
         for (int i = 0; i < ownerCardIAP_ID.Count; i++) {
-            CardIAP card = GetCardIAPByID(ownerCardIAP_ID[i]);
+            CardIAPConfig card = GetCardIAPByID(ownerCardIAP_ID[i]);
             if (card.type == CardIAPType.FINANCIAL_MANAGER) financeRate += card.extraValue;
         }
         financeRate /= 100f;
@@ -136,8 +152,8 @@ public class CardManager {
     /// </summary>
     /// <param name="cardID"></param>
     /// <returns></returns>
-    public CardSaveInfor GetOwnerCardByID(int cardID) {
-        foreach (CardSaveInfor ownedCard in ownedCards) {
+    public CardNormalSave GetOwnerCardByID(int cardID) {
+        foreach (CardNormalSave ownedCard in cardNormals) {
             if (ownedCard.ID == cardID)
                 return ownedCard;
         }
@@ -149,9 +165,9 @@ public class CardManager {
     /// </summary>
     /// <param name="cardID"></param>
     public void UpgradeCard(int cardID) {
-        foreach (CardSaveInfor card in ownedCards) {
+        foreach (CardNormalSave card in cardNormals) {
             if (card.ID == cardID) {
-                CardInfo cardinfo = ProfileManager.Instance.dataConfig.cardData.GetCard(card.ID);
+                CardNormalConfig cardinfo = ProfileManager.Instance.dataConfig.cardData.GetCard(card.ID);
                 card.currentAmount = card.currentAmount - cardinfo.cardAmountLevel[card.level];
                 //card.timeBlock = 15 * 60f * card.level + 5 * 60f;
                 card.level += 1;
@@ -169,8 +185,8 @@ public class CardManager {
     /// <returns></returns>
     public void AddCard(int cardID, int amount = 1) {
         bool haveCard = false;
-        CardSaveInfor cardInfor = null;
-        foreach (CardSaveInfor card in ownedCards) {
+        CardNormalSave cardInfor = null;
+        foreach (CardNormalSave card in cardNormals) {
             if (cardID == card.ID) {
                 card.currentAmount += amount;
                 haveCard = true;
@@ -178,11 +194,11 @@ public class CardManager {
             }
         }
         if (!haveCard) {
-            cardInfor = new CardSaveInfor();
+            cardInfor = new CardNormalSave();
             cardInfor.ID = cardID;
             cardInfor.currentAmount = amount;
             cardInfor.level = 1;
-            ownedCards.Add(cardInfor);
+            cardNormals.Add(cardInfor);
         }
         IsChangeData = true;
     }
@@ -288,26 +304,60 @@ public class CardManager {
     }
 
     float GetCardValueByID(int cardID) {
-        CardSaveInfor cardSave = GetOwnerCardByID(cardID);
+        CardNormalSave cardSave = GetOwnerCardByID(cardID);
         if (GetOwnerCardByID(cardID) != null) {
-            CardInfo card = ProfileManager.Instance.dataConfig.cardData.GetCard(cardID);
+            CardNormalConfig card = ProfileManager.Instance.dataConfig.cardData.GetCard(cardID);
             return card.cardValues[cardSave.level - 1];
         }
         return 0;
     }
     public int GetCardLevelByID(int cardID) {
-        foreach (var cardSaved in ownedCards) {
+        foreach (var cardSaved in cardNormals) {
             if (cardSaved.ID == cardID) return cardSaved.level;
         }
         return 0;
     }
     public int GetCardAmountByID(int cardID) {
-        foreach (var cardSaved in ownedCards) {
+        foreach (var cardSaved in cardNormals) {
             if (cardSaved.ID == cardID) return cardSaved.currentAmount;
         }
         return 0;
     }
     #endregion CARD NORMAL ============================================================
-  
+    #region CARD MANAGER =========
+    public CardManagerSave GetCardManager(ManagerStaffID id) {
+        CardManagerSave card = cardManagers.Where(x => x.isSelected && x.staffID == id).FirstOrDefault();
+        if (card == null) {
+            card = new CardManagerSave() {
+                staffID = id,
+                level = 0,
+                isSelected = true,
+                rarity = Rarity.Rare
+            };
+            cardManagers.Add(card);
+            IsChangeData = true;
+        }
+        return card;
+    }
+    public void AddCardManager(int amount, ManagerStaffID id, Rarity rarity) {
+        CardManagerSave card = cardManagers.Where(x => x.rarity == rarity && x.staffID == id).FirstOrDefault();
+        card.cardAmount += amount;
+        IsChangeData = true;
+        SaveData();
+    }
+    public void ConsumeCardManager(int amount, ManagerStaffID id, Rarity rarity) {
+        CardManagerSave card = cardManagers.Where(x => x.rarity == rarity && x.staffID == id).FirstOrDefault();
+        card.cardAmount -= amount;
+        IsChangeData = true;
+        SaveData();
+    }
+    public void LevelUpCardManager(ManagerStaffID id, Rarity rarity) {
+        CardManagerSave card = cardManagers.Where(x => x.rarity == rarity && x.staffID == id).FirstOrDefault();
+        card.level++;
+        if (card.level == 1) EventManager.TriggerEvent(EventName.UpdateCardManager.ToString(), (int)id);
+        IsChangeData = true;
+        SaveData();
+    }
+    #endregion
 }
 

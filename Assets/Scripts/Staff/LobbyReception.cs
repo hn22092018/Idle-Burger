@@ -19,6 +19,6 @@ public class LobbyReception : BaseStaff {
         return isFinish;
     }
     public void FinishOrder() {
-        DropReputation();
+        //DropReputation();
     }
 }

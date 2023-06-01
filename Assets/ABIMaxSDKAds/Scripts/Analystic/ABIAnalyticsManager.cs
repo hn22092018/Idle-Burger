@@ -153,24 +153,13 @@ namespace SDK {
 
         public void TrackUnlockRoom(RoomID roomID, int world) {
             string s = world + "_" + roomID.ToString();
-            string starCurrent = ProfileManager.PlayerData.GetTotalStarEarned()+"";
             string day = ProfileManager.PlayerData.GetCustomTimeManager().DayRealPlayed + "";
             Parameter[] parameters = new Parameter[] {
                 new Parameter("roomID",s),
-                new Parameter("star",starCurrent),
-                 new Parameter("day",day)
             };
-            if (world == -1) {
-                ABIFirebaseManager.Instance.LogFirebaseEvent("OpenRoom_Christmas", parameters);
-            } else ABIFirebaseManager.Instance.LogFirebaseEvent("OpenRoom", parameters);
+           ABIFirebaseManager.Instance.LogFirebaseEvent("OpenRoom", parameters);
         }
-        public void TrackMissionChristmas(int target) {
-            string s = "MissionTarget_" + target.ToString();
-            Parameter[] parameters = new Parameter[] {
-                new Parameter("missionTarget",s)
-            };
-            ABIFirebaseManager.Instance.LogFirebaseEvent("Mission_Christmas", parameters);
-        }
+      
         public void TrackSessionStart(int id) {
             string eventName = "session_start_" + id;
             ABIAppsflyerManager.SendEvent(eventName, null);
@@ -189,7 +178,7 @@ namespace SDK {
             };
             ABIFirebaseManager.Instance.LogFirebaseEvent("WareHouse", parameters);
         }
-        public void TrackEventResearch(ResearchAction action, ResearchName name) {
+        public void TrackEventResearch(ResearchAction action, ResearchType name) {
             Parameter[] parameters = new Parameter[] {
                 new Parameter("action",action.ToString()+"_"+name.ToString())
             };

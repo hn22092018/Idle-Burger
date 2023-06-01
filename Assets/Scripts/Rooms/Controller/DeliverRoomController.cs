@@ -7,32 +7,24 @@ public class DeliverRoomController : RoomController<DeliverModelType> {
 
     public override void TriggerQuestUpgrade(int indexItem) {
         base.TriggerQuestUpgrade(indexItem);
+        int level = roomSetting.modelPositions[indexItem].level;
+        if (level < 10 || (level > 10 && level % 25 != 0)) return;
         if (questManager == null) questManager = ProfileManager.PlayerData.GetQuestManager();
         DeliverModelType type = roomSetting.modelPositions[indexItem].type;
-        int level = roomSetting.modelPositions[indexItem].level;
         switch (type) {
             case DeliverModelType.Deliver_StaffTable:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_StaffTable, i);
-                }
-                questManager.TriggerQuest(QuestType.Buy_DeliverStaffTables, GetTotalTableUnlock());
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_StaffTable, level);
                 break;
-           
+
             case DeliverModelType.Deliver_BakeryGlass:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_BakeryGlass, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_BakeryGlass, level);
                 break;
-           
+
             case DeliverModelType.Deliver_Fridge:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_Fridge, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_Fridge, level);
                 break;
             case DeliverModelType.Deliver_Decor:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_Decor, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_Decor, level);
                 break;
 
         }

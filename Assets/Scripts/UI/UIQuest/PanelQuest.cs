@@ -72,7 +72,7 @@ public class PanelQuest : UIPanel {
         if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() == TutorialStepID.ClaimQuest) {
             Tutorials.instance.OnCloseTutorial();
             Tutorials.instance.FinishTutorial();
-            string text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(428);
+            string text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(17);
             Tutorials.instance.ShowIntro(new List<string> { text });
 
         }

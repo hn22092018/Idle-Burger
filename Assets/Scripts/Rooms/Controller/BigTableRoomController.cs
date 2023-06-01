@@ -2,33 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigTableRoomController : RoomController<BigTableModelType> ,IOnLoadRoomCallback{
+public class BigTableRoomController : RoomController<BigTableModelType>, IOnLoadRoomCallback {
     public override void TriggerQuestUpgrade(int indexItem) {
         base.TriggerQuestUpgrade(indexItem);
-        BigTableModelType type = roomSetting.modelPositions[indexItem].type;
         int level = roomSetting.modelPositions[indexItem].level;
+        if (level < 10 || (level > 10 && level % 25 != 0)) return;
+        BigTableModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case BigTableModelType.BigTable_Table:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Table, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Table, level);
                 break;
             case BigTableModelType.BigTable_Chair:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Chair, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Chair, level);
                 break;
 
             case BigTableModelType.BigTable_Plate:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Plates, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Plates, level);
                 break;
 
             case BigTableModelType.BigTable_Decor:
-                for (int i = 1; i <= level; i++) {
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Decor, i);
-                }
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Decor, level);
                 break;
         }
     }
@@ -55,6 +48,6 @@ public class BigTableRoomController : RoomController<BigTableModelType> ,IOnLoad
 
     public void OLoadRoomCallback() {
         Debug.Log("xxxxxxx");
-       OnHireStaff();
+        OnHireStaff();
     }
 }

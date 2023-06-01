@@ -23,8 +23,8 @@ public class CardOpenGetAnimation : UIPanel
     [SerializeField] Text cardAmountTxt;
     [SerializeField] GameObject upgradeAlert;
     [SerializeField] Slider amountSlider;
-    CardSaveInfor cardSaveInfo;
-    CardInfo openingCard;
+    CardNormalSave cardSaveInfo;
+    CardNormalConfig openingCard;
     int cardAmount;
     bool sliderRun;
     float sliderValue;
@@ -76,7 +76,7 @@ public class CardOpenGetAnimation : UIPanel
                 break;
         }
         cardTitleTxt.color = cardRarityTxt.color;
-        cardOpenedTxt.text = card.amount.ToString() +" "+ ProfileManager.Instance.dataConfig.GameText.GetTextByID(26);
+        cardOpenedTxt.text = card.amount.ToString() +" "+ ProfileManager.Instance.dataConfig.GameText.GetTextByID(85);
         cardLevelTxt.text = "";
         cardUpgaredTxt.text = "";
         cardDescTxt.text = card.card.GetDes();
@@ -108,7 +108,7 @@ public class CardOpenGetAnimation : UIPanel
     {
         if(cardSaveInfo.level == openingCard.cardAmountLevel.Count)
         {
-            cardUpgaredTxt.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(28);
+            cardUpgaredTxt.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(87);
             cardAmountTxt.text = "";
             sliderRun = false;
             amountSlider.value = 1;
@@ -116,7 +116,7 @@ public class CardOpenGetAnimation : UIPanel
         }
         if (cardAmount >= openingCard.cardAmountLevel[cardSaveInfo.level])
         {
-            cardUpgaredTxt.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(29);
+            cardUpgaredTxt.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(153);
             cardAmountTxt.text = cardAmount.ToString() + "/" + openingCard.cardAmountLevel[cardSaveInfo.level].ToString();
             sliderRun = false;
             amountSlider.value = 1;

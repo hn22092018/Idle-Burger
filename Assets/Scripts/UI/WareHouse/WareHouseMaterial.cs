@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum WareHouseMaterialType {
-    Biscuit,
-    Melon,
-    Candy,
-    Sushi,
-    Potato
+    Cheese,
+    Pepper,
+    Sugar,
+    Carot,
+    Flour
 }
 [System.Serializable]
 public class WareHouseMaterial

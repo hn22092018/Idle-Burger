@@ -2,6 +2,9 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
 public enum UIPanelType {
     PanelRoomInfo,
     PanelConfirmOpenChest,
@@ -39,7 +42,9 @@ public enum UIPanelType {
     PanelStarReward,
     PanelChristmasPack,
     PanelWareHouse,
-    PanelPremiumResearcherPack
+    PanelPremiumResearcherPack,
+    PanelManagerCardLevelUp,
+    PanelManagerCardBuyResources
 }
 public class UIPanel : MonoBehaviour {
     public bool isRegisterInUI = true;
@@ -57,10 +62,13 @@ public class UIPanel : MonoBehaviour {
             Content.offsetMax = new Vector2(Content.offsetMax.x, -100);
         } else Content.offsetMax = new Vector2(Content.offsetMax.x, 0);
     }
-    protected void ScaleEffectButton(Transform btn) {
+    protected void ScaleEffectButton(Button btn, UnityAction callback = null) {
+        btn.interactable = false;
         btn.transform.localScale = Vector3.one;
-        btn.DOScale(new Vector3(1.1f, 1.05f, 1), 0.2f).OnComplete(() => {
+        btn.transform.DOScale(new Vector3(1.15f, 1.05f, 1), 0.2f).OnComplete(() => {
             btn.transform.localScale = Vector3.one;
+            btn.interactable = true;
+            if (callback != null) callback();
         });
     }
 }
