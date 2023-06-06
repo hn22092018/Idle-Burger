@@ -10,12 +10,19 @@ public class Test : MonoBehaviour {
     public float powerRate;
     public BigNumber b;
     private void Start() {
-
+        BigNumber a = 100;
+        for (int k = 1; k <= 50; k++) {
+            a += a * 8 / 100;
+            Debug.Log( a);
+        }
     }
     [Button]
     void TestBig() {
-        b += (b * 0.3f);
-        Debug.Log(b);
+        BigNumber a = 10000;
+        for (int k = 1; k <= 50; k++) {
+            a += a * 8f;
+            Debug.Log(a);
+        }
     }
     [Button]
     public void Calculate() {

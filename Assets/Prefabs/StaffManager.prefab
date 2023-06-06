@@ -88,7 +88,6 @@ MonoBehaviour:
     workEfficiency: 0
     incomeX2Chance: 0
     specialSkillChance: 0
-    reputationDropChance: 0
   _SleepTime: 0
   _SleepObject: {fileID: 0}
   skinnedMeshRenderer: {fileID: 3617320717051301517}
@@ -254,7 +253,11 @@ PrefabInstance:
     - target: {fileID: -8307784609717655634, guid: 362f574bf0d66df4f8867b4c4efab9ed, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2401681462953184753, guid: 639109a883344b040a1363f56469a541, type: 3}
+      objectReference: {fileID: 5986981552894383849, guid: b433b5c2e41c86147b265c534d84bf49, type: 3}
+    - target: {fileID: -8307784609717655634, guid: 362f574bf0d66df4f8867b4c4efab9ed, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 362f574bf0d66df4f8867b4c4efab9ed, type: 3}
       propertyPath: m_Name
       value: WorkOBJ

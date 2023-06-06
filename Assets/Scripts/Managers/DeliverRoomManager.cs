@@ -189,7 +189,7 @@ public class DeliverRoomManager : MonoBehaviour {
 
     BigNumber roomValue;
     public void Payment(DeliverStaff staff) {
-        roomValue = (roomController.GetTotalMoneyEarn() + staff.customerOrder.GetOrderFoodValue()) * GameManager.instance.GetTotalIncomeRate() * managerRateIcome;
+        roomValue = (roomController.GetTotalMoneyEarn() + staff.customerOrder.GetOrderFoodValue()) * (GameManager.instance.GetTotalIncomeRate() * managerRateIcome);
         staff.CalculateSkinBuffIncome(ref roomValue);
         UIManager.instance.CreatUIMoneyEff(roomValue, staff.transform);
         ProfileManager.PlayerData.AddCash(roomValue);

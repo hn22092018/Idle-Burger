@@ -155,6 +155,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
 
         totalMoneyEarn = GetTotalMoneyAfterUpgradeItem(index);
         timeService = GetTimeService();
+        if(roomSetting.roomID==RoomID.Power) EventManager.TriggerEvent(EventName.UpdateEnergy.ToString());
         //totalEnergyUsed = GetTotalEnergyUsed();
         totalEnergyEarn = GetTotalEnergyEarn();
         TriggerQuestUpgrade(index);
@@ -228,7 +229,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
             T type = roomSetting.modelPositions[i].type;
             int level = roomSetting.modelPositions[i].level;
             for (int k = 1; k <= level; k++) {
-                total += total * roomDataAsset.GetProfitIncreaseRateByType(type.ToString()) / 100;
+                total += total * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString()) / 100f);
             }
             //total += GetMoneyEarnItem(i);
         }

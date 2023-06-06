@@ -19,6 +19,10 @@ public class UITabUpgrade : MonoBehaviour {
     public GameObject grMoney;
     public Button btnEvolve;
     public Text txtEvolvePrice;
+    public GameObject objEvolveRequire;
+    public Text txtEvolveRequireLevel;
+    public Text txtLevelFirst, txtLevelLast;
+    public Image imgProcessLevel;
     public Transform transProcessUpgrade;
     public Transform objGemEff1, objGemEff2;
     public GameObject objCompleteReward1, objCompleteReward2;
@@ -31,6 +35,7 @@ public class UITabUpgrade : MonoBehaviour {
     float timeRebuildLayout = 0;
     IRoomController currentRoom;
     float dtTimeUpgradeHover;
+    string sEvolve;
     private void Awake() {
         btnEvolve.onClick.AddListener(() => {
             SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
@@ -39,6 +44,7 @@ public class UITabUpgrade : MonoBehaviour {
     }
     private void OnEnable() {
         IsUpgradeButtonSelected = false;
+        sEvolve = ProfileManager.Instance.dataConfig.GameText.GetTextByID(198);
     }
     /// <summary>
     /// update status upgrade button & UIUpgradeItems when game money change
@@ -128,7 +134,10 @@ public class UITabUpgrade : MonoBehaviour {
         btnUpgrade.gameObject.SetActive(level != maxLevel);
         btnEvolve.gameObject.SetActive(false);
         btnMaxUpgrade.gameObject.SetActive(level == maxLevel);
+        objEvolveRequire.SetActive(true && level < maxLevel - 25);
+        txtEvolveRequireLevel.text = sEvolve + ": Lv " + ((level / 25) + 1) * 25;
         if (level > 0 && level % 25 == 0 && level < maxLevel) {
+            objEvolveRequire.SetActive(false);
             IsUpgradeButtonSelected = false;
             btnUpgrade.gameObject.SetActive(false);
             btnEvolve.gameObject.SetActive(true);
@@ -136,7 +145,23 @@ public class UITabUpgrade : MonoBehaviour {
             txtEvolvePrice.text = evolvePrice + "";
             btnEvolve.interactable = GameManager.instance.IsEnoughBurgetCoin(evolvePrice);
         }
-        if (level == maxLevel) IsUpgradeButtonSelected = false;
+
+        if (level % 25 == 0 && level > 0) {
+            imgProcessLevel.fillAmount = 1;
+            txtLevelFirst.text = "Lv " + ((level / 25) - 1) * 25;
+            txtLevelLast.text = "Lv " + ((level / 25)) * 25;
+        } else {
+            if (level > 0)
+                txtLevelFirst.text = "Lv " + (level / 25) * 25 + 1;
+            else txtLevelFirst.text = "Lv 0";
+            txtLevelLast.text = "Lv " + ((level / 25) + 1) * 25;
+            imgProcessLevel.fillAmount = (float)((level-1) % 25) / 25f;
+        }
+        if (level == maxLevel) {
+            IsUpgradeButtonSelected = false;
+            txtLevelFirst.text = "";
+            txtLevelLast.text = "";
+        }
         string strLevel = ProfileManager.Instance.dataConfig.GameText.GetTextByID(86).ToUpper() + ": ";
         txtItemLevel.text = strLevel + level.ToString();
         priceUpgrade = currentRoom.GetUpgradePriceItem(index);

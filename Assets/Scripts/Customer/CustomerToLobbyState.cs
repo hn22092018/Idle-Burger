@@ -38,7 +38,7 @@ public class CustomerToLobbyState : State<Customer> {
                 IsWating = true;
                 isMoveToQueue = false;
                 go.OnDisableMove();
-                go.AIRotateToTarget2(queuePosition.transform);
+                go.transform.localEulerAngles = queuePosition.transform.localEulerAngles;
                 queuePosition = null;
             } else {
                 if (IsWating) {

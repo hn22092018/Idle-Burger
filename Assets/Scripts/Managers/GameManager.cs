@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour {
             UpdateStaffByID((int)x);
         });
         EventManager.AddListener(EventName.UpgradeCard.ToString(), LoadCardRate);
-        //LoadRoomCostServer();
     }
     private void Start() {
         AllRoomManager.instance.UpdateStaffListAll();
@@ -154,14 +153,6 @@ public class GameManager : MonoBehaviour {
             if (IsUnlockRestroom(WCRooms[i])) WCRooms[i].OnLoadRoom();
             else WCRooms[i].OnLockRoom();
         }
-        //// Load CleanRoom
-        //if (IsUnlockCleanRoom()) {
-        //    CleanRoom.OnLoadRoom();
-        //    //objCashTipClean.SetActive(true);
-        //} else {
-        //    CleanRoom.OnLockRoom();
-        //    //objCashTipClean.SetActive(false);
-        //}
         // Load DeliverRoom
         if (DeliverRoom != null) {
             if (IsUnlockDeliverRoom()) DeliverRoom.OnLoadRoom();
@@ -681,14 +672,14 @@ public class GameManager : MonoBehaviour {
             if (IsUnlockSmallTable(i)) {
                 // small table has 2 customer
                 customerPerTurn += 2;
-                profit += turn * (SmallTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn()) * 2;
+                profit += 2*turn * (SmallTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn()) ;
 
             }
         }
         for (int i = 0; i < BigTablesRoom.Length; i++) {
             if (IsUnlockBigTable(i)) {
                 customerPerTurn += 2;
-                profit += turn * (BigTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn()) * 4;
+                profit += 4*turn * (BigTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn());
             }
         }
         //ProfileManager.PlayerData.researchManager.AddResearchValue(customerPerTurn);
@@ -714,7 +705,7 @@ public class GameManager : MonoBehaviour {
         int timePerTurn = 8;
         int totalMinutes = time / 60;
         int turn = totalMinutes / timePerTurn;
-        profit += DeliverRoom.GetTotalMoneyEarn() * customerPerTurn * turn;
+        profit += DeliverRoom.GetTotalMoneyEarn() * (customerPerTurn * turn);
         return profit;
     }
 
@@ -1050,7 +1041,7 @@ public class GameManager : MonoBehaviour {
     public int GetRewardValueForWareHouse(ItemType itemType) {
 
         switch (itemType) {
-            case ItemType.Gem: {
+            case ItemType.BurgerCoin: {
                     int num = Random.Range(0, 4);
                     int num1 = 10 + num * 5;
                     return num1;

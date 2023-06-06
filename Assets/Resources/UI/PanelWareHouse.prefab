@@ -2585,7 +2585,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -2.5, y: 282.77734}
-  m_SizeDelta: {x: -145, y: 500}
+  m_SizeDelta: {x: -145, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5022015171676726695
 CanvasRenderer:
@@ -3058,9 +3058,9 @@ RectTransform:
   m_Father: {fileID: 1896544234691677234}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 840, y: -90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4039509554008206821
@@ -3111,7 +3111,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 607897963738443927}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -6857,9 +6857,9 @@ RectTransform:
   m_Father: {fileID: 1896544234691677234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6479447942032070435
@@ -6910,7 +6910,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 895113255035135280}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -7350,10 +7350,10 @@ RectTransform:
   m_Father: {fileID: 2322049637425013017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 647.5, y: -250}
-  m_SizeDelta: {x: 1295, y: 500}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4958647963336978754
 CanvasRenderer:
@@ -7382,9 +7382,9 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 50
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -10590,7 +10590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9050653900216096082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10680,11 +10680,10 @@ MonoBehaviour:
   itemRewards: []
   timeWaitClaim: 0.15
   timeNormal: 0
-  valiAnimUI: {fileID: 0}
   wareHousePreviewRewardPanel: {fileID: 7316035520137477445}
   objTitle: {fileID: 5566422584622063612}
   objRequire: {fileID: 198561999666004163}
-  objChestCount: {fileID: 519045130596901874}
+  objChestCount: {fileID: 2402719897445408041}
 --- !u!1 &9171104642784912037
 GameObject:
   m_ObjectHideFlags: 0
@@ -20943,9 +20942,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5382814936031044292}
     m_Modifications:
+    - target: {fileID: 802340888605456321, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 802340888605456321, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -481
+      objectReference: {fileID: 0}
     - target: {fileID: 2018565095085936793, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3692573438625619373, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -21050,11 +21057,11 @@ PrefabInstance:
     - target: {fileID: 6902477006977930530, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 3045b46e47344a9488364e564c0ed87e, type: 2}
     - target: {fileID: 9055715495637853132, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: e0079cc018d839e428194eb050ab02a9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9d0112eb0ae744c99374617eff6c1e, type: 3}
 --- !u!114 &2761981283678588089 stripped

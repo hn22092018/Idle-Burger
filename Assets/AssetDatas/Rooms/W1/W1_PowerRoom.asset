@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92ef2347569aea43835552dd4b813d5, type: 3}
   m_Name: W1_PowerRoom
   m_EditorClassIdentifier: 
-  roomID: 25
+  roomID: 24
   timeService: 0
   profitBase: 30
   datas:
@@ -22,67 +22,127 @@ MonoBehaviour:
     - {fileID: 5746217983542473752, guid: 1ffcdc61cc7f3e5468043eba90c2998a, type: 3}
     - {fileID: 2176460974789248342, guid: afe7f14f2edd599499897b13985e8676, type: 3}
     - {fileID: 1437768778216667411, guid: 3a1e5d1d88694244da239bf69f6ea90c, type: 3}
-    profitIncreaseRate: 8
+    profitIncreaseRate: 2
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.1
+    - value: 0.5
       exp: 3
-    - value: 112.99999952316286
+    - value: 564.9999976158142
       exp: 0
-    - value: 127.68999892234804
+    - value: 638.4499946117401
       exp: 0
-    - value: 144.28969817337992
+    - value: 721.4484908668994
       exp: 0
-    - value: 163.04735824789242
+    - value: 815.2367912394618
       exp: 0
-    - value: 184.24351404264803
+    - value: 921.2175702132399
       exp: 0
-    - value: 208.19516998965074
-      exp: 0
-    - value: 235.2605410955534
-      exp: 0
-    - value: 265.8444103161657
-      exp: 0
-    - value: 300.4041823896223
-      exp: 0
-    - value: 339.4567246678344
-      exp: 0
-    energyEarns: 000000002100000024000000270000002b00000030000000350000003a00000040000000460000004d000000
-    levelMax: 10
+    - value: 1.0409758499482535
+      exp: 3
+    - value: 1.1763027054777668
+      exp: 3
+    - value: 1.3292220515808282
+      exp: 3
+    - value: 1.5020209119481112
+      exp: 3
+    - value: 1.6972836233391717
+      exp: 3
+    - value: 1.917930486279985
+      exp: 3
+    - value: 2.167261440350978
+      exp: 3
+    - value: 2.4490054172622973
+      exp: 3
+    - value: 2.767376109828628
+      exp: 3
+    - value: 3.127134990910472
+      exp: 3
+    - value: 3.533662524817492
+      exp: 3
+    - value: 3.9930386361939503
+      exp: 3
+    - value: 4.512133639858872
+      exp: 3
+    - value: 5.098710991524996
+      exp: 3
+    - value: 5.761543396110697
+      exp: 3
+    - value: 6.510544010131907
+      exp: 3
+    - value: 7.356914700404362
+      exp: 3
+    - value: 8.313313576376427
+      exp: 3
+    - value: 9.394044301664394
+      exp: 3
+    - value: 10.615270016086471
+      exp: 3
+    energyEarns: 000000002a0000002c0000002e000000300000003300000035000000380000003b0000003e0000004100000044000000470000004b0000004f00000053000000570000005b00000060000000650000006a0000006f000000750000007a0000008100000087000000
+    levelMax: 25
     sprUI: {fileID: 21300000, guid: f9ecebc5a2bba7a4b96023fc4eaaec18, type: 3}
   - name: Small Generator
-    type: 2
+    type: 1
     models3D:
     - {fileID: 2324723213390452642, guid: 66018af88c44bf24d82f95bb0b5f0be4, type: 3}
     - {fileID: 2153933142748741737, guid: 5eaa81ee2dc4b06419963b4baf05872d, type: 3}
     - {fileID: 971183873698963305, guid: 74477fd62f968f946bfa4a0c5587e7b4, type: 3}
-    profitIncreaseRate: 0
+    profitIncreaseRate: 2
     reduceTimes:
     - 0
     upgradePrices:
-    - value: 0.1
+    - value: 0.2
       exp: 3
-    - value: 107.99999982118608
+    - value: 225.9999990463257
       exp: 0
-    - value: 116.63999961376192
+    - value: 255.37999784469608
       exp: 0
-    - value: 125.9711993742943
+    - value: 288.57939634675984
       exp: 0
-    - value: 136.0488950989838
+    - value: 326.09471649578484
       exp: 0
-    - value: 146.9328064636281
+    - value: 368.48702808529606
       exp: 0
-    - value: 158.68743071798204
+    - value: 416.3903399793015
       exp: 0
-    - value: 171.38242489166535
+    - value: 470.5210821911068
       exp: 0
-    - value: 185.09301857654293
+    - value: 531.6888206323314
       exp: 0
-    - value: 199.90045973169427
+    - value: 600.8083647792446
       exp: 0
-    - value: 215.89249615277993
+    - value: 678.9134493356688
       exp: 0
-    energyEarns: 000000000b0000000c0000000d0000000e000000100000001100000013000000150000001700000019000000
-    levelMax: 10
+    - value: 767.1721945119941
+      exp: 0
+    - value: 866.9045761403913
+      exp: 0
+    - value: 979.602166904919
+      exp: 0
+    - value: 1.1069504439314515
+      exp: 3
+    - value: 1.2508539963641891
+      exp: 3
+    - value: 1.413465009926997
+      exp: 3
+    - value: 1.5972154544775803
+      exp: 3
+    - value: 1.804853455943549
+      exp: 3
+    - value: 2.0394843966099985
+      exp: 3
+    - value: 2.304617358444279
+      exp: 3
+    - value: 2.6042176040527636
+      exp: 3
+    - value: 2.942765880161746
+      exp: 3
+    - value: 3.3253254305505715
+      exp: 3
+    - value: 3.7576177206657584
+      exp: 3
+    - value: 4.246108006434589
+      exp: 3
+    energyEarns: 000000000a0000000b0000000b0000000c0000000c0000000d0000000e0000000e0000000f000000100000001100000011000000120000001300000014000000150000001600000018000000190000001a0000001b0000001d0000001e0000002000000021000000
+    levelMax: 25
     sprUI: {fileID: 21300000, guid: 5848de2170f20fa4db69ddf9c34da65c, type: 3}

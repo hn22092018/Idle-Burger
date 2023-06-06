@@ -27,9 +27,9 @@ public class WareHouseTabCreate : MonoBehaviour
         txtName.text = materialType.ToString();
     }
     private void OnEnable() {
-        sOnCoolDown = ProfileManager.Instance.dataConfig.GameText.GetTextByID(478);
-        sOutOfChance = ProfileManager.Instance.dataConfig.GameText.GetTextByID(479);
-        sOutOfEnergy = ProfileManager.Instance.dataConfig.GameText.GetTextByID(480);
+        sOnCoolDown = ProfileManager.Instance.dataConfig.GameText.GetTextByID(222);
+        sOutOfChance = ProfileManager.Instance.dataConfig.GameText.GetTextByID(223);
+        sOutOfEnergy = ProfileManager.Instance.dataConfig.GameText.GetTextByID(224);
     }
     private void Start()
     {

@@ -31,7 +31,7 @@ public class LoadScene : MonoBehaviour {
         }
         startLoad = true;
         m_SliderBar.DOScaleX(1, loadTime);
-        yield return new WaitForSeconds(loadTime);
+        yield return new WaitForSeconds(loadTime) ;
         m_AsyncLoad.allowSceneActivation = true;
     }
     private void Update() {

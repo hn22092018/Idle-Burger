@@ -7,7 +7,7 @@ public class BigNumber {
 
     public double value;
     public int exp;
-    const int MAX_MAGNITUDE = 12; // Max power magnitude diff for operands.
+    const int MAX_MAGNITUDE = 26; // Max power magnitude diff for operands.
     const int TEN_CUBED = (int)1E3; // Used for normalizing numbers.
     bool negative;
     int minValueToConvert = 10000;
@@ -16,17 +16,31 @@ public class BigNumber {
     // Note: Any name added to the list will be picked up automatically by the BigNum class.
     List<string> powTenToName = new List<string>(){
         "",
-         "K"     , //"Thousand",
-         "M"     ,//"Millions",
-         "B"     ,//"Billions",
-         "T"    ,//"Trillions",
-         "AA" ,//"Quadrillions",
-         "AB" ,//"Quintillions",
-         "AC"  ,//"Sextillions",
+         "K"     , //"Thousand", 3
+         "M"     ,//"Millions",6
+         "B"     ,//"Billions",9
+         "T"    ,//"Trillions",12
+         "AA" ,//"Quadrillions",15
+         "AB" ,//"Quintillions",18
+         "AC"  ,//"Sextillions",21
          "SP"  ,//"Septillions",
          "OC"   ,//"Octillions",
          "NO"   ,//"Nonillions",
          "DC"   ,//"Decellions"
+         "UD", //"undecillion",
+         "DD",//"duodecillion",
+         "TD",//"tredecillion",
+         "AD", //"quattuordecillion",
+         "ID",//"quindecillion",
+         "SD",//"sedecillion",
+         "PD",//"septendecillion",
+           "OD",//"octodecillion",
+         "ND", //"novendecillion",
+         "VT", //"vigintillion",
+         "UT", //"unvigintillion",
+         "DT", //"duovigintillion",
+         "ET", //"tresvigintillion",
+         "QV" //"quattuorvigintillion",
     };
 
     //***********************************************************************

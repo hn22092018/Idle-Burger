@@ -65,12 +65,12 @@ public class LobbyRoomManager : MonoBehaviour {
     }
     BigNumber orderValue;
     public void PaymentOrder(LobbyPosition lobby) {
-        orderValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate()*managerRateIcome;
+        orderValue = roomController.GetTotalMoneyEarn() *( GameManager.instance.GetTotalIncomeRate()*managerRateIcome);
         lobby.staff.FinishOrder();
         lobby.staff.CalculateSkinBuffIncome(ref orderValue);
         ProfileManager.PlayerData.AddCash(orderValue);
         //UIManager.instance.CreatUIMoneyEff(orderValue, lobby.staff.transform);
-        ProfileManager.PlayerData.AddTipReception(orderValue * GameManager.instance.tipBaseRate * GameManager.instance.tipReceptionRate);
+        ProfileManager.PlayerData.AddTipReception(orderValue *( GameManager.instance.tipBaseRate * GameManager.instance.tipReceptionRate));
     }
     public bool IsHasLobbyQueueEmpty() {
         return customersInQueue.Count < positionsQueue.Count;

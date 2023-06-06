@@ -100,9 +100,9 @@ public class ChefManager : MonoBehaviour {
     BigNumber kitchenRoomValue;
     BigNumber tip;
     public void Payment(Chef chef) {
-        kitchenRoomValue = roomController.GetTotalMoneyEarn() * GameManager.instance.GetTotalIncomeRate() * managerRateIcome;
+        kitchenRoomValue = roomController.GetTotalMoneyEarn() * (GameManager.instance.GetTotalIncomeRate() * managerRateIcome);
         chef.CalculateSkinBuffIncome(ref kitchenRoomValue);
-        tip = GameManager.instance.tipChefRateCard * kitchenRoomValue * GameManager.instance.tipBaseRate;
+        tip = kitchenRoomValue * (GameManager.instance.tipChefRateCard *GameManager.instance.tipBaseRate);
         ProfileManager.PlayerData.AddTipChef(tip);
         GameManager.instance.SpawnCashFx(chef.transform);
         ProfileManager.PlayerData.AddCash(kitchenRoomValue);

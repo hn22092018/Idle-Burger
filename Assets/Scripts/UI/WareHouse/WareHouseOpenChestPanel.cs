@@ -17,11 +17,6 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
     float timeWait;
     [SerializeField] float timeWaitClaim;
     [SerializeField] float timeNormal;
-    [SerializeField] SkeletonGraphic valiAnimUI;
-    [SerializeField] readonly string ANIM_OPEN_IDLE = "idle-open";
-    [SerializeField] readonly string ANIM_CLOSE = "close";
-    [SerializeField] readonly string ANIM_OPEN = "open";
-    [SerializeField] readonly string ADVANCEDCHEST_SKIN = "vali3";
     [SerializeField] WareHousePreviewRewardPanel wareHousePreviewRewardPanel;
     [SerializeField] GameObject objTitle;
     [SerializeField] GameObject objRequire;
@@ -31,7 +26,6 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
         btnTabToClose.onClick.AddListener(Exit);
         btnOpenX1Chest.onClick.AddListener(OpenX1Chest);
         btnOpenX10Chest.onClick.AddListener(OpenX10Chest);
-        valiAnimUI.AnimationState.SetAnimation(0, ANIM_OPEN_IDLE, loop: true);
     }
     public void InitData() {
         for (int i = 0; i < warehouseSlotRewardsX1.Count; i++)
@@ -74,16 +68,7 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
         itemRewards.Clear();
         index = 0;
 
-        for (int i = 0; i < countChestOpen; i++) {
-            ItemReward newItemReward = new ItemReward();
-            newItemReward.type = ItemType.Reputation;
-            newItemReward.spr = ProfileManager.Instance.dataConfig.wareHouseDataConfig.GetSpriteByName("Reputation_Icon");
-            newItemReward.amount = GameManager.instance.GetRewardValueForWareHouse(ItemType.Reputation);
-            SumReward(newItemReward);
-            Claim(newItemReward);
-        }
-
-        for (int i = 0; i < countChestOpen * 2; i++) {
+        for (int i = 0; i < countChestOpen * 3; i++) {
             ItemReward itemReward = ProfileManager.Instance.dataConfig.wareHouseDataConfig.GetWareHouseReward();
             ItemReward newItemReward = new ItemReward();
             newItemReward.type = itemReward.type;
@@ -92,8 +77,6 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
             SumReward(newItemReward);
             Claim(newItemReward);
         }
-        valiAnimUI.AnimationState.SetAnimation(0, ANIM_OPEN, loop: false);
-        valiAnimUI.AnimationState.AddAnimation(0, ANIM_OPEN_IDLE, loop: false, 0);
         StartCoroutine(StartAnim());
     }
     void SumReward(ItemReward itemReward) {
@@ -118,14 +101,6 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
         if (index == itemRewards.Count) EndAnim();
         warehouseSlotRewardsX1[index].InitData(itemRewards[index]);
         index++;
-        if (index == itemRewards.Count)
-            valiAnimUI.AnimationState.AddAnimation(0, ANIM_OPEN_IDLE, loop: true, 0);
-        else if (index == itemRewards.Count - 1)
-            valiAnimUI.AnimationState.SetAnimation(0, ANIM_OPEN, loop: false);
-        else {
-            valiAnimUI.AnimationState.SetAnimation(0, ANIM_OPEN, loop: false);
-            valiAnimUI.AnimationState.AddAnimation(0, ANIM_OPEN_IDLE, loop: false, 0);
-        }
         if (index < itemRewards.Count)
             StartCoroutine(StartAnim());
         else EndAnim();

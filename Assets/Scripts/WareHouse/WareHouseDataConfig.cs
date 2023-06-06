@@ -9,7 +9,6 @@ public class WareHouseReward {
 [CreateAssetMenu(fileName = "WareHouseData", menuName = "ScriptableObjects/WareHouseData")]
 public class WareHouseDataConfig : ScriptableObject
 {
-    public List<Sprite> sprConfig;
     public List<WareHouseMaterial> cheese;
     public List<WareHouseMaterial> pepper;
     public List<WareHouseMaterial> sugar;
@@ -39,15 +38,6 @@ public class WareHouseDataConfig : ScriptableObject
     public WareHouseMaterial Getsushi(int level) { return carot[level - 1]; }
     public WareHouseMaterial Getpotato(int level) { return flour[level - 1]; }
 
-
-    public Sprite GetSpriteByName(string name)
-    {
-        foreach (Sprite spr in sprConfig)
-        {
-            if (spr.name == name) return spr;
-        }
-        return null;
-    }
 
     float index;
     public ItemReward GetWareHouseReward()

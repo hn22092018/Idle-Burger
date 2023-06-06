@@ -27,12 +27,10 @@ public class Customer : MonoBehaviour, ICustomer {
     [Header("Movement")]
     public float m_MoveSpeed = 4;
 
-    public Animator maleAnimators;
-    public Animator femaleAnimators;
     public TimeFill timeIndicator;
     [SerializeField] UIEmojiIcon emoji_Icon;
     public UIFoodOrderIcon ui_foodOrder;
-    [HideInInspector] public Animator m_Animator;
+    public Animator m_Animator;
     [HideInInspector] public bool IsMale;
 
     bool IsMoving;
@@ -92,18 +90,8 @@ public class Customer : MonoBehaviour, ICustomer {
     }
     public void InitCustomer(bool isVip = false) {
         GameManager.instance.RegisterCustomerInRes(this);
-        maleAnimators.gameObject.SetActive(false);
-        femaleAnimators.gameObject.SetActive(false);
         IsMale = Random.Range(0, 2) == 0;
-        if (IsMale) {
-            maleAnimators.gameObject.SetActive(true);
-            maleAnimators.GetComponent<RandomMeshCus>().RandomMesh();
-            m_Animator = maleAnimators;
-        } else {
-            femaleAnimators.gameObject.SetActive(true);
-            femaleAnimators.GetComponent<RandomMeshCus>().RandomMesh();
-            m_Animator = femaleAnimators;
-        }
+        m_Animator.GetComponent<RandomCustomerMesh>().RandomMesh();
         IsMoving = false;
         IsSit = false;
         navMeshAgent.speed = m_MoveSpeed;
@@ -136,7 +124,7 @@ public class Customer : MonoBehaviour, ICustomer {
         timeIndicator.InitTime(timeUseFood);
         m_Animator.SetTrigger("IsEat");
     }
-  
+
     public void ShowFunnyEmoji() {
         emoji_Icon.ShowFunnyEmoji();
         emoji_Icon.gameObject.SetActive(true);
@@ -182,11 +170,11 @@ public class Customer : MonoBehaviour, ICustomer {
     }
     public float GetOrderFoodValue() {
         int level = ProfileManager.PlayerData.researchManager.GetLevelByName(foodOrder.researchType);
-        if (foodOrder != null && level > 0 )
-            return (float) foodOrder.CalculateProfit(level);
+        if (foodOrder != null && level > 0)
+            return (float)foodOrder.CalculateProfit(level);
         return 0;
     }
-  
+
 }
 
 
