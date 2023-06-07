@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 0
   timeService: 5
-  profitBase: 42
+  profitBase: 30
   datas:
   - name: Desk
     type: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
     - {fileID: 7358389798568908727, guid: 813e4b659de26cf4b953401d0eb6a023, type: 3}
     - {fileID: 6666173662435217851, guid: 9a3214637d8cba84ea303e12f3779fd3, type: 3}
     - {fileID: 6666173662435217851, guid: fa54d54f97c51e741af490f69bae80a8, type: 3}
-    profitIncreaseRate: 2
+    profitIncreaseRate: 3
     reduceTimes:
     - 0
     upgradePrices:

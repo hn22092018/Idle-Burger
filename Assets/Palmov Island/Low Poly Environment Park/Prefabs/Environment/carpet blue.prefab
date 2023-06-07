@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 49429901759964040}
   - component: {fileID: 3963246487179127853}
   - component: {fileID: 1217292307555981543}
-  - component: {fileID: 7403483394827898123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: carpet blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &49429901759964040
 Transform:
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7403483394827898123
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856894041824901426}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.98838437, y: 0.022761477, z: 2}
-  m_Center: {x: 0, y: 0.0113805765, z: 0}

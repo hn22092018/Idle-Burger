@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 5812651823190412228}
   - component: {fileID: 7423457878855746657}
   - component: {fileID: 4675190330995601579}
-  - component: {fileID: 4042835987776329929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: fountain 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5812651823190412228
 Transform:
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4042835987776329929
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6620679192469754238}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.43832, y: 1.0507971, z: 3.4383202}
-  m_Center: {x: 0, y: 0.5253983, z: 0.000000059604645}

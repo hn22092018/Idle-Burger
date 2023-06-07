@@ -329,7 +329,6 @@ public class CustomEditorTool : EditorWindow {
         string sRoomID = data["RoomID"].ToString();
         string sModelType = data["ModelType"].ToString();
         string sBuildPrice = data["BuildPrice"].ToString();
-        string sBuildStar = data["BuildStar"].ToString();
         string sBuildTime = data["BuildTime"].ToString();
         string sBuildEnergy = data["BuildEnergy"].ToString();
         string sBaseProfit = data["BaseProfit"].ToString();
@@ -341,7 +340,6 @@ public class CustomEditorTool : EditorWindow {
 
         #region Build Room Data
         int buildPrice = string.IsNullOrEmpty(sBuildPrice) ? 0 : int.Parse(sBuildPrice);
-        int buildStar = string.IsNullOrEmpty(sBuildStar) ? 0 : int.Parse(sBuildStar);
         int buildTime = string.IsNullOrEmpty(sBuildTime) ? 0 : int.Parse(sBuildTime);
         int buildEnergy = string.IsNullOrEmpty(sBuildEnergy) ? 0 : int.Parse(sBuildEnergy);
         #endregion
@@ -380,7 +378,7 @@ public class CustomEditorTool : EditorWindow {
         reduceTimes.Add(0);
 
         RoomID currentRoomID = (RoomID)Enum.Parse(typeof(RoomID), roomID);
-        if (!string.IsNullOrEmpty(sRoomID)) FillBuildDataRoom(currentRoomID, buildPrice, buildStar, buildTime, buildEnergy);
+        if (!string.IsNullOrEmpty(sRoomID)) FillBuildDataRoom(currentRoomID, buildPrice, buildTime, buildEnergy);
         switch (currentRoomID) {
             case RoomID.Lobby:
                 LobbyModelType lobbyModelType = (LobbyModelType)Enum.Parse(typeof(LobbyModelType), sModelType);
@@ -524,13 +522,12 @@ public class CustomEditorTool : EditorWindow {
         }
 
     }
-    static void FillBuildDataRoom(RoomID roomID, int price, int star, int time, int energy) {
+    static void FillBuildDataRoom(RoomID roomID, int price, int time, int energy) {
         BuildData build = GetAllBuildRoomDataAssets<BuildData>()[0];
         BuildDataSetting data = build.GetData(roomID);
         if (data != null) {
             data.energyRequire = energy;
             data.cashRequire = price;
-            data.starRequire = star;
             data.timeRequire = time;
             Debug.Log("Overide: " + data.ToString());
         } else {
@@ -538,7 +535,6 @@ public class CustomEditorTool : EditorWindow {
                 buildTarget = roomID,
                 energyRequire = energy,
                 cashRequire = price,
-                starRequire = star,
                 timeRequire = time
             };
             Debug.Log("Add New: " + data.ToString());

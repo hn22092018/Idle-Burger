@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 7694559441962944509}
   - component: {fileID: 6730430213938432088}
   - component: {fileID: 8828108426451860626}
-  - component: {fileID: 521245581998803336}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: trash can 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7694559441962944509
 Transform:
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &521245581998803336
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7026532029611384135}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4735081, y: 0.5432228, z: 0.47350818}
-  m_Center: {x: 0, y: 0.27161133, z: 0.000000052154064}

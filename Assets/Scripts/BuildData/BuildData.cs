@@ -84,7 +84,6 @@ public class BuildDataSetting {
     public Sprite sprBuild;
     public int energyRequire;
     public int cashRequire;
-    public int starRequire;
     public int timeRequire;
 
     public string GetDes() {
@@ -94,6 +93,6 @@ public class BuildDataSetting {
         return ProfileManager.Instance.dataConfig.GameText.RoomIDToString(buildTarget);
     }
     public override string ToString() {
-        return buildTarget.ToString() + "_" + energyRequire + "_" + cashRequire + "_" + starRequire + "_" + timeRequire;
+        return buildTarget.ToString() + "_" + energyRequire + "_" + cashRequire + "_" + timeRequire;
     }
 }
