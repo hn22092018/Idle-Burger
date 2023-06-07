@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class Formula {
 
-    public static int GetCost2(int level, float baseCost, float costRate, float powerRate = 1, float reduceRate = 0) {
-        float num = 0;
-
-        float num0 = costRate;
-        float num3 = 0.8f;
-        for (int i = 0; i < level - 1; i++) {
-
-            if (i > 0) {
-                num += num3 * num;
-                num3 += 0.2f;
-            } else {
-                num += baseCost * num0;
-                num0 *= powerRate;
+    public BigNumber CalculateByPercentage(int level, BigNumber baseNum, float rate) {
+        float num = (level - 1) * rate / 100f;
+        BigNumber num1 = baseNum + baseNum * num;
+        return num1;
+    }
+    public static BigNumber CalculateByPercentage2(int level, BigNumber baseNum, float rate, float minRate, float powerRate, float decreasePowerRate = 0) {
+        BigNumber result = baseNum;
+        minRate = minRate < 0.5f ? 0.5f : minRate;
+        for (int i = 0; i < level; i++) {
+            result = result + result * rate / 100f;
+            {
+                rate = rate - rate * powerRate / 100;
+                rate = rate < minRate ? minRate : rate;
+            }
+            {
+                powerRate = powerRate - powerRate * decreasePowerRate / 100;
+                powerRate = powerRate < 0.2f ? 0.2f : powerRate;
             }
         }
-        float num1 = baseCost + num;
-        int num2 = 0;
-        if (num1 < 100) {
-            num2 = (((int)num1) / 10) * 10;
-        } else {
-            num2 = (((int)num1) / 100) * 100;
-        }
-        return num2;
+        return result;
     }
+    public BigNumber CalculateByPercentage3(int level, BigNumber baseNum, float rate, float rate2) {
+        BigNumber result = baseNum;
+        for (int i = 1; i < level; i++) {
+            result += rate;
+            rate += rate2;
+        }
+        return result;
+    }
+
 }
