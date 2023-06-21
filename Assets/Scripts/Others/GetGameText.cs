@@ -18,6 +18,7 @@ public class GetGameText : MonoBehaviour {
         LoadText();
     }
     void LoadText() {
+        if (!ProfileManager.Instance) return;
         string s = ProfileManager.Instance.dataConfig.GameText.GetTextByID(TextID);
         if (isUpper) s = s.ToUpper();
         if (txt != null) txt.text = s;

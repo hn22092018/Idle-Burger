@@ -60,12 +60,6 @@ public class SkinManager {
             skinDataSaves = new List<SkinDataSave>();
             skinDataSavesVideo = new List<SkinDataSaveVideo>();
         }
-        if (ProfileManager.PlayerData.ResourceSave.activePremiumSuit) {
-            OnPremiumSuitPurchased();
-        }
-        if (ProfileManager.PlayerData.ResourceSave.activeGoldenSuit) {
-            OnGoldenSuitPurchased();
-        }
     }
     string GetJsonData() {
         return PlayerPrefs.GetString("SkinManagerSave");
@@ -272,28 +266,6 @@ public class SkinManager {
     }
     #endregion
 
-    public void OnGoldenSuitPurchased() {
-        if (!ProfileManager.PlayerData.ResourceSave.activeGoldenSuit) {
-            foreach (SkinItem skin in GetSkinList()) {
-                if (skin.skinType == SkinType.GoldenSuit) {
-                    AddSkin(skin.id);
-                }
-            }
-            IsChangeData = true;
-            ProfileManager.Instance.playerData.SaveData();
-        }
-    }
-    public void OnPremiumSuitPurchased() {
-        if (!ProfileManager.PlayerData.ResourceSave.activePremiumSuit) {
-            foreach (SkinItem skin in GetSkinList()) {
-                if (skin.skinType == SkinType.PremiumSuit) {
-                    AddSkin(skin.id);
-                }
-            }
-            IsChangeData = true;
-            ProfileManager.Instance.playerData.SaveData();
-        }
-    }
     public List<SkinItem> GetListSkinConfigByStaffType(StaffID type) {
         return GetSkinList().Where((x) => x.staffType == type).ToList();
     }

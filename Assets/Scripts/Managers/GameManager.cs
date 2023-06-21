@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public float customerEatingTimeRate = 1;
     [HideInInspector] public float waiterSpeedRate = 1;
     [HideInInspector] public float customerWCTimeRate = 1;
-    [HideInInspector] public float tipBaseRate = 0.15f;
+    [HideInInspector] public float tipBaseRate = 0.2f;
     [HideInInspector] public float tipWaiterRateCard = 1;
     [HideInInspector] public float tipChefRateCard = 1;
     [HideInInspector] public float tipCleanerRateCard;
@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public float cleanerWorkTimeRate = 1;
     public bool IsSkipSleep;
     public List<int> _RoomCostServer;
-    public List<int> _RoomVIPCostServer;
     [HideInInspector] public List<Transform> _EmployeeSleeping = new List<Transform>();
     public Sprite[] emoji_sad;
     public Sprite[] emoji_funny;
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour {
         UpdateFinanceRate();
         customerSpeedRate = cardManager.GetCustomerSpeedRate();
         popularityRate = cardManager.GetRestaurantPopularityRate();
-        tipBaseRate = 0.1f * cardManager.GetCustomerSatisfactionRate();
+        tipBaseRate = 0.2f * cardManager.GetCustomerSatisfactionRate();
         customerEatingTimeRate = cardManager.GetCustomerEatingTimeRate();
         waiterSpeedRate = cardManager.GetWaiterSpeedRate();
         customerWCTimeRate = cardManager.GetCustomerWCTimeRate();
@@ -135,7 +134,7 @@ public class GameManager : MonoBehaviour {
         PoolManager.Pools["GameEntity"].DespawnAll();
         ProfileManager.PlayerData.UnlockWorld(ProfileManager.PlayerData.selectedWorld + 1);
         ProfileManager.PlayerData.ChangeSelectedWorld(ProfileManager.PlayerData.selectedWorld + 1);
-      m_AsyncLoadLoadingScene.allowSceneActivation = true;
+        m_AsyncLoadLoadingScene.allowSceneActivation = true;
         SceneManager.UnloadSceneAsync("LoadScene");
     }
     void LoadRoom() {
@@ -637,7 +636,7 @@ public class GameManager : MonoBehaviour {
 
     }
     public int GetPowerRoomEnergy() {
-        if (IsUnlockPowerRoom()) return PowerRoom.totalEnergyEarn;
+        if (IsUnlockPowerRoom()) return PowerRoom.GetTotalEnergyEarn();
         else return 0;
     }
 
@@ -647,7 +646,7 @@ public class GameManager : MonoBehaviour {
         offlineProfit += CalculateProfitFood(timeManager.GetOfflineTime());
         offlineProfit += CalculateProfitRestroom(timeManager.GetOfflineTime());
         offlineProfit += CalculateProfitDeliver(timeManager.GetOfflineTime());
-        offlineProfit *= financeRate;
+        offlineProfit *= financeRate * 0.7f;
         if (offlineProfit > 0) {
             if (!Tutorials.instance.IsShow)
                 UIManager.instance.ShowPanelBalanceOffline();
@@ -665,21 +664,21 @@ public class GameManager : MonoBehaviour {
     BigNumber CalculateProfitFood(int time) {
         BigNumber profit = 0;
         customerPerTurn = 0;
-        int timePerTurn = 3;
+        int timePerTurn = 2;
         int totalMinutes = time / 60;
         int turn = totalMinutes / timePerTurn;
         for (int i = 0; i < SmallTablesRoom.Length; i++) {
             if (IsUnlockSmallTable(i)) {
                 // small table has 2 customer
                 customerPerTurn += 2;
-                profit += 2*turn * (SmallTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn()) ;
+                profit += 2 * turn * (SmallTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn());
 
             }
         }
         for (int i = 0; i < BigTablesRoom.Length; i++) {
             if (IsUnlockBigTable(i)) {
                 customerPerTurn += 2;
-                profit += 4*turn * (BigTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn());
+                profit += 4 * turn * (BigTablesRoom[i].GetTotalMoneyEarn() + KitchenRoom.GetTotalMoneyEarn() + LobbyRoom.GetTotalMoneyEarn());
             }
         }
         //ProfileManager.PlayerData.researchManager.AddResearchValue(customerPerTurn);
@@ -702,7 +701,7 @@ public class GameManager : MonoBehaviour {
         BigNumber profit = 0;
         if (DeliverRoom == null) return 0;
         if (!IsUnlockDeliverRoom()) return 0;
-        int timePerTurn = 8;
+        int timePerTurn = 6;
         int totalMinutes = time / 60;
         int turn = totalMinutes / timePerTurn;
         profit += DeliverRoom.GetTotalMoneyEarn() * (customerPerTurn * turn);
@@ -733,15 +732,7 @@ public class GameManager : MonoBehaviour {
     float cashRateTime = 60;
     public BigNumber GetFreeCashAdsProfit() {
         baseProfit = 0;
-        int num1 = freeCashRate;
-        if (cashRateTime < 25f) {
-            num1 = 8;
-        } else if (cashRateTime < 40f) {
-            num1 = 12;
-        } else if (cashRateTime < 60f) {
-            num1 = 15;
-        }
-        timeLoan = Random.Range(num1, (num1 + 5)) * 60;
+        timeLoan = Random.Range(7, 10) * 60;
         baseProfit += CalculateProfitFood(timeLoan);
         baseProfit += CalculateProfitRestroom(timeLoan);
         baseProfit += CalculateProfitDeliver(timeLoan);
@@ -775,11 +766,11 @@ public class GameManager : MonoBehaviour {
         timeLoan = time * 60;
         baseProfit += CalculateProfitFood(timeLoan);
         baseProfit += CalculateProfitRestroom(timeLoan);
-        baseProfit += CalculateProfitDeliver(timeLoan);
         baseProfit *= financeRate;
         if (baseProfit <= 1000) baseProfit = 1000;
         return baseProfit;
     }
+
     public void LoadMapUpgradeProcess() {
         float total = 0;
         float current = 0;
@@ -860,7 +851,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("LoadScene");
     }
     public void OnCollectRewardIAPPackage(OfferData currentIAPPackage) {
-        if (currentIAPPackage.offerID == OfferID.NoAds || currentIAPPackage.offerID == OfferID.Vip1Pack || currentIAPPackage.offerID == OfferID.Vip2Pack || currentIAPPackage.offerID == OfferID.Vip3Pack || currentIAPPackage.offerID == OfferID.ComboPack_Ads_Researcher_Order) ProfileManager.PlayerData.OnSaveBoughtIAPPackage(currentIAPPackage.offerID);
+        if (currentIAPPackage.offerID == OfferID.NoAds || currentIAPPackage.offerID == OfferID.OfferForBegginer || currentIAPPackage.offerID == OfferID.OfferForPros ) ProfileManager.PlayerData.OnSaveBoughtIAPPackage(currentIAPPackage.offerID);
         List<ItemReward> rewards = currentIAPPackage.itemRewards;
         foreach (var reward in rewards) {
             OnCollectReward(reward, true);
@@ -875,14 +866,6 @@ public class GameManager : MonoBehaviour {
                 if (isFromIAP) {
                     ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Earn_IAP, reward.amount);
                 }
-                break;
-            case ItemType.PremiumSuit:
-                ProfileManager.PlayerData.skinManager.OnPremiumSuitPurchased();
-                ProfileManager.PlayerData.ResourceSave.activePremiumSuit = true;
-                break;
-            case ItemType.GodenSuit:
-                ProfileManager.PlayerData.skinManager.OnGoldenSuitPurchased();
-                ProfileManager.PlayerData.ResourceSave.activeGoldenSuit = true;
                 break;
             case ItemType.RemoveAds:
                 ProfileManager.PlayerData.ResourceSave.SetRemoveAds(true);
@@ -928,16 +911,7 @@ public class GameManager : MonoBehaviour {
             case ItemType.VIPMarketing:
                 ProfileManager.PlayerData.GetMarketingManager().IsVIPActive = true;
                 break;
-            case ItemType.NormalSkinBox:
-                ProfileManager.PlayerData.ResourceSave.AddNormalSkinBox(reward.amount);
-                break;
-            case ItemType.AdvancedSkinBox:
-                ProfileManager.PlayerData.ResourceSave.AddAdvanceSkinBox(reward.amount);
-                break;
-            case ItemType.FreeSkinBox:
-                ProfileManager.PlayerData.ResourceSave.AddExpertSkinBox(reward.amount);
-                break;
-            
+
             case ItemType.Researcher:
                 break;
             case ItemType.Reputation:
@@ -950,20 +924,15 @@ public class GameManager : MonoBehaviour {
                 break;
             case ItemType.Pepper:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Sugar, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Pepper, 5);
                 }
                 break;
             case ItemType.Sugar:
                 for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Pepper, 5);
+                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Sugar, 5);
                 }
                 break;
             case ItemType.Carot:
-                for (int i = 0; i < reward.amount; i++) {
-                    ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Flour, 5);
-                }
-                break;
-            case ItemType.Flour:
                 for (int i = 0; i < reward.amount; i++) {
                     ProfileManager.PlayerData.wareHouseManager.AddWareHouseMaterialSaves(WareHouseMaterialType.Carot, 5);
                 }
@@ -994,12 +963,10 @@ public class GameManager : MonoBehaviour {
     void LoadRoomCostServer() {
         _RoomCostServer.Clear();
         string data = "";
-        string dataVip = "";
         if (ProfileManager.PlayerData.selectedWorld == 1) {
             data = ABIFirebaseManager.Instance.m_FirebaseRemoteConfigManager.GetValues(ABI.Keys.key_remote_room_pirce_w1).StringValue;
         } else if (ProfileManager.PlayerData.selectedWorld == 2) {
             data = ABIFirebaseManager.Instance.m_FirebaseRemoteConfigManager.GetValues(ABI.Keys.key_remote_room_pirce_w2).StringValue;
-            dataVip = ABIFirebaseManager.Instance.m_FirebaseRemoteConfigManager.GetValues(ABI.Keys.key_remote_room_vip_pirce_w2).StringValue;
         }
         if (!string.IsNullOrEmpty(data)) {
             string[] strCosts = data.Split(",");
@@ -1007,12 +974,7 @@ public class GameManager : MonoBehaviour {
                 _RoomCostServer.Add(int.Parse(str));
             }
         }
-        if (!string.IsNullOrEmpty(dataVip)) {
-            string[] strCosts = dataVip.Split(",");
-            foreach (string str in strCosts) {
-                _RoomVIPCostServer.Add(int.Parse(str));
-            }
-        }
+       
     }
     [Button]
     void ApplyTargetBuildRooms() {
@@ -1042,7 +1004,7 @@ public class GameManager : MonoBehaviour {
 
         switch (itemType) {
             case ItemType.BurgerCoin: {
-                    int num = Random.Range(0, 4);
+                    int num = Random.Range(1, 4);
                     int num1 = 10 + num * 5;
                     return num1;
                 }
@@ -1079,7 +1041,7 @@ public class GameManager : MonoBehaviour {
                 slot += 4;
             }
         }
-        value = (int)(slot * turn * 0.6f);
+        value = (int)(slot * turn * 0.7f);
         return value;
     }
     public int GetEvolvePriceByLevel(int level) {
@@ -1090,7 +1052,7 @@ public class GameManager : MonoBehaviour {
         } else if (level == 75) {
             return 20;
         }
-        return 10;
+        return 0;
     }
     System.DateTime lastPauseTime = System.DateTime.Now;
     private void OnApplicationPause(bool pause) {

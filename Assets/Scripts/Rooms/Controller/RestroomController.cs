@@ -12,16 +12,16 @@ public class RestroomController : RoomController<RestroomModelType> {
         RestroomModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case RestroomModelType.Restroom_SinkFemale:
-                    questManager.TriggerQuest(QuestType.Upgrade_Restroom_FemaleSink, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Restroom_FemaleSink, level);
                 break;
             case RestroomModelType.Restroom_SinkMale:
-                    questManager.TriggerQuest(QuestType.Upgrade_Restroom_MaleSink, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Restroom_MaleSink, level);
                 break;
             case RestroomModelType.Restroom_StallFemale:
-                    questManager.TriggerQuest(QuestType.Upgrade_Restroom_FemaleStall, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Restroom_FemaleStall, level);
                 break;
             case RestroomModelType.Restroom_StallMale:
-                    questManager.TriggerQuest(QuestType.Upgrade_Restroom_MaleStall, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Restroom_MaleStall, level);
                 break;
 
         }

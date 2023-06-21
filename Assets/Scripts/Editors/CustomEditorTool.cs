@@ -34,7 +34,7 @@ public class CustomEditorTool : EditorWindow {
     static void FillDataLocalize(GameText asset) {
         string enPath = "Assets/AssetDatas/csv/Idle Burger - Localizes.csv";
         FillDataLocalizeByCountry(enPath, asset.ens);
-       
+
 #if UNITY_EDITOR
         EditorUtility.SetDirty(asset);
 #endif
@@ -253,7 +253,6 @@ public class CustomEditorTool : EditorWindow {
             int profit = int.Parse(data[i]["Profit"].ToString());
             float time = float.Parse(data[i]["Food Time"].ToString());
             int upgradePrice = int.Parse(data[i]["Upgrade Price"].ToString());
-            int blockTime = int.Parse(data[i]["Block Time"].ToString());
             Research research = new Research() {
                 foodName = strName,
                 researchType = (ResearchType)Enum.Parse(typeof(ResearchType), strResearchType),
@@ -262,7 +261,6 @@ public class CustomEditorTool : EditorWindow {
                 foodProfit = profit,
                 makeTime = time,
                 priceUpgrade = upgradePrice,
-                foodBlockTime = blockTime * 60
             };
             listConfig[i] = research;
         }
@@ -332,9 +330,7 @@ public class CustomEditorTool : EditorWindow {
         string sBuildTime = data["BuildTime"].ToString();
         string sBuildEnergy = data["BuildEnergy"].ToString();
         string sBaseProfit = data["BaseProfit"].ToString();
-        string sProfitIncreaseRate = data["ProfitIncreaseRate"].ToString();
         string sBaseCost = data["BaseCost"].ToString();
-        string sCostIncreaseRate = data["CostIncreaseRate"].ToString();
         string sLevelMax = data["LevelMax"].ToString();
         string sTimeService = data["TimeService"].ToString();
 
@@ -347,16 +343,14 @@ public class CustomEditorTool : EditorWindow {
         #region Upgrade Model in Room Data
         int levelMax = string.IsNullOrEmpty(sLevelMax) ? 0 : int.Parse(sLevelMax);
         int baseCost = string.IsNullOrEmpty(sBaseCost) ? 0 : int.Parse(sBaseCost);
-        float costIncreaseRate = string.IsNullOrEmpty(sCostIncreaseRate) ? 0f : float.Parse(sCostIncreaseRate);
         float baseProfit = string.IsNullOrEmpty(sBaseProfit) ? 0f : float.Parse(sBaseProfit);
-        float profitIncreaseRate = string.IsNullOrEmpty(sProfitIncreaseRate) ? 0f : float.Parse(sProfitIncreaseRate);
         float timeService = string.IsNullOrEmpty(sTimeService) ? 0f : float.Parse(sTimeService);
 
         List<BigNumber> upgradePrices = new List<BigNumber>();
         BigNumber price = new BigNumber(baseCost);
         for (int k = 0; k <= levelMax; k++) {
             upgradePrices.Add(price);
-            price += price * (costIncreaseRate / 100f);
+            price = StatCostConfig.Instance.GetCost(baseCost, k);
         }
         #endregion
 
@@ -374,8 +368,6 @@ public class CustomEditorTool : EditorWindow {
         }
         #endregion
 
-        List<float> reduceTimes = new List<float>();
-        reduceTimes.Add(0);
 
         RoomID currentRoomID = (RoomID)Enum.Parse(typeof(RoomID), roomID);
         if (!string.IsNullOrEmpty(sRoomID)) FillBuildDataRoom(currentRoomID, buildPrice, buildTime, buildEnergy);
@@ -388,7 +380,7 @@ public class CustomEditorTool : EditorWindow {
                 for (int i = 0; i < lobby.datas.Count; i++) {
                     BaseModelData<LobbyModelType> modelData = lobby.datas[i];
                     if (modelData.type == lobbyModelType) {
-                        FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                        FillDataRoom(modelData, upgradePrices, levelMax);
                     }
                 }
 #if UNITY_EDITOR
@@ -411,7 +403,7 @@ public class CustomEditorTool : EditorWindow {
                         for (int i = 0; i < smallTableRoomDataAsset.datas.Count; i++) {
                             BaseModelData<SmallTableModelType> modelData = smallTableRoomDataAsset.datas[i];
                             if (modelData.type == smallTableModelType) {
-                                FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                                FillDataRoom(modelData, upgradePrices, levelMax);
                             }
                         }
 #if UNITY_EDITOR
@@ -445,7 +437,7 @@ public class CustomEditorTool : EditorWindow {
                         for (int i = 0; i < bigTableRoomDataAsset.datas.Count; i++) {
                             BaseModelData<BigTableModelType> modelData = bigTableRoomDataAsset.datas[i];
                             if (modelData.type == bigTableModelType) {
-                                FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                                FillDataRoom(modelData, upgradePrices, levelMax);
                             }
                         }
 #if UNITY_EDITOR
@@ -463,7 +455,7 @@ public class CustomEditorTool : EditorWindow {
                 for (int i = 0; i < kitchenRoomDataAsset.datas.Count; i++) {
                     BaseModelData<KitchenModelType> modelData = kitchenRoomDataAsset.datas[i];
                     if (modelData.type == kitchenModelType) {
-                        FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                        FillDataRoom(modelData, upgradePrices, levelMax);
                     }
                 }
 #if UNITY_EDITOR
@@ -479,7 +471,7 @@ public class CustomEditorTool : EditorWindow {
                 for (int i = 0; i < rroomDataAsset.datas.Count; i++) {
                     BaseModelData<RestroomModelType> modelData = rroomDataAsset.datas[i];
                     if (modelData.type == restroomModelType) {
-                        FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                        FillDataRoom(modelData, upgradePrices, levelMax);
                     }
                 }
 #if UNITY_EDITOR
@@ -495,7 +487,7 @@ public class CustomEditorTool : EditorWindow {
                 for (int i = 0; i < roomDataAsset.datas.Count; i++) {
                     BaseModelData<DeliverModelType> modelData = roomDataAsset.datas[i];
                     if (modelData.type == coffeeModelType) {
-                        FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                        FillDataRoom(modelData, upgradePrices, levelMax);
                     }
                 }
 #if UNITY_EDITOR
@@ -511,7 +503,7 @@ public class CustomEditorTool : EditorWindow {
                 for (int i = 0; i < powerRoomDataAsset.datas.Count; i++) {
                     BaseModelData<PowerModelType> modelData = powerRoomDataAsset.datas[i];
                     if (modelData.type == powerModelType) {
-                        FillDataRoom(modelData, profitIncreaseRate, upgradePrices, reduceTimes, levelMax);
+                        FillDataRoom(modelData, upgradePrices, levelMax);
                         modelData.energyEarns = energyEarns;
                     }
                 }
@@ -544,14 +536,12 @@ public class CustomEditorTool : EditorWindow {
         EditorUtility.SetDirty(build);
 #endif
     }
-    static void FillDataRoom<T>(BaseModelData<T> model, float profitIncreaseRate, List<BigNumber> upgradePrices, List<float> reduceTimes, int levelMax) {
-        model.profitIncreaseRate = profitIncreaseRate;
+    static void FillDataRoom<T>(BaseModelData<T> model, List<BigNumber> upgradePrices,  int levelMax) {
         model.upgradePrices = upgradePrices;
-        model.reduceTimes = reduceTimes;
         model.levelMax = levelMax;
         ModelDataAsset modelConfigs = GetAllRoomDataAssets<ModelDataAsset>()[0];
-        if (modelConfigs.FindModelsByType(model.type) != null)
-            model.models3D = modelConfigs.FindModelsByType(model.type).ToArray();
+        model.models3D = modelConfigs.FindDataByType(model.type).Item1.ToArray();
+        model.sprUI = modelConfigs.FindDataByType(model.type).Item2;
 
     }
 

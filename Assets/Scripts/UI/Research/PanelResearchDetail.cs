@@ -4,95 +4,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class PanelResearchDetail : MonoBehaviour {
     [SerializeField] CanvasGroup detailWrap;
     [Header("Button")]
     public Button btnCloseDetail;
     public Button btnImprove;
-    public Button btnUpgrade;
     [SerializeField] Button btnReduce;
     public Button btnFinish;
-    [Header("Text")]
+    [Header("Info")]
     [SerializeField] Text txtNameDetail;
-    [SerializeField] Text txtLevel;
+    [SerializeField] List<Image> imgStars;
     [SerializeField] Text txtProfit;
     [SerializeField] Text txtTimeMake;
     [SerializeField] Text txtTimeDetail;
     [SerializeField] Text txtPrice;
     [SerializeField] Text txtGemSkipTime;
-    [SerializeField] Text txtUpgradePrice;
-    [Header("Image")]
+    [Header("Process")]
     [SerializeField] Image processUpgrade;
     [SerializeField] Image imgIconDetail;
-    [SerializeField] Image imgBGDetail;
     [Header("GameObject")]
     [SerializeField] GameObject objComplete;
-    [SerializeField] GameObject objNotice;
     [SerializeField] GameObject objHaveTicket;
     [SerializeField] GameObject objNoTicket;
     [SerializeField] GameObject objTimeWrap;
-    [Header("RectTransform")]
-    [SerializeField] RectTransform priceRect;
-    [SerializeField] RectTransform contentRect;
-    [SerializeField] RectTransform centerRect;
-    [SerializeField] RectTransform gemRect;
-    [Header("Sprite")]
-    [SerializeField] Sprite sprNormal;
-    [SerializeField] Sprite sprDisable;
-    [SerializeField] Sprite sprUpgradeDone;
+    [SerializeField] GameObject objRequireMoreSlot;
 
     ResearchManager researchManager;
     ResearchType researchDetailName;
     Research researchData;
-    int levelResearchDetail;
+    public int levelResearchDetail;
+    int researchPrice;
     int gemsSkipTime;
     bool showDetail;
     int _MaxLevelResearch = 10;
     private void Awake() {
         researchManager = ProfileManager.Instance.playerData.researchManager;
-        btnCloseDetail.onClick.AddListener(CloseDetail);
-        btnImprove.onClick.AddListener(Improve);
-        btnUpgrade.onClick.AddListener(OnUpgrade);
-        btnReduce.onClick.AddListener(Reduce);
-        btnFinish.onClick.AddListener(Finish);
-    }
-
-    private void FixedUpdate() {
-
-        if (showDetail) {
-            OnUpdateDetail(researchDetailName);
-            if (updateTime) {
-                float timeCoolDown = researchManager.GetTimeCoolDown(researchDetailName);
-                txtTimeDetail.text = TimeUtil.TimeToString(timeCoolDown);
-                processUpgrade.fillAmount = 1 - timeCoolDown / researchData.foodBlockTime;
-                gemsSkipTime = (int)(timeCoolDown / 10);
-                LayoutRebuilder.ForceRebuildLayoutImmediate(gemRect);
-            }
-            if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() == TutorialStepID.Research) gemsSkipTime = 0;
-            txtGemSkipTime.text = gemsSkipTime.ToString();
-            btnFinish.interactable = GameManager.instance.IsEnoughGem(gemsSkipTime);
-            btnUpgrade.interactable =
-               GameManager.instance.IsEnoughResearchValue(researchData.CalulateReseachPrice(levelResearchDetail));
-            btnImprove.interactable =
-                GameManager.instance.IsEnoughResearchValue(researchData.CalulateReseachPrice(levelResearchDetail))
-                && !ProfileManager.PlayerData.researchManager.IsMaxResearcherWorking();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(contentRect);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(centerRect);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(priceRect);
-        }
-
-    }
-    void CloseDetail() {
-        SoundManager.instance.PlaySoundEffect(SoundID.TAB_SWITCH);
-        UIManager.instance.dotweenManager.DoFade(detailWrap, 0, () => {
-            gameObject.SetActive(false);
-        });
-        UIManager.instance.dotweenManager.PunchScale(detailWrap.transform, new Vector3(-.2f, -.2f, 0));
-        showDetail = false;
+        btnCloseDetail.onClick.AddListener(OnCloseDetail);
+        btnImprove.onClick.AddListener(OnImprove);
+        btnReduce.onClick.AddListener(OnReduce);
+        btnFinish.onClick.AddListener(OnFinish);
     }
     public void ShowDetail(ResearchType researchName) {
-        gameObject.SetActive(true);
         UIManager.instance.dotweenManager.DoFade(detailWrap, 1);
         UIManager.instance.dotweenManager.PunchScale(detailWrap.transform, new Vector3(.2f, .2f, 0));
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
@@ -101,58 +55,84 @@ public class PanelResearchDetail : MonoBehaviour {
         researchData = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName);
         imgIconDetail.sprite = researchData.foodIcon;
         txtNameDetail.text = researchData.foodName;
+        OnLoadDetail(researchDetailName);
+    }
+
+    bool updateTime;
+    void OnLoadDetail(ResearchType researchName) {
+        levelResearchDetail = researchManager.GetLevelByName(researchName);
+        for (int i = 0; i < imgStars.Count; i++) {
+            if (i < levelResearchDetail / 2) {
+                imgStars[i].fillAmount = 1;
+            } else if (i < levelResearchDetail / 2 + 1 && levelResearchDetail % 2 == 1) {
+                imgStars[i].fillAmount = 0.5f;
+            } else imgStars[i].fillAmount = 0f;
+        }
+        researchPrice = researchData.GetReseachPrice(levelResearchDetail);
+        ChangeTextDes();
+        if (levelResearchDetail >= _MaxLevelResearch) {
+            DetailResearchReachLevelMax();
+        } else if (researchManager.IsResearching(researchDetailName)) {
+            DetailOnResearching();
+        } else {
+            DetailNormal();
+        }
+    }
+    private void FixedUpdate() {
+
+        if (showDetail) {
+            OnLoadDetail(researchDetailName);
+            if (updateTime) {
+                float timeCoolDown = researchManager.GetTimeEndResearch(researchDetailName);
+                txtTimeDetail.text = TimeUtil.TimeToString(timeCoolDown);
+                processUpgrade.fillAmount = 1 - timeCoolDown / researchData.GetResearchTime(levelResearchDetail);
+                gemsSkipTime = (int)(timeCoolDown / 30);
+            }
+            if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() == TutorialStepID.Research) gemsSkipTime = 0;
+            txtGemSkipTime.text = gemsSkipTime.ToString();
+            btnFinish.interactable = GameManager.instance.IsEnoughGem(gemsSkipTime);
+            btnImprove.interactable =
+                GameManager.instance.IsEnoughResearchValue(researchPrice)
+                && ProfileManager.PlayerData.researchManager.IsAvaiableSlotToResearch();
+
+        }
 
     }
-    void Improve() {
-        SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
-        researchManager.Research(ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchDetailName));
-        ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.Research, researchDetailName);
+    void OnCloseDetail() {
+        SoundManager.instance.PlaySoundEffect(SoundID.TAB_SWITCH);
+        UIManager.instance.dotweenManager.DoFade(detailWrap, 0, () => {
+            gameObject.SetActive(false);
+        });
+        UIManager.instance.dotweenManager.PunchScale(detailWrap.transform, new Vector3(-.2f, -.2f, 0));
+        showDetail = false;
     }
-    void Reduce() {
+
+    void OnImprove() {
+        SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
+        researchManager.ConsumeResearchValue(researchPrice);
+        researchManager.Research(ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchDetailName));
+        ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.Research, researchDetailName.ToString() + "_" + levelResearchDetail);
+    }
+    void OnReduce() {
         SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
         if (ProfileManager.Instance.playerData.ResourceSave.adTicket > 0) {
             ProfileManager.Instance.playerData.ResourceSave.ConsumeADTicket();
             researchManager.SkipByTicket(researchDetailName);
         } else {
             researchManager.SkipByWatchVideo(researchDetailName);
-            ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.WatchAds_SkipTime, researchDetailName);
+            ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.WatchAds_SkipTime, researchDetailName.ToString() + "_" + levelResearchDetail);
         }
     }
-    void Finish() {
+    void OnFinish() {
         if (Tutorials.instance.IsShow && Tutorials.instance.GetTutorialStep() == TutorialStepID.Research) gemsSkipTime = 0;
         SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
         researchManager.SkipNow(researchDetailName);
         ProfileManager.Instance.playerData.ConsumeGem(gemsSkipTime);
-        ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.UseGem_SkipTime, researchDetailName);
+        ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.UseGem_SkipTime, researchDetailName.ToString() + "_" + levelResearchDetail);
         if (gemsSkipTime > 0) ABIAnalyticsManager.Instance.TrackEventResearchSkipGem(gemsSkipTime);
     }
-    void OnUpgrade() {
-        SoundManager.instance.PlaySoundEffect(SoundID.UPGRADE);
-        researchManager.UpgradeResearch(researchDetailName);
-        ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.Upgrade, researchDetailName);
-    }
-    bool updateTime;
-    void OnUpdateDetail(ResearchType researchName) {
-        levelResearchDetail = ProfileManager.PlayerData.researchManager.GetLevelByName(researchName);
-        ChangeTextDes();
-        if (ProfileManager.PlayerData.researchManager.IsUnlockResearch(researchName)) {
-            if (levelResearchDetail >= _MaxLevelResearch) {
-                txtLevel.text = "" + levelResearchDetail;
-                DetailUpgradeDone();
-            } else if (levelResearchDetail >= 1) {
-                txtLevel.text = levelResearchDetail + "/10";
-                DetailOnUpgrade();
-            } else if (researchManager.CheckCurrentResearch(researchDetailName)) {
-                txtLevel.text = levelResearchDetail + "/10";
-                DetailOnResearch();
-            } else {
-                txtLevel.text = levelResearchDetail + "/10";
-                DetailNormal();
-            }
-        } else {
-            OnLock();
-        }
-    }
+
+
     void ChangeTextDes() {
         if (researchData == null)
             return;
@@ -162,7 +142,7 @@ public class PanelResearchDetail : MonoBehaviour {
             txtTimeMake.text = researchData.makeTime + "s";
         } else if (levelResearchDetail > 0) {
             double profit = researchData.CalculateProfit(levelResearchDetail);
-            txtProfit.text = "<color=#06FF04>" + profit + "</color>" + " <color=#FFE800>(+" + researchData.CalculateIncreaseNextProfit(profit) + ")</color>";
+            txtProfit.text = "<color=#06FF04>" + profit + "</color>" + " <color=#FFE800>(+" + researchData.CalculateIncreaseNextProfit(levelResearchDetail) + ")</color>";
             txtTimeMake.text = researchData.makeTime + "s";
 
         } else {
@@ -174,74 +154,38 @@ public class PanelResearchDetail : MonoBehaviour {
     void DetailNormal() {
         objTimeWrap.SetActive(true);
         updateTime = false;
-        txtTimeDetail.text = TimeUtil.TimeToString(researchData.foodBlockTime);
-        imgBGDetail.sprite = sprNormal;
+        txtTimeDetail.text = TimeUtil.TimeToString(researchData.GetResearchTime(levelResearchDetail));
         processUpgrade.fillAmount = 0;
-        txtPrice.text = researchData.CalulateReseachPrice(levelResearchDetail).ToString();
-        //objNotice.SetActive(false);
+        txtPrice.text = researchData.GetReseachPrice(levelResearchDetail).ToString();
         objComplete.SetActive(false);
-        btnImprove.gameObject.SetActive(true);
+        btnImprove.gameObject.SetActive(ProfileManager.PlayerData.researchManager.IsAvaiableSlotToResearch());
         btnReduce.gameObject.SetActive(false);
         btnFinish.gameObject.SetActive(false);
-        btnUpgrade.gameObject.SetActive(false);
+        objRequireMoreSlot.gameObject.SetActive(!ProfileManager.PlayerData.researchManager.IsAvaiableSlotToResearch());
     }
-    void DetailOnResearch() {
+    void DetailOnResearching() {
         objTimeWrap.SetActive(true);
         updateTime = true;
-        txtTimeDetail.text = TimeUtil.TimeToString(ProfileManager.PlayerData.researchManager.GetTimeCoolDown(researchDetailName));
-        imgBGDetail.sprite = sprNormal;
+        txtTimeDetail.text = TimeUtil.TimeToString(ProfileManager.PlayerData.researchManager.GetTimeEndResearch(researchDetailName));
         objComplete.SetActive(false);
-        //objNotice.SetActive(false);
         btnImprove.gameObject.SetActive(false);
-        btnUpgrade.gameObject.SetActive(false);
         btnReduce.gameObject.SetActive(true);
         btnFinish.gameObject.SetActive(true);
         objHaveTicket.SetActive(ProfileManager.Instance.playerData.ResourceSave.adTicket > 0);
         objNoTicket.SetActive(!(ProfileManager.Instance.playerData.ResourceSave.adTicket > 0));
+        objRequireMoreSlot.gameObject.SetActive(false);
     }
-    void DetailOnUpgrade() {
-        objTimeWrap.SetActive(false);
-        objComplete.SetActive(false);
-        //objNotice.SetActive(false);
-        btnImprove.gameObject.SetActive(false);
-        btnReduce.gameObject.SetActive(false);
-        btnFinish.gameObject.SetActive(false);
-        btnUpgrade.gameObject.SetActive(true);
-        imgBGDetail.sprite = sprUpgradeDone;
-        txtUpgradePrice.text = researchData.CalulateReseachPrice(levelResearchDetail).ToString();
-    }
-    void DetailUpgradeDone() {
+
+    void DetailResearchReachLevelMax() {
         objTimeWrap.SetActive(false);
         updateTime = false;
-        imgBGDetail.sprite = sprUpgradeDone;
         objComplete.SetActive(true);
-        //objNotice.SetActive(false);
         btnImprove.gameObject.SetActive(false);
         btnReduce.gameObject.SetActive(false);
         btnFinish.gameObject.SetActive(false);
-        btnUpgrade.gameObject.SetActive(false);
+        objRequireMoreSlot.gameObject.SetActive(false);
     }
-    void OnLock() {
-        objTimeWrap.SetActive(true);
-        updateTime = false;
-        txtTimeDetail.text = TimeUtil.TimeToString(researchData.foodBlockTime);
-        imgBGDetail.sprite = sprNormal;
-        processUpgrade.fillAmount = 0;
-        txtPrice.text = researchData.CalulateReseachPrice(levelResearchDetail).ToString();
-        txtLevel.text = "0/10";
-        //objNotice.SetActive(true);
-        objComplete.SetActive(false);
-        btnImprove.gameObject.SetActive(false);
-        btnImprove.interactable = false;
-        btnReduce.gameObject.SetActive(false);
-        btnFinish.gameObject.SetActive(false);
-        btnUpgrade.gameObject.SetActive(false);
-        //if (researchData.researchDependWorld == ResearchDependWorld.World2) {
-        //    txtNotice.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(448);
-        //} else if (researchData.researchDependWorld == ResearchDependWorld.World3) {
-        //    txtNotice.text = ProfileManager.Instance.dataConfig.GameText.GetTextByID(449);
-        //}
-    }
+
     public ResearchType GetCurrentResearchNameOnDetail() { return researchDetailName; }
 
 }

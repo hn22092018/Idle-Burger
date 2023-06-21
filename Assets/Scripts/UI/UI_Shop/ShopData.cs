@@ -12,7 +12,6 @@ public class ShopData : ScriptableObject {
     public List<OfferData> adTicketDatas = new List<OfferData>();
     public List<OfferData> timeTravelDatas = new List<OfferData>();
     public List<OfferData> skinBoxDatas = new List<OfferData>();
-    public List<OfferData> researcherPackDatas = new List<OfferData>();
 
     public void OnEnable() {
         LoadChest();
@@ -22,7 +21,6 @@ public class ShopData : ScriptableObject {
         LoadAdTicket();
         LoadTimeTravel();
         LoadSkinBox();
-        LoadResearcherPacks();
     }
     void LoadCardIAP() {
         cardIAPList.Clear();
@@ -185,12 +183,12 @@ public class ShopData : ScriptableObject {
         IAPPackages.Clear();
         OfferData vip1pack = new OfferData();
         vip1pack.titleDeal = "OFFER FOR BEGINNERS";
-        vip1pack.offerID = OfferID.Vip1Pack;
+        vip1pack.offerID = OfferID.OfferForBegginer;
         vip1pack.productID = MyIAPManager.product_vip1pack;
         vip1pack.price = 9.99f;
         List<ItemReward> rewards = new List<ItemReward>();
         // 5$
-        rewards.Add(new ItemReward() { type = ItemType.Gem, amount = 200, spr = GetSpriteByName("GemPack06") });
+        rewards.Add(new ItemReward() { type = ItemType.Gem, amount = 100, spr = GetSpriteByName("GemPack06") });
         //5%
         rewards.Add(new ItemReward() {
             type = ItemType.OfflineTime, amount = 2
@@ -202,24 +200,18 @@ public class ShopData : ScriptableObject {
         IAPPackages.Add(vip1pack);
 
 
-        OfferData vip3pack = new OfferData();
-        vip3pack.titleDeal = "OFFER FOR PROS";
-        vip3pack.offerID = OfferID.Vip3Pack;
-        vip3pack.productID = MyIAPManager.product_vip3pack;
-        vip3pack.price = 49.99f;
-        rewards = new List<ItemReward>();
-        //20$
-        rewards.Add(new ItemReward() { type = ItemType.Gem, amount = 500, spr = GetSpriteByName("GemPack06") });
-        //15$
-        rewards.Add(new ItemReward() { type = ItemType.RemoveAds, amount = 1, spr = GetSpriteByName("remove-ads") });
-        //10$
-        rewards.Add(new ItemReward() { type = ItemType.OfflineTime, amount = 10, spr = GetSpriteByName("cardiap_4") });
-        //6$
-        rewards.Add(new ItemReward() { type = ItemType.IncreaseProfit, amount = 100, spr = GetSpriteByName("cardiap_7") });
-        //5$
-        rewards.Add(new ItemReward() { type = ItemType.VIPMarketing, amount = 1, spr = GetSpriteByName("icon-vipmarketing") });
-        vip3pack.itemRewards = rewards;
-        IAPPackages.Add(vip3pack);
+        OfferData vip2pack = new OfferData();
+        vip2pack.icon = null;
+        vip2pack.offerID = OfferID.OfferForPros;
+        vip2pack.productID = MyIAPManager.product_vip2pack;
+        vip2pack.isSaleOff = false;
+        vip2pack.titleDeal = "";
+        vip2pack.price = 4.99f;
+        vip2pack.itemRewards = new List<ItemReward>() {
+         new ItemReward(){type= ItemType.Researcher, amount=1, spr = GetSpriteByName("Researcher_Icon")},
+        };
+        IAPPackages.Add(vip2pack);
+
 
         OfferData noAds = new OfferData();
         noAds.titleDeal = "REMOVE ADS";
@@ -232,27 +224,27 @@ public class ShopData : ScriptableObject {
         IAPPackages.Add(noAds);
 
 
-        OfferData timeSkipPack = new OfferData();
-        timeSkipPack.titleDeal = "HYPERSPACE OFFER";
-        timeSkipPack.offerID = OfferID.TimeSkipPack;
-        timeSkipPack.productID = MyIAPManager.product_TimeSkip1Pack;
-        timeSkipPack.price = 19.99f;
-        rewards = new List<ItemReward>();
-        rewards.Add(new ItemReward() { type = ItemType.TimeSkip_4H, amount = 6, spr = GetSpriteByName("timeTravel_2") });
-        rewards.Add(new ItemReward() { type = ItemType.TimeSkip_24H, amount = 9, spr = GetSpriteByName("timeTravel_3") });
-        timeSkipPack.itemRewards = rewards;
-        IAPPackages.Add(timeSkipPack);
+        //OfferData timeSkipPack = new OfferData();
+        //timeSkipPack.titleDeal = "HYPERSPACE OFFER";
+        //timeSkipPack.offerID = OfferID.TimeSkipPack;
+        //timeSkipPack.productID = MyIAPManager.product_TimeSkip1Pack;
+        //timeSkipPack.price = 19.99f;
+        //rewards = new List<ItemReward>();
+        //rewards.Add(new ItemReward() { type = ItemType.TimeSkip_4H, amount = 6, spr = GetSpriteByName("timeTravel_2") });
+        //rewards.Add(new ItemReward() { type = ItemType.TimeSkip_24H, amount = 9, spr = GetSpriteByName("timeTravel_3") });
+        //timeSkipPack.itemRewards = rewards;
+        //IAPPackages.Add(timeSkipPack);
 
-        OfferData noAds2 = new OfferData();
-        noAds2.titleDeal = "REMOVE ADS";
-        noAds2.offerID = OfferID.ComboPack_Ads_Researcher_Order;
-        noAds2.productID = MyIAPManager.product_combo_ads;
-        noAds2.price = 19.99f;
-        rewards = new List<ItemReward>();
-        rewards.Add(new ItemReward() { type = ItemType.RemoveAds, amount = 1, spr = GetSpriteByName("remove-ads") });
-        rewards.Add(new ItemReward() { type = ItemType.Researcher, amount = 2, spr = GetSpriteByName("Researcher_Icon") });
-        noAds2.itemRewards = rewards;
-        IAPPackages.Add(noAds2);
+        //OfferData noAds2 = new OfferData();
+        //noAds2.titleDeal = "REMOVE ADS";
+        //noAds2.offerID = OfferID.ComboPack_Ads_Researcher_Order;
+        //noAds2.productID = MyIAPManager.product_combo_ads;
+        //noAds2.price = 19.99f;
+        //rewards = new List<ItemReward>();
+        //rewards.Add(new ItemReward() { type = ItemType.RemoveAds, amount = 1, spr = GetSpriteByName("remove-ads") });
+        //rewards.Add(new ItemReward() { type = ItemType.Researcher, amount = 2, spr = GetSpriteByName("Researcher_Icon") });
+        //noAds2.itemRewards = rewards;
+        //IAPPackages.Add(noAds2);
 
         //LoadWareHousePacks();
 
@@ -284,7 +276,7 @@ public class ShopData : ScriptableObject {
         ticket2.price = 2.99f;
         ticket2.offerID = OfferID.ADTicket2;
         ticket2.itemRewards = new List<ItemReward>() {
-         new ItemReward(){type= ItemType.ADTicket, amount=30, spr = GetSpriteByName("ticket_2")}
+         new ItemReward(){type= ItemType.ADTicket, amount=25, spr = GetSpriteByName("ticket_2")}
         };
 
         OfferData ticket3 = new OfferData();
@@ -292,10 +284,10 @@ public class ShopData : ScriptableObject {
         ticket3.productID = MyIAPManager.product_adsTicket3;
         ticket3.isSaleOff = false;
         ticket3.titleDeal = "";
-        ticket3.price = 9.99f;
+        ticket3.price = 4.99f;
         ticket3.offerID = OfferID.ADTicket3;
         ticket3.itemRewards = new List<ItemReward>() {
-         new ItemReward(){type= ItemType.ADTicket, amount=70, spr = GetSpriteByName("ticket_3")}
+         new ItemReward(){type= ItemType.ADTicket, amount=50, spr = GetSpriteByName("ticket_3")}
         };
 
         adTicketDatas.Add(ticket1);
@@ -394,75 +386,7 @@ public class ShopData : ScriptableObject {
         }
         return null;
     }
-    public void LoadResearcherPacks() {
-        researcherPackDatas.Clear();
-        OfferData pack1 = new OfferData();
-        pack1.icon = null;
-        pack1.productID = MyIAPManager.product_researcher_pack;
-        pack1.isSaleOff = false;
-        pack1.titleDeal = "";
-        pack1.price = 4.99f;
-        pack1.offerID = OfferID.ResearcherPack1;
-        pack1.itemRewards = new List<ItemReward>() {
-         new ItemReward(){type= ItemType.Researcher, amount=1, spr = GetSpriteByName("Researcher_Icon")},
-        };
-        researcherPackDatas.Add(pack1);
-    }
-    void LoadWareHousePacks() {
-
-        OfferData pack1 = new OfferData();
-        pack1.icon = null;
-        pack1.productID = MyIAPManager.product_warehouse_DeliciousPack;
-        pack1.isSaleOff = false;
-        pack1.titleDeal = "DELICIOUS PACKAGE";
-        pack1.price = 9.99f;
-        pack1.offerID = OfferID.WareHouse_DeliciousPackage;
-        pack1.itemRewards = new List<ItemReward>() {
-         new ItemReward(){type= ItemType.Cheese, amount=6, spr = GetSpriteByName("Biscuit5")},
-          new ItemReward(){type= ItemType.Pepper, amount=6, spr = GetSpriteByName("Candy5")},
-           new ItemReward(){type= ItemType.Sugar, amount=6, spr = GetSpriteByName("Melon5")},
-            new ItemReward(){type= ItemType.Carot, amount=6, spr = GetSpriteByName("Potato5")},
-             new ItemReward(){type= ItemType.Flour, amount=6, spr = GetSpriteByName("Sushi5")}
-        };
-        OfferData pack2 = new OfferData();
-        pack2.icon = null;
-        pack2.productID = MyIAPManager.product_warehouse_YummyPackage;
-        pack2.isSaleOff = false;
-        pack2.titleDeal = "YUMMY PACKAGE";
-        pack2.price = 19.99f;
-        pack2.offerID = OfferID.WareHouse_YummyPackage;
-        pack2.itemRewards = new List<ItemReward>() {
-         new ItemReward(){type= ItemType.Cheese, amount=15, spr = GetSpriteByName("Biscuit5")},
-          new ItemReward(){type= ItemType.Pepper, amount=15, spr = GetSpriteByName("Candy5")},
-           new ItemReward(){type= ItemType.Sugar, amount=15, spr = GetSpriteByName("Melon5")},
-            new ItemReward(){type= ItemType.Carot, amount=15, spr = GetSpriteByName("Potato5")},
-             new ItemReward(){type= ItemType.Flour, amount=15, spr = GetSpriteByName("Sushi5")}
-        };
-        OfferData pack3 = new OfferData();
-        pack3.icon = null;
-        pack3.productID = MyIAPManager.product_warehouse_SuperTastyPackage;
-        pack3.isSaleOff = false;
-        pack3.titleDeal = "SUPER TASTY PACKAGE";
-        pack3.price = 19.99f;
-        pack3.offerID = OfferID.WareHouse_SuperTastyPackage;
-        pack3.itemRewards = new List<ItemReward>() {
-            new ItemReward(){type= ItemType.Gem, amount=1000, spr = GetSpriteByName("GemPack04")},
-         new ItemReward(){type= ItemType.Cheese, amount=10, spr = GetSpriteByName("Biscuit5")},
-          new ItemReward(){type= ItemType.Pepper, amount=10, spr = GetSpriteByName("Candy5")},
-           new ItemReward(){type= ItemType.Sugar, amount=10, spr = GetSpriteByName("Melon5")},
-            new ItemReward(){type= ItemType.Carot, amount=10, spr = GetSpriteByName("Potato5")},
-             new ItemReward(){type= ItemType.Flour, amount=10, spr = GetSpriteByName("Sushi5")}
-        };
-        IAPPackages.Add(pack1);
-        IAPPackages.Add(pack2);
-        IAPPackages.Add(pack3);
-    }
-    public OfferData GetResearcherPackByProductId(string id) {
-        for (int i = 0; i < researcherPackDatas.Count; i++) {
-            if (researcherPackDatas[i].productID.Equals(id)) return researcherPackDatas[i];
-        }
-        return null;
-    }
+  
     public ItemReward GetItemRewardFromGift(ItemPackage item) {
         ItemReward newItem = new ItemReward();
         newItem.type = item.type;

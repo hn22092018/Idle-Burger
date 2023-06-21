@@ -5,8 +5,7 @@ public enum WareHouseMaterialType {
     Cheese,
     Pepper,
     Sugar,
-    Carot,
-    Flour
+    Carot
 }
 [System.Serializable]
 public class WareHouseMaterial

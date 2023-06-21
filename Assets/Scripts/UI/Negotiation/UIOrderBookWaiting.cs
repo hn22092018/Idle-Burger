@@ -33,6 +33,7 @@ public class UIOrderBookWaiting : UIEffect {
             ProfileManager.PlayerData.ResourceSave.ConsumeGem(gemPriceSkip);
             ProfileManager.PlayerData.GetOrderBookManager().SkipWaitToNewOffer();
             PanelOrderBook.instance.ReloadUIOffer();
+            ABIAnalyticsManager.Instance.TrackEventGem(GemAction.GetNewOffer);
         });
         SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
     }
@@ -61,6 +62,7 @@ public class UIOrderBookWaiting : UIEffect {
     // Update is called once per frame
     void Update() {
         if (ProfileManager.PlayerData.GetOrderBookManager().IsMaxOrder()) {
+            if (ProfileManager.PlayerData.GetOrderBookManager().IsBoughtExpandPack()) this.gameObject.SetActive(false);
             txtTimeBlock.text = sMax;
             btnGetAds.gameObject.SetActive(false);
             btnGetGem.gameObject.SetActive(false);

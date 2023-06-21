@@ -11,18 +11,18 @@ public class SmallTableRoomController : RoomController<SmallTableModelType> {
         SmallTableModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case SmallTableModelType.SmallTable_Table:
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Table, level);
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID,QuestType.Upgrade_SmallTable_Table, level);
                 break;
             case SmallTableModelType.SmallTable_Chair:
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Chair, level);
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_SmallTable_Chair, level);
                 break;
 
             case SmallTableModelType.SmallTable_Plate:
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Plates, level);
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_SmallTable_Plates, level);
                 break;
 
             case SmallTableModelType.SmallTable_Decor:
-                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_SmallTable_Decor, level);
+                    ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_SmallTable_Decor, level);
                 break;
         }
     }

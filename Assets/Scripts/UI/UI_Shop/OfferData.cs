@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum OfferID {
-    ManagerDeal,
-    DirectorDeal,
     NoAds,
     OfferForBegginer,
-    OfferForExperts,
     OfferForPros,
-    AllUnderControll,
     FreeChest,
     NormalChest,
     AdvancedChest,
@@ -17,19 +13,6 @@ public enum OfferID {
     Gem3,
     Gem4,
     Gem5,
-    Gem6,
-    Gem8750,
-    DeputyWarden,
-    HumphreyBogart,
-    CaryGrant,
-    JamesStewart,
-    Accountant,
-    FinanceExpert,
-    Vip1Pack,
-    Vip2Pack,
-    AdvancedChestPack,
-    Vip3Pack,
-    TimeSkipPack,
     ADTicket1,
     ADTicket2,
     ADTicket3,
@@ -39,12 +22,6 @@ public enum OfferID {
     NormalSkinBox,
     AdvancedSkinBox,
     ExpertSkinBox,
-    ResearcherPack1,
-    ResearcherPack2,
-    WareHouse_DeliciousPackage,
-    WareHouse_YummyPackage,
-    WareHouse_SuperTastyPackage,
-    ComboPack_Ads_Researcher_Order,
     GemAds
 }
 

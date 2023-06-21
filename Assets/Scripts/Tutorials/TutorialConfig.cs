@@ -55,7 +55,7 @@ public class TutorialStep {
                     FinishTut();
                 }
                 break;
-          
+
             case TutorialStepID.ActiveMarketingCampaign:
                 if (ProfileManager.PlayerData.GetMarketingManager().IsPassTutorial) {
                     FinishTut();
@@ -67,7 +67,7 @@ public class TutorialStep {
                 }
                 break;
             case TutorialStepID.Research:
-                if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchType.Hamburger).ToList().Count > 1) {
+                if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchType.CheeseBurger).ToList().Count > 1) {
                     FinishTut();
                 }
                 break;
@@ -87,10 +87,10 @@ public class TutorialStep {
         if (IsFinish) return false;
         if (stepID == TutorialStepID.Research) {
             int valueNeedToResearch = 20;
-            valueNeedToResearch = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(ResearchType.Hamburger).CalulateReseachPrice(1);
-            if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchType.Hamburger).ToList().Count == 0 &&
+            valueNeedToResearch = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(ResearchType.CheeseBurger).GetReseachPrice(0);
+            if (ProfileManager.PlayerData.researchManager.researchSave.Where(x => x.researchName == ResearchType.CheeseBurger).ToList().Count == 0 &&
                   ProfileManager.PlayerData.researchManager.researchValue >= valueNeedToResearch) {
-                return true;
+                    return true;
             }
             return false;
         }
@@ -111,7 +111,7 @@ public class TutorialStep {
                 price = GameManager.instance.SmallTablesRoom[0].GetUpgradePriceItem(0);
                 if (GameManager.instance.IsUnlockSmallTable(0) && GameManager.instance.IsEnoughCash(price)) return true;
                 break;
-            
+
             case TutorialStepID.BuildPower:
                 if (GameManager.instance.IsUnlockPowerRoom()) {
                     return false;
@@ -129,7 +129,7 @@ public class TutorialStep {
                 if (GameManager.instance.IsEnoughCash(price) && GameManager.instance.IsEnoughEnergy(energy))
                     return true;
                 break;
-            
+
             case TutorialStepID.ActiveMarketingCampaign:
                 if (!GameManager.instance.IsUnlockSmallTable(1)) return false;
                 if (!ProfileManager.PlayerData.GetMarketingManager().IsPassTutorial) {

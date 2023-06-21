@@ -52,16 +52,19 @@ public class UIGemSlot : UIShopSlot {
                 if (ProfileManager.PlayerData.ResourceSave.GetADTicket() > 0) {
                     ProfileManager.PlayerData.ResourceSave.ConsumeADTicket();
                     OnClaimedFreeGemAds();
+                    LoadInfoFreeGemAdsState();
                 } else {
                     AdsManager.Instance.ShowRewardVideo(WatchVideoRewardType.FreeGemDaily.ToString(), () => {
                         OnClaimedFreeGemAds();
+                        LoadInfoFreeGemAdsState();
                     });
                 }
             } else {
                 OnClaimedFreeGemAds();
+                LoadInfoFreeGemAdsState();
             }
         }
-        LoadInfoFreeGemAdsState();
+      
     }
     void OnClaimedFreeGemAds() {
         ProfileManager.PlayerData.ResourceSave.WatchedFreeGemAds();

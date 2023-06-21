@@ -34,10 +34,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] GameObject researchNotify;
     public Transform mainCanvas;
     [SerializeField] RectTransform panelWarningEmployeeSleep;
-    [SerializeField]
-    Button btnIapPackage_Vip3Pack;
-    [SerializeField]
-    Text  txtIapPackage_Vip3Pack;
+    //[SerializeField]
+    //Text  txtIapPackage_Vip3Pack;
     [SerializeField] GameObject cheatgr;
     [SerializeField] Button btnWareHouse;
     [SerializeField] GameObject _WareHouseNotify;
@@ -74,7 +72,7 @@ public class UIManager : MonoBehaviour {
         if (btnDailyReward) btnDailyReward.onClick.AddListener(ShowPanelDailyReward);
         if (btnTech) btnTech.onClick.AddListener(ShowPanelTech);
         if (btnWareHouse) btnWareHouse.onClick.AddListener(ShowPanelWareHouse);
-        btnIAPResearcherPack.onClick.AddListener(ShowPanelPremiumResearcherPack);
+        btnIAPResearcherPack.onClick.AddListener(ShowPanelOfferForProsPack);
         isHasPopupOnScene = false;
         deltaTimeFreeResourceAds = 0;
         marketingManager = ProfileManager.PlayerData.GetMarketingManager();
@@ -82,15 +80,13 @@ public class UIManager : MonoBehaviour {
         orderBookManager = ProfileManager.PlayerData.GetOrderBookManager();
         boxManager = ProfileManager.PlayerData.boxManager;
         researchManager = ProfileManager.PlayerData.researchManager;
-        OnLoadUIButtonIAPPackage();
         UpdateSceneRatio();
         if (IsHideUI) {
             HideOrShowUI(false);
         } else cheatgr.gameObject.SetActive(false);
-        LoadTimeFreeAdsServer();
-
+        //LoadTimeFreeAdsServer();
         ActiveBannerAds(false);
-        EventManager.AddListener("UpdateRemoteConfigs", UpdateBannerAdsStatus);
+        //EventManager.AddListener("UpdateRemoteConfigs", UpdateBannerAdsStatus);
     }
     private void Start() {
         questManager.CheckAnyQuestClaimable();
@@ -114,18 +110,13 @@ public class UIManager : MonoBehaviour {
         btnOrderBook.gameObject.SetActive(isShow);
         btnSetting.gameObject.SetActive(isShow);
         cheatgr.gameObject.SetActive(!isShow);
-        btnIapPackage_Vip3Pack.gameObject.SetActive(isShow);
-        btnTech.gameObject.SetActive(isShow);
         btnIAPResearcherPack.gameObject.SetActive(isShow);
         btnWareHouse.gameObject.SetActive(isShow);
+        btnTech.gameObject.SetActive(isShow);
         btnStatistic.gameObject.SetActive(isShow);
         processMap.gameObject.SetActive(isShow);
     }
-    void OnLoadUIButtonIAPPackage() {
-        btnIapPackage_Vip3Pack.onClick.AddListener(() => ShowPanelIAPPackage(OfferID.Vip3Pack));
-        btnIapPackage_Vip3Pack.gameObject.SetActive(ProfileManager.PlayerData.IsBoughtIAPPackage(OfferID.Vip3Pack));
-        LoadTimeSalePack();
-    }
+
     void UpdateSceneRatio() {
         float aspect = (float)Screen.height / (float)Screen.width;
         if (aspect >= 1.87) {
@@ -142,10 +133,9 @@ public class UIManager : MonoBehaviour {
         UpdateTimeShowButtonFreeResource();
         CheckWareHouseNotify();
         CheckWarningEmployeeSleep();
-        UpdateTimeShowSaleButtons();
         if (Tutorials.instance.IsRunStory) {
             btnIAPResearcherPack.gameObject.SetActive(false);
-        } else btnIAPResearcherPack.gameObject.SetActive(!ProfileManager.PlayerData.researchManager.IsBoughtResearcherPack()  && !IsHideUI);
+        } else btnIAPResearcherPack.gameObject.SetActive(!ProfileManager.PlayerData.ResourceSave.isBoughtOfferProsPack && !IsHideUI);
         if (Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer && Application.platform != RuntimePlatform.WebGLPlayer) {
             if (Input.GetKeyDown(KeyCode.H)) {
                 HideOrShowUI(false);
@@ -213,7 +203,7 @@ public class UIManager : MonoBehaviour {
     public void CreatUIMoneyEff(BigNumber value, Transform trans) {
         //return;
         Transform t = PoolManager.Pools["GameEntity"].Spawn("UIMoneyEff");
-        string strValue = value.ToString();
+        string strValue = value.IntToString();
         t.GetComponent<UIMoneyEff>().Show(strValue, trans);
     }
     public void ShowPanelRoomInfo(IRoomController roomManager) {
@@ -574,23 +564,21 @@ public class UIManager : MonoBehaviour {
         isHasPopupOnScene = true;
         GameObject go = GetPanel(UIPanelType.PanelTechnology);
         go.SetActive(true);
-        PanelResearch panelResearch = go.GetComponent<PanelResearch>();
-        panelResearch.OnOpen();
         ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.CheckIn);
     }
     public void ClosePanelTech() {
         CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelTechnology);
         GetPanel(UIPanelType.PanelTechnology).SetActive(false);
     }
-    public void ShowPanelPremiumResearcherPack() {
+    public void ShowPanelOfferForProsPack() {
         if (Tutorials.instance.IsShow) return;
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
         isHasPopupOnScene = true;
-        GetPanel(UIPanelType.PanelPremiumResearcherPack).SetActive(true);
+        GetPanel(UIPanelType.PanelOfferForProsPack).SetActive(true);
     }
-    public void ClosePanelPremiumResearcherPack() {
-        CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelPremiumResearcherPack);
-        GetPanel(UIPanelType.PanelPremiumResearcherPack).SetActive(false);
+    public void ClosePanelOfferForProsPack() {
+        CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelOfferForProsPack);
+        GetPanel(UIPanelType.PanelOfferForProsPack).SetActive(false);
     }
     public void ShowPanelManagerCardLevelUp() {
         if (Tutorials.instance.IsShow) return;
@@ -607,7 +595,7 @@ public class UIManager : MonoBehaviour {
         SoundManager.instance.PlaySoundEffect(SoundID.POPUP_SHOW);
         isHasPopupOnScene = true;
         GetPanel(UIPanelType.PanelManagerCardBuyResources).SetActive(true);
-    
+
     }
     public void ClosePanelManagerCardBuyResources() {
         CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelManagerCardBuyResources);
@@ -737,8 +725,8 @@ public class UIManager : MonoBehaviour {
                 case UIPanelType.PanelWareHouse:
                     panel = Instantiate(Resources.Load("UI/PanelWareHouse") as GameObject, mainCanvas);
                     break;
-                case UIPanelType.PanelPremiumResearcherPack:
-                    panel = Instantiate(Resources.Load("UI/PanelPremiumResearcherPack") as GameObject, mainCanvas);
+                case UIPanelType.PanelOfferForProsPack:
+                    panel = Instantiate(Resources.Load("UI/PanelOfferForProsPack") as GameObject, mainCanvas);
                     break;
                 case UIPanelType.PanelManagerCardLevelUp:
                     panel = Instantiate(Resources.Load("UI/PanelManagerCardLevelUp") as GameObject, mainCanvas);
@@ -825,33 +813,7 @@ public class UIManager : MonoBehaviour {
         CheckHasPopupOnSceneWhenClosePopup(UIPanelType.PanelRate);
         GetPanel(UIPanelType.PanelRate).SetActive(false);
     }
-    string sTimeVipPackSale = "TimeVipPackSale";
-    float timeShowBtnSaleVipPack;
-    int timeOneday;
-    void LoadTimeSalePack() {
-        timeOneday = 24 * 60 * 60;
-        if (PlayerPrefs.HasKey(sTimeVipPackSale)) {
-            timeShowBtnSaleVipPack = PlayerPrefs.GetFloat(sTimeVipPackSale, 0);
-            timeShowBtnSaleVipPack += ProfileManager.PlayerData.timeManager.GetOfflineTimeExactly();
-        }
 
-    }
-    void UpdateTimeShowSaleButtons() {
-        if (IsHideUI) return;
-        timeShowBtnSaleVipPack += Time.deltaTime;
-        if (timeShowBtnSaleVipPack < timeOneday) {
-            if (!ProfileManager.Instance.playerData.IsBoughtIAPPackage(OfferID.Vip3Pack)) {
-                btnIapPackage_Vip3Pack.gameObject.SetActive(true);
-                txtIapPackage_Vip3Pack.text = TimeUtil.RemainTimeToString3(timeOneday - timeShowBtnSaleVipPack);
-            } else {
-                btnIapPackage_Vip3Pack.gameObject.SetActive(false);
-            }
-        } else {
-            btnIapPackage_Vip3Pack.gameObject.SetActive(false);
-            if (timeShowBtnSaleVipPack >= timeOneday * 2) timeShowBtnSaleVipPack = 0;
-        }
-        PlayerPrefs.SetFloat(sTimeVipPackSale, timeShowBtnSaleVipPack);
-    }
     void LoadTimeFreeAdsServer() {
         timeFreeResourceAds = 60;
         string data = ABIFirebaseManager.Instance.m_FirebaseRemoteConfigManager.GetValues(ABI.Keys.key_remote_free_ads).StringValue;

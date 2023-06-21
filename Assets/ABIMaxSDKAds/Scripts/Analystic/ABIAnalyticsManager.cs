@@ -157,9 +157,9 @@ namespace SDK {
             Parameter[] parameters = new Parameter[] {
                 new Parameter("roomID",s),
             };
-           ABIFirebaseManager.Instance.LogFirebaseEvent("OpenRoom", parameters);
+            ABIFirebaseManager.Instance.LogFirebaseEvent("OpenRoom", parameters);
         }
-      
+
         public void TrackSessionStart(int id) {
             string eventName = "session_start_" + id;
             ABIAppsflyerManager.SendEvent(eventName, null);
@@ -178,7 +178,7 @@ namespace SDK {
             };
             ABIFirebaseManager.Instance.LogFirebaseEvent("WareHouse", parameters);
         }
-        public void TrackEventResearch(ResearchAction action, ResearchType name) {
+        public void TrackEventResearch(ResearchAction action, string sub) {
             Parameter[] parameters = new Parameter[] {
                 new Parameter("action",action.ToString()+"_"+name.ToString())
             };
@@ -239,7 +239,8 @@ namespace SDK {
         Research,
         Upgrade,
         WatchAds_SkipTime,
-        UseGem_SkipTime
+        UseGem_SkipTime,
+        UseGem_BuySlot
     }
     public enum GemAction {
         Earn_IAP,
@@ -257,7 +258,10 @@ namespace SDK {
         Earn_RoomProcces,
         Earn_StarProcess,
         Earn_Quest,
-        Earn_Ads_Daily
+        Earn_Ads_Daily,
+        GetBestOffer,
+        GetNewOffer,
+        SkipOffer
     }
     public class ImpressionData {
         public string ad_platform;

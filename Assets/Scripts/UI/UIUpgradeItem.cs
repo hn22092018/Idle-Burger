@@ -29,7 +29,7 @@ public class UIUpgradeItem : MonoBehaviour {
         Index = index;
         TxtLevel.text = "" + level;
         ObjLock.gameObject.SetActive(level <= 0);
-        ObjLevelInfo.SetActive(level > 0 && level<maxLevel);
+        ObjLevelInfo.SetActive(level > 0 && level < maxLevel);
         ImgIcon.sprite = sprIcon;
         ImgBg.sprite = SprBgs[level > 0 ? 0 : 2];
         ImgIcon.color = colorIcons[level > 0 ? 1 : 2];
@@ -71,6 +71,10 @@ public class UIUpgradeItem : MonoBehaviour {
 
     }
     public bool IsEnoughConditionUpgrade() {
-        return GameManager.instance.IsEnoughCash(priceUpgrade) && GameManager.instance.IsEnoughEnergy(energyRequire);
+        if (GameManager.instance.selectedRoom.GetRoomID() != RoomID.Power) {
+
+            return GameManager.instance.IsEnoughCash(priceUpgrade) && GameManager.instance.IsEnoughBurgetCoin(GameManager.instance.GetEvolvePriceByLevel(Level));
+        }
+        return GameManager.instance.IsEnoughCash(priceUpgrade);
     }
 }

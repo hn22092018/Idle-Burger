@@ -12,7 +12,7 @@ public class PlayerData {
     [Header("=======Quest Data========")]
     public QuestSave QuestSave = new QuestSave();
     [Header("=======Negotiation Data========")]
-    public OrderSave OrderSave = new OrderSave();
+    public OrderBookManager OrderSave = new OrderBookManager();
     [Header("=======Room Data========")]
     public RoomSave RoomSave_W1 = new RoomSave();
     public RoomSave RoomSave_W2 = new RoomSave();
@@ -210,6 +210,7 @@ public class PlayerData {
     }
     public void UnlockWorld(int world) {
         if (world >= GetUnlockedWorld()) {
+            OrderSave.ClearData();
             unlockedWorld = world;
             SaveUnlockedWorld();
         }
@@ -317,7 +318,7 @@ public class PlayerData {
     //}
     #endregion Resource
     public OrderBookManager GetOrderBookManager() {
-        return OrderSave.GetOrderBookManager(selectedWorld);
+        return OrderSave;
     }
 
     public AdBoostManager GetAdBoostManager() {
@@ -340,17 +341,11 @@ public class PlayerData {
             case OfferID.NoAds:
                 ResourceSave.SetRemoveAds(true);
                 break;
-            case OfferID.Vip1Pack:
-                ResourceSave.isBoughtV1Pack = true;
+            case OfferID.OfferForBegginer:
+                ResourceSave.isBoughtOfferBeginerPack = true;
                 break;
-            case OfferID.Vip2Pack:
-                ResourceSave.isBoughtV2Pack = true;
-                break;
-            case OfferID.Vip3Pack:
-                ResourceSave.isBoughtV3Pack = true;
-                break;
-            case OfferID.ComboPack_Ads_Researcher_Order:
-                ResourceSave.SetRemoveAds(true);
+            case OfferID.OfferForPros:
+                ResourceSave.isBoughtOfferProsPack = true;
                 break;
         }
     }
@@ -358,14 +353,10 @@ public class PlayerData {
         switch (offerID) {
             case OfferID.NoAds:
                 return ResourceSave.activeRemoveAds;
-            case OfferID.Vip1Pack:
-                return ResourceSave.isBoughtV1Pack;
-            case OfferID.Vip2Pack:
-                return ResourceSave.isBoughtV2Pack;
-            case OfferID.Vip3Pack:
-                return ResourceSave.isBoughtV3Pack;
-            case OfferID.ComboPack_Ads_Researcher_Order:
-                return ResourceSave.activeRemoveAds;
+            case OfferID.OfferForBegginer:
+                return ResourceSave.isBoughtOfferBeginerPack;
+            case OfferID.OfferForPros:
+                return ResourceSave.isBoughtOfferProsPack;
         }
         return false;
     }

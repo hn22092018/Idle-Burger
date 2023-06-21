@@ -18,14 +18,17 @@ public class BaseModelData<Enum> {
     /// 3D model by level 
     /// </summary>
     public GameObject[] models3D;
-    public float profitIncreaseRate;
-    public List<float> reduceTimes;
     public List<BigNumber> upgradePrices;
+    [ShowIf("IsShowFieldEnergy")]
     public List<int> energyEarns;
+    [HideInInspector]
     public int levelMax;
     /// <summary>
     ///  Sprite Show In UI To Upgrade
     /// </summary>
     public Sprite sprUI;
+    bool IsShowFieldEnergy() {
+        return type is PowerModelType.Power_BigGenerator || type is PowerModelType.Power_SmallGenerator;
+    }
 }
 

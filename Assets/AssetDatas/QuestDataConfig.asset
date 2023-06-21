@@ -21,10 +21,8 @@ MonoBehaviour:
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 400
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 2
@@ -35,10 +33,8 @@ MonoBehaviour:
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 400
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 3
@@ -49,10 +45,8 @@ MonoBehaviour:
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 400
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 4
@@ -63,13 +57,11 @@ MonoBehaviour:
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 400
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
-  - questID: 9
+  - questID: 25
     type: 12
     roomTarget: 21
     priority: 2
@@ -77,892 +69,1184 @@ MonoBehaviour:
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 2000
       skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 13
-    type: 18
-    roomTarget: 22
-    priority: 3
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 12
-    type: 17
-    roomTarget: 22
-    priority: 3
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 10
-    type: 15
-    roomTarget: 22
-    priority: 3
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 11
-    type: 16
-    roomTarget: 22
-    priority: 3
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 7
-    type: 10
-    roomTarget: 2
-    priority: 4
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 6
-    type: 9
-    roomTarget: 2
-    priority: 4
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 5
-    type: 8
-    roomTarget: 2
-    priority: 4
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 8
-    type: 11
-    roomTarget: 2
-    priority: 4
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 23
-    type: 15
-    roomTarget: 22
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 14
-    type: 4
-    roomTarget: 1
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 15
-    type: 5
-    roomTarget: 1
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 16
-    type: 6
-    roomTarget: 1
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 17
-    type: 7
-    roomTarget: 1
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 26
-    type: 18
-    roomTarget: 22
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 25
-    type: 17
-    roomTarget: 22
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 24
-    type: 16
-    roomTarget: 22
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 22
-    type: 12
-    roomTarget: 21
-    priority: 8
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 18
-    type: 8
-    roomTarget: 2
-    priority: 9
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 20
-    type: 10
-    roomTarget: 2
-    priority: 9
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 19
-    type: 9
-    roomTarget: 2
-    priority: 9
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 21
-    type: 11
-    roomTarget: 2
-    priority: 9
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 27
-    type: 4
-    roomTarget: 7
-    priority: 11
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 28
-    type: 5
-    roomTarget: 7
-    priority: 11
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 29
-    type: 6
-    roomTarget: 7
-    priority: 11
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 30
-    type: 7
-    roomTarget: 7
-    priority: 11
-    level: 10
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 36
-    type: 15
-    roomTarget: 22
-    priority: 12
-    level: 50
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 39
-    type: 18
-    roomTarget: 22
-    priority: 12
-    level: 50
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 38
-    type: 17
-    roomTarget: 22
-    priority: 12
-    level: 50
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 37
-    type: 16
-    roomTarget: 22
-    priority: 12
-    level: 50
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 35
-    type: 12
-    roomTarget: 21
-    priority: 12
-    level: 50
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 34
-    type: 11
-    roomTarget: 8
-    priority: 13
+    type: 14
+    roomTarget: 24
+    priority: 2
     level: 10
     reward:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
-  - questID: 33
-    type: 10
-    roomTarget: 8
-    priority: 13
+  - questID: 26
+    type: 15
+    roomTarget: 22
+    priority: 2
     level: 10
     reward:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
+      skinID: 0
+    des: 
+  - questID: 27
+    type: 16
+    roomTarget: 22
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 28
+    type: 17
+    roomTarget: 22
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 29
+    type: 18
+    roomTarget: 22
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 30
+    type: 0
+    roomTarget: 0
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 400
+      skinReward: 0
       skinID: 0
     des: 
   - questID: 32
-    type: 9
-    roomTarget: 8
-    priority: 13
+    type: 2
+    roomTarget: 0
+    priority: 2
     level: 10
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 400
       skinReward: 0
-      eventStaffID: 0
+      skinID: 0
+    des: 
+  - questID: 33
+    type: 3
+    roomTarget: 0
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 400
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 34
+    type: 13
+    roomTarget: 24
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 2000
+      skinReward: 0
       skinID: 0
     des: 
   - questID: 31
-    type: 8
-    roomTarget: 8
-    priority: 13
+    type: 1
+    roomTarget: 0
+    priority: 2
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 400
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 8
+    type: 7
+    roomTarget: 2
+    priority: 3
     level: 10
     reward:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
+      skinID: 0
+    des: 
+  - questID: 7
+    type: 6
+    roomTarget: 2
+    priority: 3
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 6
+    type: 5
+    roomTarget: 2
+    priority: 3
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1500
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 5
+    type: 4
+    roomTarget: 2
+    priority: 3
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1500
+      skinReward: 0
       skinID: 0
     des: 
   - questID: 40
     type: 4
     roomTarget: 2
-    priority: 15
-    level: 75
+    priority: 4
+    level: 25
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 5000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 41
     type: 5
     roomTarget: 2
-    priority: 15
-    level: 75
+    priority: 4
+    level: 25
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 4000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
-  - questID: 42
-    type: 6
-    roomTarget: 2
-    priority: 15
-    level: 75
+  - questID: 46
+    type: 10
+    roomTarget: 7
+    priority: 4
+    level: 25
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 12000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 43
     type: 7
     roomTarget: 2
-    priority: 15
-    level: 75
+    priority: 4
+    level: 25
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 3000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 44
     type: 8
-    roomTarget: 9
-    priority: 16
+    roomTarget: 7
+    priority: 4
     level: 25
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 15000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 45
     type: 9
-    roomTarget: 9
-    priority: 16
+    roomTarget: 7
+    priority: 4
     level: 25
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 12000
       skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 46
-    type: 10
-    roomTarget: 9
-    priority: 16
-    level: 25
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 47
     type: 11
-    roomTarget: 9
-    priority: 16
+    roomTarget: 7
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 12000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 48
+    type: 8
+    roomTarget: 8
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 20000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 49
+    type: 9
+    roomTarget: 8
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 15000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 50
+    type: 10
+    roomTarget: 8
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 15000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 51
+    type: 11
+    roomTarget: 8
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 15000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 65
+    type: 0
+    roomTarget: 0
+    priority: 4
     level: 25
     reward:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 52
-    type: 12
-    roomTarget: 21
-    priority: 17
-    level: 75
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 55
-    type: 17
-    roomTarget: 22
-    priority: 19
-    level: 75
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 56
-    type: 18
-    roomTarget: 22
-    priority: 19
-    level: 75
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 53
-    type: 15
-    roomTarget: 22
-    priority: 19
-    level: 75
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 54
-    type: 16
-    roomTarget: 22
-    priority: 19
-    level: 75
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 57
-    type: 4
-    roomTarget: 1
-    priority: 20
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 58
-    type: 5
-    roomTarget: 1
-    priority: 20
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 59
-    type: 6
-    roomTarget: 1
-    priority: 20
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 60
-    type: 7
-    roomTarget: 1
-    priority: 20
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 83
-    type: 16
-    roomTarget: 22
-    priority: 21
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 82
-    type: 15
-    roomTarget: 22
-    priority: 21
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 81
-    type: 12
-    roomTarget: 21
-    priority: 21
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 85
-    type: 18
-    roomTarget: 22
-    priority: 21
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 84
-    type: 17
-    roomTarget: 22
-    priority: 21
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 66
-    type: 9
-    roomTarget: 7
-    priority: 22
-    level: 100
+    type: 1
+    roomTarget: 0
+    priority: 4
+    level: 25
     reward:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
-      skinID: 0
-    des: 
-  - questID: 65
-    type: 8
-    roomTarget: 7
-    priority: 22
-    level: 100
-    reward:
-      type: 5
-      spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
-      skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 67
+    type: 2
+    roomTarget: 0
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 68
+    type: 3
+    roomTarget: 0
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 42
+    type: 6
+    roomTarget: 2
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 3000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 39
+    type: 7
+    roomTarget: 1
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 2000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 38
+    type: 6
+    roomTarget: 1
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 2000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 36
+    type: 4
+    roomTarget: 1
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 3000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 37
+    type: 5
+    roomTarget: 1
+    priority: 4
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 2000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 10
+    type: 9
+    roomTarget: 7
+    priority: 5
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 3000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 61
+    type: 15
+    roomTarget: 22
+    priority: 5
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 4000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 62
+    type: 16
+    roomTarget: 22
+    priority: 5
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 4000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 63
+    type: 17
+    roomTarget: 22
+    priority: 5
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 4000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 64
+    type: 18
+    roomTarget: 22
+    priority: 5
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 4000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 12
+    type: 11
+    roomTarget: 7
+    priority: 5
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 2500
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 11
     type: 10
     roomTarget: 7
-    priority: 22
-    level: 100
+    priority: 5
+    level: 10
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 3000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
-  - questID: 78
+  - questID: 9
+    type: 8
+    roomTarget: 7
+    priority: 5
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 4000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 60
+    type: 12
+    roomTarget: 21
+    priority: 5
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 10000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 14
+    type: 9
+    roomTarget: 8
+    priority: 6
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 4000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 13
+    type: 8
+    roomTarget: 8
+    priority: 6
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 5000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 16
+    type: 11
+    roomTarget: 8
+    priority: 6
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 3000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 15
+    type: 10
+    roomTarget: 8
+    priority: 6
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 3000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 17
+    type: 8
+    roomTarget: 9
+    priority: 7
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 10000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 18
+    type: 9
+    roomTarget: 9
+    priority: 7
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 6000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 19
+    type: 10
+    roomTarget: 9
+    priority: 7
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 6000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 20
+    type: 11
+    roomTarget: 9
+    priority: 7
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 6000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 21
+    type: 8
+    roomTarget: 10
+    priority: 8
+    level: 10
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 20000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 22
     type: 9
     roomTarget: 10
-    priority: 25
-    level: 100
+    priority: 8
+    level: 10
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 1500
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
-  - questID: 79
+  - questID: 23
     type: 10
     roomTarget: 10
-    priority: 25
-    level: 100
+    priority: 8
+    level: 10
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 10000
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
-  - questID: 80
+  - questID: 24
     type: 11
     roomTarget: 10
-    priority: 25
-    level: 100
+    priority: 8
+    level: 10
     reward:
       type: 5
       spr: {fileID: 0}
-      amount: 1000
-      specialCharactorReward: 0
+      amount: 10000
       skinReward: 0
-      eventStaffID: 0
+      skinID: 0
+    des: 
+  - questID: 74
+    type: 7
+    roomTarget: 1
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
       skinID: 0
     des: 
   - questID: 77
-    type: 8
-    roomTarget: 10
-    priority: 25
-    level: 100
+    type: 6
+    roomTarget: 2
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 71
+    type: 4
+    roomTarget: 1
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 72
+    type: 5
+    roomTarget: 1
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 73
+    type: 6
+    roomTarget: 1
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 69
+    type: 13
+    roomTarget: 24
+    priority: 10
+    level: 25
     reward:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
+      skinID: 0
+    des: 
+  - questID: 75
+    type: 4
+    roomTarget: 2
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 76
+    type: 5
+    roomTarget: 2
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 78
+    type: 7
+    roomTarget: 2
+    priority: 10
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 95
+    type: 12
+    roomTarget: 21
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 97
+    type: 16
+    roomTarget: 22
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 98
+    type: 17
+    roomTarget: 22
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 99
+    type: 18
+    roomTarget: 22
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 100
+    type: 0
+    roomTarget: 0
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 101
+    type: 1
+    roomTarget: 0
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 96
+    type: 15
+    roomTarget: 22
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 103
+    type: 3
+    roomTarget: 0
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 102
+    type: 2
+    roomTarget: 0
+    priority: 11
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 52
+    type: 8
+    roomTarget: 9
+    priority: 12
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 40000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 53
+    type: 9
+    roomTarget: 9
+    priority: 12
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 30000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 54
+    type: 10
+    roomTarget: 9
+    priority: 12
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 30000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 55
+    type: 11
+    roomTarget: 9
+    priority: 12
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 30000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 70
+    type: 14
+    roomTarget: 24
+    priority: 12
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 1000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 56
+    type: 8
+    roomTarget: 10
+    priority: 13
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 100000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 57
+    type: 9
+    roomTarget: 10
+    priority: 13
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 50000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 58
+    type: 10
+    roomTarget: 10
+    priority: 13
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 50000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 59
+    type: 11
+    roomTarget: 10
+    priority: 13
+    level: 25
+    reward:
+      type: 5
+      spr: {fileID: 0}
+      amount: 50000
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 86
+    type: 11
+    roomTarget: 8
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 85
+    type: 10
+    roomTarget: 8
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 84
+    type: 9
+    roomTarget: 8
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 83
+    type: 8
+    roomTarget: 8
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 82
+    type: 11
+    roomTarget: 7
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 81
+    type: 10
+    roomTarget: 7
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 80
+    type: 9
+    roomTarget: 7
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 79
+    type: 8
+    roomTarget: 7
+    priority: 14
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 88
+    type: 9
+    roomTarget: 9
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 89
+    type: 10
+    roomTarget: 9
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 91
+    type: 8
+    roomTarget: 10
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 92
+    type: 9
+    roomTarget: 10
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 93
+    type: 10
+    roomTarget: 10
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 94
+    type: 11
+    roomTarget: 10
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 87
+    type: 8
+    roomTarget: 9
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
+      skinID: 0
+    des: 
+  - questID: 90
+    type: 11
+    roomTarget: 9
+    priority: 15
+    level: 50
+    reward:
+      type: 0
+      spr: {fileID: 0}
+      amount: 3
+      skinReward: 0
       skinID: 0
     des: 
   questList_W2:
@@ -975,9 +1259,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 2
@@ -989,9 +1271,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 3
@@ -1003,9 +1283,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 4
@@ -1017,9 +1295,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 8
@@ -1031,9 +1307,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 7
@@ -1045,9 +1319,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 9
@@ -1059,9 +1331,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 5
@@ -1073,9 +1343,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 6
@@ -1087,9 +1355,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 10
@@ -1101,9 +1367,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 11
@@ -1115,9 +1379,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 12
@@ -1129,9 +1391,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 13
@@ -1143,9 +1403,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 23
@@ -1157,9 +1415,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 25
@@ -1171,9 +1427,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 24
@@ -1185,9 +1439,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 22
@@ -1199,9 +1451,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 26
@@ -1213,9 +1463,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 17
@@ -1227,9 +1475,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 16
@@ -1241,9 +1487,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 15
@@ -1255,9 +1499,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 14
@@ -1269,9 +1511,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 19
@@ -1283,9 +1523,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 20
@@ -1297,9 +1535,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 21
@@ -1311,9 +1547,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 18
@@ -1325,9 +1559,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 27
@@ -1339,9 +1571,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 28
@@ -1353,9 +1583,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 29
@@ -1367,9 +1595,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 30
@@ -1381,9 +1607,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 34
@@ -1395,9 +1619,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 33
@@ -1409,9 +1631,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 31
@@ -1423,9 +1643,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 32
@@ -1437,9 +1655,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 42
@@ -1451,9 +1667,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 39
@@ -1465,9 +1679,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 40
@@ -1479,9 +1691,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 41
@@ -1493,9 +1703,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 43
@@ -1507,9 +1715,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 47
@@ -1521,9 +1727,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 46
@@ -1535,9 +1739,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 45
@@ -1549,9 +1751,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 44
@@ -1563,9 +1763,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 35
@@ -1577,9 +1775,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 37
@@ -1591,9 +1787,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 36
@@ -1605,9 +1799,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 38
@@ -1619,9 +1811,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 61
@@ -1633,9 +1823,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 64
@@ -1647,9 +1835,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 63
@@ -1661,9 +1847,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 62
@@ -1675,9 +1859,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 60
@@ -1689,9 +1871,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 51
@@ -1703,9 +1883,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 48
@@ -1717,9 +1895,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 49
@@ -1731,9 +1907,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 50
@@ -1745,9 +1919,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 54
@@ -1759,9 +1931,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 53
@@ -1773,9 +1943,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 67
@@ -1787,9 +1955,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 66
@@ -1801,9 +1967,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 65
@@ -1815,9 +1979,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 68
@@ -1829,9 +1991,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 52
@@ -1843,9 +2003,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 55
@@ -1857,9 +2015,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 59
@@ -1871,9 +2027,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 58
@@ -1885,9 +2039,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 57
@@ -1899,9 +2051,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 56
@@ -1913,9 +2063,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 76
@@ -1927,9 +2075,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 75
@@ -1941,9 +2087,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 74
@@ -1955,9 +2099,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 73
@@ -1969,9 +2111,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 72
@@ -1983,9 +2123,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 71
@@ -1997,9 +2135,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 70
@@ -2011,9 +2147,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 69
@@ -2025,9 +2159,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 93
@@ -2039,9 +2171,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 96
@@ -2053,9 +2183,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 95
@@ -2067,9 +2195,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 94
@@ -2081,9 +2207,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 97
@@ -2095,9 +2219,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 84
@@ -2109,9 +2231,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 77
@@ -2123,9 +2243,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 82
@@ -2137,9 +2255,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 78
@@ -2151,9 +2267,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 79
@@ -2165,9 +2279,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 80
@@ -2179,9 +2291,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 81
@@ -2193,9 +2303,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 83
@@ -2207,9 +2315,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 99
@@ -2221,9 +2327,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 98
@@ -2235,9 +2339,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 100
@@ -2249,9 +2351,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 101
@@ -2263,9 +2363,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 88
@@ -2277,9 +2375,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 87
@@ -2291,9 +2387,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 86
@@ -2305,9 +2399,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 85
@@ -2319,9 +2411,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 90
@@ -2333,9 +2423,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 89
@@ -2347,9 +2435,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 91
@@ -2361,9 +2447,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   - questID: 92
@@ -2375,9 +2459,7 @@ MonoBehaviour:
       type: 5
       spr: {fileID: 0}
       amount: 1000
-      specialCharactorReward: 0
       skinReward: 0
-      eventStaffID: 0
       skinID: 0
     des: 
   questList_W3: []

@@ -11,7 +11,7 @@ public class PanelBalanceOffline : UIPanel {
     [SerializeField] Button bntContinueGame;
     [SerializeField] Text txtProfitOffline, txtTotalReputation;
     [SerializeField] Text txtHourLimitedMax, txtOfflineTime;
-    int gemPriceX3 = 100;
+    int gemPriceX3 = 50;
     BigNumber profit;
     int reputation;
     bool isCollectBonusCash, isCollectBonusReputation;

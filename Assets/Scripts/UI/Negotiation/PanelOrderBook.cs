@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class PanelOrderBook : UIPanel {
     public static PanelOrderBook instance;
     public List<Sprite> sprCharacters;
+    [SerializeField]
+    RectTransform mainContainerTrans;
     [SerializeField] Transform containerTrans;
     [SerializeField] GameObject uiInDeiveryPrefab;
     [SerializeField] List<UIOrderBookInDeivery> uiInDeiveryList;
@@ -25,9 +27,11 @@ public class PanelOrderBook : UIPanel {
         ReloadUIOffer();
     }
     public void RemoveUIInDeivery(UIOrderBookInDeivery ui) {
+        ResetRebuildLayout();
         uiInDeiveryList.Remove(ui);
     }
     public void ReloadUIInDelivery() {
+        ResetRebuildLayout();
         uiInDeiveryPrefab.gameObject.SetActive(false);
         List<Order> activesOrders = ProfileManager.PlayerData.GetOrderBookManager().activeOrders;
         int countSpawn = activesOrders.Count - uiInDeiveryList.Count;
@@ -45,8 +49,9 @@ public class PanelOrderBook : UIPanel {
         }
     }
     public void ReloadUIOffer() {
+        ResetRebuildLayout();
         if (ProfileManager.PlayerData.GetOrderBookManager().GetTimeToNewOffer() > 0 || ProfileManager.PlayerData.GetOrderBookManager().IsMaxOrder()) {
-            uiOrderBookWaiting.gameObject.SetActive(true);
+            uiOrderBookWaiting.gameObject.SetActive(!ProfileManager.PlayerData.GetOrderBookManager().IsBoughtExpandPack());
             uiOrderBookOffer.gameObject.SetActive(false);
             uiOrderBookWaiting.transform.SetAsLastSibling();
         } else {
@@ -54,9 +59,7 @@ public class PanelOrderBook : UIPanel {
             uiOrderBookOffer.gameObject.SetActive(true);
             uiOrderBookOffer.InitOffer();
             uiOrderBookOffer.transform.SetAsLastSibling();
-
         }
-
     }
     public void OnClose() {
         SoundManager.instance.PlaySoundEffect(SoundID.BUTTON_CLICK);
@@ -65,5 +68,15 @@ public class PanelOrderBook : UIPanel {
     public Sprite GetSpriteByName(string name) {
         Sprite spr = sprCharacters.Where(x => x.name == name).FirstOrDefault();
         return spr != null ? spr : sprCharacters[0];
+    }
+    float timeRebuild = 0;
+    void ResetRebuildLayout() {
+        timeRebuild = 0;
+    }
+    private void Update() {
+        if (timeRebuild <= 1) {
+            timeRebuild += Time.deltaTime;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(mainContainerTrans);
+        }
     }
 }

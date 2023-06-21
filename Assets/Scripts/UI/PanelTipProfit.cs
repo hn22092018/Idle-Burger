@@ -25,7 +25,6 @@ public class PanelTipProfit : UIPanel {
         txtProfitWatier.text = "+" + ProfileManager.PlayerData.GetTipWaiter();
         txtProfitChef.text = "+" + ProfileManager.PlayerData.GetTipChef();
         txtTotal.text= "+" + ProfileManager.Instance.playerData.GetTotalTipProfit();
-        btnClaimX2.interactable = AdsManager.Instance.IsRewardVideoLoaded();
         btnClaimX2Ticket.gameObject.SetActive(ProfileManager.PlayerData.ResourceSave.GetADTicket() > 0);
     }
 

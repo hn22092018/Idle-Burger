@@ -20,9 +20,7 @@ public class PanelFreeGemAds : UIPanel {
         txtValue.text = "+" + gemValue;
         btnTicket.gameObject.SetActive(ProfileManager.PlayerData.ResourceSave.GetADTicket() > 0);
     }
-    private void Update() {
-        btnAds.interactable = AdsManager.Instance.IsRewardVideoLoaded();
-    }
+ 
     private void OnGetGemAds() {
         if (!ProfileManager.PlayerData.ResourceSave.activeRemoveAds) AdsManager.Instance.ShowRewardVideo(WatchVideoRewardType.FreeGem.ToString(), OnGetGemAdsSuccess);
         else OnGetGemAdsSuccess();

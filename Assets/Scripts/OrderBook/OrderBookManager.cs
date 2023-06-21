@@ -33,8 +33,53 @@ public class Order {
 public class OrderBookManager {
     public List<Order> activeOrders;
     public List<Order> currentOffers;
-    public float dtTimeToNewOffer;
+    bool isBoughtPremiumPack;
+    float dtTimeToNewOffer;
     int timeToNewOffer = 120;
+    int maxOrder;
+    bool isChangeData;
+    public void LoadData() {
+        string jsonData = GetJsonData();
+        if (!string.IsNullOrEmpty(jsonData)) {
+            OrderBookManager dataSave = JsonUtility.FromJson<OrderBookManager>(jsonData);
+            activeOrders = dataSave.activeOrders;
+            currentOffers = dataSave.currentOffers;
+        }
+        isBoughtPremiumPack = ProfileManager.PlayerData.ResourceSave.isBoughtOfferProsPack;
+        CheckBoughtPremiumPack();
+    }
+    void CheckBoughtPremiumPack() {
+        if (isBoughtPremiumPack) {
+            maxOrder = 3;
+            timeToNewOffer = 60;
+        } else {
+            maxOrder = 2;
+            timeToNewOffer = 120;
+        }
+    }
+    public void OnBoughtExpandPack() {
+        isBoughtPremiumPack = true;
+        CheckBoughtPremiumPack();
+        isChangeData = true;
+        SaveData();
+    }
+    public void IsMarkChangeData() {
+        isChangeData = true;
+    }
+    public void ClearData() {
+        activeOrders.Clear();
+        currentOffers.Clear();
+        isChangeData = true;
+        SaveData();
+    }
+    string GetJsonData() {
+        return PlayerPrefs.GetString("OrderBookManager");
+    }
+    public void SaveData() {
+        if (!isChangeData) return;
+        isChangeData = false;
+        PlayerPrefs.SetString("OrderBookManager", JsonUtility.ToJson(this).ToString());
+    }
     public void Update() {
         if (dtTimeToNewOffer > 0) dtTimeToNewOffer -= Time.deltaTime;
     }
@@ -48,27 +93,29 @@ public class OrderBookManager {
         sprCharacters.Remove(spr2);
         Sprite spr3 = sprCharacters[UnityEngine.Random.Range(0, sprCharacters.Count)];
         currentOffers = new List<Order>();
+        float rate = isBoughtPremiumPack ? 1.5f : 1f;
+        float ratebByLevel = ProfileManager.PlayerData.GetSelectedWorld() > 1 ? 2f : 1;
         Order offer1 = new Order {
             id = GetNextID(),
-            bugerRequire = UnityEngine.Random.Range(20, 26),
-            cashProfit = GameManager.instance.GetCashProfit(UnityEngine.Random.Range(3, 5)),
-            bCoinProfit = UnityEngine.Random.Range(3, 7),
+            bugerRequire = UnityEngine.Random.Range(20, 40),
+            cashProfit = GameManager.instance.GetCashProfit(2) * (UnityEngine.Random.Range(0.4f, 0.7f) * rate * ratebByLevel),
+            bCoinProfit = (int)(UnityEngine.Random.Range(5, 11) * rate * ratebByLevel),
             sprOrderStaffName = spr1.name,
             isFreeAccept = true
         };
         Order offer2 = new Order {
             id = offer1.id + 1,
-            bugerRequire = UnityEngine.Random.Range(40, 50),
-            cashProfit = GameManager.instance.GetCashProfit(UnityEngine.Random.Range(4, 7)),
-            bCoinProfit = UnityEngine.Random.Range(6, 9),
+            bugerRequire = UnityEngine.Random.Range(20, 40),
+            cashProfit = GameManager.instance.GetCashProfit(2) * (UnityEngine.Random.Range(0.4f, 0.7f) * rate * ratebByLevel),
+            bCoinProfit = (int)(UnityEngine.Random.Range(5, 11) * rate * ratebByLevel),
             sprOrderStaffName = spr2.name,
             isFreeAccept = true
         };
         Order offer3 = new Order {
             id = offer2.id + 1,
-            bugerRequire = UnityEngine.Random.Range(30, 50),
-            cashProfit = GameManager.instance.GetCashProfit(UnityEngine.Random.Range(10, 13)),
-            bCoinProfit = UnityEngine.Random.Range(12, 16),
+            bugerRequire = UnityEngine.Random.Range(20, 40),
+            cashProfit = GameManager.instance.GetCashProfit(2) * (UnityEngine.Random.Range(0.8f, 1.5f) * rate * ratebByLevel),
+            bCoinProfit = (int)(UnityEngine.Random.Range(10, 21) * rate * ratebByLevel),
             sprOrderStaffName = spr3.name,
             isFreeAccept = false
         };
@@ -181,7 +228,10 @@ public class OrderBookManager {
         dtTimeToNewOffer = timeToNewOffer;
     }
     public bool IsMaxOrder() {
-        return activeOrders.Count >= ProfileManager.PlayerData.OrderSave.maxOrder;
+        return activeOrders.Count >= maxOrder;
+    }
+    public bool IsBoughtExpandPack() {
+        return isBoughtPremiumPack;
     }
     public int GetTotalBurgetNeedInOrder() {
         int total = 0;

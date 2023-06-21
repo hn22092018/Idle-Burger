@@ -8,9 +8,7 @@ public class UITimeTravelSlot : UIShopSlot {
     [SerializeField] GameObject objHaveTicket;
     [SerializeField] Text txtCash;
     [SerializeField] Text txtTicket;
-    [SerializeField] Image imgButtonGem;
-    [SerializeField] Image imgEnoughGem;
-    [SerializeField] Sprite sprEnough, sprNotenough;
+    [SerializeField] Button btnBuyGem;
     [SerializeField] GameObject objTicketCount;
     [SerializeField] Text txtTicketCount;
     int reward;
@@ -115,7 +113,7 @@ public class UITimeTravelSlot : UIShopSlot {
     float timeUpdateReward;
     private void Update() {
         timeUpdateReward += Time.deltaTime;
-        imgButtonGem.sprite = GameManager.instance.IsEnoughGem(price) ? sprEnough : sprNotenough;
+        btnBuyGem.interactable = GameManager.instance.IsEnoughGem(price);
         GetTicket();
     }
     bool IsUpdateReward() {

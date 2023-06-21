@@ -19,28 +19,18 @@ public class MyIAPManager : MonoBehaviour, IStoreListener {
     public const string product_Gem3 = "gem3";
     public const string product_Gem4 = "gem4";
     public const string product_Gem5 = "gem5";
-    public const string product_Gem6 = "gem6";
     public const string product_Finance1 = "finance1";
     public const string product_Offline1 = "offline1";
 
-    public const string product_vip1pack = "vip_pack1";
-    public const string product_vip2pack = "vip_pack2";
-    public const string product_vip3pack = "vip_pack3";
+    public const string product_vip1pack = "beginer_pack";
+    public const string product_vip2pack = "pros_pack";
 
-    public const string product_advancedChestPack = "advanced_chest";
-    public const string product_TimeSkip1Pack = "time_skip1";
     public const string product_adsTicket1 = "ads_ticket_1";
     public const string product_adsTicket2 = "ads_ticket_2";
     public const string product_adsTicket3 = "ads_ticket_3";
     public const string product_noads = "remove_ads";
 
     public const string product_research_customer_pack = "research_customer_pack";
-    public const string product_researcher_pack = "research_researcher_pack";
-    public const string product_warehouse_DeliciousPack = "warehouse_pack1";
-    public const string product_warehouse_YummyPackage = "warehouse_pack2";
-    public const string product_warehouse_SuperTastyPackage = "combo_pack2";
-    public const string product_combo_ads = "combo_pack_remove_ads";
-    public const string product_order_staff_pack = "orderstaff_pack";
 
     UnityAction buyFailed, buySuccess;
     void Awake() {
@@ -76,24 +66,20 @@ public class MyIAPManager : MonoBehaviour, IStoreListener {
         }
        
         Debug.Log("On Check Non Comsume Researcher pack");
-        Product product3 = m_StoreController.products.WithID(product_researcher_pack);
-        if (product3 != null && product3.hasReceipt) {
-            ProfileManager.PlayerData.researchManager.OnBoughtResearcherPack();
+        Product productVip2 = m_StoreController.products.WithID(product_vip2pack);
+        if (productVip2 != null && productVip2.hasReceipt) {
+            ProfileManager.PlayerData.ResourceSave.isBoughtOfferProsPack = true;
+          ProfileManager.PlayerData.researchManager.OnBoughtResearcherPack();
+            ProfileManager.PlayerData.OrderSave.OnBoughtExpandPack();
         } else {
             Debug.Log("No Has Receipt Researcher pack 1");
         }
-        Debug.Log("On Check Non Comsume Order Staff pack");
-        Product product4 = m_StoreController.products.WithID(product_order_staff_pack);
-        if (product4 != null && product4.hasReceipt) {
-            ProfileManager.PlayerData.OrderSave.OnBoughtOrderStaffPack();
-        } else {
-            Debug.Log("No Has Receipt Order Staff pack ");
-        }
-        Product product5 = m_StoreController.products.WithID(product_combo_ads);
-        if (product5 != null && product5.hasReceipt) {
-            ProfileManager.PlayerData.ResourceSave.SetRemoveAds(true);
-            ProfileManager.PlayerData.researchManager.OnBoughtResearcherPack();
-        }
+   
+        //Product product5 = m_StoreController.products.WithID(product_combo_ads);
+        //if (product5 != null && product5.hasReceipt) {
+        //    ProfileManager.PlayerData.ResourceSave.SetRemoveAds(true);
+        //    ProfileManager.PlayerData.researchManager.OnBoughtResearcherPack();
+        //}
     }
 
     public void InitializePurchasing() {
@@ -105,26 +91,16 @@ public class MyIAPManager : MonoBehaviour, IStoreListener {
         builder.AddProduct(product_Gem3, ProductType.Consumable);
         builder.AddProduct(product_Gem4, ProductType.Consumable);
         builder.AddProduct(product_Gem5, ProductType.Consumable);
-        builder.AddProduct(product_Gem6, ProductType.Consumable);
-        builder.AddProduct(product_advancedChestPack, ProductType.Consumable);
         builder.AddProduct(product_adsTicket1, ProductType.Consumable);
         builder.AddProduct(product_adsTicket2, ProductType.Consumable);
         builder.AddProduct(product_adsTicket3, ProductType.Consumable);
-        builder.AddProduct(product_TimeSkip1Pack, ProductType.Consumable);
-        builder.AddProduct(product_vip1pack, ProductType.Consumable);
-        builder.AddProduct(product_vip2pack, ProductType.Consumable);
-        builder.AddProduct(product_vip3pack, ProductType.Consumable);
+        builder.AddProduct(product_research_customer_pack, ProductType.Consumable);
+
         builder.AddProduct(product_Finance1, ProductType.NonConsumable);
         builder.AddProduct(product_Offline1, ProductType.NonConsumable);
         builder.AddProduct(product_noads, ProductType.NonConsumable);
-       
-        builder.AddProduct(product_research_customer_pack, ProductType.Consumable);
-        builder.AddProduct(product_researcher_pack, ProductType.NonConsumable);
-        builder.AddProduct(product_warehouse_DeliciousPack, ProductType.Consumable);
-        builder.AddProduct(product_warehouse_YummyPackage, ProductType.Consumable);
-        builder.AddProduct(product_warehouse_SuperTastyPackage, ProductType.Consumable);
-        builder.AddProduct(product_combo_ads, ProductType.NonConsumable);
-        builder.AddProduct(product_order_staff_pack, ProductType.NonConsumable);
+        builder.AddProduct(product_vip1pack, ProductType.NonConsumable);
+        builder.AddProduct(product_vip2pack, ProductType.NonConsumable);
         // and this class' instance. Expect a response either in OnInitialized or OnInitializeFailed.
         UnityPurchasing.Initialize(this, builder);
     }
@@ -192,20 +168,12 @@ public class MyIAPManager : MonoBehaviour, IStoreListener {
             case product_Gem3:
             case product_Gem4:
             case product_Gem5:
-            case product_Gem6:
             case product_vip1pack:
-            case product_vip2pack:
-            case product_vip3pack:
-            case product_advancedChestPack:
-            case product_TimeSkip1Pack:
             case product_adsTicket1:
             case product_adsTicket2:
             case product_adsTicket3:
             case product_noads:
-            case product_warehouse_DeliciousPack:
-            case product_warehouse_YummyPackage:
-            case product_warehouse_SuperTastyPackage:
-            case product_combo_ads:
+            //case product_combo_ads:
                 OfferData offerData = ProfileManager.Instance.dataConfig.shopConfig.GetOfferDataByProductID(productID);
                 GameManager.instance.OnCollectRewardIAPPackage(offerData);
                 break;

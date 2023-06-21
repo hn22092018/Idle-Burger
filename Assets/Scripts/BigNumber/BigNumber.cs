@@ -3,18 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
-public class BigNumber {
+public struct BigNumber {
 
     public double value;
     public int exp;
-    const int MAX_MAGNITUDE = 26; // Max power magnitude diff for operands.
     const int TEN_CUBED = (int)1E3; // Used for normalizing numbers.
     bool negative;
-    int minValueToConvert = 10000;
     // Power of 10 names (only multiple of 3 for Engineering Notation).
     // Using  Conway-Wechsler notation system. http://mrob.com/pub/math/largenum.html#conway-wechsler
     // Note: Any name added to the list will be picked up automatically by the BigNum class.
-    List<string> powTenToName = new List<string>(){
+    static List<string> powTenToName = new List<string>(){
         "",
          "K"     , //"Thousand", 3
          "M"     ,//"Millions",6
@@ -47,7 +45,7 @@ public class BigNumber {
     // Constructor (Default value provided by long)
     //***********************************************************************
 
-    public BigNumber(long number) {
+    public BigNumber(long number) : this() {
         if (number < TEN_CUBED) {
             this.exp = 3;
             this.value = (double)number / TEN_CUBED;
@@ -61,7 +59,7 @@ public class BigNumber {
     // Constructor (Default value provided by ulong)
     //***********************************************************************
 
-    public BigNumber(ulong number) {
+    public BigNumber(ulong number) : this() {
         if (number < TEN_CUBED) {
             this.exp = 3;
             this.value = (double)number / TEN_CUBED;
@@ -70,7 +68,7 @@ public class BigNumber {
             this.value = number / (Math.Pow(10, this.exp));
         }
     }
-    public BigNumber(int number) {
+    public BigNumber(int number) : this() {
         if (number < TEN_CUBED) {
             this.exp = 3;
             this.value = (double)number / TEN_CUBED;
@@ -82,7 +80,7 @@ public class BigNumber {
     //***********************************************************************
     // Constructor (Default value provided by float)
     //***********************************************************************
-    public BigNumber(float number) {
+    public BigNumber(float number) : this() {
         if (number < TEN_CUBED) {
             this.exp = 3;
             this.value = (double)number / TEN_CUBED;
@@ -96,13 +94,12 @@ public class BigNumber {
     // Constructor (Default value provided by BigNumber)
     //***********************************************************************
 
-    public BigNumber(BigNumber bi) {
+    public BigNumber(BigNumber bi) : this() {
         this.value = bi.value;
         this.exp = bi.exp;
     }
 
-    public BigNumber() { }
-    public BigNumber(double number) {
+    public BigNumber(double number) : this() {
         if (number < TEN_CUBED) {
             this.exp = 3;
             this.value = (double)number / TEN_CUBED;

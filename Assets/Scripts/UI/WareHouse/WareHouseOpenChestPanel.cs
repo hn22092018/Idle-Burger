@@ -13,11 +13,10 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
     [SerializeField] Text txtChestCount;
     public List<WarehouseSlotReward> warehouseSlotRewardsX1 = new List<WarehouseSlotReward>();
     public List<ItemReward> itemRewards = new List<ItemReward>();
-    bool onOpen, onSkip;
+    bool onOpen;
     float timeWait;
     [SerializeField] float timeWaitClaim;
     [SerializeField] float timeNormal;
-    [SerializeField] WareHousePreviewRewardPanel wareHousePreviewRewardPanel;
     [SerializeField] GameObject objTitle;
     [SerializeField] GameObject objRequire;
     [SerializeField] GameObject objChestCount;
@@ -35,24 +34,27 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
 
     }
     private void OnEnable() {
+        objChestCount.SetActive(true);
         btnTabToClose.gameObject.SetActive(!ProfileManager.PlayerData.wareHouseManager.IsHaveEnoughChest(1));
     }
     void Update() {
         txtChestCount.text = ProfileManager.PlayerData.wareHouseManager.wareHouseChest.ToString();
         btnOpenX1Chest.gameObject.SetActive(ProfileManager.PlayerData.wareHouseManager.IsHaveEnoughChest(1) && !onOpen);
         btnOpenX10Chest.gameObject.SetActive(ProfileManager.PlayerData.wareHouseManager.IsHaveEnoughChest(10) && !onOpen);
-        objChestCount.SetActive(!onOpen);
+     
     }
     void Exit() {
         btnTabToClose.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
     void OpenX1Chest() {
+        objChestCount.SetActive(false);
         ABIAnalyticsManager.Instance.TrackEventWareHouse(WareHouseAction.Open1Box);
         ProfileManager.PlayerData.wareHouseManager.ChangeWareHouseChest(-1);
         OpenChest(1);
     }
     void OpenX10Chest() {
+        objChestCount.SetActive(false);
         ABIAnalyticsManager.Instance.TrackEventWareHouse(WareHouseAction.Open10Box);
         ProfileManager.PlayerData.wareHouseManager.ChangeWareHouseChest(-10);
         OpenChest(10);
@@ -92,10 +94,7 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
     IEnumerator StartAnim() {
         yield return new WaitForSeconds(timeWait);
         warehouseSlotRewardsX1[index].gameObject.SetActive(true);
-        if (!onSkip) {
-            wareHousePreviewRewardPanel.gameObject.SetActive(true);
-            wareHousePreviewRewardPanel.InitPanel(itemRewards[index].spr, warehouseSlotRewardsX1[index], ContinuteAnim);
-        } else ContinuteAnim();
+        ContinuteAnim();
     }
     void ContinuteAnim() {
         if (index == itemRewards.Count) EndAnim();
@@ -106,15 +105,15 @@ public class WareHouseOpenChestPanel : MonoBehaviour {
         else EndAnim();
     }
     void EndAnim() {
+        objChestCount.SetActive(true);
         btnExit.gameObject.SetActive(true);
         onOpen = false;
         btnTabToClose.gameObject.SetActive(!ProfileManager.PlayerData.wareHouseManager.IsHaveEnoughChest(1));
     }
     void Claim(ItemReward itemReward) {
         switch (itemReward.type) {
-            case ItemType.Gem:
-                ProfileManager.PlayerData.AddGem(itemReward.amount);
-                ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Earn_WareHouse_Box, itemReward.amount);
+            case ItemType.BurgerCoin:
+                ProfileManager.PlayerData.AddBCoin(itemReward.amount);
                 break;
             case ItemType.Cash:
                 ProfileManager.PlayerData.AddCash(itemReward.amount);

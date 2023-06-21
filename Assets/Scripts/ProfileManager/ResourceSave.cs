@@ -37,29 +37,9 @@ public class ResourceSave {
     public int timeSkipTicket_24H;
     public int advancedChest;
     public int normalChest;
-    /// <summary>
-    /// normalSkinBox
-    /// </summary>
-    public int normalSkinbox;
-    /// <summary>
-    /// advancedSkinBox
-    /// </summary>
-    public int advancedSkinBox;
-    /// <summary>
-    /// expertSkinBox
-    /// </summary>
-    public int expertSkinBox;
-    /// <summary>
-    /// active Premium Suit
-    /// </summary>
-    public bool activePremiumSuit;
-    /// <summary>
-    /// active Golden Suit
-    /// </summary>
-    public bool activeGoldenSuit;
+   
     public bool activeRemoveAds;
-    public bool isBoughtV1Pack, isBoughtV2Pack, isBoughtV3Pack;
-    public int countRewardRank;
+    public bool isBoughtOfferBeginerPack, isBoughtOfferProsPack;
     public bool isWatchedFreeGemAds;
     bool isChangeResource;
 
@@ -80,16 +60,9 @@ public class ResourceSave {
             timeSkipTicket_24H = dataSave.timeSkipTicket_24H;
             advancedChest = dataSave.advancedChest;
             normalChest = dataSave.normalChest;
-            activePremiumSuit = dataSave.activePremiumSuit;
-            activeGoldenSuit = dataSave.activeGoldenSuit;
             activeRemoveAds = dataSave.activeRemoveAds;
-            isBoughtV1Pack = dataSave.isBoughtV1Pack;
-            isBoughtV2Pack = dataSave.isBoughtV2Pack;
-            isBoughtV3Pack = dataSave.isBoughtV3Pack;
-            normalSkinbox = dataSave.normalSkinbox;
-            advancedSkinBox = dataSave.advancedSkinBox;
-            expertSkinBox = dataSave.expertSkinBox;
-            countRewardRank = dataSave.countRewardRank;
+            isBoughtOfferBeginerPack = dataSave.isBoughtOfferBeginerPack;
+            isBoughtOfferProsPack = dataSave.isBoughtOfferProsPack;
             isWatchedFreeGemAds = dataSave.isWatchedFreeGemAds;
 
         } else {
@@ -143,10 +116,12 @@ public class ResourceSave {
         isChangeResource = true;
         gm -= amount;
         if (gm <= 0) gm = 0;
+        SaveData();
     }
     public void AddGem(int amount) {
         isChangeResource = true;
         gm += amount;
+        SaveData();
     }
     public int GetGem() {
         return gm;
@@ -155,10 +130,12 @@ public class ResourceSave {
         isChangeResource = true;
         bCoin -= amount;
         if (bCoin <= 0) bCoin = 0;
+        SaveData();
     }
     public void AddBCoin(int amount) {
         isChangeResource = true;
         bCoin += amount;
+        SaveData();
     }
     public int GetBCoin() {
         return bCoin;
@@ -196,22 +173,7 @@ public class ResourceSave {
         ResourcePerWorld data = GetResourceByWorld(world);
         data.twr += value;
     }
-    public void ConsumeSkinBox(ItemType itemType) {
-        isChangeResource = true;
-        switch (itemType) {
-            case ItemType.NormalSkinBox:
-                normalSkinbox--;
-                break;
-            case ItemType.AdvancedSkinBox:
-                advancedSkinBox--;
-                break;
-            case ItemType.FreeSkinBox:
-                expertSkinBox--;
-                break;
-            default:
-                break;
-        }
-    }
+
     public BigNumber GetTipWaiter(int world) {
         ResourcePerWorld data = GetResourceByWorld(world);
         return data.twr;
@@ -289,21 +251,6 @@ public class ResourceSave {
         return normalChest;
     }
 
-    public void AddNormalSkinBox(int amount = 1) {
-        normalSkinbox += amount;
-        isChangeResource = true;
-    }
-    public void AddAdvanceSkinBox(int amount = 1) {
-        advancedSkinBox += amount;
-        isChangeResource = true;
-    }
-    public void AddExpertSkinBox(int amount = 1) {
-        expertSkinBox += amount;
-        isChangeResource = true;
-    }
-    public void ClaimRewardRank() {
-        countRewardRank++;
-    }
     public void ResetFreeGemAds() {
         isWatchedFreeGemAds = false;
     }

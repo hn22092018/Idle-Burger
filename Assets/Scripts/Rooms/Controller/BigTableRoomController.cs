@@ -10,18 +10,18 @@ public class BigTableRoomController : RoomController<BigTableModelType>, IOnLoad
         BigTableModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case BigTableModelType.BigTable_Table:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Table, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_BigTable_Table, level);
                 break;
             case BigTableModelType.BigTable_Chair:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Chair, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_BigTable_Chair, level);
                 break;
 
             case BigTableModelType.BigTable_Plate:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Plates, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_BigTable_Plates, level);
                 break;
 
             case BigTableModelType.BigTable_Decor:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_BigTable_Decor, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_BigTable_Decor, level);
                 break;
         }
     }

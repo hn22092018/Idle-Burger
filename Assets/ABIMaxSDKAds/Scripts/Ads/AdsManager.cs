@@ -27,7 +27,6 @@ namespace SDK {
         GetNewOffer,
         SkipBlockChest,
         Marketing,
-        X2_Speed,
         SkipResearch,
         SkipSleep,
         Research_FreeCustomer,

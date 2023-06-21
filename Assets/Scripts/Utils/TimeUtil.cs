@@ -41,6 +41,22 @@ public class TimeUtil : MonoBehaviour {
         }
         return string.Format("{0:D2}s", timeSpan.Seconds);
     }
+    public static string TimeToString2(float inputTime) {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(inputTime);
+        if (timeSpan.TotalDays >= 1) {
+            return string.Format("{0:D1}:{1:D2}:{2:D2}", timeSpan.Days, timeSpan.Hours, timeSpan.Minutes);
+        } else if (timeSpan.TotalHours >= 1) {
+            return string.Format("{0:D1}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
+        } else if (timeSpan.TotalMinutes >= 1) {
+            return string.Format("{0:D1}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
+        }
+        if (timeSpan.TotalSeconds < 10) {
+            return string.Format("{0:D1}", timeSpan.Seconds);
+        }
+        return string.Format("{0:D2}", timeSpan.Seconds);
+    }
+
+
     public static string TimeToNewDay() {
         DateTime currentTime = DateTime.Now;
         DateTime newDayTime = currentTime.AddDays(1);

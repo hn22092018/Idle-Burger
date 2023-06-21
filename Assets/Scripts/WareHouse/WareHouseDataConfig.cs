@@ -13,30 +13,26 @@ public class WareHouseDataConfig : ScriptableObject
     public List<WareHouseMaterial> pepper;
     public List<WareHouseMaterial> sugar;
     public List<WareHouseMaterial> carot;
-    public List<WareHouseMaterial> flour;
     public List<WareHouseReward> wareHouseRewards = new List<WareHouseReward>();
     public WareHouseMaterial GetWareHouseMaterial(WareHouseMaterialType wareHouseMaterialType, int level) {
         switch (wareHouseMaterialType)
         {
             case WareHouseMaterialType.Cheese:
-                return Getbiscuit(level);
+                return GetCheese(level);
             case WareHouseMaterialType.Pepper:
-                return Getmelon(level);
+                return GetPepper(level);
             case WareHouseMaterialType.Sugar:
-                return Getcandy(level);
+                return GetSugar(level);
             case WareHouseMaterialType.Carot:
-                return Getsushi(level);
-            case WareHouseMaterialType.Flour:
-                return Getpotato(level);
+                return GetCarot(level);
             default:
                 return null;
         }
     }
-    public WareHouseMaterial Getbiscuit(int level) { return cheese[level - 1]; }
-    public WareHouseMaterial Getmelon(int level) { return pepper[level - 1]; }
-    public WareHouseMaterial Getcandy(int level) { return sugar[level - 1]; }
-    public WareHouseMaterial Getsushi(int level) { return carot[level - 1]; }
-    public WareHouseMaterial Getpotato(int level) { return flour[level - 1]; }
+    public WareHouseMaterial GetCheese(int level) { return cheese[level - 1]; }
+    public WareHouseMaterial GetPepper(int level) { return pepper[level - 1]; }
+    public WareHouseMaterial GetSugar(int level) { return sugar[level - 1]; }
+    public WareHouseMaterial GetCarot(int level) { return carot[level - 1]; }
 
 
     float index;

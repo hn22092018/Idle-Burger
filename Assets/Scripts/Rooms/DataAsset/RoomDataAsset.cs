@@ -44,32 +44,7 @@ public class RoomDataAsset<Enum> : ScriptableObject {
         return "";
     }
 
-    public float GetMoneyEarn(string type, int level) {
-        //for (int i = 0; i < datas.Count; i++) {
-        //    if (datas[i].type.ToString() == type) {
-        //        if (datas[i].moneyEarns.Count == 0 || level == 0) return 0f;
-        //        if (level >= datas[i].moneyEarns.Count - 1) return datas[i].moneyEarns[datas[i].moneyEarns.Count - 1];
-        //        return datas[i].moneyEarns[level];
-        //    }
-        //}
-        return 0f;
-    }
-    public float GetProfitIncreaseRateByType(string type) {
-        for (int i = 0; i < datas.Count; i++) {
-            if (datas[i].type.ToString() == type) return datas[i].profitIncreaseRate;
-        }
-        return 0;
-    }
-    public float GetTimeReduce(string type, int level) {
-        for (int i = 0; i < datas.Count; i++) {
-            if (datas[i].type.ToString() == type) {
-                if (datas[i].reduceTimes.Count == 0) return 0f;
-                if (level >= datas[i].reduceTimes.Count - 1) return datas[i].reduceTimes[datas[i].reduceTimes.Count - 1];
-                return datas[i].reduceTimes[level];
-            }
-        }
-        return 0f;
-    }
+
     public int GetEnergyRequire(string type, int level) {
         //for (int i = 0; i < datas.Count; i++) {
         //    if (datas[i].type.ToString() == type) {

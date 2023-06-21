@@ -13,18 +13,18 @@ public class DeliverRoomController : RoomController<DeliverModelType> {
         DeliverModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case DeliverModelType.Deliver_StaffTable:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_StaffTable, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Deliver_StaffTable, level);
                 break;
 
             case DeliverModelType.Deliver_BakeryGlass:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_BakeryGlass, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Deliver_BakeryGlass, level);
                 break;
 
             case DeliverModelType.Deliver_Fridge:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_Fridge, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Deliver_Fridge, level);
                 break;
             case DeliverModelType.Deliver_Decor:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Deliver_Decor, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Deliver_Decor, level);
                 break;
 
         }

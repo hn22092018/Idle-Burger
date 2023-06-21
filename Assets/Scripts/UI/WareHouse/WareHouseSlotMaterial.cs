@@ -16,7 +16,10 @@ public class WareHouseSlotMaterial : MonoBehaviour, IBeginDragHandler, IEndDragH
     int level;
     PanelWareHouse wareHousePanel;
     public bool activate;
+    [HideInInspector]
+    public bool isSelect;
     public bool onHint;
+
     Vector3 vectorScaleDefault = new Vector3(1, 1, 1);
     Vector3 vectorMergePunch = new Vector3(.5f, .5f, 0);
     Vector3 vectorHintPunch = new Vector3(.1f, .1f, 0);
@@ -111,7 +114,6 @@ public class WareHouseSlotMaterial : MonoBehaviour, IBeginDragHandler, IEndDragH
     }
     void OnMaxLevel() {
         wareHousePanel.OnCompleteMaterial(transform.position);
-        wareHousePanel.CloseDetail();
         ProfileManager.PlayerData.wareHouseManager.RemoveWareHouseMaterialSaves(myMaterial.wareHouseMaterialType, level - 1);
         ProfileManager.PlayerData.wareHouseManager.RemoveWareHouseMaterialSaves(myMaterial.wareHouseMaterialType, level - 1);
         ProfileManager.PlayerData.wareHouseManager.ChangeWareHouseChest(1);
@@ -135,6 +137,7 @@ public class WareHouseSlotMaterial : MonoBehaviour, IBeginDragHandler, IEndDragH
         currentPoint.able = true;
         imgIcon.gameObject.SetActive(false);
         activate = false;
+        isSelect = false;
         level = 0;
         myMaterial = null;
     }

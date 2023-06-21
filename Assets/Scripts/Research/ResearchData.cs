@@ -18,7 +18,8 @@ public enum ResearchType {
     Crispy_Chicken_Sandwich,
     Spicy_Crispy_Chicken,
     Deluxe_Crispy_Chicken,
-    Deluxe_Spicy_Crispy_Chicken
+    Deluxe_Spicy_Crispy_Chicken,
+    None
 }
 
 
@@ -31,20 +32,18 @@ public class Research {
     public int foodProfit;
     public float makeTime;
     public int priceUpgrade;
-    public int foodBlockTime;
-    public double CalculateProfit(int level) {
-        double newProfit = foodProfit;
-        for (int i = 2; i <= level; i++) {
-            newProfit += System.Math.Round(newProfit * 0.1f, 2);
-        }
-        return System.Math.Round(newProfit, 2);
+    public int CalculateProfit(int level) {
+        return (int)(foodProfit * Mathf.Pow(1.2f, level));
     }
-    public double CalculateIncreaseNextProfit(double profit) {
-        return System.Math.Round(profit * 0.2f, 2);
+    public int CalculateIncreaseNextProfit(int level) {
+        return (int)(foodProfit * Mathf.Pow(1.2f, level + 1)) - (int)(foodProfit * Mathf.Pow(1.2f, level));
     }
-    public int CalulateReseachPrice(int level) {
-        if (level == 0) return priceUpgrade / 2;
-        return priceUpgrade / 20;
+    public int GetReseachPrice(int level) {
+        return (int)(priceUpgrade * Mathf.Pow(1.3f - level * 0.012f, level));
+    }
+    public int GetResearchTime(int level) {
+        if (level == 0) return 5 * 60;
+        return 5 * 60 * (level + 1);
     }
 }
 

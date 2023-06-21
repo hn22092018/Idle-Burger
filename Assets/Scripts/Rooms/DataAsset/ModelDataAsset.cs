@@ -12,41 +12,41 @@ public class ModelDataAsset : ScriptableObject {
     public List<KitchenModelDataConfig> kitchenModelConfigs;
     public List<DeliverModelDataConfig> deliverModelConfigs;
 
-    public List<GameObject> FindModelsByType<T>(T type) {
+    public (List<GameObject>, Sprite) FindDataByType<T>(T type) {
         if (type is BigTableModelType) {
             for (int i = 0; i < bigTableModelConfigs.Count; i++) {
-                if (bigTableModelConfigs[i].type.ToString() == type.ToString()) return bigTableModelConfigs[i].models;
+                if (bigTableModelConfigs[i].type.ToString() == type.ToString()) return (bigTableModelConfigs[i].models, bigTableModelConfigs[i].spr);
             }
         } else if (type is SmallTableModelType) {
             for (int i = 0; i < smallTableModelConfigs.Count; i++) {
-                if (smallTableModelConfigs[i].type.ToString() == type.ToString()) return smallTableModelConfigs[i].models;
-            }
+                if (smallTableModelConfigs[i].type.ToString() == type.ToString()) return (smallTableModelConfigs[i].models ,smallTableModelConfigs[i].spr);
+        }
         } else if (type is LobbyModelType) {
             for (int i = 0; i < lobbyModelConfigs.Count; i++) {
-                if (lobbyModelConfigs[i].type.ToString() == type.ToString()) return lobbyModelConfigs[i].models;
+                if (lobbyModelConfigs[i].type.ToString() == type.ToString()) return (lobbyModelConfigs[i].models ,lobbyModelConfigs[i].spr);
             }
         } else if (type is ManagerModelType) {
             for (int i = 0; i < managerModelConfigs.Count; i++) {
-                if (managerModelConfigs[i].type.ToString() == type.ToString()) return managerModelConfigs[i].models;
-            }
+                if (managerModelConfigs[i].type.ToString() == type.ToString()) return (managerModelConfigs[i].models ,managerModelConfigs[i].spr);
+}
         } else if (type is PowerModelType) {
             for (int i = 0; i < powerModelConfigs.Count; i++) {
-                if (powerModelConfigs[i].type.ToString() == type.ToString()) return powerModelConfigs[i].models;
-            }
+                if (powerModelConfigs[i].type.ToString() == type.ToString()) return( powerModelConfigs[i].models ,powerModelConfigs[i].spr);
+}
         } else if (type is RestroomModelType) {
             for (int i = 0; i < restroomModelConfigs.Count; i++) {
-                if (restroomModelConfigs[i].type.ToString() == type.ToString()) return restroomModelConfigs[i].models;
-            }
+                if (restroomModelConfigs[i].type.ToString() == type.ToString()) return (restroomModelConfigs[i].models, restroomModelConfigs[i].spr);
+}
         } else if (type is KitchenModelType) {
             for (int i = 0; i < kitchenModelConfigs.Count; i++) {
-                if (kitchenModelConfigs[i].type.ToString() == type.ToString()) return kitchenModelConfigs[i].models;
-            }
+                if (kitchenModelConfigs[i].type.ToString() == type.ToString()) return (kitchenModelConfigs[i].models ,kitchenModelConfigs[i].spr);
+}
         } else if (type is DeliverModelType) {
             for (int i = 0; i < deliverModelConfigs.Count; i++) {
-                if (deliverModelConfigs[i].type.ToString() == type.ToString()) return deliverModelConfigs[i].models;
-            }
+                if (deliverModelConfigs[i].type.ToString() == type.ToString()) return (deliverModelConfigs[i].models ,deliverModelConfigs[i].spr);
+}
         }
-        return null;
+        return (null,null);
     }
 
 

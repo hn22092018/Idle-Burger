@@ -22,14 +22,10 @@ public interface IRoomController {
     public int GetEnergyRequireItem(int index);
     public int GetEnergyRequirePreviorLevel(int index);
     public float GetTimeServiceCurrent();
-    public float GetTimeReduce(int index);
-    public float GetTimeReduceIncreaseInNextLevel(int index);
     // money
     public BigNumber GetTotalMoneyEarn();
     public BigNumber GetUpgradePriceItem(int itemIndex);
     public BigNumber GetUpgradePriceItemByLevel(int itemIndex, int level);
-    public float GetMoneyEarnItem(int index);
-    public float GetMoneyIncreaseInNextLevel(int index);
     public void OnHireStaff();
     public void OnUpgradeItem(int itemIndex);
     public RoomID GetRoomID();
@@ -82,6 +78,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(false);
     }
     public void OnLoadRoom() {
+        Debug.Log("OnLoadRoom_" + roomSetting.roomID.ToString());
         if (GetComponent<Collider>()) GetComponent<Collider>().enabled = true;
         if (_ObjBuildRoom) _ObjBuildRoom.gameObject.SetActive(false);
         if (_ObjModelRoom) _ObjModelRoom.gameObject.SetActive(true);
@@ -89,7 +86,7 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
         totalMoneyEarn = GetTotalMoney();
         timeService = GetTimeService();
         //totalEnergyUsed = GetTotalEnergyUsed();
-        totalEnergyEarn = GetTotalEnergyEarn();
+        //totalEnergyEarn = GetTotalEnergyEarn();
         if (staffSetting && IsLoadStaffFromSave) staffSetting.LoadStaffFromSave();
         if (GetComponent<IOnLoadRoomCallback>() != null) GetComponent<IOnLoadRoomCallback>().OLoadRoomCallback();
     }
@@ -153,11 +150,11 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
             }
         }
 
-        totalMoneyEarn = GetTotalMoneyAfterUpgradeItem(index);
+        totalMoneyEarn = GetTotalMoney();
         timeService = GetTimeService();
-        if(roomSetting.roomID==RoomID.Power) EventManager.TriggerEvent(EventName.UpdateEnergy.ToString());
+        if (roomSetting.roomID == RoomID.Power) EventManager.TriggerEvent(EventName.UpdateEnergy.ToString());
         //totalEnergyUsed = GetTotalEnergyUsed();
-        totalEnergyEarn = GetTotalEnergyEarn();
+        //totalEnergyEarn = GetTotalEnergyEarn();
         TriggerQuestUpgrade(index);
         GameManager.instance.LoadMapUpgradeProcess();
         ProfileManager.Instance.playerData.SaveRoomData(roomSetting);
@@ -212,53 +209,25 @@ public class RoomController<T> : MonoBehaviour, IRoomController {
         T type = roomSetting.modelPositions[itemIndex].type;
         return roomDataAsset.GetInfoByType(type.ToString());
     }
-    /// Get Money Need To Upgrade by model type & model level
-    public float GetMoneyEarnItem(int itemIndex) {
-        T type = roomSetting.modelPositions[itemIndex].type;
-        int level = roomSetting.modelPositions[itemIndex].level;
-        return roomDataAsset.GetMoneyEarn(type.ToString(), level) * RoomPowerRate;
-    }
-    public float GetMoneyIncreaseInNextLevel(int itemIndex) {
-        T type = roomSetting.modelPositions[itemIndex].type;
-        int level = roomSetting.modelPositions[itemIndex].level;
-        return RoomPowerRate * (roomDataAsset.GetMoneyEarn(type.ToString(), level + 1) - (roomDataAsset.GetMoneyEarn(type.ToString(), level)));
-    }
+
     BigNumber GetTotalMoney() {
+        Debug.Log("GetTotalMoney_" + roomSetting.roomID);
         BigNumber total = roomDataAsset.profitBase;
-        for (int i = 0; i < roomSetting.modelPositions.Count; i++) {
-            T type = roomSetting.modelPositions[i].type;
+        int totalModel = roomSetting.modelPositions.Count;
+        for (int i = 0; i < totalModel; i++) {
             int level = roomSetting.modelPositions[i].level;
-            for (int k = 1; k <= level; k++) {
-                total += total * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString()) / 100f);
-            }
-            //total += GetMoneyEarnItem(i);
+            total += StatCostConfig.Instance.GetProfit(roomDataAsset.profitBase / totalModel, level);
+            //total += Formula.CalculateByPercentage2(level, roomDataAsset.profitBase / totalModel, 250, 0.1f, 50, 15);
         }
         return total;
     }
-    BigNumber GetTotalMoneyAfterUpgradeItem(int index) {
-        T type = roomSetting.modelPositions[index].type;
-        totalMoneyEarn += totalMoneyEarn * (roomDataAsset.GetProfitIncreaseRateByType(type.ToString()) / 100f);
-        return totalMoneyEarn;
-    }
+
     public float GetTimeService() {
         float time = roomDataAsset.timeService;
-        for (int i = 0; i < roomSetting.modelPositions.Count; i++) {
-            time -= GetTimeReduce(i);
-        }
-        return (float)Math.Round(time, 2);
+        float timeReduce = time - GetProcessUpgrade() * time / 2;
+        return (float)Math.Round(timeReduce, 2);
     }
-    public float GetTimeReduceIncreaseInNextLevel(int itemIndex) {
-        T type = roomSetting.modelPositions[itemIndex].type;
-        int level = roomSetting.modelPositions[itemIndex].level;
-        float time = roomDataAsset.GetTimeReduce(type.ToString(), level + 1) - roomDataAsset.GetTimeReduce(type.ToString(), level);
-        return (float)Math.Round(time, 2);
-    }
-    public float GetTimeReduce(int itemIndex) {
-        T type = roomSetting.modelPositions[itemIndex].type;
-        int level = roomSetting.modelPositions[itemIndex].level;
-        float time = roomDataAsset.GetTimeReduce(type.ToString(), level);
-        return (float)Math.Round(time, 2);
-    }
+
     public int GetTotalEnergyUsed() {
         int total = 0;
         //for (int i = 0; i < roomSetting.modelPositions.Count; i++) {

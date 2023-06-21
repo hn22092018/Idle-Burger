@@ -9,10 +9,10 @@ public class PowerRoomController : RoomController<PowerModelType> {
         int level = roomSetting.modelPositions[indexItem].level;
         switch (type) {
             case PowerModelType.Power_BigGenerator:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Power_BigGenerator, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Power_BigGenerator, level);
                 break;
             case PowerModelType.Power_SmallGenerator:
-                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(QuestType.Upgrade_Power_SmallGenerator, level);
+                ProfileManager.PlayerData.GetQuestManager().TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Power_SmallGenerator, level);
                 break;
 
         }

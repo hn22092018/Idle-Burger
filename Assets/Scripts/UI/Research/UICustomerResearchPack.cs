@@ -16,10 +16,10 @@ public class UICustomerResearchPack : MonoBehaviour {
     public Button btnBuy,subBtnBuy;
     public Text txtPrice,txtTitle;
     int Max_Free_Ads = 5;
-    int Customer_Ads_Earn = 20;
+    int Customer_Ads_Earn = 40;
     int Customer_Pack1_Earn = 100;
     int Customer_Pack2_Earn = 300;
-    int Price_Pack1 = 50;
+    int Price_Pack1 = 20;
     private void Awake() {
         btnBuy.onClick.AddListener(OnBuy);
 
@@ -68,6 +68,7 @@ public class UICustomerResearchPack : MonoBehaviour {
                             AdsManager.Instance.ShowRewardVideo(WatchVideoRewardType.Research_FreeCustomer.ToString(), () => {
                                 ProfileManager.PlayerData.researchManager.Free_Customer_Ads_Watched++;
                                 ProfileManager.PlayerData.researchManager.AddResearchValue(Customer_Ads_Earn);
+                                LoadInfo();
                             });
                             ABIAnalyticsManager.Instance.TrackEventResearch(ResearchAction.WatchAds_Repulation);
                         }

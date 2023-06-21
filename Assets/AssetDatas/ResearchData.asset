@@ -17,119 +17,104 @@ MonoBehaviour:
     objFood: {fileID: 919132149155446097, guid: f4892e340d196f44ba1956968a9af923, type: 3}
     foodIcon: {fileID: 21300000, guid: 571fd5fec56721247b8585dedc43f29b, type: 3}
     foodName: Hamburger
-    foodProfit: 20
+    foodProfit: 100
     makeTime: 2
-    priceUpgrade: 300
-    foodBlockTime: 0
+    priceUpgrade: 30
   - researchType: 1
     objFood: {fileID: 919132149155446097, guid: 5abb5163a538be047a0704bd5f2b36fb, type: 3}
     foodIcon: {fileID: 21300000, guid: a3b42532bbcd0a44d874c4a3ca53294c, type: 3}
     foodName: Cheese Burger
-    foodProfit: 30
-    makeTime: 2.3
-    priceUpgrade: 400
-    foodBlockTime: 900
+    foodProfit: 130
+    makeTime: 2.2
+    priceUpgrade: 40
   - researchType: 2
     objFood: {fileID: 919132149155446097, guid: bc8efa0d0cb0fdf428736482bd6ec0f7, type: 3}
     foodIcon: {fileID: 21300000, guid: fa83abf134ffd664ba5b816597278985, type: 3}
     foodName: Double Hamburger
-    foodProfit: 45
-    makeTime: 2.5
-    priceUpgrade: 500
-    foodBlockTime: 1500
+    foodProfit: 150
+    makeTime: 2
+    priceUpgrade: 50
   - researchType: 3
     objFood: {fileID: 919132149155446097, guid: 73ca601a4539e9e499fd1b708bc7c2c9, type: 3}
     foodIcon: {fileID: 21300000, guid: 47d3ba4d1abef0c42bcfc964a90e2b88, type: 3}
     foodName: Double CheeseBurger
-    foodProfit: 50
-    makeTime: 2.8
-    priceUpgrade: 700
-    foodBlockTime: 2700
+    foodProfit: 180
+    makeTime: 2.5
+    priceUpgrade: 60
   - researchType: 4
     objFood: {fileID: 919132149155446097, guid: cd91b0602026c634dbba949177766353, type: 3}
     foodIcon: {fileID: 21300000, guid: 91a7e5c696793004d8dc98a977118f26, type: 3}
     foodName: McDouble
-    foodProfit: 65
-    makeTime: 3
-    priceUpgrade: 900
-    foodBlockTime: 3600
+    foodProfit: 200
+    makeTime: 2.7
+    priceUpgrade: 75
   - researchType: 5
     objFood: {fileID: 919132149155446097, guid: f348057abfcdd594aa9f2b606f829103, type: 3}
     foodIcon: {fileID: 21300000, guid: 02ce752c55cf7f0459bdf206d0dd3bb2, type: 3}
     foodName: Quarter Pounder Cheese
-    foodProfit: 80
-    makeTime: 3.5
-    priceUpgrade: 1000
-    foodBlockTime: 4500
+    foodProfit: 230
+    makeTime: 3
+    priceUpgrade: 80
   - researchType: 6
     objFood: {fileID: 919132149155446097, guid: 24a91e66aa1baf1469c42f57984155e3, type: 3}
     foodIcon: {fileID: 21300000, guid: a44e08d0052715146b2040a9d019053a, type: 3}
     foodName: Double Quarter Pounder Cheese
-    foodProfit: 100
-    makeTime: 4
-    priceUpgrade: 1100
-    foodBlockTime: 5400
+    foodProfit: 250
+    makeTime: 3
+    priceUpgrade: 100
   - researchType: 7
     objFood: {fileID: 919132149155446097, guid: 17d74cf83516de44bbbef26821a10004, type: 3}
     foodIcon: {fileID: 21300000, guid: 738686ee73558274180a2d2e9f3ace6e, type: 3}
     foodName: Bacon Quarter Pounder
-    foodProfit: 120
-    makeTime: 4.2
-    priceUpgrade: 1150
-    foodBlockTime: 7200
+    foodProfit: 280
+    makeTime: 2.8
+    priceUpgrade: 110
   - researchType: 8
     objFood: {fileID: 919132149155446097, guid: e8bcf591da35d204da0400d470580b21, type: 3}
     foodIcon: {fileID: 21300000, guid: 69bd8295411dee449a2df46c32fb5876, type: 3}
     foodName: Big Mac
-    foodProfit: 130
-    makeTime: 4.3
-    priceUpgrade: 1200
-    foodBlockTime: 7200
+    foodProfit: 300
+    makeTime: 2.7
+    priceUpgrade: 120
   - researchType: 9
     objFood: {fileID: 919132149155446097, guid: 53df79196a5d7424199cd0aa1dea5fc2, type: 3}
     foodIcon: {fileID: 21300000, guid: 704177d65b897434195909d91a030f01, type: 3}
     foodName: Filet-O-Fish
-    foodProfit: 135
-    makeTime: 4.5
-    priceUpgrade: 1300
-    foodBlockTime: 8100
+    foodProfit: 330
+    makeTime: 3
+    priceUpgrade: 135
   - researchType: 10
     objFood: {fileID: 919132149155446097, guid: 7ccc296814fa25646a38bb9e7225e8cb, type: 3}
     foodIcon: {fileID: 21300000, guid: bd1abdfa34a541348a5c921db747fec8, type: 3}
     foodName: McChicken
-    foodProfit: 150
-    makeTime: 4.6
-    priceUpgrade: 1380
-    foodBlockTime: 9000
+    foodProfit: 350
+    makeTime: 2.5
+    priceUpgrade: 150
   - researchType: 11
     objFood: {fileID: 919132149155446097, guid: 3b7aae58e9d3f284b8cc430a5fb5a151, type: 3}
     foodIcon: {fileID: 21300000, guid: 867c2a67625786841bd71d91007013ca, type: 3}
     foodName: Crispy Chicken Sandwich
-    foodProfit: 160
-    makeTime: 4.8
-    priceUpgrade: 1500
-    foodBlockTime: 9000
+    foodProfit: 380
+    makeTime: 2.8
+    priceUpgrade: 165
   - researchType: 12
     objFood: {fileID: 919132149155446097, guid: 2d56045b312534b4c90115ae89c771f6, type: 3}
     foodIcon: {fileID: 21300000, guid: 875a5dc1ae7323541a3bcdeaacf89d61, type: 3}
     foodName: Spicy Crispy Chicken
-    foodProfit: 175
-    makeTime: 5
-    priceUpgrade: 1600
-    foodBlockTime: 10800
+    foodProfit: 400
+    makeTime: 3
+    priceUpgrade: 170
   - researchType: 13
     objFood: {fileID: 919132149155446097, guid: eb14e931614135f4da0aeb14b4c9c554, type: 3}
     foodIcon: {fileID: 21300000, guid: 4efac46d24773614f9f6de30083435a9, type: 3}
     foodName: Deluxe Crispy Chicken
-    foodProfit: 190
-    makeTime: 5
-    priceUpgrade: 1700
-    foodBlockTime: 10800
+    foodProfit: 450
+    makeTime: 3
+    priceUpgrade: 180
   - researchType: 14
     objFood: {fileID: 919132149155446097, guid: 34aa611e0f48aa940b0982913d012c36, type: 3}
     foodIcon: {fileID: 21300000, guid: 4e6738ab5c0bf3743b781f597f454e3d, type: 3}
     foodName: Deluxe Spicy Crispy Chicken
-    foodProfit: 200
-    makeTime: 5
-    priceUpgrade: 1800
-    foodBlockTime: 10800
+    foodProfit: 500
+    makeTime: 3
+    priceUpgrade: 200

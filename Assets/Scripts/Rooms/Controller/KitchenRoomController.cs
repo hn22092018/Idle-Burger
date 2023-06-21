@@ -12,7 +12,7 @@ public class KitchenRoomController : RoomController<KitchenModelType> {
         KitchenModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case KitchenModelType.Kitchen_Stove_Oven:
-                    questManager.TriggerQuest(QuestType.Upgrade_Kitchen_StoveOven, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Kitchen_StoveOven, level);
                 break;
         }
     }

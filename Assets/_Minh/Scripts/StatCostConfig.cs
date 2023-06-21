@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "StatFormulaConfig", menuName = "ScriptableObjects/Formula/StatFormulaConfig", order = 1)]
+[CreateAssetMenu(fileName = "StatCostConfig", menuName = "ScriptableObjects/Formula/StatCostConfig", order = 1)]
+[GlobalConfig("Assets/Resources/GlobalConfig")]
 public class StatCostConfig : GlobalConfig<StatCostConfig> {
 
     public StatConfig costConfig;

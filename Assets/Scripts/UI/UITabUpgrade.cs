@@ -46,6 +46,9 @@ public class UITabUpgrade : MonoBehaviour {
         IsUpgradeButtonSelected = false;
         sEvolve = ProfileManager.Instance.dataConfig.GameText.GetTextByID(198);
     }
+    private void OnApplicationPause(bool pause) {
+        if (pause) IsUpgradeButtonSelected = false;
+    }
     /// <summary>
     /// update status upgrade button & UIUpgradeItems when game money change
     /// </summary>
@@ -135,7 +138,7 @@ public class UITabUpgrade : MonoBehaviour {
         btnEvolve.gameObject.SetActive(false);
         btnMaxUpgrade.gameObject.SetActive(level == maxLevel);
         objEvolveRequire.SetActive(true && level < maxLevel - 25);
-        txtEvolveRequireLevel.text = sEvolve + ": Lv " + ((level / 25) + 1) * 25;
+        txtEvolveRequireLevel.text = sEvolve + ": Lv " + ((level / 25 + 1) * 25);
         if (level > 0 && level % 25 == 0 && level < maxLevel) {
             objEvolveRequire.SetActive(false);
             IsUpgradeButtonSelected = false;
@@ -148,14 +151,14 @@ public class UITabUpgrade : MonoBehaviour {
 
         if (level % 25 == 0 && level > 0) {
             imgProcessLevel.fillAmount = 1;
-            txtLevelFirst.text = "Lv " + ((level / 25) - 1) * 25;
+            txtLevelFirst.text = "Lv " + ((level - 1) / 25 * 25 + 1);
             txtLevelLast.text = "Lv " + ((level / 25)) * 25;
         } else {
             if (level > 0)
-                txtLevelFirst.text = "Lv " + (level / 25) * 25 + 1;
+                txtLevelFirst.text = "Lv " + ((level / 25) * 25 + 1);
             else txtLevelFirst.text = "Lv 0";
-            txtLevelLast.text = "Lv " + ((level / 25) + 1) * 25;
-            imgProcessLevel.fillAmount = (float)((level-1) % 25) / 25f;
+            txtLevelLast.text = "Lv " + ((level / 25 + 1) * 25);
+            imgProcessLevel.fillAmount = (float)((level - 1) % 25) / 25f;
         }
         if (level == maxLevel) {
             IsUpgradeButtonSelected = false;

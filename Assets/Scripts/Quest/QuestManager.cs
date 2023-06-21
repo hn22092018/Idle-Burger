@@ -54,11 +54,11 @@ public class QuestManager {
     /// </summary>
     /// <param name="type"></param>
     /// <param name="level"></param>
-    public void TriggerQuest(QuestType type, int level) {
+    public void TriggerQuest(RoomID roomTarget,QuestType type, int level) {
         // Check in all quest list;
         for (int i = 0; i < listQuestsAvaiable.Count; i++) {
-            if (listQuestsAvaiable[i].type == type
-            && listQuestsAvaiable[i].level == level) {
+            if (listQuestsAvaiable[i].roomTarget==roomTarget&& listQuestsAvaiable[i].type == type
+            && listQuestsAvaiable[i].level == level ) {
                 // Add this quest to done quest
                 if (!claimableID.Contains(listQuestsAvaiable[i].questID)) {
                     claimableID.Add(listQuestsAvaiable[i].questID);

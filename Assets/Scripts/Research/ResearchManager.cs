@@ -4,7 +4,10 @@ using UnityEngine;
 using SDK;
 using System.Linq;
 using System;
-
+[System.Serializable]
+public enum EResearchSlotIndex {
+    Slot1, Slot2, Slot3, Slot4, Slot5, Slot6
+}
 [System.Serializable]
 public class ResearchSave {
     public ResearchType researchName;
@@ -12,42 +15,40 @@ public class ResearchSave {
 }
 [System.Serializable]
 public class CurrentResearch {
+    public EResearchSlotIndex slot;
     public ResearchType researchName;
-    public string timeEnd;
+    public float timeEnd;
 }
 [System.Serializable]
 public class ResearchManager {
     public List<ResearchSave> researchSave = new();
     public List<CurrentResearch> currentResearchs = new List<CurrentResearch>();
+    public List<EResearchSlotIndex> unlockSlots = new List<EResearchSlotIndex>();
     public int researchValue;
-    public int maxResearchCount = 1;
-    public bool onResearch;
     TimeSpan timeRemaining;
     public int Free_Customer_Ads_Watched;
     public int Free_Customer_NonAds;
     /// <summary>
     /// Is Bought Researcher Pack
     /// </summary>
-    public bool IsBoughtResearchPack;
+
     public void Update() {
-        if (onResearch) {
-            for (int i = currentResearchs.Count - 1; i >= 0; i--) {
-                timeRemaining = Convert.ToDateTime(currentResearchs[i].timeEnd).Subtract(DateTime.Now);
-                if (timeRemaining.TotalSeconds <= 0)
-                    ClaimResearch(currentResearchs[i]);
+        for (int i = currentResearchs.Count - 1; i >= 0; i--) {
+            if (currentResearchs[i].timeEnd > 0) currentResearchs[i].timeEnd -= Time.deltaTime;
+            if (currentResearchs[i].timeEnd <= 0 && currentResearchs[i].researchName != ResearchType.None) {
+                ClaimResearch(currentResearchs[i]);
             }
         }
-        onResearch = currentResearchs.Count > 0;
     }
     public void ResetFreeAdsCustomer() {
         Free_Customer_Ads_Watched = 0;
         Free_Customer_NonAds = 1;
     }
 
-    public float GetTimeCoolDown(ResearchType researchName) {
+    public float GetTimeEndResearch(ResearchType researchName) {
         for (int i = 0; i < currentResearchs.Count; i++) {
             if (currentResearchs[i].researchName == researchName)
-                return (float)Convert.ToDateTime(currentResearchs[i].timeEnd).Subtract(DateTime.Now).TotalSeconds;
+                return currentResearchs[i].timeEnd;
         }
         return 0;
     }
@@ -60,15 +61,16 @@ public class ResearchManager {
             researchSave = data.researchSave;
             currentResearchs = data.currentResearchs;
             researchValue = data.researchValue;
-            onResearch = currentResearchs.Count > 0;
             Free_Customer_Ads_Watched = data.Free_Customer_Ads_Watched;
             Free_Customer_NonAds = data.Free_Customer_NonAds;
-            IsBoughtResearchPack = data.IsBoughtResearchPack;
+            unlockSlots = data.unlockSlots;
         } else {
             Free_Customer_Ads_Watched = 0;
             Free_Customer_NonAds = 1;
         }
-        LoadMaxResearchCount();
+
+        InitRearchManager();
+        UnlockResearchSlot(EResearchSlotIndex.Slot1);
         // unlock default 
         UnlockDefaultResearch();
         ReloadListCache();
@@ -81,22 +83,26 @@ public class ResearchManager {
             });
     }
 
-    string GetJsonData() { return PlayerPrefs.GetString("ResearchManager"); }
-    public void SaveData() { PlayerPrefs.SetString("ResearchManager", JsonUtility.ToJson(this).ToString()); }
+    string GetJsonData() {
+        return PlayerPrefs.GetString("ResearchManager");
+    }
+    public void SaveData() {
+        PlayerPrefs.SetString("ResearchManager", JsonUtility.ToJson(this).ToString());
+    }
     public void Research(Research researchData) {
-        CurrentResearch newCurrentResearch = new CurrentResearch() {
-            researchName = researchData.researchType,
-            timeEnd = DateTime.Now.AddSeconds(researchData.foodBlockTime).ToString(),
-        };
-        currentResearchs.Add(newCurrentResearch);
-        ConsumeResearchValue(researchData.CalulateReseachPrice(0));
+        for (int i = 0; i < currentResearchs.Count; i++) {
+            if (currentResearchs[i].researchName == ResearchType.None && IsUnlockResearchSlot(currentResearchs[i].slot)) {
+                currentResearchs[i].researchName = researchData.researchType;
+                currentResearchs[i].timeEnd = researchData.GetResearchTime(GetLevelByName(researchData.researchType));
+                break;
+            }
+        }
+        ConsumeResearchValue(researchData.GetReseachPrice(0));
         SaveData();
     }
     public void ClaimResearch(CurrentResearch currentResearch) {
         if (currentResearchs == null)
             return;
-        // remove current research 
-        currentResearchs.Remove(currentResearch);
         // check saver has item with name == currentResearch Name
         ResearchSave researchSaveData = GetResearchInSaver(currentResearch.researchName);
         if (researchSaveData != null) researchSaveData.level++;
@@ -106,15 +112,17 @@ public class ResearchManager {
                 level = 1
             });
         }
+        for (int i = 0; i < currentResearchs.Count; i++) {
+            if (currentResearchs[i].researchName == currentResearch.researchName) {
+                currentResearchs[i].researchName = ResearchType.None;
+                currentResearchs[i].timeEnd = 0;
+                break;
+            }
+        }
         ReloadListCache();
         SaveData();
     }
-    public void UpgradeResearch(ResearchType researchName) {
-        ResearchSave researchSaveData = GetResearchInSaver(researchName);
-        ConsumeResearchValue(ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName).CalulateReseachPrice(researchSaveData.level));
-        researchSaveData.level++;
-        SaveData();
-    }
+
     /// <summary>
     /// cache list for Function Get Random Food , Drink
     /// </summary>
@@ -148,20 +156,29 @@ public class ResearchManager {
             return researchSave.level;
         return 0;
     }
-    public bool CheckCurrentResearch(ResearchType researchName) {
-        if (!onResearch)
-            return false;
+    public bool IsResearching(ResearchType researchName) {
         for (int i = 0; i < currentResearchs.Count; i++) {
-            if (researchName == currentResearchs[i].researchName)
+            if (researchName == currentResearchs[i].researchName && currentResearchs[i].timeEnd > 0)
                 return true;
         }
         return false;
     }
+    public ResearchType CheckCurrentResearchOnSlot(EResearchSlotIndex slot) {
+
+        for (int i = 0; i < currentResearchs.Count; i++) {
+            if (slot == currentResearchs[i].slot)
+                return currentResearchs[i].researchName;
+        }
+        return ResearchType.None;
+    }
+
     ResearchType researchOnShowDetail;
     public void SkipNow(ResearchType researchName) {
         for (int i = 0; i < currentResearchs.Count; i++) {
-            if (currentResearchs[i].researchName == researchName)
-                currentResearchs[i].timeEnd = DateTime.Now.ToString();
+            if (currentResearchs[i].researchName == researchName) {
+                currentResearchs[i].timeEnd = 0;
+                ClaimResearch(currentResearchs[i]);
+            }
         }
         SaveData();
     }
@@ -178,29 +195,26 @@ public class ResearchManager {
     public void SkipFifteenMinutes() {
         for (int i = 0; i < currentResearchs.Count; i++) {
             if (currentResearchs[i].researchName == researchOnShowDetail) {
-                float timeCoolDown = (float)Convert.ToDateTime(currentResearchs[i].timeEnd).Subtract(DateTime.Now.AddMinutes(15)).TotalSeconds;
-                currentResearchs[i].timeEnd = DateTime.Now.AddSeconds(timeCoolDown).ToString();
+                currentResearchs[i].timeEnd -= 15 * 60;
             }
         }
-        ProfileManager.Instance.playerData.SaveData();
+        SaveData();
     }
 
     public bool IsMaxLevel(ResearchType researchName) {
         int levelSave = GetLevelByName(researchName);
         return levelSave >= 10;
     }
-    public bool IsUnlockResearch(ResearchType researchName) {
-        return true;
-    }
+
     public bool IsEnoughResearchValue(ResearchType researchName) {
         if (IsMaxLevel(researchName))
             return false;
         Research research = ProfileManager.Instance.dataConfig.researchDataConfig.GetResearch(researchName);
         int levelSave = GetLevelByName(researchName);
-        int requireValue = research.CalulateReseachPrice(levelSave);
+        int requireValue = research.GetReseachPrice(levelSave);
         return GameManager.instance.IsEnoughResearchValue(requireValue);
     }
-    public bool IsMaxResearcherWorking() { return currentResearchs.Count >= maxResearchCount; }
+
     public int GetResearchValue() { return researchValue; }
     public void ConsumeResearchValue(int value) {
         if (researchValue - value < 0)
@@ -210,17 +224,6 @@ public class ResearchManager {
     }
     public void AddResearchValue(int value = 1) {
         researchValue += value;
-    }
-    /// <summary>
-    ///  Add Research Value When Customer Accept In Res
-    ///  If Is Bought Researcher Pack 1 => IBRP1=true, // increase rate 30%
-    ///  If Is Bought Researcher Pack 2 => IBRP2=true, // increase rate 30%
-    /// </summary>
-    /// <param name="value"></param>
-
-    public void AddResearchCount(int value, int max) {
-        maxResearchCount += value;
-        maxResearchCount = Mathf.Clamp(maxResearchCount, 1, max);
     }
 
     public Research GetTutorialFood() {
@@ -240,21 +243,39 @@ public class ResearchManager {
             return true;
         return false;
     }
-
-    public bool IsBoughtResearcherPack() {
-        return IsBoughtResearchPack;
+    public bool IsHasFreeCustomerCanClaimed() {
+        return Free_Customer_NonAds > 0;
     }
 
     public void OnBoughtResearcherPack() {
-        Debug.Log("OnBoughtResearcherPack1");
-        IsBoughtResearchPack = true;
-        LoadMaxResearchCount();
+        UnlockResearchSlot(EResearchSlotIndex.Slot5);
+        UnlockResearchSlot(EResearchSlotIndex.Slot6);
         SaveData();
-
     }
-    void LoadMaxResearchCount() {
-        maxResearchCount = 1;
-        if (IsBoughtResearchPack) maxResearchCount++;
+
+    public void InitRearchManager() {
+        if (currentResearchs.Count == 0) {
+            currentResearchs.Add(new CurrentResearch() { researchName = ResearchType.None, slot = EResearchSlotIndex.Slot1 });
+            currentResearchs.Add(new CurrentResearch() { researchName = ResearchType.None, slot = EResearchSlotIndex.Slot2 });
+            currentResearchs.Add(new CurrentResearch() { researchName = ResearchType.None, slot = EResearchSlotIndex.Slot3 });
+            currentResearchs.Add(new CurrentResearch() { researchName = ResearchType.None, slot = EResearchSlotIndex.Slot4 });
+            currentResearchs.Add(new CurrentResearch() { researchName = ResearchType.None, slot = EResearchSlotIndex.Slot5 });
+            currentResearchs.Add(new CurrentResearch() { researchName = ResearchType.None, slot = EResearchSlotIndex.Slot6 });
+        }
+        SaveData();
+    }
+    public bool IsUnlockResearchSlot(EResearchSlotIndex index) {
+        return unlockSlots.Contains(index);
+    }
+    public void UnlockResearchSlot(EResearchSlotIndex index) {
+        if (!unlockSlots.Contains(index)) unlockSlots.Add(index);
+        SaveData();
+    }
+    public bool IsAvaiableSlotToResearch() {
+        for (int i = 0; i < currentResearchs.Count; i++) {
+            if (currentResearchs[i].researchName == ResearchType.None && IsUnlockResearchSlot(currentResearchs[i].slot)) return true;
+        }
+        return false;
     }
 }
 

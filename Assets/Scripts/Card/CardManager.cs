@@ -60,11 +60,8 @@ public class CardManager {
         bonusFinanceIAP = 0;
         financeRate += GetFinanceRate_CardIAP();
         financeRate += GetFinanceRate_CardNormal();
-        if (ProfileManager.PlayerData.ResourceSave.isBoughtV2Pack) {
+        if (ProfileManager.PlayerData.ResourceSave.isBoughtOfferProsPack) {
             bonusFinanceIAP += 100;
-        }
-        if (ProfileManager.PlayerData.ResourceSave.isBoughtV3Pack) {
-            bonusFinanceIAP += 150;
         }
         financeRate += bonusFinanceIAP / 100f;
         return financeRate;

@@ -12,16 +12,16 @@ public class LobbyRoomController : RoomController<LobbyModelType> {
         LobbyModelType type = roomSetting.modelPositions[indexItem].type;
         switch (type) {
             case LobbyModelType.Lobby_Desk:
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Desk, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Lobby_Desk, level);
                 break;
             case LobbyModelType.Lobby_Computer:
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Computer, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Lobby_Computer, level);
                 break;
             case LobbyModelType.Lobby_Case:
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Case, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Lobby_Case, level);
                 break;
             case LobbyModelType.Lobby_Decor:
-                    questManager.TriggerQuest(QuestType.Upgrade_Lobby_Decor, level);
+                    questManager.TriggerQuest(roomSetting.roomID, QuestType.Upgrade_Lobby_Decor, level);
                 break;
         }
     }

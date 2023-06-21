@@ -36,7 +36,7 @@ public class WareHouseWatchVideoPanel : MonoBehaviour {
         ABIAnalyticsManager.Instance.TrackEventGem(GemAction.Spend_WareHouse_MoreEnergy, GemPrice);
     }
     void AddEnergy() {
-        ProfileManager.PlayerData.wareHouseManager.ChangeCurrentEnergy(10, true);
+        ProfileManager.PlayerData.wareHouseManager.ChangeCurrentEnergy(30, true);
         Close();
     }
     void Update() {

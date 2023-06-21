@@ -19,7 +19,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 3055aa4ed259ef1408a7262fe8ace39e, type: 3}
     energyRequire: 0
     cashRequire: 500
-    starRequire: 0
     timeRequire: 0
   - buildTarget: 22
     DesLocalizeID: 111
@@ -27,8 +26,7 @@ MonoBehaviour:
       use.
     sprBuild: {fileID: 21300000, guid: 82a04166ed142744c992ab263b395738, type: 3}
     energyRequire: 10
-    cashRequire: 1000
-    starRequire: 0
+    cashRequire: 2000
     timeRequire: 0
   - buildTarget: 26
     DesLocalizeID: 114
@@ -36,8 +34,7 @@ MonoBehaviour:
       talk.
     sprBuild: {fileID: 21300000, guid: 4687fb2d6858b6045b5e66e86d08e406, type: 3}
     energyRequire: 50
-    cashRequire: 1000000
-    starRequire: 10
+    cashRequire: 200000
     timeRequire: 120
   - buildTarget: 1
     DesLocalizeID: 115
@@ -47,7 +44,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 0300e5e64b374124f9f8e6db6bb60e43, type: 3}
     energyRequire: 0
     cashRequire: 100
-    starRequire: 0
     timeRequire: 0
   - buildTarget: 2
     DesLocalizeID: 115
@@ -56,8 +52,7 @@ MonoBehaviour:
       waitress.
     sprBuild: {fileID: 21300000, guid: 0300e5e64b374124f9f8e6db6bb60e43, type: 3}
     energyRequire: 10
-    cashRequire: 100
-    starRequire: 0
+    cashRequire: 1000
     timeRequire: 0
   - buildTarget: 7
     DesLocalizeID: 115
@@ -65,47 +60,42 @@ MonoBehaviour:
       restaurants your food is usually served to you at your table by a waiter or
       waitress.
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
-    energyRequire: 30
-    cashRequire: 6000
-    starRequire: 3
-    timeRequire: 60
+    energyRequire: 50
+    cashRequire: 8000
+    timeRequire: 0
   - buildTarget: 8
     DesLocalizeID: 115
     buildDes: A restaurant is a place where you can eat a meal and pay for it. In
       restaurants your food is usually served to you at your table by a waiter or
       waitress.
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
-    energyRequire: 40
-    cashRequire: 6000
-    starRequire: 3
-    timeRequire: 60
+    energyRequire: 100
+    cashRequire: 60000
+    timeRequire: 0
   - buildTarget: 9
     DesLocalizeID: 115
     buildDes: A restaurant is a place where you can eat a meal and pay for it. In
       restaurants your food is usually served to you at your table by a waiter or
       waitress.
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
-    energyRequire: 50
-    cashRequire: 6000
-    starRequire: 3
-    timeRequire: 60
+    energyRequire: 150
+    cashRequire: 250000
+    timeRequire: 0
   - buildTarget: 10
     DesLocalizeID: 115
     buildDes: A restaurant is a place where you can eat a meal and pay for it. In
       restaurants your food is usually served to you at your table by a waiter or
       waitress.
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
-    energyRequire: 60
-    cashRequire: 6000
-    starRequire: 3
-    timeRequire: 60
+    energyRequire: 200
+    cashRequire: 600000
+    timeRequire: 0
   - buildTarget: 0
     DesLocalizeID: 0
     buildDes: 
     sprBuild: {fileID: 21300000, guid: bf654753fa32fa54ba1d751bd9b77870, type: 3}
     energyRequire: 0
     cashRequire: 0
-    starRequire: 0
     timeRequire: 0
   - buildTarget: 21
     DesLocalizeID: 0
@@ -113,7 +103,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: a68c70c48806fd542940bc3a9f210e1a, type: 3}
     energyRequire: 0
     cashRequire: 0
-    starRequire: 0
     timeRequire: 0
   - buildTarget: 3
     DesLocalizeID: 0
@@ -121,7 +110,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 0300e5e64b374124f9f8e6db6bb60e43, type: 3}
     energyRequire: 20
     cashRequire: 100
-    starRequire: 2
     timeRequire: 0
   - buildTarget: 4
     DesLocalizeID: 0
@@ -129,7 +117,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 0300e5e64b374124f9f8e6db6bb60e43, type: 3}
     energyRequire: 20
     cashRequire: 100
-    starRequire: 3
     timeRequire: 0
   - buildTarget: 5
     DesLocalizeID: 0
@@ -137,7 +124,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 0300e5e64b374124f9f8e6db6bb60e43, type: 3}
     energyRequire: 30
     cashRequire: 100
-    starRequire: 3
     timeRequire: 0
   - buildTarget: 6
     DesLocalizeID: 0
@@ -145,7 +131,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 0300e5e64b374124f9f8e6db6bb60e43, type: 3}
     energyRequire: 30
     cashRequire: 100
-    starRequire: 3
     timeRequire: 0
   - buildTarget: 11
     DesLocalizeID: 0
@@ -153,7 +138,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
     energyRequire: 70
     cashRequire: 6000
-    starRequire: 3
     timeRequire: 60
   - buildTarget: 12
     DesLocalizeID: 0
@@ -161,7 +145,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
     energyRequire: 80
     cashRequire: 6000
-    starRequire: 3
     timeRequire: 60
   - buildTarget: 13
     DesLocalizeID: 0
@@ -169,7 +152,6 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
     energyRequire: 100
     cashRequire: 6000
-    starRequire: 3
     timeRequire: 60
   - buildTarget: 14
     DesLocalizeID: 0
@@ -177,5 +159,4 @@ MonoBehaviour:
     sprBuild: {fileID: 21300000, guid: 831ac184de63e974fb5fd9c2d3cb87c1, type: 3}
     energyRequire: 150
     cashRequire: 6000
-    starRequire: 3
     timeRequire: 60
